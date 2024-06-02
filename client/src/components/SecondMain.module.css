@@ -1,0 +1,107 @@
+div.second-main {
+    margin: 5% 15%;
+}
+
+div.second-main .one-section {
+    display: flex;
+    flex-direction: column;
+}
+
+div.second-main .one-section .title {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 1.5%;
+}
+
+div.second-main .one-section .title a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.second-main .one-section .title .buttons {
+    text-align: end;
+
+}
+
+div.second-main .one-section .title h2 {
+    padding: 0;
+    margin: 0;
+    color: #c3c3c3;
+}
+
+div.second-main .one-section .title a img {
+    width: 20%;
+}
+
+div.second-main .one-section .cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.second-main .one-section .cards .card {
+    width: 14%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1%;
+    background-color: #151515;
+}
+
+div.second-main .one-section .cards .card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+div.second-main .one-section .cards .card > p {
+    color: #c3c3c3;
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5em;
+}
+
+div.second-main .one-section .cards .card .star-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+div.second-main .one-section .cards .card .star-div .img-container {
+    width: 17%;
+    margin-right: 5%;
+    display: flex;
+}
+
+div.second-main .one-section .cards .card .star-div p {
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    font-size: 1em;
+    color: #c3c3c3;
+}
+
+div.second-main .one-section .cards .card a {
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    font-family: inherit;
+    text-decoration: none;
+    color: #C3C3C3;
+    font-size: 1em;
+    padding: 0.3em 1em;
+    border-top: 3px solid #303030;
+    width: 90%;
+    font-weight: 300;
+}
+
+div.second-main .one-section .cards .card img {
+    width: 100%;
+}
