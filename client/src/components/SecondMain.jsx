@@ -5,19 +5,26 @@ import movieCard from '../assets/movie_card.png'
 import emptyStar from '../assets/empty_star.png'
 import { useEffect, useState } from 'react'
 
+import featuredToday from '../api_data/data_functions'
+
+const pathForImages = 'https://image.tmdb.org/t/p/w500'
+
 const SecondMain = ({sectionName}) => {
-    let [movies, setMovies] = useState([])
+    let [featuredMoviesToday, setFeaturedToday] = useState([])
+
+    const sectionsObj = {
+        'Featured Today': featuredMoviesToday
+    }
 
     useEffect(() => {
-        const fetchData = async () => {
-            let response = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=e4a864389e1a88f97675e63b530b64c7')
-            let result = await response.json()
-            setMovies(result.results)
-            console.log(result.results)
+        async function getFeaturedToday() {
+            let featuredMoviesToday = await featuredToday()
+            console.log(featuredMoviesToday)
+
+            setFeaturedToday(featuredMoviesToday)
         }
 
-        fetchData()
-        
+        getFeaturedToday()
     }, [])
 
     return (
@@ -30,84 +37,22 @@ const SecondMain = ({sectionName}) => {
                         <a href="#"><img src={rightArrow} alt="right-arrow"/></a>
                     </div>
                 </div>
-                <div>
-                    {movies.map((movie) => (
-                        <p key={movie.id}>{movie.original_title}</p>
-                    ))}
-                </div>
+
                 <div className={styles['cards']}>
-                    <div className={styles['card']}>
-                        <img src={movieCard} alt="card"/>
-                        <p>Star Wars: Episode Something</p>
-                        <div className={styles['star-div']}>
-                            <div className={styles['img-container']}>
-                                <img src={emptyStar} alt="empty-star"/>
+                    {sectionsObj['Featured Today'].slice(0, 6).map((movie) => (
+                        <div className={styles['card']}>
+                            <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
+                            <p>{movie.title}</p>
+                            <div className={styles['star-div']}>
+                                <div className={styles['img-container']}>
+                                    <img src={emptyStar} alt="empty-star"/>
+                                </div>
+                                <p>{movie.vote_average}</p>
                             </div>
-                            <p>6.714</p>
+                            <a href="#">More Info &gt;</a>
                         </div>
-                        <a href="#">More Info &gt;</a>
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieCard} alt="card"/>
-                        <p>Star Wars: Episode Something</p>
-                        <div className={styles['star-div']}>
-                            <div className={styles['img-container']}>
-                                <img src={emptyStar} alt="empty-star"/>
-                            </div>
-                            <p>6.714</p>
-                        </div>
-                        <a href="#">More Info &gt;</a>
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieCard} alt="card"/>
-                        <p>Star Wars: Episode Something</p>
-                        <div className={styles['star-div']}>
-                            <div className={styles['img-container']}>
-                                <img src={emptyStar} alt="empty-star"/>
-                            </div>
-                            <p>6.714</p>
-                        </div>
-                        <a href="#">More Info &gt;</a>
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieCard} alt="card"/>
-                        <p>Star Wars: Episode Something</p>
-                        <div className={styles['star-div']}>
-                            <div className={styles['img-container']}>
-                                <img src={emptyStar} alt="empty-star"/>
-                            </div>
-                            <p>6.714</p>
-                        </div>
-                        <a href="#">More Info &gt;</a>
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieCard} alt="card"/>
-                        <p>Star Wars: Episode Something</p>
-                        <div className={styles['star-div']}>
-                            <div className={styles['img-container']}>
-                                <img src={emptyStar} alt="empty-star"/>
-                            </div>
-                            <p>6.714</p>
-                        </div>
-                        <a href="#">More Info &gt;</a>
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieCard} alt="card"/>
-                        <p>Star Wars: Episode Something</p>
-                        <div className={styles['star-div']}>
-                            <div className={styles['img-container']}>
-                                <img src={emptyStar} alt="empty-star"/>
-                            </div>
-                            <p>6.714</p>
-                        </div>
-                        <a href="#">More Info &gt;</a>
-                    </div>
-                
+                    ))}
+                    
                 </div>
 
                 
