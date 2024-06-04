@@ -2,6 +2,7 @@ import Header from "./components/Header"
 import FirstMain from "./components/FirstMain"
 import SecondMain from "./components/SecondMain"
 import PopularCelebs from "./components/PopularCelebs"
+import Footer from "./components/Footer"
 import styles from "./App.module.css"
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
             <SecondMain sectionName='Most Popular Celebrities' />
 
             <PopularCelebs />
+
+            <Footer />
         </div>
     )
 }
