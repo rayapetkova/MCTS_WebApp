@@ -1,0 +1,34 @@
+footer {
+    display: flex;
+    padding: 2.5% 25%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #080808;
+}
+
+footer section ul li {
+    list-style: none;
+}
+
+footer section ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer section ul li a, footer section ul li {
+    padding: 0;
+    text-decoration: none;
+    margin: 0;
+    color: #c3c3c3;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+
+
+
+footer li {
+    color: rgb(209, 144, 23);
+}
