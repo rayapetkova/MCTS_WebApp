@@ -3,30 +3,43 @@ import leftArrow from '../assets/left_arrow_button.png'
 import rightArrow from '../assets/right_arrow_button.png'
 import movieCard from '../assets/movie_card.png'
 import emptyStar from '../assets/empty_star.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 
-import featuredToday from '../api_data/data_functions'
+import getFeaturedToday, { getComingSoonMovies } from '../api_data/data_functions'
+import { getFeaturedThisWeek, getTopRatedMovies } from '../api_data/data_functions'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const SecondMain = ({sectionName}) => {
-    let [featuredMoviesToday, setFeaturedToday] = useState([])
-
-    const sectionsObj = {
-        'Featured Today': featuredMoviesToday
-    }
+    let [sectionsObj, setSectionsObj] = useState({
+        'Featured Today': [],
+        'From your Watchlist': [],
+        'Top on MCTS this week': [],
+        'Top Rated': [],
+        'Coming Soon': [],
+    })
 
     useEffect(() => {
-        async function getFeaturedToday() {
-            let featuredMoviesToday = await featuredToday()
-            console.log(featuredMoviesToday)
+        async function loadFeaturedToday() {
+            let featuredToday = await getFeaturedToday()
+            let featuredThisWeek = await getFeaturedThisWeek()
+            let topRated = await getTopRatedMovies()
+            let comingSoon = await getComingSoonMovies()
 
-            setFeaturedToday(featuredMoviesToday)
+            setSectionsObj(currentSections => ({
+                ...currentSections,
+                'Featured Today': featuredToday,
+                'From your Watchlist': featuredToday,
+                'Top on MCTS this week': featuredThisWeek,
+                'Top Rated': topRated,
+                'Coming Soon': comingSoon
+            }))
         }
 
-        getFeaturedToday()
+        loadFeaturedToday();
+    
     }, [])
-
+    
     return (
         <div className={styles['second-main']}>
             <section className={styles['one-section']}>
@@ -39,8 +52,8 @@ const SecondMain = ({sectionName}) => {
                 </div>
 
                 <div className={styles['cards']}>
-                    {sectionsObj['Featured Today'].slice(0, 6).map((movie) => (
-                        <div className={styles['card']}>
+                    {sectionsObj[sectionName].slice(0, 6).map((movie) => (
+                        <div key={movie.id} className={styles['card']}>
                             <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
                             <p>{movie.title}</p>
                             <div className={styles['star-div']}>
