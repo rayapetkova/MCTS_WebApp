@@ -4,8 +4,24 @@ import playButton from '../assets/play_button.png'
 import secondImg from '../assets/second.png'
 import yellowDot from '../assets/yellow_dot.png'
 import thirdImg from '../assets/third.png'
+import { useEffect, useState } from 'react'
+import { getNowPlayingInTheatres } from '../api_data/data_functions'
+
+const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const FirstMain = () => {
+    let [playingNow, setPlayingNow] = useState([])
+
+    useEffect(() => {
+        async function loadPlayingNow() {
+            let playingNowInTheatres = await getNowPlayingInTheatres()
+
+            setPlayingNow(playingNowInTheatres)
+        }
+        
+        loadPlayingNow()
+    }, [])
+
     return (
         <div className={styles['main']}>
             <section className={styles['first']}>
@@ -27,19 +43,15 @@ const FirstMain = () => {
                     <div className={styles['title']}>
                         <div className={styles['text']}>
                             <img src={yellowDot} alt="yellow-dot"/>
-                            <h3>Featured Movies</h3>
+                            <h3>Playing Now</h3>
                         </div>
                         <a href="#">Browse Movies &gt;</a>
                     </div>
-                    <div className={styles['featured-images']}>
-                        <img src={thirdImg} alt="featured-movie"/>
-                    </div>
-                    <div className={styles['featured-images']}>
-                        <img src={thirdImg} alt="featured-movie"/>
-                    </div>
-                    <div className={styles['featured-images']}>
-                        <img src={thirdImg} alt="featured-movie"/>
-                    </div>
+                    {playingNow.slice(0, 3).map((movie) => (
+                        <div key={movie.id} className={styles['featured-images']}>
+                            <img src={`${pathForImages + movie.backdrop_path}`} alt="featured-movie"/>
+                        </div>
+                    ))}
                 </div>
             </section>
         </div>
