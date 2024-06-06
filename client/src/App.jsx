@@ -15,15 +15,13 @@ function App() {
 
             <SecondMain sectionName='Featured Today'/>
 
-            <SecondMain sectionName='From your Watchlist &#10509;' />
+            <SecondMain sectionName='From your Watchlist' />
             
             <SecondMain sectionName='Top on MCTS this week' />
 
             <SecondMain sectionName='Top Rated' />
 
             <SecondMain sectionName='Coming Soon' />
-
-            <SecondMain sectionName='Most Popular Celebrities' />
 
             <PopularCelebs />
 
