@@ -1,9 +1,9 @@
-import styles from './PopularCelebs.module.css'
-import leftArrow from '../assets/left_arrow_button.png'
-import rightArrow from '../assets/right_arrow_button.png'
-import personImg from '../assets/person.png'
+import styles from '../popularCelebs/PopularCelebs.module.css'
+import leftArrow from '../../assets/left_arrow_button.png'
+import rightArrow from '../../assets/right_arrow_button.png'
+import personImg from '../../assets/person.png'
 
-import { getPopularCelebrities } from '../api_data/data_functions'
+import { getPopularCelebrities } from '../../api_data/data_functions'
 import { useEffect, useState } from 'react'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'

@@ -1,12 +1,12 @@
 import styles from './SecondMain.module.css'
-import leftArrow from '../assets/left_arrow_button.png'
-import rightArrow from '../assets/right_arrow_button.png'
-import movieCard from '../assets/movie_card.png'
-import emptyStar from '../assets/empty_star.png'
+import leftArrow from '../../assets/left_arrow_button.png'
+import rightArrow from '../../assets/right_arrow_button.png'
+import movieCard from '../../assets/movie_card.png'
+import emptyStar from '../../assets/empty_star.png'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 
-import getFeaturedToday, { getComingSoonMovies } from '../api_data/data_functions'
-import { getFeaturedThisWeek, getTopRatedMovies } from '../api_data/data_functions'
+import getFeaturedToday, { getComingSoonMovies } from '../../api_data/data_functions'
+import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/data_functions'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
