@@ -1,9 +1,10 @@
 import Header from "./components/header/Header"
-import FirstMain from './components/firstMain/FirstMain'
-import SecondMain from "./components/secondMain/SecondMain"
-import PopularCelebs from "./components/popularCelebs/PopularCelebs"
 import Footer from "./components/footer/Footer"
+import MainPageMovies from "./components/MainPageMovies"
+import MovieInfo from "./components/MovieInfo"
 import styles from "./App.module.css"
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -11,19 +12,7 @@ function App() {
         <div>
             <Header />
 
-            <FirstMain />
-
-            <SecondMain sectionName='Featured Today'/>
-
-            <SecondMain sectionName='From your Watchlist' />
-            
-            <SecondMain sectionName='Top on MCTS this week' />
-
-            <SecondMain sectionName='Top Rated' />
-
-            <SecondMain sectionName='Coming Soon' />
-
-            <PopularCelebs />
+            <MovieInfo />
 
             <Footer />
         </div>
