@@ -1,8 +1,8 @@
-import Header from "./components/Header"
-import FirstMain from "./components/FirstMain"
-import SecondMain from "./components/SecondMain"
-import PopularCelebs from "./components/PopularCelebs"
-import Footer from "./components/Footer"
+import Header from "./components/header/Header"
+import FirstMain from './components/firstMain/FirstMain'
+import SecondMain from "./components/secondMain/SecondMain"
+import PopularCelebs from "./components/popularCelebs/PopularCelebs"
+import Footer from "./components/footer/Footer"
 import styles from "./App.module.css"
 
 function App() {
