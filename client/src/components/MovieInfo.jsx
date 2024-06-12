@@ -4,12 +4,13 @@ import FirstSectionMovieInfo from "./firstSectionMovieInfo/FirstSectionMovieInfo
 import SecondMainPhotos from "./secondMainPhotos/SecondMainPhotos"
 import SecondMainCelebs from "./secondMainCelebs/SecondMainCelebs"
 import Reviews from "./reviews/Reviews";
+import Aside from "./aside/Aside"
 
 const MovieInfo = () => {
 
     return (
         <main>
-            <div className="left">
+            <div className={styles['left']}>
                 <FirstSectionMovieInfo />
 
                 <SecondMainPhotos />
@@ -19,15 +20,7 @@ const MovieInfo = () => {
                 <Reviews />
             </div>
 
-            <aside>
-                <ul>
-                    <li><a href="#">Overview</a></li>
-                    <li><a href="#">Cast & Crew</a></li>
-                    <li><a href="#">User Reviews</a></li>
-                    <li><a href="#">Storyline</a></li>
-                    <li><a href="#">Details</a></li>
-                </ul>
-            </aside>
+            <Aside />
         </main>
     )
 }
