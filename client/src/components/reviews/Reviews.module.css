@@ -1,0 +1,89 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5em;
+}
+
+.reviews .title .left h2 {
+    padding: 0;
+    margin: 0;
+    color: #c3c3c3;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.reviews .title a {
+    text-decoration: none;
+    background-color: #151515;
+    color: #797979;
+    border-radius: 10px;
+    font-size: 1.3em;
+    padding: 0.6em 1.3em;
+}
+
+.reviews .title .left {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.reviews .title .left a {
+    background-color: #242424;
+}
+
+.reviews .review-boxes {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.reviews .review-boxes .box {
+    width: 45%;
+    background-color: #151515;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em 1.5em;
+    border-radius: 15px;
+}
+
+.reviews .review-boxes .box p, .reviews .review-boxes .box h6 {
+    color: rgb(195 195 195);
+}
+
+.reviews .review-boxes .box > p:nth-child(1) {
+    color: #6a6a6a;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+.reviews .review-boxes .box > p:nth-child(1) span {
+    color: #f5c518;
+}
+
+.reviews .review-boxes .box h6 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.reviews .review-boxes .box .post-info {
+    display: flex;
+}
+
+.reviews .review-boxes .box .post-info p:nth-child(1) {
+    color: #f5c518;
+}
+
+.reviews .review-boxes .box .review-desc {
+    color: #c3c3c3;
+    line-height: 1.5em;
+    font-size: 1.2em;
+    margin: 0;
+}
