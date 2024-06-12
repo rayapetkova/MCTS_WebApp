@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    padding: 2.5% 15%;
+    justify-content: space-between;
+}
+
+main img {
+    width: 200px;
+}
+
+main .left {
+    width: 85%;
+}
