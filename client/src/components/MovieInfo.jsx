@@ -1,5 +1,6 @@
 import styles from "./MovieInfo.module.css"
 import FirstSectionMovieInfo from "./firstSectionMovieInfo/FirstSectionMovieInfo";
+import SecondMainPhotos from "./secondMainPhotos/SecondMainPhotos"
 
 const MovieInfo = () => {
 
@@ -8,53 +9,7 @@ const MovieInfo = () => {
             <div className="left">
                 <FirstSectionMovieInfo />
 
-                <div className="second-main photos">
-                    <section className="one-section">
-                        <div className="title">
-                            <h2>Photos</h2>
-                            <div className="buttons">
-                                <a href="#"><img src="images/left_arrow_button.png" alt="left-arrow" /></a>
-                                <a href="#"><img src="images/right_arrow_button.png" alt="right-arrow" /></a>
-                            </div>
-                        </div>
-                        <div className="cards">
-                            <div className="card">
-                                <img src="images/movie_img.png" alt="card" />
-                                <div className="name-container">
-                                    <p>Jenna Ortega</p>
-                                    <p>Noah Some</p>
-                                </div>
-                            </div>
-            
-                            <div className="card">
-                                <img src="images/movie_img.png" alt="card" />
-                                <div className="name-container">
-                                    <p>Jenna Ortega</p>
-                                    <p>Noah Some</p>
-                                </div>
-                            </div>
-            
-                            <div className="card">
-                                <img src="images/movie_img.png" alt="card" />
-                                <div className="name-container">
-                                    <p>Jenna Ortega</p>
-                                    <p>Noah Some</p>
-                                </div>
-                            </div>
-            
-                            <div className="card">
-                                <img src="images/movie_img.png" alt="card" />
-                                <div className="name-container">
-                                    <p>Jenna Ortega</p>
-                                    <p>Noah Some</p>
-                                </div>
-                            </div>
-            
-                        </div>
-            
-                        
-                    </section>
-                </div>
+                <SecondMainPhotos />
 
                 <div className="second-main celebs">
                     <section className="one-section">
