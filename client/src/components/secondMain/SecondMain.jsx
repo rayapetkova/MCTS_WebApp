@@ -5,8 +5,9 @@ import movieCard from '../../assets/movie_card.png'
 import emptyStar from '../../assets/empty_star.png'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 
-import getFeaturedToday, { getComingSoonMovies } from '../../api_data/data_functions'
-import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/data_functions'
+import getFeaturedToday, { getComingSoonMovies } from '../../api_data/dataFunctions'
+import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
+import { Link } from 'react-router-dom'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -62,7 +63,7 @@ const SecondMain = ({sectionName}) => {
                                 </div>
                                 <p>{movie.vote_average}</p>
                             </div>
-                            <a href="#">More Info &gt;</a>
+                            <Link to={`/movies/${movie.id}/details`}>More Info &gt; </Link>
                         </div>
                     ))}
                     
