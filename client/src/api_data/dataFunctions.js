@@ -39,3 +39,17 @@ export async function getNowPlayingInTheatres() {
 
     return result.results
 }
+
+export async function getMovieInfo(movieId) {
+    let response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=e4a864389e1a88f97675e63b530b64c7`)
+    let result = await response.json()
+
+    return result
+}
+
+export async function getMovieCredits(movieId) {
+    let response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=e4a864389e1a88f97675e63b530b64c7`)
+    let result = await response.json()
+
+    return result
+}
