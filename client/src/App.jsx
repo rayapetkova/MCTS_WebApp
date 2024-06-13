@@ -4,7 +4,7 @@ import MainPageMovies from "./components/MainPageMovies"
 import MovieInfo from "./components/MovieInfo"
 import styles from "./App.module.css"
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -12,7 +12,10 @@ function App() {
         <div>
             <Header />
 
-            <MovieInfo />
+            <Routes>
+                <Route path="/" element={<MainPageMovies />} />
+                <Route path="/movies/:movieId/details" element={<MovieInfo />}  />
+            </Routes>
 
             <Footer />
         </div>

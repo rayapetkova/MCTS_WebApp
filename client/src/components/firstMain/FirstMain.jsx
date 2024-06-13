@@ -5,7 +5,7 @@ import secondImg from '../../assets/second.png'
 import yellowDot from '../../assets/yellow_dot.png'
 import thirdImg from '../../assets/third.png'
 import { useEffect, useState } from 'react'
-import { getNowPlayingInTheatres } from '../../api_data/data_functions'
+import { getNowPlayingInTheatres } from '../../api_data/dataFunctions'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
