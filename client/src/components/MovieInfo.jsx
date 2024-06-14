@@ -18,7 +18,7 @@ const MovieInfo = () => {
             <div className={styles['left']}>
                 <FirstSectionMovieInfo movieId={movieId} />
 
-                <SecondMainPhotos />
+                <SecondMainPhotos movieId={movieId} />
 
                 <SecondMainCelebs />
 

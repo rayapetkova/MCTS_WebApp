@@ -3,8 +3,22 @@ import styles from "./SecondMainPhotos.module.css"
 import leftArrow from '../../assets/left_arrow_button.png'
 import rightArrow from '../../assets/right_arrow_button.png'
 import movieImg from '../../assets/movie_img.png'
+import { useEffect, useState } from "react"
+import { getMoviePhotos } from "../../api_data/dataFunctions"
 
-const SecondMainPhotos = () => {
+const pathForImages = 'https://image.tmdb.org/t/p/w500'
+
+const SecondMainPhotos = ({ movieId }) => {
+    let [movieImages, setMovieImages] = useState([])
+
+    useEffect(() => {
+        async function loadMovieImages() {
+            let allImages = await getMoviePhotos(movieId)
+            setMovieImages(allImages)
+        }
+
+        loadMovieImages()
+    }, [])
 
     return (
         <div className={`${styles['second-main']} ${styles['photos']}`}>
@@ -17,21 +31,11 @@ const SecondMainPhotos = () => {
                     </div>
                 </div>
                 <div className={styles['cards']}>
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
-    
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
-    
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
-    
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
+                    {movieImages.slice(0, 4).map((backdrop) => (
+                        <div className={styles['card']}>
+                            <img src={`${pathForImages + backdrop.file_path}`} alt="card" />
+                        </div>
+                    ))}
     
                 </div>
 
