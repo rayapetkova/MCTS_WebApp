@@ -4,7 +4,7 @@ import movieImg from '../../assets/movie_img.png'
 import moviePoster from '../../assets/movie_poster.png'
 import { useDebugValue, useEffect, useState } from "react"
 import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
-import { extractMovieGenres, extractDirectors } from "../../api_data/extractingData"
+import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../api_data/extractingData"
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -64,18 +64,19 @@ const FirstSectionMovieInfo = ({ movieId }) => {
 
                         <tr>
                             <td>Director</td>
-                            <td>{movieCredits ? extractDirectors(movieCredits.crew) : "Loading..."}</td>
+                            <td>{movieCredits.crew ? extractDirectors(movieCredits.crew) : "Loading..."}</td>
                         </tr>
 
                         <tr>
                             <td>Writers</td>
-                            <td>Timothee Chalamet, Zendaya, Rebecca Ferguson</td>
+                            <td>{movieCredits.crew ? extractWriters(movieCredits.crew) : "Loading..."}</td>
                         </tr>
 
                         <tr>
-                            <td>Awards</td>
-                            <td>Top rated movie 10, 2 nominations</td>
+                            <td>Stars</td>
+                            <td>{movieCredits.cast ? extractCast(movieCredits.cast, 3) : "Loading..."}</td>
                         </tr>
+                        
                     </tbody>
                 </table>
 

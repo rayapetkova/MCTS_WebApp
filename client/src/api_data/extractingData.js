@@ -19,3 +19,27 @@ export function extractDirectors(crew) {
 
     return directors.join(', ')
 }
+
+export function extractWriters(crew) {
+    let writers = []
+
+    for (let person of crew) {
+        if (person.job.includes('Story')) {
+            writers.push(person.original_name)
+        }
+    }
+
+    console.log(writers)
+    return writers.join(', ')
+}
+
+export function extractCast(cast, num) {
+    let slicedCast = []
+
+    cast = cast.slice(0, num)
+    for (let person of cast) {
+        slicedCast.push(person.original_name)
+    }
+
+    return slicedCast.join(', ')
+}
