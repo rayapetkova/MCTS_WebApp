@@ -13,8 +13,8 @@ const Header = () => {
             <nav>
                 <ul>
                     <li><Link to={'/'}>Movies</Link></li>
-                    <li><a href="#">Top Rated</a></li>
-                    <li><a href="#">Celebrities</a></li>
+                    <li><a href="#Top Rated">Top Rated</a></li>
+                    <li><a href="#popular-celebs">Celebrities</a></li>
                     <li><a href="#">Favourites</a></li>
                 </ul>
             </nav>
@@ -33,4 +33,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;

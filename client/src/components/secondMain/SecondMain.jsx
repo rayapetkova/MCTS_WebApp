@@ -42,7 +42,7 @@ const SecondMain = ({sectionName}) => {
     }, [])
     
     return (
-        <div className={styles['second-main']}>
+        <div className={styles['second-main']} id={sectionName}>
             <section className={styles['one-section']}>
                 <div className={styles['title']}>
                     <h2>{sectionName}</h2>

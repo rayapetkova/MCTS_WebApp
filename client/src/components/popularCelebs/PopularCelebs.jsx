@@ -21,7 +21,7 @@ const PopularCelebs = () => {
     }, [])
 
     return (
-        <div className={`${styles['second-main']} ${styles['celebs']}`}>
+        <div className={`${styles['second-main']} ${styles['celebs']}`} id='popular-celebs'>
             <section className={styles['one-section']}>
                 <div className={styles['title']}>
                     <h2>Most Popular Celebrities</h2>
