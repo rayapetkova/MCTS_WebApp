@@ -32,7 +32,7 @@ const SecondMainPhotos = ({ movieId }) => {
                 </div>
                 <div className={styles['cards']}>
                     {movieImages.slice(0, 4).map((backdrop) => (
-                        <div className={styles['card']}>
+                        <div className={styles['card']} key={backdrop.file_path}>  // This should be changed!!!!!!!!!!!!!!
                             <img src={`${pathForImages + backdrop.file_path}`} alt="card" />
                         </div>
                     ))}
