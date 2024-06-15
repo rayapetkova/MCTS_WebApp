@@ -20,7 +20,7 @@ const MovieInfo = () => {
 
                 <SecondMainPhotos movieId={movieId} />
 
-                <SecondMainCelebs />
+                <SecondMainCelebs movieId={movieId} />
 
                 <Reviews />
             </div>

@@ -29,7 +29,6 @@ export function extractWriters(crew) {
         }
     }
 
-    console.log(writers)
     return writers.join(', ')
 }
 

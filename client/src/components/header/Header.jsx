@@ -12,8 +12,8 @@ const Header = () => {
             
             <nav>
                 <ul>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">TV Shows</a></li>
+                    <li><Link to={'/'}>Movies</Link></li>
+                    <li><a href="#">Top Rated</a></li>
                     <li><a href="#">Celebrities</a></li>
                     <li><a href="#">Favourites</a></li>
                 </ul>
