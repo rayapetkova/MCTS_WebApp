@@ -7,15 +7,15 @@ const MainPageMovies = () => {
         <>
             <FirstMain />
 
-            <SecondMain sectionName='Featured Today'/>
+            <SecondMain sectionName='Featured Today' numOfCards={6} numOfRows={1}/>
 
-            <SecondMain sectionName='From your Watchlist' />
+            <SecondMain sectionName='From your Watchlist' numOfCards={6} numOfRows={1} />
 
-            <SecondMain sectionName='Top on MCTS this week' />
+            <SecondMain sectionName='Top on MCTS this week' numOfCards={6} numOfRows={1} />
 
-            <SecondMain sectionName='Top Rated' />
+            <SecondMain sectionName='Top Rated' numOfCards={6} numOfRows={1} />
 
-            <SecondMain sectionName='Coming Soon' />
+            <SecondMain sectionName='Coming Soon' numOfCards={6} numOfRows={1} />
 
             <PopularCelebs />
         </>

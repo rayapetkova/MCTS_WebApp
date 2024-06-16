@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
-const SecondMain = ({sectionName}) => {
+const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
     let [sectionsObj, setSectionsObj] = useState({
         'Featured Today': [],
         'From your Watchlist': [],
@@ -40,20 +40,26 @@ const SecondMain = ({sectionName}) => {
         loadFeaturedToday();
     
     }, [])
+
+    function RenderArrows() {
+        if (!listFeature) {
+            return <div className={styles['buttons']}>
+                        <a href="#"><img src={leftArrow} alt="left-arrow"/></a>
+                        <a href="#"><img src={rightArrow} alt="right-arrow"/></a>
+                    </div>
+        }
+    }
     
     return (
         <div className={styles['second-main']} id={sectionName}>
             <section className={styles['one-section']}>
                 <div className={styles['title']}>
-                    <h2>{sectionName}</h2>
-                    <div className={styles['buttons']}>
-                        <a href="#"><img src={leftArrow} alt="left-arrow"/></a>
-                        <a href="#"><img src={rightArrow} alt="right-arrow"/></a>
-                    </div>
+                    <Link to={`movies/${sectionName}`}>{sectionName}</Link>
+                    {RenderArrows()}
                 </div>
 
                 <div className={styles['cards']}>
-                    {sectionsObj[sectionName].slice(0, 6).map((movie) => (
+                    {sectionsObj[sectionName].slice(0, numOfCards).map((movie) => (
                         <div key={movie.id} className={styles['card']}>
                             <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
                             <p>{movie.title}</p>
