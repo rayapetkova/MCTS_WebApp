@@ -102,6 +102,7 @@ div.second-main .one-section .cards .card a {
     border-top: 3px solid #303030;
     width: 90%;
     font-weight: 300;
+    overflow-anchor: auto;
 }
 
 div.second-main .one-section .cards .card img {

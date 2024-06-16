@@ -1,4 +1,5 @@
 import styles from '../firstMain/FirstMain.module.css'
+
 import firstImg from '../../assets/first.png'
 import playButton from '../../assets/play_button.png'
 import secondImg from '../../assets/second.png'

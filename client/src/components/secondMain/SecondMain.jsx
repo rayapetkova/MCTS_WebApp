@@ -63,7 +63,7 @@ const SecondMain = ({sectionName}) => {
                                 </div>
                                 <p>{movie.vote_average}</p>
                             </div>
-                            <Link to={`/movies/${movie.id}/details`}>More Info &gt; </Link>
+                            <Link to={`/movies/${movie.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
                         </div>
                     ))}
                     

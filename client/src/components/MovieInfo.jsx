@@ -13,6 +13,10 @@ const MovieInfo = () => {
 
     const { movieId } = useParams()
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <main>
             <div className={styles['left']}>
