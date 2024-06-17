@@ -60,14 +60,14 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
     
     return (
         <div className={styles['second-main']} id={sectionName}>
-            <section className={styles['one-section']}>
+            <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''}`}>
                 <div className={styles['title']}>
                     <Link to={`movies/${sectionName}`}>{sectionName}</Link>
                     {RenderArrows()}
                 </div>
 
                 {arrayForRows.map(([start, end]) => (
-                    <div className={styles['cards']} key={123}>
+                    <div className={styles['cards']} key={start}>
                         {sectionsObj[sectionName].slice(start, end).map((movie) => (
                             <div key={movie.id} className={styles['card']}>
                                 <img src={`${pathForImages + movie.poster_path}`} alt="card"/>

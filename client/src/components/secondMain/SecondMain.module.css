@@ -8,6 +8,10 @@ div.second-main .one-section {
     gap: 2.3em;
 }
 
+div.second-main .main-page {
+    gap: 0;
+}
+
 div.second-main .one-section .title {
     display: flex;
     align-content: center;
