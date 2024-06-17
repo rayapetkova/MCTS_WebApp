@@ -20,6 +20,14 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         'Coming Soon': [],
     })
 
+    const arrayForRows = Array(numOfRows)
+    let currentIndex = 0
+    for (let i = 0; i < arrayForRows.length; i++) {
+        arrayForRows[i] = [currentIndex, currentIndex + numOfCards]
+        currentIndex += numOfCards
+    }
+    console.log(arrayForRows)
+
     useEffect(() => {
         async function loadFeaturedToday() {
             let featuredToday = await getFeaturedToday()
@@ -58,22 +66,24 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                     {RenderArrows()}
                 </div>
 
-                <div className={styles['cards']}>
-                    {sectionsObj[sectionName].slice(0, numOfCards).map((movie) => (
-                        <div key={movie.id} className={styles['card']}>
-                            <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
-                            <p>{movie.title}</p>
-                            <div className={styles['star-div']}>
-                                <div className={styles['img-container']}>
-                                    <img src={emptyStar} alt="empty-star"/>
+                {arrayForRows.map(([start, end]) => (
+                    <div className={styles['cards']} key={123}>
+                        {sectionsObj[sectionName].slice(start, end).map((movie) => (
+                            <div key={movie.id} className={styles['card']}>
+                                <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
+                                <p>{movie.title}</p>
+                                <div className={styles['star-div']}>
+                                    <div className={styles['img-container']}>
+                                        <img src={emptyStar} alt="empty-star"/>
+                                    </div>
+                                    <p>{movie.vote_average}</p>
                                 </div>
-                                <p>{movie.vote_average}</p>
+                                <Link to={`/movies/${movie.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
                             </div>
-                            <Link to={`/movies/${movie.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
-                        </div>
-                    ))}
-                    
-                </div>
+                        ))}
+                    </div>
+                ))}
+                
 
                 
             </section>
