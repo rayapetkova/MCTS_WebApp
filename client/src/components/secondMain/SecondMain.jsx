@@ -62,7 +62,8 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         <div className={styles['second-main']} id={sectionName}>
             <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''}`}>
                 <div className={styles['title']}>
-                    <Link to={`movies/${sectionName}`}>{sectionName}</Link>
+                    {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName}</Link> : <h2>{sectionName} - MCTS</h2>}
+                    
                     {RenderArrows()}
                 </div>
 
