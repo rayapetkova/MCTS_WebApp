@@ -17,7 +17,7 @@ class AppUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     USERNAME_FIELD = "email"
 
-    objects = AppUserCustomManager
+    objects = AppUserCustomManager()
 
 
 class ProfileUser(models.Model):
