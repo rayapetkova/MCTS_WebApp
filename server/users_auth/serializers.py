@@ -2,7 +2,7 @@ from users_auth.models import ProfileUser, AppUser
 from rest_framework import serializers
 
 
-class AppUserSerializer(serializers.ModelSerializer):
+class AppUserSerializer(serializers.ModelSerializer):  # see if this serializer is needed
     class Meta:
         model = AppUser
         fields = "__all__"
