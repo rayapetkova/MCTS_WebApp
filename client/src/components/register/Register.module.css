@@ -1,0 +1,19 @@
+.container {
+    font-family: "Roboto", sans-serif;
+    background-color: #0f0f10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.card {
+    width: 50%;
+    height: 90%;
+    background-color: rgb(176, 197, 190);
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+}
