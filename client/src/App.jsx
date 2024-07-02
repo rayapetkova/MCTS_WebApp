@@ -6,6 +6,7 @@ import styles from "./App.module.css"
 
 import { Routes, Route } from 'react-router-dom'
 import ListMovies from "./components/ListMovies"
+import Register from "./components/register/Register"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/" element={<MainPageMovies />} />
                 <Route path="/movies/:movieId/details" element={<MovieInfo />}  />
                 <Route path="/movies/:sectionName" element={<ListMovies />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
 
             <Footer />
