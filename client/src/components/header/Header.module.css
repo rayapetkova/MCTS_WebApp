@@ -6,13 +6,13 @@ header {
     align-items: center;
 }
 
-header section.img-logo {
+header a.img-logo {
     width: 6%;
     display: flex;
     height: 100%;
 }
 
-header section.img-logo img {
+header a.img-logo img {
     width: 100%;
     border-radius: 3px;
 }

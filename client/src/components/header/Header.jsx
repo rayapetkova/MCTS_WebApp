@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 const Header = () => {
     return (
         <header>
-            <section className={styles['img-logo']}>
+            <Link to={'/'} className={styles['img-logo']}>
                 <img src={logo} alt="logo-img"/>
-            </section>
+            </Link>
             
             <nav>
                 <ul>
