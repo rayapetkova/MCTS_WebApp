@@ -87,7 +87,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 4em;
+    margin-left: 12%;
 }
 
 .main section.first .right .title a {
@@ -121,6 +121,7 @@
     padding: 0;
     margin: 0;
     font-weight: 300;
+    font-size: 1.3em;
 }
 
 .main section.first .right .featured-images {

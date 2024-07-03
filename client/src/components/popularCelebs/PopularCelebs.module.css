@@ -49,7 +49,13 @@ div.second-main .one-section .cards .card {
     align-items: center;
     border-radius: 10px;
     padding: 1%;
-    background-color: #151515;
+    background-color: #202020;
+    filter: brightness(70%);
+    transition: filter 0.5s ease-in-out;
+}
+
+div.second-main .one-section .cards .card:hover {
+    filter: brightness(100%);
 }
 
 div.second-main .one-section .cards .card img {

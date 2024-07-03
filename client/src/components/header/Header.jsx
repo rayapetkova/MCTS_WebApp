@@ -12,8 +12,8 @@ const Header = () => {
             
             <nav>
                 <ul>
-                    <li><Link to={'/'}>Movies</Link></li>
-                    <li><a href="#Top Rated">Top Rated</a></li>
+                    <li><Link to={'/movies/Featured Today'}>Movies</Link></li>
+                    <li><Link to={`movies/Top Rated`}>Top Rated</Link></li>
                     <li><a href="#popular-celebs">Celebrities</a></li>
                     <li><a href="#">Favourites</a></li>
                 </ul>
@@ -25,7 +25,7 @@ const Header = () => {
 
 
             <ul className={styles['last-links']}>
-                <li><a href="#">Watchlist</a></li>
+                <li><Link to={'movies/From your Watchlist'}>Watchlist</Link></li>
                 <li><a href="#">Sign In</a></li>
             </ul>
             
