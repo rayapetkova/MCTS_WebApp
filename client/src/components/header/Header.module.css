@@ -2,6 +2,8 @@ header {
     background-color: #080808;
     display: flex;
     padding: 1% 15%;
+    display: flex;
+    align-items: center;
 }
 
 header section.img-logo {
@@ -11,7 +13,8 @@ header section.img-logo {
 }
 
 header section.img-logo img {
-    width: 100%
+    width: 100%;
+    border-radius: 3px;
 }
 
 header nav {
@@ -27,6 +30,8 @@ header nav ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin: 0;
+    align-items: center;
 }
 
 header nav ul li {
@@ -43,13 +48,14 @@ header nav ul li a {
 header section.search-bar-section {
     display: flex;
     align-items: center;
-    width: 45%;
+    width: 50%;
 }
 
 header section.search-bar-section input {
     width: 100%;
     height: 95%;
     background-color: #222222;
+    color: azure;
     border: none;
     border-radius: 10px;
     padding: 1em;
@@ -60,6 +66,7 @@ header section.search-bar-section input {
 header ul.last-links {
     display: flex;
     padding: 0;
+    margin: 0;
     margin-left: 3%;
     width: 11%;
     justify-content: space-between;

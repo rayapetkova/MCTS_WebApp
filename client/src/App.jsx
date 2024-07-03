@@ -2,6 +2,7 @@ import Header from "./components/header/Header"
 import Footer from "./components/footer/Footer"
 import MainPageMovies from "./components/MainPageMovies"
 import MovieInfo from "./components/MovieInfo"
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import styles from "./App.module.css"
 
 import { Routes, Route } from 'react-router-dom'

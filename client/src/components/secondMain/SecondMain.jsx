@@ -26,7 +26,6 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         arrayForRows[i] = [currentIndex, currentIndex + numOfCards]
         currentIndex += numOfCards
     }
-    console.log(arrayForRows)
 
     useEffect(() => {
         async function loadFeaturedToday() {

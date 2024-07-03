@@ -11,7 +11,6 @@ import {
     MDBCheckbox
 } from 'mdb-react-ui-kit';
 
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import styles from './Register.module.css'
 
 const Register = () => {
