@@ -8,12 +8,11 @@ function useForm(submitHandler, initialValues) {
             ...currentValues,
             [e.target.name]: e.target.value
         }))
-
-        console.log(values)
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
+        submitHandler(values)
         console.log('submitvammmmm')
     }
 

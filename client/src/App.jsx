@@ -10,11 +10,20 @@ import ListMovies from "./components/ListMovies"
 import Register from "./components/register/Register"
 
 import { AuthContext } from './contexts/AuthContext'
+import { register } from "./services/authService";
+import { useState } from "react";
 
 function App() {
+    const [authData, setAuthData] = useState({})
+
+    const registerSubmitHandler = async (values) => {
+        let response = await register(values)
+        setAuthData(response)
+        localStorage.setItem('accessToken', response.accessToken)
+    }
 
     return (
-        <AuthContext.Provider>
+        <AuthContext.Provider value={registerSubmitHandler}>
             <div>
                 <Header />
 

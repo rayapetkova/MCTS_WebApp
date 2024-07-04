@@ -14,6 +14,8 @@ import {
 import styles from './Register.module.css'
 
 import useForm from '../../hooks/useForm';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const formNames = {
     email: 'email',
@@ -23,8 +25,9 @@ const formNames = {
 }
 
 const Register = () => {
+    const registerSubmitHandler = useContext(AuthContext)
 
-    const [values, onChange, onSubmit] = useForm('', {
+    const [values, onChange, onSubmit] = useForm(registerSubmitHandler, {
         [formNames.email]: '',
         [formNames.password]: '',
         [formNames.confirmPassword]: '',
