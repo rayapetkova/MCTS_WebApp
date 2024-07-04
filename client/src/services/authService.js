@@ -13,6 +13,19 @@ export async function register(data) {
     return result
 }
 
+export async function login(data) {
+    let response = await fetch(`${baseUrl}/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    let result = response.json()
+
+    return result
+}
+
 
 // {
 //     email: '',

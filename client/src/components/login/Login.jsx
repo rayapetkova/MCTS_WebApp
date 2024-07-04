@@ -11,7 +11,7 @@ import {
     MDBCheckbox
 } from 'mdb-react-ui-kit';
 
-import styles from './Register.module.css'
+import styles from './Login.module.css'
 
 import useForm from '../../hooks/useForm';
 import { useContext } from 'react';
@@ -19,19 +19,15 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 const formNames = {
     email: 'email',
-    password: 'password',
-    confirmPassword: 'confirmPassword',
-    username: 'username'
+    password: 'password'
 }
 
-const Register = () => {
-    const { registerSubmitHandler } = useContext(AuthContext)
+const Login = () => {
+    const { loginSubmitHandler } = useContext(AuthContext)
 
-    const [values, onChange, onSubmit] = useForm(registerSubmitHandler, {
+    const [values, onChange, onSubmit] = useForm(loginSubmitHandler, {
         [formNames.email]: '',
-        [formNames.password]: '',
-        [formNames.confirmPassword]: '',
-        [formNames.username]: ''
+        [formNames.password]: ''
     })
 
     return (
@@ -43,19 +39,7 @@ const Register = () => {
                         <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
                             <form onSubmit={onSubmit}>
 
-                                <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
-                                <div className="d-flex flex-row align-items-center mb-4 ">
-                                    <MDBInput 
-                                        label='Username' 
-                                        id='form1' 
-                                        type='text' 
-                                        className='w-100' 
-                                        name={formNames.username} 
-                                        onChange={onChange}
-                                        value={values.username}
-                                    />
-                                </div>
+                                <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign in</p>
 
                                 <div className="d-flex flex-row align-items-center mb-4">
                                     <MDBInput 
@@ -79,18 +63,7 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <div className="d-flex flex-row align-items-center mb-4">
-                                    <MDBInput 
-                                        label='Repeat your password' 
-                                        id='form4' 
-                                        type='password' 
-                                        name={formNames.confirmPassword} 
-                                        onChange={onChange} 
-                                        value={values.confirmPassword}
-                                    />
-                                </div>
-
-                                <MDBBtn className='mb-4' size='lg'>Register</MDBBtn>
+                                <MDBBtn className='mb-4' size='lg'>Sign In</MDBBtn>
                             </form>
                         </MDBCol>
 
@@ -106,4 +79,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default Login;

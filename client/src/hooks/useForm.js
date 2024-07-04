@@ -13,7 +13,6 @@ function useForm(submitHandler, initialValues) {
     const onSubmit = (e) => {
         e.preventDefault()
         submitHandler(values)
-        console.log('submitvammmmm')
     }
 
     return [
