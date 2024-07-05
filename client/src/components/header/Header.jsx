@@ -1,9 +1,14 @@
 import styles from '../header/Header.module.css'
 import logo from '../../assets/logo.png'
+import profileIcon from '../../assets/profile_icon.png'
 
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 const Header = () => {
+    const {authData} = useContext(AuthContext)
+
     return (
         <header>
             <Link to={'/'} className={styles['img-logo']}>
@@ -26,7 +31,10 @@ const Header = () => {
 
             <ul className={styles['last-links']}>
                 <li><Link to={'movies/From your Watchlist'}>Watchlist</Link></li>
-                <li><a href="#">Sign In</a></li>
+                <li>{authData.email 
+                    ? (<Link to={'users/me'}><img className={styles['profile-img']} src={profileIcon}/></Link>)
+                    : (<Link to={'/login'}>Sign In</Link>) }
+                </li>
             </ul>
             
         </header>

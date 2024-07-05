@@ -13,6 +13,7 @@ import { AuthContext } from './contexts/AuthContext'
 import { login, register } from "./services/authService";
 import { useState } from "react";
 import Login from "./components/login/Login";
+import ProfileInfo from "./components/profileInfo/ProfileInfo";
 
 function App() {
     const navigate = useNavigate()
@@ -38,6 +39,7 @@ function App() {
     }
 
     const contextValues = {
+        authData,
         registerSubmitHandler,
         loginSubmitHandler
     }
@@ -53,6 +55,7 @@ function App() {
                     <Route path="/movies/:sectionName" element={<ListMovies />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/users/me" element={<ProfileInfo />} />
                 </Routes>
 
                 <Footer />
