@@ -8,12 +8,47 @@
 }
 
 .card {
-    width: 50%;
-    height: 90%;
-    background-color: rgb(219, 218, 218);
+    width: 50% !important;
+    border-radius: 2px !important;
 }
 
 .card-body {
     display: flex;
     align-items: center;
+}
+
+.title {
+    color: #979797;
+}
+
+.input-field {
+    color: #C3C3C3 !important;
+    width: 100% !important;
+    background-color: rgba(180, 179, 179, 0.87) !important;
+}
+
+.input-field:focus {
+    background-color: rgba(215, 218, 218, 0.87) !important;
+    color: #0f0f10 !important;
+    border-color: antiquewhite;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    width: 60%;
+}
+
+.right {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.image-logo {
+    width: 100%;
 }
