@@ -8,7 +8,7 @@ export async function register(data) {
         },
         body: JSON.stringify(data)
     })
-    let result = response.json()
+    let result = await response.json()
 
     return result
 }
@@ -21,10 +21,27 @@ export async function login(data) {
         },
         body: JSON.stringify(data)
     })
-    let result = response.json()
+    let result = await response.json()
 
     return result
 }
+
+export async function getUserDetails() {
+    const accessToken = localStorage.getItem('accessToken')
+
+    let response = await fetch(`${baseUrl}/me`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': accessToken
+        }
+    })
+
+    let result = await response.json()
+    console.log(result)
+    return result
+}
+
 
 
 // {

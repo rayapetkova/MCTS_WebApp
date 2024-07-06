@@ -81,3 +81,7 @@ header ul.last-links li a {
     color: #C3C3C3;
     font-size: 1.2em;
 }
+
+.profile-img {
+    width: 90%
+}
