@@ -1,6 +1,7 @@
+import AddReview from "../addReview/AddReview";
 import styles from "./Reviews.module.css"
 
-const Reviews = () => {
+const Reviews = ({ movieId }) => {
 
     return (
         <div className={styles['reviews']}>
@@ -34,6 +35,8 @@ const Reviews = () => {
                     <p className={styles['review-desc']}>In the quiet embrace of ink and page, a story unfolded, timeless and sage, through the lens of a filmmaker's artistry, its essence soared, a masterpiece for all to see, i think Denis Villeneuve has just made the most visually stunning epic story of a movie that's ever been made, the most powerful story of a movie ever been told in the last 20 years, there has been no movies with this scale resulting in not just a piece of a film no more but a piece of art, it's what Infinity War and Endgame looks like...</p>
                 </div>
             </div>
+
+            <AddReview movieId={movieId} />
         </div>
     )
 }

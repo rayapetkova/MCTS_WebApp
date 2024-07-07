@@ -38,10 +38,6 @@ function App() {
         navigate('/')
     }
 
-    const editProfileSubmitHandler = async (values) => {
-        
-    }
-
     const contextValues = {
         authData,
         registerSubmitHandler,

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.info-section {
+    background-color: #08080881;
+    display: flex;
+    margin: 5% 20%;
+    padding: 1%;
+    border-radius: 4px;
+}
+
+.right {
+    width: 100%;
+    margin-left: 2%;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right > h3 {
+    margin: 0;
+    border-bottom: solid;
+    border-width: 0.15em;
+    font-size: 1.5em;
+    color: #C3C3C3;
+}
+
+.right form {
+    display: flex;
+    flex-direction: column;
+}
+
+.right form .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3em;
+}
+
+.right form .row .field {
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+
+.right form .row .field label {
+    font-size: 1.2em;
+    color: rgb(131, 131, 133);
+}
+
+.right form .row .field input {
+    border: solid 1px rgb(160, 159, 161);
+    border-radius: 3px;
+    padding: 3% 3%;
+    color: rgb(107, 107, 107);
+    font-size: 1.1em;
+    background-color: rgba(240, 248, 255, 0.849);
+}
+
+.right form .row .field input:focus {
+    background-color: rgb(240, 248, 255);
+    outline: none;
+    color: black;
+}
+
+.right form .bio-row h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: rgb(131, 131, 133);
+    font-weight: 400;
+}
+
+.right form .bio-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.3em;
+}
+
+.right form .bio-row textarea {
+    border: solid 1px rgb(160, 159, 161);
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 1% 1%;
+    color: rgb(107, 107, 107);
+    font-size: 1.1em;
+    background-color: rgba(240, 248, 255, 0.849);
+}
+
+.right form .bio-row textarea:focus {
+    background-color: rgb(240, 248, 255);
+    outline: none;
+    color: black;
+}
+
+.right form .update-button {
+    width: 15%;
+    padding: 1.5%;
+    background-color: rgb(230 185 30);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin-top: 1em;
+}
+
+.right form .update-button:hover {
+    cursor: pointer;
+    background-color: rgb(206, 167, 29);
+}

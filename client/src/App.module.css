@@ -10,4 +10,5 @@ body {
     font-size: 14px;
     font-family: "Roboto", sans-serif;
     background-color: #0f0f10;
+    position: relative;
 }
