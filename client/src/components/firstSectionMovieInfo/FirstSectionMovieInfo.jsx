@@ -38,7 +38,7 @@ const FirstSectionMovieInfo = ({ movieId }) => {
                 </ul>
 
                 <div className={styles['buttons']}>
-                    <a href="#">Review</a>
+                    <a href="#reviews">Reviews</a>
                 </div>
             </div>
             <div className={styles['two-images']}>

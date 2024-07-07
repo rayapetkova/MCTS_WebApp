@@ -20,5 +20,5 @@ export async function addReview(data) {
     })
 
     let result = await response.json()
-    console.log(result)
+    return result
 }
