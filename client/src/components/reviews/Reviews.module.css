@@ -18,13 +18,18 @@
     font-weight: 400;
 }
 
-.reviews .title a {
+.reviews .title button, .reviews .title a {
     text-decoration: none;
     background-color: #151515;
     color: #797979;
+    border: none;
     border-radius: 10px;
     font-size: 1.3em;
     padding: 0.6em 1.3em;
+}
+
+.reviews .title button:hover {
+    background-color: #272727;
 }
 
 .reviews .title .left {
@@ -36,6 +41,10 @@
 
 .reviews .title .left a {
     background-color: #242424;
+}
+
+.reviews .title .left a:hover {
+    background-color: #1d1d1d;
 }
 
 .reviews .review-boxes {

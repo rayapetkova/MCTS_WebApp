@@ -8,6 +8,7 @@ import { getUserDetails } from "../../services/authService";
 
 const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
+    const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
         async function loadReviews() {
@@ -18,22 +19,26 @@ const Reviews = ({ movieId }) => {
         loadReviews()
     }, [])
 
+    function showAddReviewFormEvent(e) {
+        setShowForm(true)
+    }
+
     return (
-        <div className={styles['reviews']}>
+        <div className={styles['reviews']} id="reviews">
             <div className={styles['title']}>
                 <div className={styles['left']}>
                     <h2>User Reviews</h2>
                     <a href="#">See all 1.4K</a>
                 </div>
 
-                <a href="#">Review +</a>
+                <button onClick={showAddReviewFormEvent}>Review +</button>
             </div>
 
             <div className={styles['review-boxes']}>
-                {reviews.map((review) => (
+                {reviews.slice(-2).reverse().map((review) => (
                     <div className={styles['box']} key={review._id}>
                         <p><span>{review.rate}</span>/10</p>
-                        <h6>{review.review}</h6>
+                        <h6>{review.title}</h6>
                         <section className={styles['post-info']}>
                             <p>Raya Petkova</p>
                             <p>&nbsp;   &#xb7;  {convertToDate(review._createdOn)}</p>
@@ -43,7 +48,7 @@ const Reviews = ({ movieId }) => {
                 ))}
             </div>
 
-            <AddReview movieId={movieId} />
+            {showForm && <AddReview movieId={movieId} setReviews={setReviews} setShowForm={setShowForm} />}
         </div>
     )
 }
