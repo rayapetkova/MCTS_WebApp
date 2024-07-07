@@ -1,7 +1,22 @@
+import { useContext, useEffect, useState } from "react";
 import AddReview from "../addReview/AddReview";
 import styles from "./Reviews.module.css"
+import { getReviews } from "../../services/reviewsService";
+import { AuthContext } from "../../contexts/AuthContext";
+import { convertToDate } from "../../utils/convertToDate";
+import { getUserDetails } from "../../services/authService";
 
 const Reviews = ({ movieId }) => {
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        async function loadReviews() {
+            let result = await getReviews()
+            setReviews(result)
+        }
+
+        loadReviews()
+    }, [])
 
     return (
         <div className={styles['reviews']}>
@@ -15,25 +30,17 @@ const Reviews = ({ movieId }) => {
             </div>
 
             <div className={styles['review-boxes']}>
-                <div className={styles['box']}>
-                    <p><span>10</span>/10</p>
-                    <h6>One of the Greatest Sequel Ever Made, Dune: Part Two Was Easily The Best Films Of The Year So Far</h6>
-                    <section className={styles['post-info']}>
-                        <p>Raya Petkova</p>
-                        <p>&nbsp;   &#xb7;  20 Feb 2024</p>
-                    </section>
-                    <p className={styles['review-desc']}>In the quiet embrace of ink and page, a story unfolded, timeless and sage, through the lens of a filmmaker's artistry, its essence soared, a masterpiece for all to see, i think Denis Villeneuve has just made the most visually stunning epic story of a movie that's ever been made, the most powerful story of a movie ever been told in the last 20 years, there has been no movies with this scale resulting in not just a piece of a film no more but a piece of art, it's what Infinity War and Endgame looks like...</p>
-                </div>
-
-                <div className={styles['box']}>
-                    <p><span>10</span>/10</p>
-                    <h6>One of the Greatest Sequel Ever Made, Dune: Part Two Was Easily The Best Films Of The Year So Far</h6>
-                    <section className={styles['post-info']}>
-                        <p>Raya Petkova</p>
-                        <p>&nbsp;   &#xb7;  20 Feb 2024</p>
-                    </section>
-                    <p className={styles['review-desc']}>In the quiet embrace of ink and page, a story unfolded, timeless and sage, through the lens of a filmmaker's artistry, its essence soared, a masterpiece for all to see, i think Denis Villeneuve has just made the most visually stunning epic story of a movie that's ever been made, the most powerful story of a movie ever been told in the last 20 years, there has been no movies with this scale resulting in not just a piece of a film no more but a piece of art, it's what Infinity War and Endgame looks like...</p>
-                </div>
+                {reviews.map((review) => (
+                    <div className={styles['box']} key={review._id}>
+                        <p><span>{review.rate}</span>/10</p>
+                        <h6>{review.review}</h6>
+                        <section className={styles['post-info']}>
+                            <p>Raya Petkova</p>
+                            <p>&nbsp;   &#xb7;  {convertToDate(review._createdOn)}</p>
+                        </section>
+                        <p className={styles['review-desc']}>{review.review}</p>
+                    </div>
+                ))}
             </div>
 
             <AddReview movieId={movieId} />

@@ -23,7 +23,8 @@ const formNames = {
     email: 'email',
     password: 'password',
     confirmPassword: 'confirmPassword',
-    username: 'username'
+    firstName: 'firstName',
+    lastName: 'lastName'
 }
 
 const Register = () => {
@@ -33,7 +34,8 @@ const Register = () => {
         [formNames.email]: '',
         [formNames.password]: '',
         [formNames.confirmPassword]: '',
-        [formNames.username]: ''
+        [formNames.firstName]: '',
+        [formNames.lastName]: ''
     })
 
     return (
@@ -49,20 +51,32 @@ const Register = () => {
 
                                 <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
                                     <MDBInput 
-                                        label='Username' 
+                                        label='First Name' 
                                         id='form1' 
                                         type='text' 
                                         className={`w-100 ${styles['input-field']}`} 
-                                        name={formNames.username} 
+                                        name={formNames.firstName} 
                                         onChange={onChange}
-                                        value={values.username}
+                                        value={values.firstName}
                                     />
                                 </div>
 
-                                <div className="d-flex flex-row align-items-center mb-4">
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
+                                    <MDBInput 
+                                        label='Last Name' 
+                                        id='form2' 
+                                        type='text' 
+                                        className={`w-100 ${styles['input-field']}`} 
+                                        name={formNames.lastName} 
+                                        onChange={onChange}
+                                        value={values.lastName}
+                                    />
+                                </div>
+
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
                                     <MDBInput 
                                         label='Your Email' 
-                                        id='form2' 
+                                        id='form3' 
                                         type='email' 
                                         className={styles['input-field']} 
                                         name={formNames.email} 
@@ -71,10 +85,10 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <div className="d-flex flex-row align-items-center mb-4">
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
                                     <MDBInput 
                                         label='Password' 
-                                        id='form3' 
+                                        id='form4' 
                                         type='password' 
                                         className={styles['input-field']} 
                                         name={formNames.password} 
@@ -83,10 +97,10 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <div className="d-flex flex-row align-items-center mb-4">
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
                                     <MDBInput 
                                         label='Repeat your password' 
-                                        id='form4' 
+                                        id='form5' 
                                         type='password' 
                                         className={styles['input-field']} 
                                         name={formNames.confirmPassword} 

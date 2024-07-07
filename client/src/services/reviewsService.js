@@ -1,5 +1,12 @@
 const baseUrl = 'http://localhost:3030/data'
 
+export async function getReviews() {
+    let response = await fetch(`${baseUrl}/reviews`)
+    let result = await response.json()
+
+    return result
+}
+
 export async function addReview(data) {
     const accessToken = localStorage.getItem('accessToken')
 
