@@ -13,7 +13,7 @@ import { AuthContext } from './contexts/AuthContext'
 import { login, register } from "./services/authService";
 import { useState } from "react";
 import Login from "./components/login/Login";
-import ProfileInfo from "./components/profileInfo/ProfileInfo";
+import EditProfileDetails from "./components/editProfileDetails/EditProfileDetails";
 
 function App() {
     const navigate = useNavigate()
@@ -38,6 +38,10 @@ function App() {
         navigate('/')
     }
 
+    const editProfileSubmitHandler = async (values) => {
+        
+    }
+
     const contextValues = {
         authData,
         registerSubmitHandler,
@@ -55,7 +59,7 @@ function App() {
                     <Route path="/movies/:sectionName" element={<ListMovies />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/users/me" element={<ProfileInfo />} />
+                    <Route path="/users/me" element={<EditProfileDetails />} />
                 </Routes>
 
                 <Footer />

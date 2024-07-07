@@ -38,7 +38,6 @@ export async function getUserDetails() {
     })
 
     let result = await response.json()
-    console.log(result)
     return result
 }
 
