@@ -33,24 +33,24 @@ const EditProfileDetails = () => {
                 <form action="#" method="#">
                     <div className={styles['row']}>
                         <div className={styles['field']}>
-                            <label for="first_name">First Name</label>
+                            <label htmlFor="first_name">First Name</label>
                             <input type="text" id="first_name" name="first_name" />
                         </div>
 
                         <div className={styles['field']}>
-                            <label for="last_name">Last Name</label>
+                            <label htmlFor="last_name">Last Name</label>
                             <input type="text" id="last_name" name="last_name" />
                         </div>
                     </div>
 
                     <div className={styles['row']}>
                         <div className={styles['field']}>
-                            <label for="phone_number">Phone Number</label>
+                            <label htmlFor="phone_number">Phone Number</label>
                             <input type="text" id="phone_number" name="phone_number" />
                         </div>
 
                         <div className={styles['field']}>
-                            <label for="email">Email</label>
+                            <label htmlFor="email">Email</label>
                             <input type="text" id="email" name="email" value={userData.email && userData.email} />
                         </div>
                     </div>
