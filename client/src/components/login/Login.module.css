@@ -25,6 +25,7 @@
     color: #C3C3C3 !important;
     width: 100% !important;
     background-color: rgba(180, 179, 179, 0.87) !important;
+    margin: 0 !important;
 }
 
 .input-field:focus {
@@ -51,4 +52,19 @@
 
 .image-logo {
     width: 100%;
+}
+
+.additional-link {
+    display: flex;
+}
+
+.additional-link p {
+    width: 44%;
+    padding-right: 0;
+    margin: 0;
+}
+
+.additional-link a {
+    width: 30%;
+    padding: 0;
 }
