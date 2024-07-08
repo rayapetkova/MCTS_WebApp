@@ -1,7 +1,7 @@
 import styles from './AddReview.module.css'
 import personImg from '../../assets/person.png'
 import useForm from '../../hooks/useForm'
-import { addReview } from '../../services/reviewsService'
+import { addReview, getReviews } from '../../services/reviewsService'
 import { useNavigate } from 'react-router-dom'
 
 const formNames = {
@@ -11,17 +11,14 @@ const formNames = {
 }
 
 const AddReview = ({ movieId, setReviews, setShowForm }) => {
-    const navigate = useNavigate()
 
     const addReviewSubmitHandler = async (values) => {
         let result = await addReview(values)
-        setReviews(currReviews => [
-            ...currReviews,
-            result
-        ])
-        setShowForm(false)
+        let movieReviews = await getReviews(movieId)
+        console.log(movieReviews)
+        setReviews(movieReviews)
 
-        navigate(`/movies/${result.movieId}/details`)
+        setShowForm(false)
     }
     
     const [values, onChange, onSubmit] = useForm(addReviewSubmitHandler, {
