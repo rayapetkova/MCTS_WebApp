@@ -14,6 +14,7 @@ import { login, register } from "./services/authService";
 import { useState } from "react";
 import Login from "./components/login/Login";
 import EditProfileDetails from "./components/editProfileDetails/EditProfileDetails";
+import { createUser } from "./services/usersService";
 
 function App() {
     const navigate = useNavigate()
@@ -23,10 +24,15 @@ function App() {
     })
 
     const registerSubmitHandler = async (values) => {
-        let response = await register(values)
-        setAuthData(response)
+        let result = await register(values)
+        setAuthData(result)
 
-        localStorage.setItem('accessToken', response.accessToken)
+        localStorage.setItem('accessToken', result.accessToken)
+        await createUser({
+            email: values.email,
+            firstName: values.firstName,
+            lastName: values.lastName
+        })
         navigate('/')
     }
 

@@ -17,6 +17,8 @@ import useForm from '../../hooks/useForm';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
+import { Link } from 'react-router-dom'
+
 import logoSymbol from '../../assets/logo_without_background.png'
 
 const formNames = {
@@ -107,6 +109,12 @@ const Register = () => {
                                         onChange={onChange} 
                                         value={values.confirmPassword}
                                     />
+                                </div>
+
+                                <div className='mb-4'>
+                                    <MDBRow name='flexCheck' id='flexCheckDefault' className={styles['additional-link']}>
+                                        <p>Already have an account?</p><Link to={'/login'}>Log In</Link>
+                                    </MDBRow>
                                 </div>
 
                                 <MDBBtn className='mb-4' size='lg'>Register</MDBBtn>
