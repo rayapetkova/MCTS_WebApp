@@ -14,7 +14,7 @@ import { login, register } from "./services/authService";
 import { useState } from "react";
 import Login from "./components/login/Login";
 import EditProfileDetails from "./components/editProfileDetails/EditProfileDetails";
-import { createUser } from "./services/usersService";
+import { createUser, retrieveUser } from "./services/usersService";
 
 function App() {
     const navigate = useNavigate()
@@ -22,30 +22,39 @@ function App() {
         localStorage.removeItem('accessToken')
         return {}
     })
+    const [createdUser, setCreatedUser] = useState({})
 
     const registerSubmitHandler = async (values) => {
         let result = await register(values)
         setAuthData(result)
 
         localStorage.setItem('accessToken', result.accessToken)
-        await createUser({
+        let createdUserRecord = await createUser({
             email: values.email,
             firstName: values.firstName,
-            lastName: values.lastName
+            lastName: values.lastName,
+            phoneNumber: '',
+            bio: ''
         })
+        setCreatedUser(createdUserRecord)
         navigate('/')
     }
 
     const loginSubmitHandler = async (values) => {
-        let response = await login(values)
-        setAuthData(response)
+        let result = await login(values)
+        setAuthData(result)
 
-        localStorage.setItem('accessToken', response.accessToken)
+        let retrievedUser = await retrieveUser(result._id)
+        setCreatedUser(retrievedUser[0])
+
+        localStorage.setItem('accessToken', result.accessToken)
         navigate('/')
     }
 
     const contextValues = {
         authData,
+        createdUser, 
+        setCreatedUser,  
         registerSubmitHandler,
         loginSubmitHandler
     }
