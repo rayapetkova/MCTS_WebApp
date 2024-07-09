@@ -25,7 +25,10 @@ function App() {
     const [createdUser, setCreatedUser] = useState({})
 
     const registerSubmitHandler = async (values) => {
-        let result = await register(values)
+        let result = await register({
+            email: values.email,
+            password: values.password
+        })
         setAuthData(result)
 
         localStorage.setItem('accessToken', result.accessToken)
