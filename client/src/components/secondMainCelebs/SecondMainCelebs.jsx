@@ -31,7 +31,7 @@ const SecondMainCelebs = ({ movieId }) => {
         }
 
         loadCelebs()
-    })
+    }, [])
 
     return (
         <div className={`${styles['second-main']} ${styles['celebs']}`}>

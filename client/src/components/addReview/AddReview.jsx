@@ -3,6 +3,8 @@ import personImg from '../../assets/person.png'
 import useForm from '../../hooks/useForm'
 import { addReview, getReviews } from '../../services/reviewsService'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 const formNames = {
     rate: 'rate',
@@ -11,11 +13,11 @@ const formNames = {
 }
 
 const AddReview = ({ movieId, setReviews, setShowForm }) => {
+    const { createdUser } = useContext(AuthContext)
 
     const addReviewSubmitHandler = async (values) => {
         let result = await addReview(values)
         let movieReviews = await getReviews(movieId)
-        console.log(movieReviews)
         setReviews(movieReviews)
 
         setShowForm(false)
@@ -25,7 +27,11 @@ const AddReview = ({ movieId, setReviews, setShowForm }) => {
         [formNames.rate]: '',
         [formNames.title]: '',
         [formNames.review]: '',
-        movieId
+        movieId,
+        userInfo: {
+            firstName: createdUser.firstName,
+            lastName: createdUser.lastName
+        }
     })
 
     return (

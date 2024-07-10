@@ -5,6 +5,7 @@ import { getReviews } from "../../services/reviewsService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { convertToDate } from "../../utils/convertToDate";
 import { getUserDetails } from "../../services/authService";
+import { retrieveUser } from "../../services/usersService";
 
 const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
@@ -41,7 +42,7 @@ const Reviews = ({ movieId }) => {
                         <p><span>{review.rate}</span>/10</p>
                         <h6>{review.title}</h6>
                         <section className={styles['post-info']}>
-                            <p>{`${review.author && review.author.firstName} ${review.author && review.author.lastName}`}</p>
+                            <p>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</p>
                             <p>&nbsp;   &#xb7;  {convertToDate(review._createdOn)}</p>
                         </section>
                         <p className={styles['review-desc']}>{review.review}</p>

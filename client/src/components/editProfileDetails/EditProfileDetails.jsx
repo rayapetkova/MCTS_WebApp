@@ -24,7 +24,7 @@ const EditProfileDetails = () => {
                 </div>
 
                 <div className={styles['user-info']}>
-                    <p className={styles['name']}>{createdUser.firstName}</p>
+                    <p className={styles['name']}>{`${createdUser.firstName} ${createdUser.lastName}`}</p>
                 </div>
             </div>
 
