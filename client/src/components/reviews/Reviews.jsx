@@ -6,12 +6,13 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { convertToDate } from "../../utils/convertToDate";
 import { getUserDetails } from "../../services/authService";
 import { retrieveUser } from "../../services/usersService";
+import EditReview from "../editReview/EditReview";
 
 const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
     const [showForm, setShowForm] = useState(false)
     const {authData} = useContext(AuthContext)
-    console.log(authData)
+    const [showEditForm, setshowEditForm] = useState(false)
 
     useEffect(() => {
         async function loadReviews() {
@@ -25,6 +26,8 @@ const Reviews = ({ movieId }) => {
     function showAddReviewFormEvent(e) {
         setShowForm(true)
     }
+
+    const showEditReviewFormEvent = (e) => setshowEditForm(true)
 
     return (
         <div className={styles['reviews']} id="reviews">
@@ -45,8 +48,9 @@ const Reviews = ({ movieId }) => {
                             <p><span>{review.rate}</span>/10</p>
                             {authData._id === review._ownerId && (
                                 <section className={styles['buttons']}>
-                                    <button className={styles['edit']}>Edit</button>
+                                    <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
                                     <button className={styles['delete']}>Delete</button>
+                                    {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} setReviews={setReviews} />}
                                 </section>
                             )}
                             
