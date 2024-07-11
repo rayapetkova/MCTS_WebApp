@@ -27,3 +27,19 @@ export async function addReview(data) {
     let result = await response.json()
     return result
 }
+
+export async function editReview(data, recordId) {
+    const accessToken = localStorage.getItem('accessToken')
+
+    let response = await fetch(`${baseUrl}/reviews/${recordId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': accessToken
+        },
+        body: JSON.stringify(data)
+    })
+
+    let result = await response.json()
+    return result
+}
