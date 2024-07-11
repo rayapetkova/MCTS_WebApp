@@ -51,7 +51,7 @@ const FirstMain = () => {
                             <img src={yellowDot} alt="yellow-dot"/>
                             <h3>Playing Now</h3>
                         </div>
-                        <a href="#">Browse Movies &gt;</a>
+                        <Link to={'/movies/Playing Now'}>Browse Movies &gt;</Link>
                     </div>
                     {playingNow.slice(1, 4).map((movie) => (
                         <Link to={`/movies/${movie.id}/details`} key={movie.id} className={styles['featured-images']}>

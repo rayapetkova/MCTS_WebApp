@@ -77,15 +77,20 @@
     margin-top: 1em;
 }
 
-.movie-info section a {
+.movie-info section button {
     text-decoration: none;
     background-color: #f2c318;
+    border: none;
     border-bottom: outset 3px #b79312;
     border-right: outset 2px #b79312;
     border-radius: 10px;
-    padding: 0.7em 1.3em;
+    padding: 0.5em 1.1em;
     font-size: 1.2em;
     color: #121212;
+}
+
+.movie-info section .added-to-watchlist {
+    background-color: #64520f;
 }
 
 .movie-info table {

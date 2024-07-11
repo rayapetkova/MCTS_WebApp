@@ -2,15 +2,19 @@ import styles from "../firstSectionMovieInfo/FirstSectionMovieInfo.module.css"
 
 import movieImg from '../../assets/movie_img.png'
 import moviePoster from '../../assets/movie_poster.png'
-import { useDebugValue, useEffect, useState } from "react"
+import { useContext, useDebugValue, useEffect, useState } from "react"
 import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
 import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../api_data/extractingData"
+import { addToWatchlist } from "../../services/watchlistService"
+import { AuthContext } from "../../contexts/AuthContext"
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const FirstSectionMovieInfo = ({ movieId }) => {
     let [movieInfo, setMovieInfo] = useState({})
     let [movieCredits, setMovieCredits] = useState({})
+    let [addedToWatchlist, setAddedToWatchlist] = useState(false)
+    let { createdUser } = useContext(AuthContext)
 
     useEffect(() => {
         async function loadMovieInfo() {
@@ -26,6 +30,15 @@ const FirstSectionMovieInfo = ({ movieId }) => {
         loadMovieInfo()
         loadMovieCredits()
     }, [])
+
+    async function addToWatchListEvent(e) {
+        let result = await addToWatchlist({
+            createdUser,
+            movieId: movieInfo.id
+        })
+
+        setAddedToWatchlist(true)
+    }
 
     return (
         <section className={styles['first-section']}>
@@ -81,7 +94,11 @@ const FirstSectionMovieInfo = ({ movieId }) => {
                 </table>
 
                 <section>
-                    <a href="#">Add to Watchlist</a>
+                    {addedToWatchlist ? (
+                        <button className={styles['added-to-watchlist']}>Added to Watchlist</button>
+                    ) : (
+                        <button onClick={addToWatchListEvent}>Add to Watchlist</button>
+                    )}
                 </section>
             </div>
         </section>

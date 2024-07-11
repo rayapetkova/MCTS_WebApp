@@ -5,7 +5,7 @@ import movieCard from '../../assets/movie_card.png'
 import emptyStar from '../../assets/empty_star.png'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 
-import getFeaturedToday, { getComingSoonMovies } from '../../api_data/dataFunctions'
+import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions'
 import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
 import { Link } from 'react-router-dom'
 
@@ -18,6 +18,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         'Top on MCTS this week': [],
         'Top Rated': [],
         'Coming Soon': [],
+        'Playing Now': []
     })
 
     const arrayForRows = Array(numOfRows)
@@ -33,6 +34,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
             let featuredThisWeek = await getFeaturedThisWeek()
             let topRated = await getTopRatedMovies()
             let comingSoon = await getComingSoonMovies()
+            let playingNow = await getNowPlayingInTheatres()
 
             setSectionsObj(currentSections => ({
                 ...currentSections,
@@ -40,7 +42,8 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                 'From your Watchlist': featuredToday,
                 'Top on MCTS this week': featuredThisWeek,
                 'Top Rated': topRated,
-                'Coming Soon': comingSoon
+                'Coming Soon': comingSoon,
+                'Playing Now': playingNow
             }))
         }
 
