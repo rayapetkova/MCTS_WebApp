@@ -10,6 +10,8 @@ import { retrieveUser } from "../../services/usersService";
 const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
     const [showForm, setShowForm] = useState(false)
+    const {authData} = useContext(AuthContext)
+    console.log(authData)
 
     useEffect(() => {
         async function loadReviews() {
@@ -39,7 +41,16 @@ const Reviews = ({ movieId }) => {
                 {reviews.length > 0 ? 
                 (reviews.slice(-2).reverse().map((review) => (
                     <div className={styles['box']} key={review._id}>
-                        <p><span>{review.rate}</span>/10</p>
+                        <section className={styles['top']}>
+                            <p><span>{review.rate}</span>/10</p>
+                            {authData._id === review._ownerId && (
+                                <section className={styles['buttons']}>
+                                    <button className={styles['edit']}>Edit</button>
+                                    <button className={styles['delete']}>Delete</button>
+                                </section>
+                            )}
+                            
+                        </section>
                         <h6>{review.title}</h6>
                         <section className={styles['post-info']}>
                             <p>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</p>
