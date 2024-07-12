@@ -1,6 +1,7 @@
 import styles from "../firstSectionMovieInfo/FirstSectionMovieInfo.module.css"
 
 import movieImg from '../../assets/movie_img.png'
+import tick from '../../assets/tick.png'
 import moviePoster from '../../assets/movie_poster.png'
 import { useContext, useDebugValue, useEffect, useState } from "react"
 import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
@@ -32,9 +33,16 @@ const FirstSectionMovieInfo = ({ movieId }) => {
     }, [])
 
     async function addToWatchListEvent(e) {
+        console.log(movieInfo)
+        console.log(createdUser)
         let result = await addToWatchlist({
             createdUser,
-            movieId: movieInfo.id
+            movie: {
+                id: movieInfo.id,
+                poster_path: movieInfo.poster_path,
+                title: movieInfo.title,
+                vote_average: movieInfo.vote_average
+            }
         })
 
         setAddedToWatchlist(true)
@@ -95,7 +103,7 @@ const FirstSectionMovieInfo = ({ movieId }) => {
 
                 <section>
                     {addedToWatchlist ? (
-                        <button className={styles['added-to-watchlist']}>Added to Watchlist</button>
+                        <button className={styles['added-to-watchlist']}><img src={tick} className={styles['tick']} />Added to Watchlist</button>
                     ) : (
                         <button onClick={addToWatchListEvent}>Add to Watchlist</button>
                     )}
