@@ -15,3 +15,20 @@ export async function addToWatchlist(data) {
     let result = await response.json()
     return result
 }
+
+export async function getWatchlist(userId) {
+    const queries = new URLSearchParams({
+        where: `_ownerId="${userId}"`
+    })
+
+    let response = await fetch(`${baseUrl}/watchlists?${queries}`)
+    let result = await response.json()
+
+    const moviesWatchlist = []
+    
+    for (let record of Object.values(result)) {
+        moviesWatchlist.push(record.movie)
+    }
+
+    return moviesWatchlist
+}

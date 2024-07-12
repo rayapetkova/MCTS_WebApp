@@ -30,7 +30,7 @@ const Header = () => {
 
 
             <ul className={styles['last-links']}>
-                <li><Link to={'movies/From your Watchlist'}>Watchlist</Link></li>
+                <li><Link to={'movies/Watchlist'}>Watchlist</Link></li>
                 <li>{authData.email 
                     ? (<Link to={'users/me'}><img className={styles['profile-img']} src={profileIcon}/></Link>)
                     : (<Link to={'/login'}>Sign In</Link>) }

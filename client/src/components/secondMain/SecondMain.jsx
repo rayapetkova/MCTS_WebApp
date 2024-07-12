@@ -3,11 +3,13 @@ import leftArrow from '../../assets/left_arrow_button.png'
 import rightArrow from '../../assets/right_arrow_button.png'
 import movieCard from '../../assets/movie_card.png'
 import emptyStar from '../../assets/empty_star.png'
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { useContext, useEffect, useState, useSyncExternalStore } from 'react'
 
 import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions'
 import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext'
+import { getWatchlist } from '../../services/watchlistService'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -18,8 +20,10 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         'Top on MCTS this week': [],
         'Top Rated': [],
         'Coming Soon': [],
-        'Playing Now': []
+        'Playing Now': [],
+        'Watchlist': []
     })
+    const { authData } = useContext(AuthContext)
 
     const arrayForRows = Array(numOfRows)
     let currentIndex = 0
@@ -35,6 +39,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
             let topRated = await getTopRatedMovies()
             let comingSoon = await getComingSoonMovies()
             let playingNow = await getNowPlayingInTheatres()
+            let watchlist = await getWatchlist(authData._id)
 
             setSectionsObj(currentSections => ({
                 ...currentSections,
@@ -43,22 +48,14 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                 'Top on MCTS this week': featuredThisWeek,
                 'Top Rated': topRated,
                 'Coming Soon': comingSoon,
-                'Playing Now': playingNow
+                'Playing Now': playingNow,
+                'Watchlist': watchlist
             }))
         }
 
         loadFeaturedToday();
     
     }, [])
-
-    function RenderArrows() {
-        if (!listFeature) {
-            return <div className={styles['buttons']}>
-                        <a href="#"><img src={leftArrow} alt="left-arrow"/></a>
-                        <a href="#"><img src={rightArrow} alt="right-arrow"/></a>
-                    </div>
-        }
-    }
     
     return (
         <div className={styles['second-main']} id={sectionName}>
@@ -66,11 +63,16 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                 <div className={styles['title']}>
                     {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName}</Link> : <h2>{sectionName} - MCTS</h2>}
                     
-                    {RenderArrows()}
+                    {!listFeature && (
+                        <div className={styles['buttons']}>
+                            <a href="#"><img src={leftArrow} alt="left-arrow"/></a>
+                            <a href="#"><img src={rightArrow} alt="right-arrow"/></a>
+                    </div>
+                    )}
                 </div>
 
                 {arrayForRows.map(([start, end]) => (
-                    <div className={styles['cards']} key={start}>
+                    <div className={`${styles['cards']} ${sectionName==='Watchlist' && styles['watchlist-cards']}`} key={start}>
                         {sectionsObj[sectionName].slice(start, end).map((movie) => (
                             <div key={movie.id} className={styles['card']}>
                                 <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
