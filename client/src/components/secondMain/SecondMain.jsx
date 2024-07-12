@@ -1,17 +1,15 @@
 import styles from './SecondMain.module.css'
 import leftArrow from '../../assets/left_arrow_button.png'
 import rightArrow from '../../assets/right_arrow_button.png'
-import movieCard from '../../assets/movie_card.png'
-import emptyStar from '../../assets/empty_star.png'
-import { useContext, useEffect, useState, useSyncExternalStore } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions'
 import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import { getWatchlist } from '../../services/watchlistService'
+import Card from './card/Card'
 
-const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
     let [sectionsObj, setSectionsObj] = useState({
@@ -72,19 +70,9 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                 </div>
 
                 {arrayForRows.map(([start, end]) => (
-                    <div className={`${styles['cards']} ${sectionName==='Watchlist' && styles['watchlist-cards']}`} key={start}>
+                    <div className={styles['cards']} key={start}>
                         {sectionsObj[sectionName].slice(start, end).map((movie) => (
-                            <div key={movie.id} className={styles['card']}>
-                                <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
-                                <p>{movie.title}</p>
-                                <div className={styles['star-div']}>
-                                    <div className={styles['img-container']}>
-                                        <img src={emptyStar} alt="empty-star"/>
-                                    </div>
-                                    <p>{movie.vote_average}</p>
-                                </div>
-                                <Link to={`/movies/${movie.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
-                            </div>
+                            <Card movie={movie} />
                         ))}
                     </div>
                 ))}

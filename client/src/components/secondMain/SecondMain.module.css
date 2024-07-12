@@ -48,10 +48,6 @@ div.second-main .one-section .cards {
     justify-content: space-between;
 }
 
-div.second-main .one-section .watchlist-cards {
-    background-color: aliceblue;
-}
-
 div.second-main .one-section .cards .card {
     width: 14%;
     display: flex;

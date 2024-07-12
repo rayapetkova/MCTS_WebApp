@@ -9,7 +9,7 @@ const MainPageMovies = () => {
 
             <SecondMain sectionName='Featured Today' numOfCards={6} numOfRows={1}/>
 
-            <SecondMain sectionName='From your Watchlist' numOfCards={6} numOfRows={1} />
+            <SecondMain sectionName='Watchlist' numOfCards={6} numOfRows={1} />
 
             <SecondMain sectionName='Top on MCTS this week' numOfCards={6} numOfRows={1} />
 
@@ -22,4 +22,4 @@ const MainPageMovies = () => {
     )
 }
 
-export default MainPageMovies
+export default MainPageMovies;
