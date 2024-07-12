@@ -72,7 +72,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                 {arrayForRows.map(([start, end]) => (
                     <div className={styles['cards']} key={start}>
                         {sectionsObj[sectionName].slice(start, end).map((movie) => (
-                            <Card movie={movie} />
+                            <Card movie={movie} key={movie.id} />
                         ))}
                     </div>
                 ))}
@@ -84,4 +84,4 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
     )
 }
 
-export default SecondMain
+export default SecondMain;

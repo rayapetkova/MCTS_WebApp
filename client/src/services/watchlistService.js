@@ -22,6 +22,11 @@ export async function getWatchlist(userId) {
     })
 
     let response = await fetch(`${baseUrl}/watchlists?${queries}`)
+
+    if (!response.ok) {
+        return []
+    }
+    
     let result = await response.json()
 
     const moviesWatchlist = []
