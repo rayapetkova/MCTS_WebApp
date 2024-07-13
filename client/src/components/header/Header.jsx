@@ -5,36 +5,34 @@ import profileIcon from '../../assets/profile_icon.png'
 import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
-import { getDiscoverMovies } from '../../api_data/dataFunctions'
+import { getDiscovedMovies } from '../../api_data/dataFunctions'
+import SearchCard from './searchCard/SearchCard'
 
 const Header = () => {
     const {authData} = useContext(AuthContext)
     const [searchedValue, setSearchedValue] = useState('')
     const [discoveredMovies, setDiscoveredMovies] = useState([])
+    const [matchedMovies, setMatchedMovies] = useState([])
 
     useEffect(() => {
         async function loadDicoveredMovies() {
-            let result = await getDiscoverMovies()
+            let result = await getDiscovedMovies()
             setDiscoveredMovies(result)
         }
 
         loadDicoveredMovies()
     }, [])
 
-    
-
     function onChangeSearchBar(e) {
-        let currentMoviesMatch = []
+        const filteredMovies = discoveredMovies.filter((movie) => 
+            movie.title.toLowerCase().includes(e.target.value.toLowerCase())
+        )
 
-        for (let movie of discoveredMovies) {
-            if (movie.title.toLowerCase().includes(e.target.value.toLowerCase())) {
-                currentMoviesMatch.push(movie)
-                setSearchedValue(e.target.value)
-            }
-        }
-
-        console.log(currentMoviesMatch)
+        setSearchedValue(e.target.value)
+        setMatchedMovies(filteredMovies)
     }
+
+    console.log(matchedMovies)
 
     return (
         <header>
@@ -59,6 +57,15 @@ const Header = () => {
                     value={searchedValue} 
                     onChange={onChangeSearchBar}
                 />
+
+                {searchedValue && (
+                    <div className={styles['discovered-movies']}>
+                        {matchedMovies.map((movie) => (
+                            <SearchCard movie={movie} key={movie.id} setSearchedValue={setSearchedValue} />
+                        ))}
+                    </div>
+                )}
+
             </section>
 
 

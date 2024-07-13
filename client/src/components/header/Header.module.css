@@ -47,8 +47,10 @@ header nav ul li a {
 
 header section.search-bar-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 50%;
+    position: relative;
 }
 
 header section.search-bar-section input {
@@ -84,4 +86,15 @@ header ul.last-links li a {
 
 .profile-img {
     width: 90%
+}
+
+.search-bar-section .discovered-movies {
+    position: absolute;
+    background-color: #080808;
+    margin-top: 6%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 3% 3%;
 }
