@@ -3,11 +3,38 @@ import logo from '../../assets/logo.png'
 import profileIcon from '../../assets/profile_icon.png'
 
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import { getDiscoverMovies } from '../../api_data/dataFunctions'
 
 const Header = () => {
     const {authData} = useContext(AuthContext)
+    const [searchedValue, setSearchedValue] = useState('')
+    const [discoveredMovies, setDiscoveredMovies] = useState([])
+
+    useEffect(() => {
+        async function loadDicoveredMovies() {
+            let result = await getDiscoverMovies()
+            setDiscoveredMovies(result)
+        }
+
+        loadDicoveredMovies()
+    }, [])
+
+    
+
+    function onChangeSearchBar(e) {
+        let currentMoviesMatch = []
+
+        for (let movie of discoveredMovies) {
+            if (movie.title.toLowerCase().includes(e.target.value.toLowerCase())) {
+                currentMoviesMatch.push(movie)
+                setSearchedValue(e.target.value)
+            }
+        }
+
+        console.log(currentMoviesMatch)
+    }
 
     return (
         <header>
@@ -25,7 +52,13 @@ const Header = () => {
             </nav>
 
             <section className={styles['search-bar-section']}>
-                <input className="search-bar" type="search" placeholder="Search..."/>
+                <input 
+                    className="search-bar" 
+                    type="search" 
+                    placeholder="Search..."
+                    value={searchedValue} 
+                    onChange={onChangeSearchBar}
+                />
             </section>
 
 
