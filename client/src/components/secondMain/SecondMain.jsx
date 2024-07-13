@@ -69,13 +69,24 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                     )}
                 </div>
 
-                {arrayForRows.map(([start, end]) => (
-                    <div className={styles['cards']} key={start}>
-                        {sectionsObj[sectionName].slice(start, end).map((movie) => (
-                            <Card movie={movie} key={movie.id} />
-                        ))}
-                    </div>
-                ))}
+                {sectionsObj[sectionName].length > 0 ? (
+                    arrayForRows.map(([start, end]) => (
+                        <div className={styles['cards']} key={start}>
+                            {sectionsObj[sectionName].slice(start, end).map((movie) => (
+                                <Card movie={movie} key={movie.id} />
+                            ))}
+                        </div>
+                    ))
+                ) : <>
+                        {sectionName==='Watchlist' ? (
+                            <div className={styles['no-movies-in-watchlist']}>
+                                <p>No movies in Watchlist yet</p>
+                                <Link to={'/movies/Top Rated'} className={styles['browse-movies']}>Browse Movies</Link>
+                            </div>
+                        ) : (
+                            <div>Loading...</div>
+                        )}
+                    </>}
                 
 
                 
