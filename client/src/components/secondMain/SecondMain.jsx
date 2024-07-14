@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import { getWatchlist } from '../../services/watchlistService'
 import Card from './card/Card'
+import Spinner from '../spinner/Spinner'
 
 
 const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
@@ -84,7 +85,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
                                 <Link to={'/movies/Top Rated'} className={styles['browse-movies']}>Browse Movies</Link>
                             </div>
                         ) : (
-                            <div>Loading...</div>
+                            <Spinner />
                         )}
                     </>}
                 
