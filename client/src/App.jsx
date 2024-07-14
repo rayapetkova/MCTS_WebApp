@@ -15,6 +15,7 @@ import { useState } from "react";
 import Login from "./components/login/Login";
 import EditProfileDetails from "./components/editProfileDetails/EditProfileDetails";
 import { createUser, retrieveUser } from "./services/usersService";
+import CelebrityInfo from "./components/CelebrityInfo";
 
 function App() {
     const navigate = useNavigate()
@@ -74,6 +75,7 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/users/me" element={<EditProfileDetails />} />
+                    <Route path="/people/:personId" element={<CelebrityInfo />} />
                 </Routes>
 
                 <Footer />
