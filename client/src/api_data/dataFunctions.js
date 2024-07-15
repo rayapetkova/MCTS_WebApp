@@ -81,3 +81,10 @@ export async function getPersonMovies(personId) {
 
     return result
 }
+
+export async function getPersonPhotos(personId) {
+    let response = await fetch(`https://api.themoviedb.org/3/person/${personId}/images?api_key=e4a864389e1a88f97675e63b530b64c7`)
+    let result = await response.json()
+
+    return result
+}

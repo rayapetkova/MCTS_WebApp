@@ -2,8 +2,23 @@ import styles from './SecondMainPersonPhotos.module.css'
 import movieImg from '../../assets/movie_img.png'
 import leftArrow from '../../assets/left_arrow_button.png'
 import rigthArrow from '../../assets/right_arrow_button.png'
+import { useEffect, useState } from 'react'
+import { getPersonPhotos } from '../../api_data/dataFunctions'
+
+const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const SecondMainPersonPhotos = ({ personId }) => {
+    const [personPhotos, setPersonPhotos] = useState([])
+
+    useEffect(() => {
+        async function loadPersonPhotos() {
+            let result = await getPersonPhotos(personId)
+            setPersonPhotos(result.profiles)
+        }
+
+        loadPersonPhotos()
+    }, [])
+
     return (
         <div className={`${styles['second-main']} ${styles['photos']}`}>
             <section className={styles['one-section']}>
@@ -15,21 +30,11 @@ const SecondMainPersonPhotos = ({ personId }) => {
                     </div>
                 </div>
                 <div className={styles['cards']}>
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
-
-                    <div className={styles['card']}>
-                        <img src={movieImg} alt="card" />
-                    </div>
+                    {personPhotos && personPhotos.map((photo) => (
+                        <div className={styles['card']} key={photo.vote_average}>
+                            <img src={`${pathForImages + photo.file_path}`} alt="card" />
+                        </div>
+                    ))}
                 </div>
 
             </section>

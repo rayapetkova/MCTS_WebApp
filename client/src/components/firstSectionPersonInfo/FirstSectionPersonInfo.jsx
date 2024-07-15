@@ -4,10 +4,14 @@ import moviePoster from '../../assets/movie_poster.png'
 
 import styles from './FirstSectionPersonInfo.module.css'
 import { getPersonDetails, getPersonMovies } from '../../api_data/dataFunctions'
+import noImageAvailable from '../../assets/no_image_available.png'
+
+const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const FirstSectionPersonInfo = ({ personId }) => {
     const [personInfo, setPersonInfo] = useState({})
     const [personMovies, setPersonMovies] = useState([])
+    const [backdropMovieImage, setBackdropMovieImage] = useState('')
 
     useEffect(() => {
         async function loadPersonDetails() {
@@ -23,6 +27,7 @@ const FirstSectionPersonInfo = ({ personId }) => {
                 moviesList.push(movie.title)
             }
 
+            setBackdropMovieImage(moviesList[0].backdrop_path)
             setPersonMovies(moviesList)
         }
 
@@ -41,10 +46,10 @@ const FirstSectionPersonInfo = ({ personId }) => {
             </div>
             <div className={styles['two-images']}>
                 <div className={`${styles['img-container']} ${styles['first']}`}>
-                    <img src={moviePoster} alt="movie-poster" />
+                    <img src={pathForImages + personInfo.profile_path} alt="movie-poster" />
                 </div>
                 <div className={`${styles['img-container']} ${styles['second']}`}>
-                    <img src={movieImg} alt="movie-image" />
+                    <img src={backdropMovieImage ? `${pathForImages + backdropMovieImage}` : noImageAvailable} alt="movie-image" />
                 </div>
             </div>
             <div className={styles['person-info']}>
