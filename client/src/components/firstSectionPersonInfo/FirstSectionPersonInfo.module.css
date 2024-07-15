@@ -83,10 +83,15 @@ img {
     flex-direction: column;
 }
 
-.person-info > p {
-    font-size: 1.7em;
-    color: #ffffffbe;
+.person-info h3 {
+    color: #797979;
     font-weight: 500;
+}
+
+.person-info > p {
+    font-size: 1.2em;
+    color: #ffffffbe;
+    font-weight: 400;
 }
 
 .person-info .participated-in {

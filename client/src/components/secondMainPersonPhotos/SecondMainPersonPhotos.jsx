@@ -30,7 +30,7 @@ const SecondMainPersonPhotos = ({ personId }) => {
                     </div>
                 </div>
                 <div className={styles['cards']}>
-                    {personPhotos && personPhotos.map((photo) => (
+                    {personPhotos && personPhotos.slice(0, 4).map((photo) => (
                         <div className={styles['card']} key={photo.vote_average}>
                             <img src={`${pathForImages + photo.file_path}`} alt="card" />
                         </div>

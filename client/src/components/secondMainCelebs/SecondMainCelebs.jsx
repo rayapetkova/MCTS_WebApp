@@ -6,10 +6,12 @@ import personImg from '../../assets/person.png'
 import { useEffect, useState } from 'react'
 import { getMovieCredits } from '../../api_data/dataFunctions'
 import { extractCast } from '../../api_data/extractingData'
+import { useNavigate } from 'react-router-dom'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const SecondMainCelebs = ({ movieId }) => {
+    const navigate = useNavigate()
     let [movieCast, setMovieCast] = useState([])
 
     useEffect(() => {
@@ -33,6 +35,10 @@ const SecondMainCelebs = ({ movieId }) => {
         loadCelebs()
     }, [])
 
+    function onClickCelebHandler(personId) {
+        navigate(`/people/${personId}`)
+    }
+
     return (
         <div className={`${styles['second-main']} ${styles['celebs']}`}>
             <section className={styles['one-section']}>
@@ -45,13 +51,13 @@ const SecondMainCelebs = ({ movieId }) => {
                 </div>
                 <div className={styles['cards']}>
                     {movieCast.map((celeb) => (
-                        <div className={styles['card']} key={celeb.id}>
+                        <button className={styles['card']} key={celeb.id} onClick={() => onClickCelebHandler(celeb.id)}>
                             <img src={`${pathForImages}/${celeb.profile_path}`} alt="card" />
                             <div className={styles['name-container']}>
                                 <p>{celeb.original_name}</p>
                                 <p>{celeb.character}</p>
                             </div>
-                        </div>
+                        </button>
                     ))}
     
                 </div>

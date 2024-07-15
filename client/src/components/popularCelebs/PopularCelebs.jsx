@@ -5,11 +5,14 @@ import personImg from '../../assets/person.png'
 
 import { getPopularCelebrities } from '../../api_data/dataFunctions'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const PopularCelebs = () => {
+    const navigate = useNavigate()
     let [popularCelebrities, setPopularCelebrities] = useState([])
+
 
     useEffect(() => {
         async function loadPopularCelebs() {
@@ -19,6 +22,10 @@ const PopularCelebs = () => {
 
         loadPopularCelebs()
     }, [])
+
+    function onClickCelebHandler(personId) {
+        navigate(`/people/${personId}`)
+    }
 
     return (
         <div className={`${styles['second-main']} ${styles['celebs']}`} id='popular-celebs'>
@@ -32,12 +39,12 @@ const PopularCelebs = () => {
                 </div>
                 <div className={styles['cards']}>
                     {popularCelebrities.slice(0, 6).map((celebrity) => (
-                        <div key={celebrity.id} className={styles['card']}>
+                        <button key={celebrity.id} className={styles['card']} onClick={() => onClickCelebHandler(celebrity.id)}>
                             <img src={`${pathForImages + celebrity.profile_path}`} alt="card" />
                             <div className={styles['name-container']}>
                                 <p>{celebrity.name}</p>
                             </div>
-                        </div>
+                        </button>
                     ))}
                 </div>
 

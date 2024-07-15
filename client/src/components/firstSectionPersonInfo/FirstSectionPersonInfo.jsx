@@ -53,10 +53,11 @@ const FirstSectionPersonInfo = ({ personId }) => {
                 </div>
             </div>
             <div className={styles['person-info']}>
+                <h3>Biography</h3>
                 <p className={styles['biography']}>{personInfo.biography}</p>
                 <div className={styles['participated-in']}>
                     <h6>Movies</h6>
-                    <p>{personMovies.join(', ')}</p>
+                    <p>{personMovies.slice(0, 15).join(', ')}</p>
                 </div>
             </div>
         </section>
