@@ -67,3 +67,17 @@ export async function getMoviePhotos(movieId) {
 
     return result.backdrops
 }
+
+export async function getPersonDetails(personId) {
+    let response = await fetch(`https://api.themoviedb.org/3/person/${personId}?api_key=e4a864389e1a88f97675e63b530b64c7`)
+    let result = await response.json()
+
+    return result
+}
+
+export async function getPersonMovies(personId) {
+    let response = await fetch(`https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=e4a864389e1a88f97675e63b530b64c7`)
+    let result = await response.json()
+
+    return result
+}

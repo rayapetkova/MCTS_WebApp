@@ -89,7 +89,7 @@ img {
 
 .person-info .participated-in {
     display: flex;
-    align-items: center;
+    align-items: start;
 }
 
 .person-info .participated-in h6 {
