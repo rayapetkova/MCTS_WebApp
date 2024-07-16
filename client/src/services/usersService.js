@@ -1,7 +1,8 @@
 const baseUrl = 'http://localhost:3030/data'
 
 export async function createUser(data) {
-    const accessToken = localStorage.getItem('accessToken')
+    const authData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authData.accessToken
 
     let response = await fetch(`${baseUrl}/usersRecords`, {
         method: 'POST',
@@ -17,7 +18,8 @@ export async function createUser(data) {
 }
 
 export async function editUser(data, recordId) {
-    const accessToken = localStorage.getItem('accessToken')
+    const authUserData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authUserData.accessToken
 
     let response = await fetch(`${baseUrl}/usersRecords/${recordId}`, {
         method: 'PUT',

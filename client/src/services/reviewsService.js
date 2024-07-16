@@ -13,7 +13,8 @@ export async function getReviews(movieId) {
 }
 
 export async function addReview(data) {
-    const accessToken = localStorage.getItem('accessToken')
+    const authUserData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authUserData.accessToken
 
     let response = await fetch(`${baseUrl}/reviews`, {
         method: 'POST',
@@ -29,7 +30,8 @@ export async function addReview(data) {
 }
 
 export async function editReview(data, recordId) {
-    const accessToken = localStorage.getItem('accessToken')
+    const authUserData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authUserData.accessToken
 
     let response = await fetch(`${baseUrl}/reviews/${recordId}`, {
         method: 'PUT',

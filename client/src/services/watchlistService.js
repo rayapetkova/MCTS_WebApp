@@ -1,7 +1,8 @@
 const baseUrl = 'http://localhost:3030/data'
 
 export async function addToWatchlist(data) {
-    const accessToken = localStorage.getItem('accessToken')
+    const authUserData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authUserData.accessToken
 
     let response = await fetch(`${baseUrl}/watchlists`, {
         method: 'POST',
