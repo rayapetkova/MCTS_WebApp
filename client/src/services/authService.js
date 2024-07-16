@@ -26,10 +26,11 @@ export async function login(data) {
     return result
 }
 
-export async function getUserDetails() {
-    const accessToken = localStorage.getItem('accessToken')
+export async function logout() {
+    const authUserData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authUserData.accessToken
 
-    let response = await fetch(`${baseUrl}/me`, {
+    let response = await fetch(`${baseUrl}/logout`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -37,9 +38,23 @@ export async function getUserDetails() {
         }
     })
 
-    let result = await response.json()
-    return result
+    return response
 }
+
+// export async function getUserDetails() {
+//     const accessToken = localStorage.getItem('accessToken')
+
+//     let response = await fetch(`${baseUrl}/me`, {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'X-Authorization': accessToken
+//         }
+//     })
+
+//     let result = await response.json()
+//     return result
+// }
 
 
 

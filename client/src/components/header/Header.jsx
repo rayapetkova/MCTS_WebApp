@@ -9,16 +9,20 @@ import { getDiscovedMovies } from '../../api_data/dataFunctions'
 import SearchCard from './searchCard/SearchCard'
 
 const Header = () => {
-    const {authData} = useContext(AuthContext)
+    const [authUserData, setAuthUserData] = useState({})
     const [searchedValue, setSearchedValue] = useState('')
     const [discoveredMovies, setDiscoveredMovies] = useState([])
     const [matchedMovies, setMatchedMovies] = useState([])
+    const { checkIfUserLogged, logoutSubmitHandler } = useContext(AuthContext)
 
     useEffect(() => {
         async function loadDicoveredMovies() {
             let result = await getDiscovedMovies()
             setDiscoveredMovies(result)
         }
+
+        const localStorageAuthData = JSON.parse(localStorage.getItem('authData'))
+        setAuthUserData(localStorageAuthData)
 
         loadDicoveredMovies()
     }, [])
@@ -45,7 +49,6 @@ const Header = () => {
                     <li><Link to={'/movies/Featured Today'}>Movies</Link></li>
                     <li><Link to={`movies/Top Rated`}>Top Rated</Link></li>
                     <li><a href="#popular-celebs">Celebrities</a></li>
-                    <li><a href="#">Favourites</a></li>
                 </ul>
             </nav>
 
@@ -71,7 +74,8 @@ const Header = () => {
 
             <ul className={styles['last-links']}>
                 <li><Link to={'movies/Watchlist'}>Watchlist</Link></li>
-                <li>{authData.email 
+                <li className={'log-out'}>{(authUserData || checkIfUserLogged) && <Link onClick={() => logoutSubmitHandler()}>Log Out</Link>}</li>
+                <li>{(authUserData || checkIfUserLogged) 
                     ? (<Link to={'users/me'}><img className={styles['profile-img']} src={profileIcon}/></Link>)
                     : (<Link to={'/login'}>Sign In</Link>) }
                 </li>

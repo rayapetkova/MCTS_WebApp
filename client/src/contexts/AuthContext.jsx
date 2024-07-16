@@ -3,20 +3,18 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 import { useNavigate } from 'react-router-dom'
 
-import { login, register } from "../services/authService";
+import { login, logout, register } from "../services/authService";
 import { useState } from "react";
 import { createUser, retrieveUser } from "../services/usersService";
+import useStateLocalStorage from '../hooks/useStateLocalStorage';
 
 export const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
 
     const navigate = useNavigate()
-    const [authData, setAuthData] = useState(() => {
-        localStorage.removeItem('accessToken')
-        return {}
-    })
-    const [createdUser, setCreatedUser] = useState({})
+    const [authData, setAuthData] = useStateLocalStorage('authData', {})
+    const [createdUser, setCreatedUser] = useStateLocalStorage('createdUser', {})
 
     const registerSubmitHandler = async (values) => {
         let result = await register({
@@ -25,7 +23,6 @@ export function AuthProvider({ children }) {
         })
         setAuthData(result)
 
-        localStorage.setItem('accessToken', result.accessToken)
         let createdUserRecord = await createUser({
             email: values.email,
             firstName: values.firstName,
@@ -44,16 +41,22 @@ export function AuthProvider({ children }) {
         let retrievedUser = await retrieveUser(result._id)
         setCreatedUser(retrievedUser[0])
 
-        localStorage.setItem('accessToken', result.accessToken)
         navigate('/')
     }
 
+    const logoutSubmitHandler = async () => {
+        let result = await logout()
+
+        setAuthData({})
+        setCreatedUser({})
+    }
+
     const contextValues = {
-        authData,
-        createdUser, 
+        checkIfUserLogged: Object.keys(authData).length > 0 ? true : false,
         setCreatedUser,  
         registerSubmitHandler,
-        loginSubmitHandler
+        loginSubmitHandler,
+        logoutSubmitHandler
     }
 
     return (
