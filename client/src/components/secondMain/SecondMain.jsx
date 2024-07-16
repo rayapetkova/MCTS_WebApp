@@ -22,7 +22,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         'Playing Now': [],
         'Watchlist': []
     })
-    const [authUserData, setAuthUserData] = useState({})
+    const authData = JSON.parse(localStorage.getItem('authData'))
 
     const arrayForRows = Array(numOfRows)
     let currentIndex = 0
@@ -32,10 +32,6 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
     }
 
     useEffect(() => {
-
-        const localStorageAuthData = JSON.parse(localStorage.getItem('authData'))
-        setAuthUserData(localStorageAuthData)
-
         async function loadFeaturedToday() {
             let featuredToday = await getFeaturedToday()
             let featuredThisWeek = await getFeaturedThisWeek()
@@ -44,8 +40,8 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
             let playingNow = await getNowPlayingInTheatres()
             let watchlist = []
 
-            if (authUserData) {
-                watchlist = await getWatchlist(authUserData._id)
+            if (authData) {
+                watchlist = await getWatchlist(authData._id)
             }
             
 
