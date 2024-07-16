@@ -1,13 +1,13 @@
 import styles from './EditProfileDetails.module.css'
 import personImg from '../../assets/person.png'
 import { useContext, useEffect, useState } from 'react'
-import { getUserDetails } from '../../services/authService'
 import { AuthContext } from '../../contexts/AuthContext'
 import { editUser, retrieveUser } from '../../services/usersService'
 import useForm from '../../hooks/useForm'
 
 const EditProfileDetails = () => {
-    const { authData, createdUser, setCreatedUser } = useContext(AuthContext)
+    const { setCreatedUser } = useContext(AuthContext)
+    const createdUser = JSON.parse(localStorage.getItem('createdUser'))
 
     const editProfileSubmitHandler = async (values) => {
         let result = await editUser(values, createdUser._id)

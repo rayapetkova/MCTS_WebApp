@@ -13,7 +13,7 @@ const formNames = {
 }
 
 const EditReview = ({ review, setshowEditForm, setReviews }) => {
-    const { createdUser } = useContext(AuthContext)
+    const createdUser = JSON.parse(localStorage.getItem('createdUser'))
     
     const editReviewSubmitHandler = async(values) => {
         let result = await editReview(values, review._id)

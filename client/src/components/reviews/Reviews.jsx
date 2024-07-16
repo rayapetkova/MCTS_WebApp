@@ -4,14 +4,13 @@ import styles from "./Reviews.module.css"
 import { getReviews } from "../../services/reviewsService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { convertToDate } from "../../utils/convertToDate";
-import { getUserDetails } from "../../services/authService";
 import { retrieveUser } from "../../services/usersService";
 import EditReview from "../editReview/EditReview";
 
 const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
     const [showForm, setShowForm] = useState(false)
-    const {authData} = useContext(AuthContext)
+    const [authUserData, setAuthUserData] = useState({})
     const [showEditForm, setshowEditForm] = useState(false)
 
     useEffect(() => {
@@ -19,6 +18,9 @@ const Reviews = ({ movieId }) => {
             let result = await getReviews(movieId)
             setReviews(result)
         }
+
+        const localStorageAuthData = JSON.parse(localStorage.getItem(authData))
+        setAuthUserData(localStorageAuthData)
 
         loadReviews()
     }, [])
@@ -46,7 +48,7 @@ const Reviews = ({ movieId }) => {
                     <div className={styles['box']} key={review._id}>
                         <section className={styles['top']}>
                             <p><span>{review.rate}</span>/10</p>
-                            {authData._id === review._ownerId && (
+                            {authUserData._id === review._ownerId && (
                                 <section className={styles['buttons']}>
                                     <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
                                     <button className={styles['delete']}>Delete</button>

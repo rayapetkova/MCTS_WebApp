@@ -13,7 +13,7 @@ const formNames = {
 }
 
 const AddReview = ({ movieId, setReviews, setShowForm }) => {
-    const { createdUser } = useContext(AuthContext)
+    const createdUser = JSON.parse(localStorage.getItem('createdUser'))
 
     const addReviewSubmitHandler = async (values) => {
         let result = await addReview(values)

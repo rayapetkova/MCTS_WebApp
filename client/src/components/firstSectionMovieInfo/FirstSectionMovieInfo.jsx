@@ -15,7 +15,7 @@ const FirstSectionMovieInfo = ({ movieId }) => {
     let [movieInfo, setMovieInfo] = useState({})
     let [movieCredits, setMovieCredits] = useState({})
     let [addedToWatchlist, setAddedToWatchlist] = useState(false)
-    let { createdUser } = useContext(AuthContext)
+    const createdUser = JSON.parse(localStorage.getItem('createdUser'))
 
     useEffect(() => {
         async function loadMovieInfo() {
