@@ -9,62 +9,15 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import ListMovies from "./components/ListMovies"
 import Register from "./components/register/Register"
 
-import { AuthContext } from './contexts/AuthContext'
-import { login, register } from "./services/authService";
-import { useState } from "react";
+import { AuthProvider } from './contexts/AuthContext'
 import Login from "./components/login/Login";
 import EditProfileDetails from "./components/editProfileDetails/EditProfileDetails";
-import { createUser, retrieveUser } from "./services/usersService";
 import CelebrityInfo from "./components/CelebrityInfo";
 
 function App() {
-    const navigate = useNavigate()
-    const [authData, setAuthData] = useState(() => {
-        localStorage.removeItem('accessToken')
-        return {}
-    })
-    const [createdUser, setCreatedUser] = useState({})
-
-    const registerSubmitHandler = async (values) => {
-        let result = await register({
-            email: values.email,
-            password: values.password
-        })
-        setAuthData(result)
-
-        localStorage.setItem('accessToken', result.accessToken)
-        let createdUserRecord = await createUser({
-            email: values.email,
-            firstName: values.firstName,
-            lastName: values.lastName,
-            phoneNumber: '',
-            bio: ''
-        })
-        setCreatedUser(createdUserRecord)
-        navigate('/')
-    }
-
-    const loginSubmitHandler = async (values) => {
-        let result = await login(values)
-        setAuthData(result)
-
-        let retrievedUser = await retrieveUser(result._id)
-        setCreatedUser(retrievedUser[0])
-
-        localStorage.setItem('accessToken', result.accessToken)
-        navigate('/')
-    }
-
-    const contextValues = {
-        authData,
-        createdUser, 
-        setCreatedUser,  
-        registerSubmitHandler,
-        loginSubmitHandler
-    }
 
     return (
-        <AuthContext.Provider value={contextValues}>
+        <AuthProvider>
             <div>
                 <Header />
 
@@ -80,7 +33,7 @@ function App() {
 
                 <Footer />
             </div>
-        </AuthContext.Provider>
+        </AuthProvider>
     )
 }
 
