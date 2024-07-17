@@ -13,6 +13,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import Login from "./components/login/Login";
 import EditProfileDetails from "./components/editProfileDetails/EditProfileDetails";
 import CelebrityInfo from "./components/CelebrityInfo";
+import AllReviews from "./components/allReviews/AllReviews";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/users/me" element={<EditProfileDetails />} />
                     <Route path="/people/:personId" element={<CelebrityInfo />} />
+                    <Route path="/movies/:movieId/reviews" element={<AllReviews />} />
                 </Routes>
 
                 <Footer />
