@@ -1,0 +1,125 @@
+.first-section {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 15.5%;
+}
+
+.first-section h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 3em;
+    color: #c3c3c3;
+    font-weight: 400;
+}
+
+.first-section .small-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0em;
+    align-items: center;
+}
+
+.first-section .small-info ul {
+    margin: 0;
+    padding: 0;
+}
+
+.first-section .small-info ul li {
+    list-style: none;
+    color: #797979;
+}
+
+.first-section .small-info .left-ul {
+    display: flex;
+}
+
+.first-section .small-info .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-section .small-info .buttons a {
+    text-decoration: none;
+    background-color: #4a2e24;
+    padding: 0.5em 1.5em;
+    color: #c3c3c3;
+    border-radius: 8px;
+    font-size: 1.3em;
+}
+
+.first-section .two-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-section .two-images .img-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.first-section .two-images .first {
+    width: 28%;
+}
+
+.first-section .two-images .second {
+    width: 70%;
+}
+
+
+.movie-info {
+    display: flex;
+    margin-top: 1.3em;
+}
+
+.movie-info section {
+    width: 40%;
+    text-align: end;
+    margin-top: 1em;
+}
+
+.movie-info section button {
+    text-decoration: none;
+    background-color: #f2c318;
+    border: none;
+    border-bottom: outset 3px #b79312;
+    border-right: outset 2px #b79312;
+    border-radius: 10px;
+    padding: 0.5em 1.1em;
+    font-size: 1.2em;
+    color: #121212;
+}
+
+.movie-info section button:hover {
+    background-color: #f2c318c4;
+}
+
+.movie-info section .added-to-watchlist {
+    background-color: #64520f;
+}
+
+.movie-info section .added-to-watchlist .tick {
+    width: 1em;
+    margin-right: 0.3em;
+}
+
+.movie-info table {
+    border-spacing: 0 2em;
+    width: 60%;
+}
+
+.movie-info table tr td {
+    font-size: 1.2em;
+}
+
+.movie-info table tr td:nth-child(1) {
+    font-size: 1.2em;
+    color: #797979;
+    font-weight: 600;
+    display: flex;
+}
+
+.movie-info table td:nth-child(2) {
+    padding-left: 2em;
+    color: #c3c3c3;
+}

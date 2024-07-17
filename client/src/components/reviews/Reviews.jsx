@@ -6,11 +6,12 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { convertToDate } from "../../utils/convertToDate";
 import { retrieveUser } from "../../services/usersService";
 import EditReview from "../editReview/EditReview";
+import ReviewCard from "./reviewCard/ReviewCard";
+import { Link } from "react-router-dom";
 
 const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
     const [showForm, setShowForm] = useState(false)
-    const [showEditForm, setshowEditForm] = useState(false)
 
     const authData = JSON.parse(localStorage.getItem('authData'))
 
@@ -27,14 +28,12 @@ const Reviews = ({ movieId }) => {
         setShowForm(true)
     }
 
-    const showEditReviewFormEvent = (e) => setshowEditForm(true)
-
     return (
         <div className={styles['reviews']} id="reviews">
             <div className={styles['title']}>
                 <div className={styles['left']}>
                     <h2>User Reviews</h2>
-                    <a href="#">See all 1.4K</a>
+                    <Link to={`/movies/${movieId}/reviews`}>See all {reviews.length}</Link>
                 </div>
 
                 <button onClick={showAddReviewFormEvent}>Review +</button>
@@ -43,25 +42,7 @@ const Reviews = ({ movieId }) => {
             <div className={styles['review-boxes']}>
                 {reviews.length > 0 ? 
                 (reviews.slice(-2).reverse().map((review) => (
-                    <div className={styles['box']} key={review._id}>
-                        <section className={styles['top']}>
-                            <p><span>{review.rate}</span>/10</p>
-                            {authData._id === review._ownerId && (
-                                <section className={styles['buttons']}>
-                                    <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
-                                    <button className={styles['delete']}>Delete</button>
-                                    {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} setReviews={setReviews} />}
-                                </section>
-                            )}
-                            
-                        </section>
-                        <h6>{review.title}</h6>
-                        <section className={styles['post-info']}>
-                            <p>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</p>
-                            <p>&nbsp;   &#xb7;  {convertToDate(review._createdOn)}</p>
-                        </section>
-                        <p className={styles['review-desc']}>{review.review}</p>
-                    </div>
+                    <ReviewCard review={review} forReviewsSection={false} key={review._id} />
                 ))) : (
                     <p className={styles['no-reviews-yet']}>No reviews yet</p>
                 )}

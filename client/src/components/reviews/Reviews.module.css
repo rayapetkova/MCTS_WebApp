@@ -53,84 +53,11 @@
 }
 
 
-.reviews .review-boxes .box {
-    width: 45%;
-    background-color: #151515;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5em 1.5em;
-    border-radius: 15px;
-}
 
-.reviews .review-boxes .box .top p, .reviews .review-boxes .box h6 {
-    color: rgb(195 195 195);
-}
 
-.reviews .review-boxes .box .top > p:nth-child(1) {
-    color: #6a6a6a;
-    margin: 0;
-    margin-bottom: 1em;
-}
 
-.reviews .review-boxes .box .top > p:nth-child(1) span {
-    color: #f5c518;
-}
 
-.reviews .review-boxes .box .top {
-    display: flex;
-    justify-content: space-between;
-}
 
-.reviews .review-boxes .box .top .buttons {
-    width: 25%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.reviews .review-boxes .box .top .buttons button {
-    width: 47%;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    padding: 0;
-}
-
-.reviews .review-boxes .box .top .buttons .edit {
-    background-color: #524729c4;
-}
-
-.reviews .review-boxes .box .top .buttons .edit:hover {
-    background-color: #7c6c3f;
-}
-
-.reviews .review-boxes .box .top .buttons .delete {
-    background-color: #68323294;
-}
-
-.reviews .review-boxes .box .top .buttons .delete:hover {
-    background-color: #803e3e;
-}
-
-.reviews .review-boxes .box h6 {
-    padding: 0;
-    margin: 0;
-    font-size: 1.4em;
-}
-
-.reviews .review-boxes .box .post-info {
-    display: flex;
-}
-
-.reviews .review-boxes .box .post-info p:nth-child(1) {
-    color: #f5c518;
-}
-
-.reviews .review-boxes .box .review-desc {
-    color: #c3c3c3;
-    line-height: 1.5em;
-    font-size: 1.2em;
-    margin: 0;
-}
 
 .no-reviews-yet {
     margin-left: auto;
