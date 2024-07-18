@@ -1,12 +1,13 @@
 import styles from './ReviewCard.module.css'
 import { convertToDate } from "../../../utils/convertToDate";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 
 const ReviewCard = ({ review, forReviewsSection }) => {
     const [showEditForm, setshowEditForm] = useState(false)
 
-    const authData = JSON.parse(localStorage.getItem('authData'))
+    const { authData } = useContext(AuthContext)
 
     const showEditReviewFormEvent = (e) => setshowEditForm(true)
 
@@ -33,4 +34,4 @@ const ReviewCard = ({ review, forReviewsSection }) => {
     )
 }
 
-export default ReviewCard
+export default ReviewCard;

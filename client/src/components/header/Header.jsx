@@ -14,7 +14,7 @@ const Header = () => {
     const [matchedMovies, setMatchedMovies] = useState([])
     const { logoutSubmitHandler } = useContext(AuthContext)
 
-    const authData = JSON.parse(localStorage.getItem('authData'))
+    const { authData } = useContext(AuthContext)
 
     useEffect(() => {
         async function loadDicoveredMovies() {

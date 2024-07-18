@@ -22,7 +22,7 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
         'Playing Now': [],
         'Watchlist': []
     })
-    const authData = JSON.parse(localStorage.getItem('authData'))
+    const { authData } = useContext(AuthContext)
 
     const arrayForRows = Array(numOfRows)
     let currentIndex = 0

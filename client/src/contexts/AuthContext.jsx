@@ -53,7 +53,8 @@ export function AuthProvider({ children }) {
 
     const contextValues = {
         checkIfUserLogged: Object.keys(authData).length > 0 ? true : false,
-        setCreatedUser,  
+        setCreatedUser, 
+        authData, 
         registerSubmitHandler,
         loginSubmitHandler,
         logoutSubmitHandler

@@ -13,7 +13,7 @@ const Reviews = ({ movieId }) => {
     const [reviews, setReviews] = useState([])
     const [showForm, setShowForm] = useState(false)
 
-    const authData = JSON.parse(localStorage.getItem('authData'))
+    const { authData } = useContext(AuthContext)
 
     useEffect(() => {
         async function loadReviews() {

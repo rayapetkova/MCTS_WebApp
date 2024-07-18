@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getMovieInfo } from "../../api_data/dataFunctions"
 import ReviewCard from "../reviews/reviewCard/ReviewCard"
 import { getReviews } from "../../services/reviewsService"
 import { useParams } from "react-router-dom"
 import styles from './AllReviews.module.css'
 import MovieCard from "./movieCard/MovieCard"
+import { AuthContext } from "../../contexts/AuthContext"
 
 const AllReviews = () => {
-    const authData = JSON.parse(localStorage.getItem('authData'))
+    const { authData } = useContext(AuthContext)
     const [movieInfo, setMovieInfo] = useState({})
     const [reviews, setReviews] = useState([])
 
