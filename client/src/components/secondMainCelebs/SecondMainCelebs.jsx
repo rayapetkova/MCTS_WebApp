@@ -40,7 +40,7 @@ const SecondMainCelebs = ({ movieId }) => {
     }
 
     return (
-        <div className={`${styles['second-main']} ${styles['celebs']}`}>
+        <div className={`${styles['second-main']} ${styles['celebs']}`} id='cast'>
             <section className={styles['one-section']}>
                 <div className={styles['title']}>
                     <h2>Cast</h2>

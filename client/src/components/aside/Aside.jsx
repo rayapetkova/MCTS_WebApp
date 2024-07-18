@@ -5,11 +5,9 @@ const Aside = () => {
     return (
         <aside>
             <ul>
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Cast & Crew</a></li>
-                <li><a href="#">User Reviews</a></li>
-                <li><a href="#">Storyline</a></li>
-                <li><a href="#">Details</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#cast">Cast & Crew</a></li>
+                <li><a href="#reviews">User Reviews</a></li>
             </ul>
         </aside>
     )

@@ -50,6 +50,7 @@ const AllReviews = () => {
                 )}
             </div> */}
 
+            <h2 className={styles['title-reviews']}>Reviews</h2>
             {reviews.length > 0 ? (
                 arrayForRows.map(([start, end]) => (
                     <div className={styles['cards']} key={start}>

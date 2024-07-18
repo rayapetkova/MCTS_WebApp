@@ -7,6 +7,11 @@
     gap: 2.3em;
 }
 
+.one-section .title-reviews {
+    margin: 2% 15.5%;
+    background-color: #b79312;
+}
+
 .one-section .cards .card {
     width: 14%;
     display: flex;

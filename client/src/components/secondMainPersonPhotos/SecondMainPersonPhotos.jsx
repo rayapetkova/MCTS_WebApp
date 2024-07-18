@@ -20,7 +20,7 @@ const SecondMainPersonPhotos = ({ personId }) => {
     }, [])
 
     return (
-        <div className={`${styles['second-main']} ${styles['photos']}`}>
+        <div className={`${styles['second-main']} ${styles['photos']}`} id="photos">
             <section className={styles['one-section']}>
                 <div className={styles['title']}>
                     <h2>Photos</h2>

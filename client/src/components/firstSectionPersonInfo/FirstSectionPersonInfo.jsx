@@ -36,7 +36,7 @@ const FirstSectionPersonInfo = ({ personId }) => {
     }, [])
 
     return (
-        <section className={styles['first-section']}>
+        <section className={styles['first-section']} id="overview">
             <h1>{personInfo.name}</h1>
             <div className={styles['small-info']}>
                 <ul className={styles['left-ul']}>

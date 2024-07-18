@@ -8,6 +8,7 @@ import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
 import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../api_data/extractingData"
 import { addToWatchlist, getWatchlist } from "../../services/watchlistService"
 import { AuthContext } from "../../contexts/AuthContext"
+import Spinner from "../spinner/Spinner"
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -69,7 +70,7 @@ const FirstSectionMovieInfo = ({ movieId }) => {
     }
 
     return (
-        <section className={styles['first-section']}>
+        <section className={styles['first-section']} id="overview">
             <h1>{movieInfo.original_title}</h1>
             <div className={styles['small-info']}>
                 <ul className={styles['left-ul']}>
@@ -95,7 +96,7 @@ const FirstSectionMovieInfo = ({ movieId }) => {
                     <tbody>
                         <tr>
                             <td>Genre</td>
-                            <td>{movieInfo.genres ? extractMovieGenres(movieInfo.genres) : "Loading..."}</td>
+                            <td>{movieInfo.genres ? extractMovieGenres(movieInfo.genres) : <Spinner />}</td>
                         </tr>
 
                         <tr>
@@ -105,17 +106,17 @@ const FirstSectionMovieInfo = ({ movieId }) => {
 
                         <tr>
                             <td>Director</td>
-                            <td>{movieCredits.crew ? extractDirectors(movieCredits.crew) : "Loading..."}</td>
+                            <td>{movieCredits.crew ? extractDirectors(movieCredits.crew) : <Spinner />}</td>
                         </tr>
 
                         <tr>
                             <td>Writers</td>
-                            <td>{movieCredits.crew ? extractWriters(movieCredits.crew) : "Loading..."}</td>
+                            <td>{movieCredits.crew ? extractWriters(movieCredits.crew) : <Spinner />}</td>
                         </tr>
 
                         <tr>
                             <td>Stars</td>
-                            <td>{movieCredits.cast ? extractCast(movieCredits.cast, 3) : "Loading..."}</td>
+                            <td>{movieCredits.cast ? extractCast(movieCredits.cast, 3) : <Spinner />}</td>
                         </tr>
                         
                     </tbody>

@@ -5,8 +5,8 @@ const AsidePersonInfo = () => {
     return (
         <aside>
             <ul>
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Photos</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#photos">Photos</a></li>
             </ul>
         </aside>
     )
