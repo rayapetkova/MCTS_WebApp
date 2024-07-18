@@ -89,7 +89,7 @@
     color: #121212;
 }
 
-.movie-info section button:hover {
+.movie-info section .add-to-watchlist:hover {
     background-color: #f2c318c4;
 }
 

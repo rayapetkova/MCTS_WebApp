@@ -6,16 +6,21 @@ import moviePoster from '../../assets/movie_poster.png'
 import { useContext, useDebugValue, useEffect, useState } from "react"
 import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
 import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../api_data/extractingData"
-import { addToWatchlist } from "../../services/watchlistService"
+import { addToWatchlist, getWatchlist } from "../../services/watchlistService"
 import { AuthContext } from "../../contexts/AuthContext"
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const FirstSectionMovieInfo = ({ movieId }) => {
+    const { authData } = useContext(AuthContext)
+
     let [movieInfo, setMovieInfo] = useState({})
     let [movieCredits, setMovieCredits] = useState({})
-    let [addedToWatchlist, setAddedToWatchlist] = useState(false)
     const createdUser = JSON.parse(localStorage.getItem('createdUser'))
+    const [userWatchlist, setUserWatchlist] = useState([])
+    const [isAddedToWatchlist, setIsAddedToWatchlist] = useState(false)
+
+    
 
     useEffect(() => {
         async function loadMovieInfo() {
@@ -28,13 +33,27 @@ const FirstSectionMovieInfo = ({ movieId }) => {
             setMovieCredits(movieCastAndCrew)
         }
 
+        async function loadUserWatchlist() {
+            let watchlist = await getWatchlist(authData._id)
+            setUserWatchlist(watchlist)
+        }
+
         loadMovieInfo()
         loadMovieCredits()
+        loadUserWatchlist()
+        
     }, [])
 
+    useEffect(() => {
+        for (let movie of userWatchlist) {
+            if (movie.id === movieInfo.id) {
+                setIsAddedToWatchlist(true)
+            }
+        }
+    }, [movieInfo, userWatchlist])
+
     async function addToWatchListEvent(e) {
-        console.log(movieInfo)
-        console.log(createdUser)
+
         let result = await addToWatchlist({
             createdUser,
             movie: {
@@ -45,7 +64,8 @@ const FirstSectionMovieInfo = ({ movieId }) => {
             }
         })
 
-        setAddedToWatchlist(true)
+        setIsAddedToWatchlist(true)
+
     }
 
     return (
@@ -101,13 +121,16 @@ const FirstSectionMovieInfo = ({ movieId }) => {
                     </tbody>
                 </table>
 
-                <section>
-                    {addedToWatchlist ? (
-                        <button className={styles['added-to-watchlist']}><img src={tick} className={styles['tick']} />Added to Watchlist</button>
-                    ) : (
-                        <button onClick={addToWatchListEvent}>Add to Watchlist</button>
-                    )}
-                </section>
+                {Object.keys(authData).length > 0 && (
+                    <section>
+                        {(isAddedToWatchlist) ? (
+                            <button className={styles['added-to-watchlist']} disabled><img src={tick} className={styles['tick']} />Added to Watchlist</button>
+                        ) : (
+                            <button className={styles['add-to-watchlist']} onClick={addToWatchListEvent}>Add to Watchlist</button>
+                        )}
+                    </section>
+                )}
+                
             </div>
         </section>
     )

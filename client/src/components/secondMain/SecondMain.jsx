@@ -41,10 +41,10 @@ const SecondMain = ({sectionName, listFeature, numOfCards, numOfRows}) => {
             let watchlist = []
 
             if (authData) {
+                console.log(authData)
                 watchlist = await getWatchlist(authData._id)
             }
             
-
             setSectionsObj(currentSections => ({
                 ...currentSections,
                 'Featured Today': featuredToday,
