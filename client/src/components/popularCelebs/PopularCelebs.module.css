@@ -47,6 +47,23 @@ div.second-main .one-section .title a img {
     width: 20%;
 }
 
+
+div.second-main .one-section > div:nth-child(2) > a {
+    height: 10%;
+    top: -17%;
+    width: 3%;
+}
+
+div.second-main .one-section > div:nth-child(2) > a:first-of-type {
+    left: 93.5%;
+}
+
+.arrow {
+    width: 100%;
+}
+
+
+
 div.second-main .one-section .cards {
     display: flex;
     align-items: center;

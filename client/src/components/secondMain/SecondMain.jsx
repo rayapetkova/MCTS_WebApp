@@ -1,7 +1,7 @@
 import styles from './SecondMain.module.css'
 import leftArrow from '../../assets/left_arrow_button.png'
 import rightArrow from '../../assets/right_arrow_button.png'
-import { useContext, useEffect, useReducer, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions'
 import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
@@ -26,18 +26,12 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
     })
     const { authData } = useContext(AuthContext)
 
-    const leftArrowRef = useRef()
-    const rightArrowRef = useRef()
-
     const arrayForRows = Array(numOfRows)
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
         arrayForRows[i] = [currentIndex, currentIndex + numOfCards]
         currentIndex += numOfCards
     }
-
-    const getLeftArrowElement = () => {return leftArrowRef.current}
-    const getRightArrowElement = () => {return rightArrowRef.current}
 
     useEffect(() => {
         async function loadFeaturedToday() {
@@ -90,8 +84,8 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                     {(sectionsObj[sectionName].length > 0 && !listFeature) ? (
                         <Carousel 
                             indicators={false} 
-                            prevIcon={<img src={leftArrow} ref={leftArrowRef} alt="left-arrow" className={`${styles['left-arrow']} ${styles['arrow']}`} />}
-                            nextIcon={<img src={rightArrow} ref={rightArrowRef} alt="right-arrow" className={`${styles['right-arrow']} ${styles['arrow']}`} />}
+                            prevIcon={<img src={leftArrow} alt="left-arrow" className={`${styles['left-arrow']} ${styles['arrow']}`} />}
+                            nextIcon={<img src={rightArrow} alt="right-arrow" className={`${styles['right-arrow']} ${styles['arrow']}`} />}
                         >
                             {arrayForRows.map(([start, end]) => (
                                 <Carousel.Item key={start}>

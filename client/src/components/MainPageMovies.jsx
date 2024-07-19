@@ -17,7 +17,7 @@ const MainPageMovies = () => {
 
             <SecondMain sectionName='Coming Soon' numOfCards={6} numOfRows={3} listFeature={false} />
 
-            <PopularCelebs numOfCards={6} numOfRows={1} listFeature={false} />
+            <PopularCelebs numOfCards={6} numOfRows={3} listFeature={false} />
         </>
     )
 }
