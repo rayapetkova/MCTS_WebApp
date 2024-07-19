@@ -43,8 +43,8 @@ const Header = () => {
             <nav>
                 <ul>
                     <li><Link to={'/movies/Featured Today'}>Movies</Link></li>
-                    <li><Link to={`movies/Top Rated`}>Top Rated</Link></li>
-                    <li><a href="#popular-celebs">Celebrities</a></li>
+                    <li><Link to={`/movies/Top Rated`}>Top Rated</Link></li>
+                    <li><Link to={"/people"}>Celebrities</Link></li>
                 </ul>
             </nav>
 

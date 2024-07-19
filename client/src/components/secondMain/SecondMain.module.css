@@ -1,5 +1,6 @@
 div.second-main {
     margin: 5% 15.5%;
+    position: relative;
 }
 
 div.second-main .one-section {
@@ -7,6 +8,10 @@ div.second-main .one-section {
     flex-direction: column;
     gap: 2.3em;
 }
+
+/* div.second-main .one-section div:nth-child(2) > a {
+    background-color: red;
+} */
 
 div.second-main .main-page {
     gap: 0;
@@ -22,7 +27,6 @@ div.second-main .one-section .title {
 
 div.second-main .one-section .title .buttons {
     text-align: end;
-
 }
 
 div.second-main .one-section .title a, div.second-main .one-section .title h2 {
@@ -38,17 +42,35 @@ div.second-main .one-section .title h2 {
     font-size: 3em;
 }
 
-div.second-main .one-section .title a img {
-    width: 20%;
+
+
+
+
+div.second-main .one-section > div:nth-child(2) > a {
+    height: 10%;
+    top: -17%;
+    width: 3%;
 }
 
-div.second-main .one-section .cards {
+div.second-main .one-section > div:nth-child(2) > a:first-of-type {
+    left: 93.5%;
+}
+
+.arrow {
+    width: 100%;
+}
+
+
+
+
+
+.cards {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-div.second-main .one-section .cards .card {
+.cards .card {
     width: 14%;
     display: flex;
     flex-direction: column;
@@ -58,12 +80,12 @@ div.second-main .one-section .cards .card {
     background-color: #151515;
 }
 
-div.second-main .one-section .cards .card img {
+.cards .card img {
     width: 100%;
     border-radius: 10px;
 }
 
-div.second-main .one-section .cards .card > p {
+.cards .card > p {
     color: #c3c3c3;
     font-size: 1.5em;
     white-space: nowrap;
@@ -76,20 +98,20 @@ div.second-main .one-section .cards .card > p {
     text-align: center;
 }
 
-div.second-main .one-section .cards .card .star-div {
+.cards .card .star-div {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1em;
 }
 
-div.second-main .one-section .cards .card .star-div .img-container {
+.cards .card .star-div .img-container {
     width: 17%;
     margin-right: 5%;
     display: flex;
 }
 
-div.second-main .one-section .cards .card .star-div p {
+.cards .card .star-div p {
     padding: 0;
     margin: 0;
     align-self: center;
@@ -97,7 +119,7 @@ div.second-main .one-section .cards .card .star-div p {
     color: #c3c3c3;
 }
 
-div.second-main .one-section .cards .card a {
+.cards .card a {
     background-color: #1c1c1c;
     border-radius: 10px;
     font-family: inherit;
@@ -111,7 +133,7 @@ div.second-main .one-section .cards .card a {
     overflow-anchor: auto;
 }
 
-div.second-main .one-section .cards .card img {
+.cards .card img {
     width: 100%;
 }
 
@@ -128,7 +150,7 @@ div.second-main .one-section .cards .card img {
     font-weight: 500;
 }
 
-.no-movies-in-watchlist .browse-movies {
+.no-movies-in-watchlist .browse-movies, .no-movies-in-watchlist .login {
     text-decoration: none;
     background-color: #f2c318;
     border: none;
@@ -138,8 +160,10 @@ div.second-main .one-section .cards .card img {
     padding: 0.3em 1em;
     font-size: 1.2em;
     color: #121212;
+    width: 40% !important;
+    text-align: center;
 }
 
-.no-movies-in-watchlist .browse-movies:hover {
+.no-movies-in-watchlist .browse-movies:hover, .no-movies-in-watchlist .login:hover {
     background-color: #f2c318c4;
 }

@@ -14,7 +14,7 @@ import {
 import styles from './Login.module.css'
 
 import useForm from '../../hooks/useForm';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import logoSymbol from "../../assets/logo_without_background.png"
@@ -32,6 +32,10 @@ const Login = () => {
         [formNames.email]: '',
         [formNames.password]: ''
     })
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <MDBContainer fluid className={styles['container']}>
