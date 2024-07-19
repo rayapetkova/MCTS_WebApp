@@ -5,6 +5,11 @@ div.second-main {
 div.second-main .one-section {
     display: flex;
     flex-direction: column;
+    gap: 2.3em;
+}
+
+div.second-main .main-page {
+    gap: 0
 }
 
 div.second-main .one-section .title {
@@ -25,11 +30,17 @@ div.second-main .one-section .title .buttons {
 
 }
 
-div.second-main .one-section .title h2 {
-    padding: 0;
-    margin: 0;
+div.second-main .one-section .title h2, div.second-main .one-section .title .title-celebs {
     font-size: 2em;
     color: #c3c3c3;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.second-main .one-section .title h2 {
+    font-weight: 400;
+    font-size: 3em;
 }
 
 div.second-main .one-section .title a img {
@@ -127,13 +138,19 @@ div.celebs .cards .card img {
     width: 15em;
 }
 
+div.celebs .cards .card .name-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 div.celebs .cards .card .name-container p {
     color: #c3c3c3;
     font-size: 1.5em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
+    width: 85%;
     padding: 0;
     margin: 0;
     margin-top: 0.5em;

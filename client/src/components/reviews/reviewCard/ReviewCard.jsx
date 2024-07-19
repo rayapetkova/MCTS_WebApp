@@ -2,9 +2,10 @@ import styles from './ReviewCard.module.css'
 import { convertToDate } from "../../../utils/convertToDate";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
+import EditReview from '../../editReview/EditReview';
 
 
-const ReviewCard = ({ review, forReviewsSection }) => {
+const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
     const [showEditForm, setshowEditForm] = useState(false)
 
     const { authData } = useContext(AuthContext)
