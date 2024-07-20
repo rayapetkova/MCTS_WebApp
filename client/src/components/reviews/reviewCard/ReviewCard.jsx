@@ -3,6 +3,7 @@ import { convertToDate } from "../../../utils/convertToDate";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import EditReview from '../../editReview/EditReview';
+import { deleteReview } from '../../../services/reviewsService';
 
 
 const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
@@ -12,6 +13,13 @@ const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
 
     const showEditReviewFormEvent = (e) => setshowEditForm(true)
 
+    async function deleteReviewEvent(e) {
+        let result = await deleteReview(review._id)
+        setReviews(currentState => ({
+            ...currentState
+        }))
+    }
+
     return (
         <div className={`${styles['box']} ${forReviewsSection ? styles['for-reviews-section-box'] : ''}`} key={review._id}>
             <section className={styles['top']}>
@@ -19,7 +27,7 @@ const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
                 {(authData._id === review._ownerId) && (
                     <section className={styles['buttons']}>
                         <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
-                        <button className={styles['delete']}>Delete</button>
+                        <button onClick={deleteReviewEvent} className={styles['delete']}>Delete</button>
                         {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} setReviews={setReviews} />}
                     </section>
                 )}

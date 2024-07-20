@@ -45,3 +45,19 @@ export async function editReview(data, recordId) {
     let result = await response.json()
     return result
 }
+
+export async function deleteReview(recordId) {
+    const authData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authData.accessToken
+
+    let response = await fetch(`${baseUrl}/reviews/${recordId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': accessToken
+        }
+    })
+
+    let result = await response.json()
+    return result
+}
