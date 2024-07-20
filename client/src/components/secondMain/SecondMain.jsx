@@ -43,7 +43,6 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
             let watchlist = []
 
             if (authData) {
-                console.log(authData)
                 watchlist = await getWatchlist(authData._id)
             }
 
@@ -123,53 +122,6 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                 </section>
             </div>
         </>
-    )
-    return (
-        <div className={styles['second-main']} id={sectionName}>
-            <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''}`}>
-                <div className={styles['title']}>
-                    {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName} &#10509;</Link> : <h2>{sectionName} - MCTS</h2>}
-
-                    {!listFeature && (
-                        <div className={styles['buttons']}>
-                            <a href="#"><img src={leftArrow} alt="left-arrow" /></a>
-                            <a href="#"><img src={rightArrow} alt="right-arrow" /></a>
-                        </div>
-                    )}
-                </div>
-
-                {sectionsObj[sectionName].length > 0 ? (
-                    arrayForRows.map(([start, end]) => (
-                        <div className={styles['cards']} key={start}>
-                            {sectionsObj[sectionName].slice(start, end).map((movie) => (
-                                <Card movie={movie} key={movie.id} />
-                            ))}
-                        </div>
-                    ))
-                ) : <>
-                    {sectionName === 'Watchlist' ? (
-                        <div className={styles['no-movies-in-watchlist']}>
-                            {Object.keys(authData).length > 0 ? (
-                                <>
-                                    <p>No movies in Watchlist yet</p>
-                                    <Link to={'/movies/Top Rated'} className={styles['browse-movies']}>Browse Movies</Link>
-                                </>
-                            ) : (
-                                <>
-                                    <p>You need to log in first</p>
-                                    <Link to={'/login'} className={styles['login']}>Log In</Link>
-                                </>
-                            )}
-                        </div>
-                    ) : (
-                        <Spinner />
-                    )}
-                </>}
-
-
-
-            </section>
-        </div>
     )
 }
 
