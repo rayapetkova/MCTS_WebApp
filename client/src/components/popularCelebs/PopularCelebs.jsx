@@ -90,41 +90,6 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
             </div>
         </>
     )
-
-    return (
-        <div className={`${styles['second-main']} ${styles['celebs']}`} id='popular-celebs'>
-            <section className={`${styles['one-section']} ${!listFeature ? styles['main-page'] : ''}`}>
-                <div className={styles['title']}>
-                    {!listFeature ? <Link to={'/people'} className={styles['title-celebs']}>Most Popular Celebrities &#10509;</Link> : <h2>Most Popular Celebrities - MCTS</h2>}
-
-                    {!listFeature && (
-                        <div className={styles['buttons']}>
-                            <a href="#"><img src={leftArrow} alt="left-arrow" /></a>
-                            <a href="#"><img src={rightArrow} alt="right-arrow" /></a>
-                        </div>
-                    )}
-
-                </div>
-
-                {arrayForRows.map(([start, end]) => (
-                    <div className={styles['cards']}>
-                        {popularCelebrities.slice(start, end).map((celebrity) => (
-                            <button key={celebrity.id} className={styles['card']} onClick={() => onClickCelebHandler(celebrity.id)}>
-                                <img src={`${pathForImages + celebrity.profile_path}`} alt="card" />
-                                <div className={styles['name-container']}>
-                                    <p>{celebrity.name}</p>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                ))}
-
-
-
-
-            </section>
-        </div>
-    )
 }
 
 export default PopularCelebs
