@@ -113,7 +113,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                                     )}
                                 </div>
                             ) : (
-                                <Spinner />
+                                !listFeature && <Spinner />
                             )}
                         </>
                     )}

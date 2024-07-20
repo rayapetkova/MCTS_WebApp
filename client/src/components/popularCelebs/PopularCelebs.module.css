@@ -68,6 +68,7 @@ div.second-main .one-section .cards {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 2em;
 }
 
 div.second-main .one-section .cards .card {

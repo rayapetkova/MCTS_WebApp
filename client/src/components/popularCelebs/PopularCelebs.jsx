@@ -82,7 +82,7 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
                             ))}
                         </Carousel>
                     ) : (
-                        <Spinner />
+                        !listFeature && <Spinner />
                     )}
 
 
