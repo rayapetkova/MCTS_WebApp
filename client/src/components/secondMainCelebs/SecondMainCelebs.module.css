@@ -14,16 +14,6 @@ div.second-main .one-section .title {
     margin-bottom: 1.5%;
 }
 
-div.second-main .one-section .title a {
-    text-decoration: none;
-    padding: 0;
-    margin: 0;
-}
-
-div.second-main .one-section .title .buttons {
-    text-align: end;
-
-}
 
 div.second-main .one-section .title h2 {
     padding: 0;
@@ -32,9 +22,28 @@ div.second-main .one-section .title h2 {
     font-size: 2em;
 }
 
-div.second-main .one-section .title a img {
-    width: 20%;
+
+
+
+
+
+div.second-main .one-section > div:nth-child(2) > a {
+    height: 10%;
+    top: -17%;
+    width: 3%;
 }
+
+div.second-main .one-section > div:nth-child(2) > a:first-of-type {
+    left: 93.5%;
+}
+
+.arrow {
+    width: 100%;
+}
+
+
+
+
 
 div.second-main .one-section .cards {
     display: flex;
@@ -51,6 +60,12 @@ div.second-main .one-section .cards .card {
     border-radius: 10px;
     background-color: #202020d5;
     padding: 0.8em;
+    filter: brightness(78%);
+    transition: filter 0.3s ease-in-out;
+}
+
+div.second-main .one-section .cards .card:hover {
+    filter: brightness(100%);
 }
 
 div.second-main .one-section .cards .card img {
@@ -74,6 +89,10 @@ div.celebs .cards .card img, div.photos .cards .card img {
     width: 15em;
 }
 
+div.celebs .cards .card .name-container {
+    width: 100%;
+}
+
 div.celebs .cards .card .name-container p, div.photos .cards .card .name-container p {
     color: #c3c3c3;
     font-size: 1.2em;
@@ -90,7 +109,7 @@ div.celebs .cards .card .name-container p, div.photos .cards .card .name-contain
 div.celebs .cards .card .name-container p:nth-child(1), div.photos .cards .card .name-container p:nth-child(1) {
     color: #f4f4f4;
     padding: 0;
-    width: 95%;
+    width: 100%;
 }
 
 div.celebs .cards .card .name-container p:nth-child(2), div.photos .cards .card .name-container p:nth-child(2) {

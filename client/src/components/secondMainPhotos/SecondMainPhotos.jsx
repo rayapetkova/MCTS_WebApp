@@ -8,6 +8,7 @@ import { getMoviePhotos } from "../../api_data/dataFunctions"
 import Spinner from "../spinner/Spinner"
 
 import Carousel from 'react-bootstrap/Carousel';
+import { calculateRows } from "../../utils/calculateRows"
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -23,7 +24,7 @@ const SecondMainPhotos = ({ movieId }) => {
         loadMovieImages()
     }, [])
 
-    const arrayForRows = Array(3)
+    const arrayForRows = Array(calculateRows(movieImages.length, 4))
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
         arrayForRows[i] = [currentIndex, currentIndex + 4]

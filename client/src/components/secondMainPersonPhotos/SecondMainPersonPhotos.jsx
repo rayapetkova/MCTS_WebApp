@@ -7,6 +7,7 @@ import { getPersonPhotos } from '../../api_data/dataFunctions'
 import Spinner from '../spinner/Spinner'
 
 import Carousel from 'react-bootstrap/Carousel';
+import { calculateRows } from '../../utils/calculateRows'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -22,14 +23,7 @@ const SecondMainPersonPhotos = ({ personId }) => {
         loadPersonPhotos()
     }, [])
 
-    let rows = 3
-    if (personPhotos.length <= 4) {
-        rows = 1
-    } else if (personPhotos.length <= 8) {
-        rows = 2
-    }
-
-    const arrayForRows = Array(rows)
+    const arrayForRows = Array(calculateRows(personPhotos.length, 4))
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
         arrayForRows[i] = [currentIndex, currentIndex + 4]

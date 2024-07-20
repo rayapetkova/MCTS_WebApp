@@ -92,35 +92,41 @@ const FirstSectionMovieInfo = ({ movieId }) => {
                 </div>
             </div>
             <div className={styles['movie-info']}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Genre</td>
-                            <td>{movieInfo.genres ? extractMovieGenres(movieInfo.genres) : <Spinner />}</td>
-                        </tr>
+                
+                {(movieInfo && Object.keys(movieInfo)) ? (
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Genre</td>
+                                <td>{movieInfo.genres && extractMovieGenres(movieInfo.genres)}</td>
+                            </tr>
 
-                        <tr>
-                            <td>Plot</td>
-                            <td>{movieInfo.overview}</td>
-                        </tr>
+                            <tr>
+                                <td>Plot</td>
+                                <td>{movieInfo.overview}</td>
+                            </tr>
 
-                        <tr>
-                            <td>Director</td>
-                            <td>{movieCredits.crew ? extractDirectors(movieCredits.crew) : <Spinner />}</td>
-                        </tr>
+                            <tr>
+                                <td>Director</td>
+                                <td>{movieCredits.crew && extractDirectors(movieCredits.crew)}</td>
+                            </tr>
 
-                        <tr>
-                            <td>Writers</td>
-                            <td>{movieCredits.crew ? extractWriters(movieCredits.crew) : <Spinner />}</td>
-                        </tr>
+                            <tr>
+                                <td>Writers</td>
+                                <td>{movieCredits.crew && extractWriters(movieCredits.crew)}</td>
+                            </tr>
 
-                        <tr>
-                            <td>Stars</td>
-                            <td>{movieCredits.cast ? extractCast(movieCredits.cast, 3) : <Spinner />}</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
+                            <tr>
+                                <td>Stars</td>
+                                <td>{movieCredits.cast && extractCast(movieCredits.cast, 3)}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                ) : (
+                    <Spinner />
+                )}
+                
 
                 {Object.keys(authData).length > 0 && (
                     <section>
