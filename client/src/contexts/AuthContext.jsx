@@ -28,7 +28,8 @@ export function AuthProvider({ children }) {
             firstName: values.firstName,
             lastName: values.lastName,
             phoneNumber: '',
-            bio: ''
+            bio: '',
+            profileImg: 'https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png'
         })
         setCreatedUser(createdUserRecord)
         navigate('/')

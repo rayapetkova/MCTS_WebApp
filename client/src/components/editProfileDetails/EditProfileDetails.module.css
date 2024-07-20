@@ -4,7 +4,7 @@
     background-color: #08080881;
     display: flex;
     margin: 5% 20%;
-    padding: 1%;
+    padding: 2% 1%;
     border-radius: 4px;
 }
 
@@ -27,10 +27,31 @@
     object-fit: cover;
 }
 
+.left .user-info {
+    width: 65%
+}
+
+.left .user-info form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .left .user-info .name {
     font-size: 1.5em;
     font-weight: 900;
     color: #C3C3C3;
+    text-align: center;
+}
+
+.left .user-info .field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.left .user-info .field label {
+    color: #6b6b6b;
 }
 
 
@@ -113,7 +134,7 @@
     color: black;
 }
 
-.right form .update-button {
+.update-button {
     width: 15%;
     padding: 1.5%;
     background-color: rgb(230 185 30);
@@ -124,7 +145,14 @@
     margin-top: 1em;
 }
 
-.right form .update-button:hover {
+.user-info .update-button {
+    width: 28%;
+    align-self: flex-end;
+    margin-top: 1.5%;
+    padding: 0.8%;
+}
+
+.update-button:hover {
     cursor: pointer;
     background-color: rgb(206, 167, 29);
 }
