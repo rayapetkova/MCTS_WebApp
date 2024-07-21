@@ -6,7 +6,6 @@ div.second-main {
 div.second-main .one-section {
     display: flex;
     flex-direction: column;
-    gap: 2.3em;
 }
 
 /* div.second-main .one-section div:nth-child(2) > a {

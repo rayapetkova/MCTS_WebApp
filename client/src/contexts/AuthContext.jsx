@@ -7,6 +7,7 @@ import { login, logout, register } from "../services/authService";
 import { useState } from "react";
 import { createUser, retrieveUser } from "../services/usersService";
 import useStateLocalStorage from '../hooks/useStateLocalStorage';
+import sendEmail from '../api_data/emails/sendEmail';
 
 export const AuthContext = createContext()
 
@@ -32,6 +33,8 @@ export function AuthProvider({ children }) {
             profileImg: 'https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png'
         })
         setCreatedUser(createdUserRecord)
+
+        console.log(createdUserRecord)
         navigate('/')
     }
 
