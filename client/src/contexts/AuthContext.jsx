@@ -34,7 +34,10 @@ export function AuthProvider({ children }) {
         })
         setCreatedUser(createdUserRecord)
 
-        console.log(createdUserRecord)
+        sendEmail({
+            userFullName: `${createdUserRecord.firstName} ${createdUserRecord.lastName}`,
+            userEmail: createdUserRecord.email
+        })
         navigate('/')
     }
 
