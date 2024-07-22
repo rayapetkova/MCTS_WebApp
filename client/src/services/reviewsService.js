@@ -1,17 +1,5 @@
 const baseUrl = 'http://localhost:3030/data'
 
-export async function getReviews(movieId) {
-    const queries = new URLSearchParams({
-        where: `movieId="${movieId}"`,
-        load: `author=_ownerId:users`
-    })
-
-    let response = await fetch(`${baseUrl}/reviews?${queries}`)
-    let result = await response.json()
-
-    return result
-}
-
 export async function addReview(data) {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken
@@ -26,6 +14,18 @@ export async function addReview(data) {
     })
 
     let result = await response.json()
+    return result
+}
+
+export async function getReviews(movieId) {
+    const queries = new URLSearchParams({
+        where: `movieId="${movieId}"`,
+        load: `author=_ownerId:users`
+    })
+
+    let response = await fetch(`${baseUrl}/reviews?${queries}`)
+    let result = await response.json()
+
     return result
 }
 

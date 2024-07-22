@@ -17,6 +17,16 @@ export async function createUser(data) {
     return result
 }
 
+export async function retrieveUser(userId) {
+    const queries = new URLSearchParams({
+        where: `_ownerId="${userId}"`
+    })
+
+    let response = await fetch(`${baseUrl}/usersRecords?${queries}`);
+    let result = await response.json()
+    return result
+}
+
 export async function editUser(data, recordId) {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken
@@ -30,16 +40,6 @@ export async function editUser(data, recordId) {
         body: JSON.stringify(data)
     })
 
-    let result = await response.json()
-    return result
-}
-
-export async function retrieveUser(userId) {
-    const queries = new URLSearchParams({
-        where: `_ownerId="${userId}"`
-    })
-
-    let response = await fetch(`${baseUrl}/usersRecords?${queries}`);
     let result = await response.json()
     return result
 }
