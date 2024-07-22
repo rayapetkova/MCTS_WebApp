@@ -8,8 +8,9 @@
 }
 
 .card {
-    width: 50% !important;
+    width: 35% !important;
     border-radius: 2px !important;
+    background-color: #181818;
 }
 
 .card-body {
@@ -40,7 +41,7 @@
 }
 
 .left {
-    width: 60%;
+    width: 100%;
 }
 
 .right {
@@ -56,15 +57,23 @@
 
 .additional-link {
     display: flex;
+    width: 55%;
+    justify-content: space-between;
 }
 
 .additional-link p {
-    width: 44%;
+    width: 75%;
     padding-right: 0;
     margin: 0;
+    color: #979797;
 }
 
 .additional-link a {
-    width: 30%;
+    width: 25%;
     padding: 0;
+    color: #e6b91e;
+}
+
+.additional-link a:hover {
+    color: #b49216;
 }

@@ -48,7 +48,7 @@ const Login = () => {
 
                                 <p className={`text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ${styles['title']}`}>Log In</p>
 
-                                <div className="d-flex flex-row align-items-center mb-4">
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='Your Email' 
                                         id='form2' 
@@ -57,10 +57,11 @@ const Login = () => {
                                         name={formNames.email} 
                                         onChange={onChange}
                                         value={values.email} 
+                                        contrast
                                     />
                                 </div>
 
-                                <div className="d-flex flex-row align-items-center mb-4">
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='Password' 
                                         id='form3' 
@@ -68,7 +69,8 @@ const Login = () => {
                                         className={styles['input-field']} 
                                         name={formNames.password} 
                                         onChange={onChange} 
-                                        value={values.password}
+                                        value={values.password} 
+                                        contrast
                                     />
                                 </div>
 
@@ -82,9 +84,6 @@ const Login = () => {
                             </form>
                         </MDBCol>
 
-                        <MDBCol md='10' lg='6' className={`order-1 order-lg-2 d-flex align-items-center ${styles['right']}`}>
-                            <MDBCardImage src={logoSymbol} className={styles['image-logo']} fluid />
-                        </MDBCol>
 
                     </MDBRow>
                 </MDBCardBody>

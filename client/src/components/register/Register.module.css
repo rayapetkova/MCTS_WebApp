@@ -4,14 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
 }
 
 .card {
-    width: 70%;
-    height: 90%;
-    background-color: azure;
+    width: 35% !important;
     border-radius: 2px !important;
+    background-color: #181818;
 }
 
 .card-body {
@@ -27,6 +25,12 @@ form {
     width: 70%;
 }
 
+.input-container {
+    /* background-color: rgb(197, 197, 197); */
+    /* padding: 2%; */
+    border-radius: 5px;
+}
+
 .input-field {
     color: #797777 !important;
     width: 100% !important;
@@ -36,7 +40,6 @@ form {
 .input-field:focus {
     background-color: rgba(215, 218, 218, 0.87) !important;
     color: #0f0f10 !important;
-    border-color: antiquewhite;
 }
 
 .row {
@@ -45,7 +48,7 @@ form {
 }
 
 .left {
-    width: 60%;
+    width: 100%;
 }
 
 .right {
@@ -61,15 +64,23 @@ form {
 
 .additional-link {
     display: flex;
+    width: 55%;
+    justify-content: space-between;
 }
 
 .additional-link p {
-    width: 34%;
+    width: 78%;
     padding-right: 0;
     margin: 0;
+    color: #979797;
 }
 
 .additional-link a {
-    width: 30%;
+    width: 22%;
     padding: 0;
+    color: #e6b91e;
+}
+
+.additional-link a:hover {
+    color: #b49216;
 }

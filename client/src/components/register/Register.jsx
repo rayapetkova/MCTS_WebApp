@@ -51,7 +51,7 @@ const Register = () => {
 
                                 <p className={`text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ${styles['title']}`}>Sign Up</p>
 
-                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='First Name' 
                                         id='form1' 
@@ -60,10 +60,11 @@ const Register = () => {
                                         name={formNames.firstName} 
                                         onChange={onChange}
                                         value={values.firstName}
+                                        contrast
                                     />
                                 </div>
 
-                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='Last Name' 
                                         id='form2' 
@@ -71,11 +72,12 @@ const Register = () => {
                                         className={`w-100 ${styles['input-field']}`} 
                                         name={formNames.lastName} 
                                         onChange={onChange}
-                                        value={values.lastName}
+                                        value={values.lastName} 
+                                        contrast
                                     />
                                 </div>
 
-                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='Your Email' 
                                         id='form3' 
@@ -84,10 +86,11 @@ const Register = () => {
                                         name={formNames.email} 
                                         onChange={onChange}
                                         value={values.email} 
+                                        contrast
                                     />
                                 </div>
 
-                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='Password' 
                                         id='form4' 
@@ -95,11 +98,12 @@ const Register = () => {
                                         className={styles['input-field']} 
                                         name={formNames.password} 
                                         onChange={onChange} 
-                                        value={values.password}
+                                        value={values.password} 
+                                        contrast
                                     />
                                 </div>
 
-                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['form-input']}`}>
+                                <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
                                         label='Repeat your password' 
                                         id='form5' 
@@ -107,7 +111,8 @@ const Register = () => {
                                         className={styles['input-field']} 
                                         name={formNames.confirmPassword} 
                                         onChange={onChange} 
-                                        value={values.confirmPassword}
+                                        value={values.confirmPassword} 
+                                        contrast
                                     />
                                 </div>
 
@@ -119,10 +124,6 @@ const Register = () => {
 
                                 <MDBBtn className='mb-4' size='lg'>Register</MDBBtn>
                             </form>
-                        </MDBCol>
-
-                        <MDBCol md='10' lg='6' className={`order-1 order-lg-2 d-flex align-items-center ${styles['right']}`}>
-                            <MDBCardImage src={logoSymbol} className={styles['image-logo']} fluid />
                         </MDBCol>
 
                     </MDBRow>
