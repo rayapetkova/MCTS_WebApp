@@ -2,7 +2,7 @@ import styles from '../footer/Footer.module.css'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer data-testid="footer">
             <section>
                 <ul>
                     <li>Email: r*****a1***1@gmail.com</li>

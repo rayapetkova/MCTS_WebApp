@@ -35,7 +35,7 @@ const Header = () => {
     }
 
     return (
-        <header>
+        <header data-testid="header">
             <Link to={'/'} className={styles['img-logo']}>
                 <img src={logo} alt="logo-img"/>
             </Link>
