@@ -65,7 +65,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
     return (
         <>
             <div className={styles['second-main']} id={sectionName}>
-                <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''}`}>
+                <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''} ${sectionName === 'Watchlist' ? styles['watchlist-one-section'] : ''}`}>
                     <div className={styles['title']}>
                         {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName} &#10509;</Link> : <h2>{sectionName} - MCTS</h2>}
                     </div>

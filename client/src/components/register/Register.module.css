@@ -34,7 +34,7 @@ form {
 .input-field {
     color: #797777 !important;
     width: 100% !important;
-    background-color: rgba(180, 179, 179, 0.87) !important;
+    background-color: rgb(53, 53, 53) !important;
 }
 
 .input-field:focus {

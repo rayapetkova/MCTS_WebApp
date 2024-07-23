@@ -6,6 +6,11 @@ div.second-main {
 div.second-main .one-section {
     display: flex;
     flex-direction: column;
+    gap: 2em;
+}
+
+div.second-main .watchlist-one-section {
+    gap: 0;
 }
 
 /* div.second-main .one-section div:nth-child(2) > a {
@@ -141,6 +146,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 30%;
 }
 
 .no-movies-in-watchlist p {
@@ -161,6 +167,10 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     color: #121212;
     width: 40% !important;
     text-align: center;
+}
+
+.no-movies-in-watchlist .login {
+    width: 25% !important;
 }
 
 .no-movies-in-watchlist .browse-movies:hover, .no-movies-in-watchlist .login:hover {

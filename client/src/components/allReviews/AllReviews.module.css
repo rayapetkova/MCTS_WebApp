@@ -3,13 +3,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 2% 15.5%;
+    margin: 1% 15.5%;
     gap: 2.3em;
 }
 
 .one-section .title-reviews {
-    margin: 2% 15.5%;
-    background-color: #b79312;
+    margin: 3% 21%;
+    margin-bottom: 0;
+    color: #646464;
 }
 
 .one-section .cards .card {
