@@ -21,7 +21,7 @@ const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
     }
 
     return (
-        <div className={`${styles['box']} ${forReviewsSection ? styles['for-reviews-section-box'] : ''}`} key={review._id}>
+        <div className={`${styles['box']} ${forReviewsSection ? styles['for-reviews-section-box'] : ''}`} data-testid="reviews">
             <section className={styles['top']}>
                 <p><span>{review.rate}</span>/10</p>
                 {(authData._id === review._ownerId) && (
