@@ -11,6 +11,7 @@ import Spinner from '../spinner/Spinner'
 
 import Carousel from 'react-bootstrap/Carousel';
 import { calculateRows } from '../../utils/calculateRows'
+import CelebCard from './celebCard/CelebCard'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -68,13 +69,7 @@ const SecondMainCelebs = ({ movieId }) => {
                                 <Carousel.Item key={start}>
                                     <div className={styles['cards']}>
                                         {movieCast.slice(start, end).map((celeb) => (
-                                            <button className={styles['card']} key={celeb.id} onClick={() => onClickCelebHandler(celeb.id)}>
-                                                <img src={`${pathForImages}/${celeb.profile_path}`} alt="card" />
-                                                <div className={styles['name-container']}>
-                                                    <p>{celeb.original_name}</p>
-                                                    <p>{celeb.character}</p>
-                                                </div>
-                                            </button>
+                                            <CelebCard celeb={celeb} onClickCelebHandler={onClickCelebHandler} key={celeb.id} />
                                         ))}
                                     </div>
                                 </Carousel.Item>

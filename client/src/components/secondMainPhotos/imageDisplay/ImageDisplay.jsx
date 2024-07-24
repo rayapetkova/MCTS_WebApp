@@ -4,7 +4,7 @@ const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const ImageDisplay = ({ backdrop }) => {
     return (
-        <div className={styles['card']} key={backdrop.file_path}>
+        <div className={styles['card']}>
             <img src={`${pathForImages + backdrop.file_path}`} alt="card" />
         </div>
     )
