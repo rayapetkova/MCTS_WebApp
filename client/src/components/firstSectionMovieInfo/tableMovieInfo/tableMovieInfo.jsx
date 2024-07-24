@@ -1,5 +1,5 @@
 import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../../api_data/extractingData"
-import styles from './MovieInfo.module.css'
+import styles from './tableMovieInfo.module.css'
 import tick from '../../../assets/tick.png'
 import Spinner from "../../spinner/Spinner"
 

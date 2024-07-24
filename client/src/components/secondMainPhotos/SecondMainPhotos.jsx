@@ -9,8 +9,8 @@ import Spinner from "../spinner/Spinner"
 
 import Carousel from 'react-bootstrap/Carousel';
 import { calculateRows } from "../../utils/calculateRows"
+import ImageDisplay from "./imageDisplay/ImageDisplay"
 
-const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const SecondMainPhotos = ({ movieId }) => {
     let [movieImages, setMovieImages] = useState([])
@@ -49,9 +49,7 @@ const SecondMainPhotos = ({ movieId }) => {
                                 <Carousel.Item key={start}>
                                     <div className={styles['cards']}>
                                         {movieImages.slice(start, end).map((backdrop) => (
-                                            <div className={styles['card']} key={backdrop.file_path}>
-                                                <img src={`${pathForImages + backdrop.file_path}`} alt="card" />
-                                            </div>
+                                            <ImageDisplay backdrop={backdrop} key={backdrop.file_path}/>
                                         ))}
                                     </div>
                                 </Carousel.Item>
