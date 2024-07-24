@@ -98,7 +98,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                         </Carousel>
                     ) : (
                         <>
-                            {sectionName === 'Watchlist' ? (
+                            {(sectionName === 'Watchlist' && sectionsObj[sectionName].length === 0) ? (
                                 <div className={styles['no-movies-in-watchlist']}>
                                     {Object.keys(authData).length > 0 ? (
                                         <>

@@ -1,0 +1,56 @@
+.movie-info {
+    display: flex;
+    margin-top: 1.3em;
+}
+
+.movie-info section {
+    width: 40%;
+    text-align: end;
+    margin-top: 1em;
+}
+
+.movie-info section button {
+    text-decoration: none;
+    background-color: #f2c318;
+    border: none;
+    border-bottom: outset 3px #b79312;
+    border-right: outset 2px #b79312;
+    border-radius: 10px;
+    padding: 0.5em 1.1em;
+    font-size: 1.2em;
+    color: #121212;
+}
+
+.movie-info section .add-to-watchlist:hover {
+    background-color: #f2c318c4;
+}
+
+.movie-info section .added-to-watchlist {
+    background-color: #64520f;
+}
+
+.movie-info section .added-to-watchlist .tick {
+    width: 1em;
+    margin-right: 0.3em;
+}
+
+.movie-info table {
+    border-spacing: 0 2em;
+    width: 60%;
+}
+
+.movie-info table tr td {
+    font-size: 1.2em;
+}
+
+.movie-info table tr td:nth-child(1) {
+    font-size: 1.2em;
+    color: #797979;
+    font-weight: 600;
+    display: flex;
+}
+
+.movie-info table td:nth-child(2) {
+    padding-left: 2em;
+    color: #c3c3c3;
+}
