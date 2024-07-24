@@ -69,10 +69,10 @@ const Header = () => {
 
 
             <ul className={styles['last-links']}>
-                <li><Link to={'movies/Watchlist'}>Watchlist</Link></li>
+                <li><Link to={'/movies/Watchlist'}>Watchlist</Link></li>
                 <li className={'log-out'}>{(authData && Object.keys(authData).length > 0) && <Link onClick={() => logoutSubmitHandler()}>Log Out</Link>}</li>
                 <li>{(authData && Object.keys(authData).length > 0) 
-                    ? (<Link to={'users/me'}><img className={styles['profile-img']} src={profileIcon}/></Link>)
+                    ? (<Link to={'/users/me'}><img className={styles['profile-img']} src={profileIcon}/></Link>)
                     : (<Link to={'/login'}>Sign In</Link>) }
                 </li>
             </ul>

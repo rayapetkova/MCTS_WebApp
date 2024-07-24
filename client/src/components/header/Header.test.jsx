@@ -36,8 +36,89 @@ describe('HeaderTest', () => {
         await act(async() => {
             fireEvent.click(signInElement)
         })
-        
         expect(window.location.pathname).toBe('/login')
-        
+
+        cleanup()
+    })
+
+    it('click movies Link and render featured today', async () => {
+        render(
+            <BrowserRouter>
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            </BrowserRouter>
+        )
+
+        const allLinks = screen.getAllByRole('link')
+
+        await act(async() => {
+            fireEvent.click(allLinks[1])
+        })
+        expect(window.location.pathname).toBe('/movies/Featured%20Today')
+    })
+
+    it('click top rated Link and render top rated', async () => {
+        render(
+            <BrowserRouter>
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            </BrowserRouter>
+        )
+
+        const allLinks = screen.getAllByRole('link')
+
+        await act(async() => {
+            fireEvent.click(allLinks[2])
+        })
+        expect(window.location.pathname).toBe('/movies/Top%20Rated')
+    })
+
+    it('click people Link and render all people', async () => {
+        render(
+            <BrowserRouter>
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            </BrowserRouter>
+        )
+
+        const allLinks = screen.getAllByRole('link')
+
+        await act(async() => {
+            fireEvent.click(allLinks[3])
+        })
+        expect(window.location.pathname).toBe('/people')
+    })
+
+    it('click watchlist Link and render the watchlist', async () => {
+        render(
+            <BrowserRouter>
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            </BrowserRouter>
+        )
+
+        const allLinks = screen.getAllByRole('link')
+
+        await act(async() => {
+            fireEvent.click(allLinks[4])
+        })
+        expect(window.location.pathname).toBe('/movies/Watchlist')
+    })
+
+    it('checks log out Link is not on the page', async () => {
+        render(
+            <BrowserRouter>
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            </BrowserRouter>
+        )
+
+        const logOutLink = screen.queryByText(/log out/i)
+        expect(logOutLink).toBeNull()
     })
 })
