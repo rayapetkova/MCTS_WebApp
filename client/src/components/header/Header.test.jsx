@@ -1,5 +1,5 @@
 import { it, expect, describe } from 'vitest'
-import { cleanup, render, screen, fireEvent } from '@testing-library/react'
+import { cleanup, render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
 import Header from './Header'
 import { AuthProvider } from '../../contexts/AuthContext'
@@ -22,4 +22,22 @@ describe('HeaderTest', () => {
         cleanup()
     })
 
+    it('click `Sign In` and render Log In page', async () => {
+        render(
+            <BrowserRouter>
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            </BrowserRouter>
+        )
+
+        const signInElement = screen.getByText(/sign in/i)
+        
+        await act(async() => {
+            fireEvent.click(signInElement)
+        })
+        
+        expect(window.location.pathname).toBe('/login')
+        
+    })
 })
