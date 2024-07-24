@@ -29,7 +29,7 @@ const Reviews = ({ movieId }) => {
     }
 
     return (
-        <div className={styles['reviews']} id="reviews">
+        <div className={styles['reviews']} id="reviews" data-testid="reviews">
             <div className={styles['title']}>
                 <div className={styles['left']}>
                     <h2>User Reviews</h2>

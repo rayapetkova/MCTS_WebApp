@@ -70,7 +70,7 @@ const FirstSectionMovieInfo = ({ movieId }) => {
     }
 
     return (
-        <section className={styles['first-section']} id="overview">
+        <section className={styles['first-section']} id="overview" data-testid="firstSection">
             <h1>{movieInfo.original_title}</h1>
             <div className={styles['small-info']}>
                 <ul className={styles['left-ul']}>

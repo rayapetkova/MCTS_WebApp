@@ -32,7 +32,7 @@ const SecondMainPhotos = ({ movieId }) => {
     }
 
     return (
-        <>
+        <div data-testid="secondMainPhotos">
             <div className={`${styles['second-main']} ${styles['photos']}`}>
                 <section className={styles['one-section']}>
                     <div className={styles['title']}>
@@ -64,7 +64,7 @@ const SecondMainPhotos = ({ movieId }) => {
 
                 </section>
             </div>
-        </>
+        </div>
     )
 
 

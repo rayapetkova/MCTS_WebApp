@@ -1,9 +1,13 @@
-import { it, expect, describe } from 'vitest'
+import { it, expect, describe, afterEach } from 'vitest'
 import { cleanup, render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
 import Header from './Header'
 import { AuthProvider } from '../../contexts/AuthContext'
 import { BrowserRouter } from 'react-router-dom'
+
+afterEach(() => {
+    cleanup()
+})
 
 describe('HeaderTest', () => {
     it('shows `Sign In` button on first render', () => {
@@ -18,8 +22,6 @@ describe('HeaderTest', () => {
         const signInElement = screen.getByText(/sign in/i)
 
         expect(signInElement).toBeInTheDocument()
-
-        cleanup()
     })
 
     it('click `Sign In` and render Log In page', async () => {
@@ -37,8 +39,6 @@ describe('HeaderTest', () => {
             fireEvent.click(signInElement)
         })
         expect(window.location.pathname).toBe('/login')
-
-        cleanup()
     })
 
     it('click movies Link and render featured today', async () => {

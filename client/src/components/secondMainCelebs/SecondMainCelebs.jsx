@@ -51,7 +51,7 @@ const SecondMainCelebs = ({ movieId }) => {
     }
 
     return (
-        <>
+        <div data-testid="secondMainCelebs">
             <div className={`${styles['second-main']} ${styles['celebs']}`} id='cast'>
                 <section className={styles['one-section']}>
                     <div className={styles['title']}>
@@ -87,7 +87,7 @@ const SecondMainCelebs = ({ movieId }) => {
 
                 </section>
             </div>
-        </>
+        </div>
     )
 }
 
