@@ -3,7 +3,7 @@ import { cleanup, render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
 import { AuthProvider } from '../../../contexts/AuthContext'
 import { BrowserRouter } from 'react-router-dom'
-import MovieInfo from './MovieInfo'
+import MovieInfo from './tableMovieInfo'
 
 afterEach(() => {
     cleanup()

@@ -9,7 +9,7 @@ import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
 import { addToWatchlist, getWatchlist } from "../../services/watchlistService"
 import { AuthContext } from "../../contexts/AuthContext"
 import Spinner from "../spinner/Spinner"
-import MovieInfo from "./movieInfo/MovieInfo"
+import MovieInfo from "./tableMovieInfo/tableMovieInfo"
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
