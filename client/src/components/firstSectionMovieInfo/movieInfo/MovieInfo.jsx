@@ -1,10 +1,11 @@
 import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../../api_data/extractingData"
 import styles from './MovieInfo.module.css'
 import tick from '../../../assets/tick.png'
+import Spinner from "../../spinner/Spinner"
 
 const MovieInfo = ({ movieInfo, movieCredits, authData, addToWatchListEvent, isAddedToWatchlist }) => {
     return (
-        <div className={styles['movie-info']}>
+        <div className={styles['movie-info']} data-testid="movieInfo">
 
             {(movieInfo && Object.keys(movieInfo)) ? (
                 <table>
