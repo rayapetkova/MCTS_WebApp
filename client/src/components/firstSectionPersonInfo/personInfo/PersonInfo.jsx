@@ -15,4 +15,4 @@ const PersonInfo = ({ personInfo, personMovies }) => {
     )
 }
 
-export default PersonInfo
+export default PersonInfo;
