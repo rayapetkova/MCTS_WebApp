@@ -167,6 +167,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     color: #121212;
     width: 40% !important;
     text-align: center;
+    
 }
 
 .no-movies-in-watchlist .login {
@@ -175,4 +176,8 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
 
 .no-movies-in-watchlist .browse-movies:hover, .no-movies-in-watchlist .login:hover {
     background-color: #f2c318c4;
+}
+
+.list-browse-movies, .list-login {
+    margin-bottom: 40%;
 }

@@ -3,19 +3,27 @@ import styles from './Card.module.css'
 
 import emptyStar from '../../../assets/empty_star.png'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../../contexts/AuthContext'
 
-const Card = ({ movie }) => {
+const Card = ({ movieObj, sectionName, updateWatchlistOnRemove }) => {
+
+    if (sectionName === "Watchlist") {
+        movieObj = movieObj.movie
+    }
+    
     return (
-        <div key={movie.id} className={styles['card']}>
-            <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
-            <p>{movie.title}</p>
+        <div key={movieObj.id} className={styles['card']}>
+            <img src={`${pathForImages + movieObj.poster_path}`} alt="card"/>
+            <p>{movieObj.title}</p>
             <div className={styles['star-div']}>
                 <div className={styles['img-container']}>
                     <img src={emptyStar} alt="empty-star"/>
                 </div>
-                <p>{movie.vote_average}</p>
+                <p>{movieObj.vote_average}</p>
             </div>
-            <Link to={`/movies/${movie.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
+            {sectionName === "Watchlist" && <button className={styles['remove-from-watchlist']} onClick={() => updateWatchlistOnRemove(movieObj.id)}>X</button>}
+            <Link to={`/movies/${movieObj.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
         </div>
     )
 }

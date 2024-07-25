@@ -7,7 +7,7 @@ import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '
 import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
-import { getWatchlist } from '../../services/watchlistService'
+import { deleteWatchlistElement, getWatchlist } from '../../services/watchlistService'
 import Card from './card/Card'
 import Spinner from '../spinner/Spinner'
 
@@ -62,6 +62,18 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
 
     }, [])
 
+    async function updateWatchlistOnRemove(movieId) {
+        const watchlistElement = sectionsObj[sectionName].filter((watchlistEl) => watchlistEl.movie.id === movieId)[0]
+        
+        const result = await deleteWatchlistElement(watchlistElement._id)
+        let newWatchlist = await getWatchlist(authData._id)
+
+        setSectionsObj(currentState => ({
+            ...currentState,
+            'Watchlist': newWatchlist
+        }))
+    }
+
     return (
         <>
             <div className={styles['second-main']} id={sectionName}>
@@ -74,7 +86,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                         arrayForRows.map(([start, end]) => (
                             <div className={styles['cards']} key={start}>
                                 {sectionsObj[sectionName].slice(start, end).map((movie) => (
-                                    <Card movie={movie} key={movie.id} />
+                                    <Card movieObj={movie} sectionName={sectionName} updateWatchlistOnRemove={updateWatchlistOnRemove} key={movie.id} />
                                 ))}
                             </div>
                         ))
@@ -90,7 +102,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                                 <Carousel.Item key={start}>
                                     <div className={styles['cards']}>
                                         {sectionsObj[sectionName].slice(start, end).map((movie) => (
-                                            <Card movie={movie} key={movie.id} />
+                                            <Card movieObj={movie} sectionName={sectionName} updateWatchlistOnRemove={updateWatchlistOnRemove} key={movie.id} />
                                         ))}
                                     </div>
                                 </Carousel.Item>
@@ -103,12 +115,12 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                                     {Object.keys(authData).length > 0 ? (
                                         <>
                                             <p>No movies in Watchlist yet</p>
-                                            <Link to={'/movies/Top Rated'} className={styles['browse-movies']}>Browse Movies</Link>
+                                            <Link to={'/movies/Top Rated'} className={`${styles['browse-movies']} ${listFeature ? styles['list-browse-movies'] : ''}`}>Browse Movies</Link>
                                         </>
                                     ) : (
                                         <>
                                             <p>You need to log in first</p>
-                                            <Link to={'/login'} className={styles['login']}>Log In</Link>
+                                            <Link to={'/login'} className={`${styles['login']} ${listFeature ? styles['list-login'] : ''}`}>Log In</Link>
                                         </>
                                     )}
                                 </div>

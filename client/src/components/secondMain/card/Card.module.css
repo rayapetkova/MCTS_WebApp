@@ -6,6 +6,7 @@
     border-radius: 10px;
     padding: 1%;
     background-color: #151515;
+    position: relative
 }
 
 .card img {
@@ -63,4 +64,18 @@
 
 .card img {
     width: 100%;
+}
+
+.card .remove-from-watchlist {
+
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8em;
+    margin-top: 1em;
+    background-color: rgb(189, 0, 0);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    top: 0;
 }

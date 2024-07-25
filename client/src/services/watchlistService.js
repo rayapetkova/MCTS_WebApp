@@ -29,12 +29,21 @@ export async function getWatchlist(userId) {
     }
     
     let result = await response.json()
+    return result
+}
 
-    const moviesWatchlist = []
-    
-    for (let record of Object.values(result)) {
-        moviesWatchlist.push(record.movie)
-    }
+export async function deleteWatchlistElement(recordId) {
+    const authUserData = JSON.parse(localStorage.getItem('authData'))
+    const accessToken = authUserData.accessToken
 
-    return moviesWatchlist
+    let response = await fetch(`${baseUrl}/watchlists/${recordId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': accessToken
+        }
+    })
+
+    const result = await response.json()
+    return result
 }
