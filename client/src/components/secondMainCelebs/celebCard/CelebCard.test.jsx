@@ -46,9 +46,9 @@ describe('CelebCardTest', () => {
 
         const buttonCeleb = screen.getByRole('button')
 
-        await act(() => [
+        await act(() => {
             fireEvent.click(buttonCeleb)
-        ])
+        })
 
         expect(onClickFn).toBeCalledTimes(1)
     })

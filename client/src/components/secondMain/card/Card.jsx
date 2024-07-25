@@ -22,7 +22,7 @@ const Card = ({ movieObj, sectionName, updateWatchlistOnRemove }) => {
                 </div>
                 <p>{movieObj.vote_average}</p>
             </div>
-            {sectionName === "Watchlist" && <button className={styles['remove-from-watchlist']} onClick={() => updateWatchlistOnRemove(movieObj.id)}>X</button>}
+            {sectionName === "Watchlist" && <button className={styles['remove-from-watchlist']} data-testid="remove-button" onClick={() => updateWatchlistOnRemove(movieObj.id)}>X</button>}
             <Link to={`/movies/${movieObj.id}/details`} preventScrollReset={false}>More Info &gt; </Link>
         </div>
     )
