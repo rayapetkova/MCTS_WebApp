@@ -45,8 +45,8 @@ const FirstSectionMovieInfo = ({ movieId }) => {
     }, [])
 
     useEffect(() => {
-        for (let movie of userWatchlist) {
-            if (movie.id === movieInfo.id) {
+        for (let watchlistObj of userWatchlist) {
+            if (watchlistObj.movie.id === movieInfo.id) {
                 setIsAddedToWatchlist(true)
             }
         }
