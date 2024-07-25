@@ -12,7 +12,6 @@ const EditProfileDetails = () => {
     const createdUser = JSON.parse(localStorage.getItem('createdUser'))
 
     const editProfileSubmitHandler = async (values) => {
-        console.log(values)
         let result = await editUser(values, createdUser._id)
         setCreatedUser(result)
     }

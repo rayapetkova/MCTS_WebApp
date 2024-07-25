@@ -9,8 +9,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Spinner from '../spinner/Spinner'
 
 import Carousel from 'react-bootstrap/Carousel';
-
-const pathForImages = 'https://image.tmdb.org/t/p/w500'
+import CelebCard from './celebCard/CelebCard'
 
 const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
     const navigate = useNavigate()
@@ -49,12 +48,7 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
                         arrayForRows.map(([start, end]) => (
                             <div className={styles['cards']}>
                                 {popularCelebrities.slice(start, end).map((celebrity) => (
-                                    <button key={celebrity.id} className={styles['card']} onClick={() => onClickCelebHandler(celebrity.id)}>
-                                        <img src={`${pathForImages + celebrity.profile_path}`} alt="card" />
-                                        <div className={styles['name-container']}>
-                                            <p>{celebrity.name}</p>
-                                        </div>
-                                    </button>
+                                    <CelebCard celebrity={celebrity} onClickCelebHandler={onClickCelebHandler} />
                                 ))}
                             </div>
                         ))
@@ -70,12 +64,7 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
                                 <Carousel.Item key={start}>
                                     <div className={styles['cards']}>
                                         {popularCelebrities.slice(start, end).map((celebrity) => (
-                                            <button key={celebrity.id} className={styles['card']} onClick={() => onClickCelebHandler(celebrity.id)}>
-                                                <img src={`${pathForImages + celebrity.profile_path}`} alt="card" />
-                                                <div className={styles['name-container']}>
-                                                    <p>{celebrity.name}</p>
-                                                </div>
-                                            </button>
+                                            <CelebCard celebrity={celebrity} onClickCelebHandler={onClickCelebHandler} />
                                         ))}
                                     </div>
                                 </Carousel.Item>

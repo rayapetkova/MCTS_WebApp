@@ -3,10 +3,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: none;
     border-radius: 10px;
     padding: 1%;
-    background-color: #151515;
-    position: relative
+    background-color: #202020;
+    filter: brightness(78%);
+    transition: filter 0.3s ease-in-out;
+}
+
+.card:hover {
+    filter: brightness(100%);
 }
 
 .card img {
@@ -24,7 +30,6 @@
     padding: 0;
     margin: 0;
     margin-top: 0.5em;
-    text-align: center;
 }
 
 .card .star-div {
@@ -39,7 +44,6 @@
     margin-right: 5%;
     display: flex;
 }
-
 .card .star-div p {
     padding: 0;
     margin: 0;
@@ -59,22 +63,38 @@
     border-top: 3px solid #303030;
     width: 90%;
     font-weight: 300;
-    overflow-anchor: auto;
 }
 
 .card img {
     width: 100%;
 }
 
-.card .remove-from-watchlist {
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 0.8em;
-    margin-top: 1em;
-    background-color: rgb(189, 0, 0);
-    color: rgb(255, 255, 255);
-    position: absolute;
-    left: 0;
-    top: 0;
+
+
+
+
+
+
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.card .name-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card .name-container p {
+    color: #c3c3c3;
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5em;
 }
