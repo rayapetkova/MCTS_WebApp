@@ -5,6 +5,7 @@ import moviePoster from '../../assets/movie_poster.png'
 import styles from './FirstSectionPersonInfo.module.css'
 import { getPersonDetails, getPersonMovies } from '../../api_data/dataFunctions'
 import noImageAvailable from '../../assets/no_image_available.png'
+import PersonInfo from './personInfo/PersonInfo'
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -52,14 +53,7 @@ const FirstSectionPersonInfo = ({ personId }) => {
                     <img src={backdropMovieImage ? `${pathForImages + backdropMovieImage}` : noImageAvailable} alt="movie-image" />
                 </div>
             </div>
-            <div className={styles['person-info']}>
-                <h3>Biography</h3>
-                <p className={styles['biography']}>{personInfo.biography}</p>
-                <div className={styles['participated-in']}>
-                    <h6>Movies</h6>
-                    <p>{personMovies.slice(0, 15).join(', ')}</p>
-                </div>
-            </div>
+            <PersonInfo personInfo={personInfo} personMovies={personMovies} />
         </section>
     )
 }
