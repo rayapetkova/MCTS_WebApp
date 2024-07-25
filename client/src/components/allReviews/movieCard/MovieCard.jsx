@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const MovieCard = ({ movieInfo }) => {
     return (
-        <section className={styles['first-section']}>
+        <section className={styles['first-section']} data-testid="first-section">
             <h1>{movieInfo.original_title}</h1>
             <div className={styles['small-info']}>
                 <ul className={styles['left-ul']}>
