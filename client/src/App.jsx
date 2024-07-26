@@ -15,6 +15,8 @@ import EditProfileDetails from "./components/editProfileDetails/EditProfileDetai
 import CelebrityInfo from "./components/CelebrityInfo";
 import AllReviews from "./components/allReviews/AllReviews";
 import ListPeople from "./components/ListPeople";
+import AuthGuard from "./routeGuards/AuthGuard";
+import LoggedInGuard from "./routeGuards/LoggedInGuard";
 
 function App() {
 
@@ -27,12 +29,12 @@ function App() {
                     <Route path="/" element={<MainPageMovies />} />
                     <Route path="/movies/:movieId/details" element={<MovieInfo />}  />
                     <Route path="/movies/:sectionName" element={<ListMovies />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/users/me" element={<EditProfileDetails />} />
+                    <Route path="/register" element={<LoggedInGuard><Register /></LoggedInGuard>} />
+                    <Route path="/login" element={<LoggedInGuard><Login /></LoggedInGuard>} />
+                    <Route path="/users/me" element={<AuthGuard><EditProfileDetails /></AuthGuard>} />
                     <Route path="/people" element={<ListPeople />} />
                     <Route path="/people/:personId" element={<CelebrityInfo />} />
-                    <Route path="/movies/:movieId/reviews" element={<AllReviews />} />
+                    <Route path="/movies/:movieId/reviews" element={<AuthGuard><AllReviews /></AuthGuard>} />
                 </Routes>
 
                 <Footer />
