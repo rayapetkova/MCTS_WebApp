@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function useStateLocalStorage(key, initialValue) {
     const [state, setState] = useState(() => {
-        const authData = JSON.parse(localStorage.getItem('authData'))
+        const authData = JSON.parse(localStorage.getItem(key))
 
         if (authData) {
             return authData
