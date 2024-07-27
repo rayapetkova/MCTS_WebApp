@@ -22,6 +22,26 @@ const EditProfileDetails = () => {
 
     const hideDeleteForm = (e) => setShowDeleteForm(false)
 
+    async function onFileChange(e) {
+        const formData = new FormData()
+
+        const file = e.target.files[0]
+        formData.append('file', file)
+        formData.append('upload_preset', 'uarqt4he')
+
+        const responseAPI = await fetch('https://api.cloudinary.com/v1_1/dzfgtuvut/image/upload', {
+            method: 'POST',
+            body: formData
+        })
+        const resultAPI = await responseAPI.json()
+        
+        const result = await editUser({
+            ...createdUser,
+            profileImg: resultAPI.url
+        }, createdUser._id)
+        setCreatedUser(result)
+    }
+
     return (
         <section className={styles['info-section']}>
             <div className={styles['left']}>
@@ -36,11 +56,10 @@ const EditProfileDetails = () => {
                         <div className={styles['field']}>
                             <label htmlFor="profile-img">Profile Image URL</label>
                             <input
-                                type="text"
+                                type="file"
                                 id="profile_img"
                                 name="profileImg"
-                                value={values.profileImg}
-                                onChange={onChange}
+                                onChange={onFileChange}
                             />
                         </div>
 
