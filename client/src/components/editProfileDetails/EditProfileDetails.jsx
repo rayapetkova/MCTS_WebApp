@@ -4,39 +4,27 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import { editUser, retrieveUser } from '../../services/usersService'
 import useForm from '../../hooks/useForm'
+import useProfileImgForm from '../../hooks/useProfileImgForm'
 
 const EditProfileDetails = () => {
-    const { setCreatedUser } = useContext(AuthContext)
-    const createdUser = JSON.parse(localStorage.getItem('createdUser'))
+    const { createdUser, setCreatedUser } = useContext(AuthContext)
+    console.log(createdUser)
 
     const editProfileSubmitHandler = async (values) => {
         let result = await editUser(values, createdUser._id)
         setCreatedUser(result)
     }
 
-    const [values, onChange, onSubmit] = useForm(editProfileSubmitHandler, createdUser)
-
-
-
-    async function onFileChange(e) {
-        const formData = new FormData()
-
-        const file = e.target.files[0]
-        formData.append('file', file)
-        formData.append('upload_preset', 'uarqt4he')
-
-        const responseAPI = await fetch('https://api.cloudinary.com/v1_1/dzfgtuvut/image/upload', {
-            method: 'POST',
-            body: formData
-        })
-        const resultAPI = await responseAPI.json()
-        
+    const changeProfileImgSubmitHandler = async (imgUrl) => {
         const result = await editUser({
             ...createdUser,
-            profileImg: resultAPI.url
+            profileImg: imgUrl
         }, createdUser._id)
         setCreatedUser(result)
     }
+
+    const [values, onChange, onSubmit] = useForm(editProfileSubmitHandler, createdUser)
+    const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, createdUser.profileImg)
 
     return (
         <section className={styles['info-section']}>
@@ -48,14 +36,15 @@ const EditProfileDetails = () => {
                 <div className={styles['user-info']}>
                     <p className={styles['name']}>{`${createdUser.firstName} ${createdUser.lastName}`}</p>
 
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={onSubmitImg}>
                         <div className={styles['field']}>
-                            <label htmlFor="profile-img">Profile Image URL</label>
+                            <label htmlFor="profile-img">Profile Image</label>
                             <input
                                 type="file"
                                 id="profile_img"
-                                name="profileImg"
-                                onChange={onFileChange}
+                                name="profileImg" 
+                                className={styles['choose-file-button']}
+                                onChange={onChangeImg}
                             />
                         </div>
 

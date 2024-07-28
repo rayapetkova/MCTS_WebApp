@@ -51,8 +51,31 @@
 }
 
 .left .user-info .field label {
-    color: #6b6b6b;
+    color: #969696;
 }
+
+.left .user-info .field .choose-file-button {
+    color: rgba(240, 248, 255, 0.849);
+}
+
+.left .user-info .field .choose-file-button::file-selector-button {
+    background-color: rgba(240, 248, 255, 0.849);
+    width: 45%;
+    padding: 1.5%;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    color: rgb(112, 112, 112);
+}
+
+
+.left .user-info .field .choose-file-button::file-selector-button:hover {
+    background-color: rgba(176, 178, 179, 0.849);
+    color: rgba(240, 248, 255, 0.849);
+    cursor: pointer;
+}
+
+
 
 
 .right {

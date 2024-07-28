@@ -62,6 +62,7 @@ export function AuthProvider({ children }) {
         checkIfUserLogged: Object.keys(authData).length > 0 ? true : false,
         setCreatedUser, 
         authData, 
+        createdUser, 
         registerSubmitHandler,
         loginSubmitHandler,
         logoutSubmitHandler
