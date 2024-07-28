@@ -4,11 +4,9 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import { editUser, retrieveUser } from '../../services/usersService'
 import useForm from '../../hooks/useForm'
-import DeleteProfileForm from './deleteProfileForm/DeleteProfileForm'
 
 const EditProfileDetails = () => {
     const { setCreatedUser } = useContext(AuthContext)
-    const [showDeleteForm, setShowDeleteForm] = useState(false)
     const createdUser = JSON.parse(localStorage.getItem('createdUser'))
 
     const editProfileSubmitHandler = async (values) => {
@@ -18,9 +16,7 @@ const EditProfileDetails = () => {
 
     const [values, onChange, onSubmit] = useForm(editProfileSubmitHandler, createdUser)
 
-    const deleteProfileEvent = (e) => setShowDeleteForm(true)
 
-    const hideDeleteForm = (e) => setShowDeleteForm(false)
 
     async function onFileChange(e) {
         const formData = new FormData()
@@ -122,11 +118,9 @@ const EditProfileDetails = () => {
 
                     <div className={styles['buttons']}>
                         <button className={styles['update-button']}>Update</button>
-                        <button className={styles['delete-button']} onClick={deleteProfileEvent}>Delete Profile</button>
                     </div>
                 </form>
 
-                {showDeleteForm && <DeleteProfileForm hideDeleteForm={hideDeleteForm} />}
             </div>
         </section>
     )
