@@ -74,7 +74,7 @@ header ul.last-links {
     padding: 0;
     margin: 0;
     margin-left: 3%;
-    width: 13%;
+    width: 11%;
     justify-content: space-between;
 }
 
@@ -90,10 +90,6 @@ header ul.last-links li a {
 
 header ul.last-links li a:hover {
     color: #e6b91e;
-}
-
-.profile-img {
-    width: 70%
 }
 
 .search-bar-section .discovered-movies {

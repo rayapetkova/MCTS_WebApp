@@ -1,12 +1,12 @@
 import styles from '../header/Header.module.css'
 import logo from '../../assets/logo.png'
-import profileIcon from '../../assets/profile_icon.png'
 
 import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import { getDiscovedMovies } from '../../api_data/dataFunctions'
 import SearchCard from './searchCard/SearchCard'
+import ProfileDropdown from '../profileDropdown/ProfileDropdown'
 
 const Header = () => {
     const [searchedValue, setSearchedValue] = useState('')
@@ -70,9 +70,8 @@ const Header = () => {
 
             <ul className={styles['last-links']}>
                 <li><Link to={'/movies/Watchlist'}>Watchlist</Link></li>
-                <li className={'log-out'}>{(authData && Object.keys(authData).length > 0) && <Link onClick={() => logoutSubmitHandler()}>Log Out</Link>}</li>
                 <li>{(authData && Object.keys(authData).length > 0) 
-                    ? (<Link to={'/users/me'}><img className={styles['profile-img']} src={profileIcon}/></Link>)
+                    ? (<ProfileDropdown logoutSubmitHandler={logoutSubmitHandler} />)
                     : (<Link to={'/login'}>Sign In</Link>) }
                 </li>
             </ul>
