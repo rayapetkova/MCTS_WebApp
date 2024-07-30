@@ -36,7 +36,7 @@ const Register = () => {
     const { registerSubmitHandler } = useContext(AuthContext)
 
     const submitFormik = () => {
-        registerSubmitHandler()
+        registerSubmitHandler(values)
     }
 
     const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
