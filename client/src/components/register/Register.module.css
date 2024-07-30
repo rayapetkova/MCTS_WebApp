@@ -26,9 +26,9 @@ form {
 }
 
 .input-container {
-    /* background-color: rgb(197, 197, 197); */
-    /* padding: 2%; */
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .input-field {
@@ -40,6 +40,11 @@ form {
 .input-field:focus {
     background-color: rgba(215, 218, 218, 0.87) !important;
     color: #0f0f10 !important;
+}
+
+.input-container p {
+    color: rgb(172, 0, 0);
+    margin-top: 0.2em;
 }
 
 .row {
