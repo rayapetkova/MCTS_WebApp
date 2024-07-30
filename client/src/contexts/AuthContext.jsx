@@ -16,6 +16,7 @@ export function AuthProvider({ children }) {
     const navigate = useNavigate()
     const [authData, setAuthData] = useStateLocalStorage('authData', {})
     const [createdUser, setCreatedUser] = useStateLocalStorage('createdUser', {})
+    const [canLogIn, setCanLogIn] = useState(true)
 
     const registerSubmitHandler = async (values) => {
         let result = await register({
@@ -48,7 +49,12 @@ export function AuthProvider({ children }) {
         let retrievedUser = await retrieveUser(result._id)
         setCreatedUser(retrievedUser[0])
 
-        navigate('/')
+        if (Object.keys(result).length > 0) {
+            navigate('/')
+            setCanLogIn(true)
+        } else {
+            setCanLogIn(false)
+        }
     }
 
     const logoutSubmitHandler = async () => {
@@ -63,9 +69,10 @@ export function AuthProvider({ children }) {
         setCreatedUser, 
         authData, 
         createdUser, 
+        canLogIn, 
         registerSubmitHandler,
         loginSubmitHandler,
-        logoutSubmitHandler
+        logoutSubmitHandler,
     }
 
     return (

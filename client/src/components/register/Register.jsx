@@ -51,8 +51,6 @@ const Register = () => {
         onSubmit: submitFormik
     })
 
-    console.log(touched)
-
     return (
         <MDBContainer fluid className={styles['container']}>
 

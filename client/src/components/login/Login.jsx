@@ -26,7 +26,7 @@ const formNames = {
 }
 
 const Login = () => {
-    const { loginSubmitHandler } = useContext(AuthContext)
+    const { loginSubmitHandler, canLogIn } = useContext(AuthContext)
 
     const [values, onChange, onSubmit] = useForm(loginSubmitHandler, {
         [formNames.email]: '',
@@ -73,6 +73,8 @@ const Login = () => {
                                         contrast
                                     />
                                 </div>
+
+                                {!canLogIn && <p className={styles['warning']}>Incorrect email or password.</p>}
 
                                 <div className='mb-4'>
                                     <MDBRow name='flexCheck' id='flexCheckDefault' className={styles['additional-link']}>

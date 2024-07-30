@@ -8,5 +8,5 @@ export const registrationSchema = yup.object().shape({
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 
         {message: 'Password must contain at least one letter, one number and one special symbol.'}
     ).required('Password is required.'),
-    confirmPassword: yup.string().oneOf([yup.ref('password')], "Passwords doesn't match.").required('Confirm password is required.')
+    confirmPassword: yup.string().oneOf([yup.ref('password')], "Passwords don't match.").required('Confirm password is required.')
 })
