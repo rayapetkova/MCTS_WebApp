@@ -17,6 +17,7 @@ import AllReviews from "./components/allReviews/AllReviews";
 import ListPeople from "./components/ListPeople";
 import AuthGuard from "./routeGuards/AuthGuard";
 import LoggedInGuard from "./routeGuards/LoggedInGuard";
+import ContactUs from "./components/contactUs/ContactUs";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
                     <Route path="/people" element={<ListPeople />} />
                     <Route path="/people/:personId" element={<CelebrityInfo />} />
                     <Route path="/movies/:movieId/reviews" element={<AuthGuard><AllReviews /></AuthGuard>} />
+                    <Route path="/contactUs" element={<ContactUs />} />
                 </Routes>
 
                 <Footer />
