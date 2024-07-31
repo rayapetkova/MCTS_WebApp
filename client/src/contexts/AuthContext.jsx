@@ -46,8 +46,13 @@ export function AuthProvider({ children }) {
         let result = await login(values)
         setAuthData(result)
 
-        let retrievedUser = await retrieveUser(result._id)
-        setCreatedUser(retrievedUser[0])
+        let retrievedUsersWithId = await retrieveUser(result._id)
+        let retrievedUser = {}
+
+        if (retrievedUsersWithId.length > 0) {
+            retrievedUser = retrievedUsersWithId[0]
+        }
+        setCreatedUser(retrievedUser)
 
         if (Object.keys(result).length > 0) {
             navigate('/')
@@ -66,10 +71,10 @@ export function AuthProvider({ children }) {
 
     const contextValues = {
         checkIfUserLogged: Object.keys(authData).length > 0 ? true : false,
-        setCreatedUser, 
-        authData, 
-        createdUser, 
-        canLogIn, 
+        setCreatedUser,
+        authData,
+        createdUser,
+        canLogIn,
         registerSubmitHandler,
         loginSubmitHandler,
         logoutSubmitHandler,

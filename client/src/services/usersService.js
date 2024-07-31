@@ -23,6 +23,11 @@ export async function retrieveUser(userId) {
     })
 
     let response = await fetch(`${baseUrl}/usersRecords?${queries}`);
+
+    if (!response.ok) {
+        return []
+    }
+
     let result = await response.json()
     return result
 }
