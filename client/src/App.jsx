@@ -5,7 +5,7 @@ import MovieInfo from "./components/MovieInfo"
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import styles from "./App.module.css"
 
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import ListMovies from "./components/ListMovies"
 import Register from "./components/register/Register"
 
