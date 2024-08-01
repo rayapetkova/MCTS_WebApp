@@ -35,7 +35,7 @@ export function AuthProvider({ children }) {
         })
         setCreatedUser(createdUserRecord)
 
-        sendEmail({
+        sendEmail('template_3n5hp0d', {
             userFullName: `${createdUserRecord.firstName} ${createdUserRecord.lastName}`,
             userEmail: createdUserRecord.email
         })
