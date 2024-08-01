@@ -44,7 +44,7 @@ const Login = () => {
                 <MDBCardBody className={styles['card-body']}>
                     <MDBRow className={styles['row']}>
                         <MDBCol md='10' lg='6' className={`order-2 order-lg-1 d-flex flex-column align-items-center ${styles['left']}`}>
-                            <form onSubmit={onSubmit}>
+                            <form onSubmit={onSubmit} autoComplete='off'>
 
                                 <p className={`text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ${styles['title']}`}>Log In</p>
 

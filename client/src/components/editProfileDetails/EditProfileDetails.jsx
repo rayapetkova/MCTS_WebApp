@@ -42,7 +42,7 @@ const EditProfileDetails = () => {
                             <input
                                 type="file"
                                 id="profile_img"
-                                name="profileImg" 
+                                name="profileImg"
                                 className={styles['choose-file-button']}
                                 onChange={onChangeImg}
                             />

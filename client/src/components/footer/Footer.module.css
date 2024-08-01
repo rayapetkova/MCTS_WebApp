@@ -6,6 +6,18 @@ footer {
     background-color: #080808;
 }
 
+footer section a.img-logo {
+    width: 30%;
+    display: flex;
+    height: 100%;
+    margin-bottom: 5%;
+}
+
+footer section a.img-logo img {
+    width: 100%;
+    border-radius: 2px;
+}
+
 footer section ul li {
     list-style: none;
 }
