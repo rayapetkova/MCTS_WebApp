@@ -6,8 +6,40 @@ import githubIcon from '../../assets/github_icon.png'
 import linkedInIcon from '../../assets/linkedin_icon.png'
 import facebookIcon from '../../assets/facebook_icon.png'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
+import useForm from '../../hooks/useForm'
+import sendEmail from '../../api_data/emails/sendEmail'
+
+const formNames = {
+    subject: 'subject',
+    message: 'message',
+    'name': 'name',
+    email: 'email',
+    phoneNumber: 'phoneNumber'
+}
 
 const ContactUs = () => {
+
+    function sendEmailSubmitHandler(values) {
+        console.log('submitvane')
+        sendEmail('template_qpsjapg', {
+            subject: values.subject,
+            message: values.message,
+            'name': values.name,
+            email: values.email
+        })
+    }
+
+    const { authData, createdUser } = useContext(AuthContext)
+    const [values, onChange, onSubmit] = useForm(sendEmailSubmitHandler, {
+        [formNames.subject]: '',
+        [formNames.message]: '',
+        [formNames.name]: `${createdUser.firstName} ${createdUser.lastName}`,
+        [formNames.email]: authData.email,
+        [formNames.phoneNumber]: createdUser.phoneNumber ? createdUser.phoneNumber : ''
+    })
+
     return (
         <div className={styles['container']}>
             <div className={styles['card']}>
@@ -18,14 +50,16 @@ const ContactUs = () => {
 
                 <section className={styles['form-and-info']}>
                     <div className={styles['left']}>
-                        <form>
+                        <form onSubmit={onSubmit}>
                             <div className={styles['row']}>
                                 <div className={styles['field']}>
                                     <label htmlFor="name">Name:</label>
                                     <input
                                         type="text"
                                         id="name"
-                                        name="name"
+                                        name={formNames.name} 
+                                        value={values.name} 
+                                        onChange={onChange}
                                     />
                                 </div>
 
@@ -34,7 +68,9 @@ const ContactUs = () => {
                                     <input
                                         type="text"
                                         id="subject"
-                                        name="subject"
+                                        name={formNames.subject} 
+                                        value={values.subject} 
+                                        onChange={onChange}
                                     />
                                 </div>
                             </div>
@@ -45,7 +81,9 @@ const ContactUs = () => {
                                     <input
                                         type="text"
                                         id="email"
-                                        name="email"
+                                        name={formNames.email} 
+                                        value={values.email} 
+                                        onChange={onChange}
                                     />
                                 </div>
 
@@ -53,18 +91,22 @@ const ContactUs = () => {
                                     <label htmlFor="phone_number">Phone Number:</label>
                                     <input
                                         type="text"
-                                        id="phone_number"
-                                        name="phoneNumber"
+                                        id="phone_number" 
+                                        name={formNames.phoneNumber} 
+                                        value={values.phoneNumber} 
+                                        onChange={onChange}
                                     />
                                 </div>
                             </div>
 
-                            <div className={styles['bio-row']}>
+                            <div className={styles['message-row']}>
                                 <h3>Message:</h3>
                                 <textarea
                                     rows="5"
-                                    id="bio"
-                                    name="bio"
+                                    id="message"
+                                    name={formNames.message} 
+                                    value={values.message} 
+                                    onChange={onChange}
                                 />
                             </div>
 
@@ -108,9 +150,9 @@ const ContactUs = () => {
                             <h3>Follow Us:</h3>
 
                             <div className={styles['socials']}>
-                                <Link><img src={githubIcon} alt="github" /></Link>
-                                <Link><img src={linkedInIcon} alt="linkedin" /></Link>
-                                <Link><img src={facebookIcon} alt="facebook" /></Link>
+                                <Link to={'https://github.com/rayapetkova'} target="_blank"><img src={githubIcon} alt="github" /></Link>
+                                <Link to={'https://www.linkedin.com/in/raya-petkova-77418a2a0'} target="_blank"><img src={linkedInIcon} alt="linkedin" /></Link>
+                                <Link to={'https://www.facebook.com/raya.petkova.54/'} target="_blank"><img src={facebookIcon} alt="facebook" /></Link>
                             </div>
                         </section>
                     </div>

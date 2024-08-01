@@ -103,20 +103,20 @@
     color: black;
 }
 
-.left form .bio-row h3 {
+.left form .message-row h3 {
     margin: 0;
     font-size: 1.2em;
     color: rgb(131, 131, 133);
     font-weight: 400;
 }
 
-.left form .bio-row {
+.left form .message-row {
     display: flex;
     flex-direction: column;
     margin-top: 1.3em;
 }
 
-.left form .bio-row textarea {
+.left form .message-row textarea {
     border: solid 1px rgb(160, 159, 161);
     border-radius: 3px;
     font-family: inherit;
@@ -126,7 +126,7 @@
     background-color: rgba(240, 248, 255, 0.849);
 }
 
-.left form .bio-row textarea:focus {
+.left form .message-row textarea:focus {
     background-color: rgb(240, 248, 255);
     outline: none;
     color: black;
