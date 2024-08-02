@@ -18,17 +18,34 @@ import ListPeople from "./components/ListPeople";
 import AuthGuard from "./routeGuards/AuthGuard";
 import LoggedInGuard from "./routeGuards/LoggedInGuard";
 import ContactUs from "./components/contactUs/ContactUs";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
+    const [showScrollButton, setShowScrollButton] = useState(false)
+    const mainDivRef = useRef()
+
+    function scrollEventHandler(e) {
+        mainDivRef.current.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        })
+
+        setShowScrollButton(false)
+    }
+
+    const onScroll = () => {
+        setShowScrollButton(true)
+    }
 
     return (
         <AuthProvider>
-            <div>
+            <div onScroll={onScroll} className={styles['main-div']} ref={mainDivRef}>
                 <Header />
 
                 <Routes>
                     <Route path="/" element={<MainPageMovies />} />
-                    <Route path="/movies/:movieId/details" element={<MovieInfo />}  />
+                    <Route path="/movies/:movieId/details" element={<MovieInfo />} />
                     <Route path="/movies/:sectionName" element={<ListMovies />} />
                     <Route path="/register" element={<LoggedInGuard><Register /></LoggedInGuard>} />
                     <Route path="/login" element={<LoggedInGuard><Login /></LoggedInGuard>} />
@@ -40,6 +57,10 @@ function App() {
                 </Routes>
 
                 <Footer />
+
+                {showScrollButton && (
+                    <button onClick={scrollEventHandler} className={styles['scroll-button']}>^</button>
+                )}
             </div>
         </AuthProvider>
     )
