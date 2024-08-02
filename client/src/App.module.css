@@ -14,8 +14,22 @@ body {
 }
 
 .scroll-button {
-    position:fixed;
-    background-color: red;
-    top: 90%;
-    right: 2%;
+    position: fixed;
+    padding: 1.6em;
+    background-color: rgba(121, 121, 121, 0.548);
+    top: 85%;
+    right: 5%;
+    width: 4%;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    transition: filter 0.3s ease-in-out;
+}
+
+.scroll-button:hover {
+    background-color: rgba(124, 124, 124, 0.822);
+}
+
+.scroll-button img {
+    width: 100%;
 }

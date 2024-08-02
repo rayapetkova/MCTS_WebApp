@@ -20,6 +20,7 @@ import LoggedInGuard from "./routeGuards/LoggedInGuard";
 import ContactUs from "./components/contactUs/ContactUs";
 import { useEffect, useRef, useState } from "react";
 import useScrollWindow from "./hooks/useScrollWindow";
+import topWindowArrow from "./assets/top_window_arrow.png"
 
 function App() {
     const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
@@ -45,7 +46,7 @@ function App() {
                 <Footer />
 
                 {showScrollButton && (
-                    <button onClick={clickArrowButtonTop} className={styles['scroll-button']}>^</button>
+                    <button onClick={clickArrowButtonTop} className={styles['scroll-button']}><img src={topWindowArrow} alt="window-arrow" /></button>
                 )}
             </div>
         </AuthProvider>
