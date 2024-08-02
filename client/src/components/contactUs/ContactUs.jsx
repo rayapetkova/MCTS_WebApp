@@ -6,7 +6,7 @@ import githubIcon from '../../assets/github_icon.png'
 import linkedInIcon from '../../assets/linkedin_icon.png'
 import facebookIcon from '../../assets/facebook_icon.png'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import useForm from '../../hooks/useForm'
 import sendEmail from '../../api_data/emails/sendEmail'
@@ -20,15 +20,17 @@ const formNames = {
 }
 
 const ContactUs = () => {
+    const [emailSent, setEmailSent] = useState(false)
 
     function sendEmailSubmitHandler(values) {
-        console.log('submitvane')
         sendEmail('template_qpsjapg', {
             subject: values.subject,
             message: values.message,
             'name': values.name,
             email: values.email
         })
+
+        setEmailSent(true)
     }
 
     const { authData, createdUser } = useContext(AuthContext)
@@ -46,6 +48,10 @@ const ContactUs = () => {
                 <section className={styles['head-contact']}>
                     <h2>Contact Us</h2>
                     <p>Email us with any questions or inquiries. We would be happy to answer your questions and we'll get in touch as soon as we can!</p>
+
+                    {emailSent && (
+                        <section className={styles['sent-email']}>Your email has been sent!</section>
+                    )}
                 </section>
 
                 <section className={styles['form-and-info']}>
@@ -57,8 +63,8 @@ const ContactUs = () => {
                                     <input
                                         type="text"
                                         id="name"
-                                        name={formNames.name} 
-                                        value={values.name} 
+                                        name={formNames.name}
+                                        value={values.name}
                                         onChange={onChange}
                                     />
                                 </div>
@@ -68,8 +74,8 @@ const ContactUs = () => {
                                     <input
                                         type="text"
                                         id="subject"
-                                        name={formNames.subject} 
-                                        value={values.subject} 
+                                        name={formNames.subject}
+                                        value={values.subject}
                                         onChange={onChange}
                                     />
                                 </div>
@@ -81,8 +87,8 @@ const ContactUs = () => {
                                     <input
                                         type="text"
                                         id="email"
-                                        name={formNames.email} 
-                                        value={values.email} 
+                                        name={formNames.email}
+                                        value={values.email}
                                         onChange={onChange}
                                     />
                                 </div>
@@ -91,9 +97,9 @@ const ContactUs = () => {
                                     <label htmlFor="phone_number">Phone Number:</label>
                                     <input
                                         type="text"
-                                        id="phone_number" 
-                                        name={formNames.phoneNumber} 
-                                        value={values.phoneNumber} 
+                                        id="phone_number"
+                                        name={formNames.phoneNumber}
+                                        value={values.phoneNumber}
                                         onChange={onChange}
                                     />
                                 </div>
@@ -104,8 +110,8 @@ const ContactUs = () => {
                                 <textarea
                                     rows="5"
                                     id="message"
-                                    name={formNames.message} 
-                                    value={values.message} 
+                                    name={formNames.message}
+                                    value={values.message}
                                     onChange={onChange}
                                 />
                             </div>

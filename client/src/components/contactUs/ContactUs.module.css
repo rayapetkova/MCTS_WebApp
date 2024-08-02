@@ -34,6 +34,13 @@
     text-align: center;
 }
 
+.card .sent-email {
+    background-color: rgba(7, 136, 7, 0.63);
+    padding: 0.4em 1.3em;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+}
+
 
 
 
