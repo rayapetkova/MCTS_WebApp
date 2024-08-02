@@ -19,28 +19,14 @@ import AuthGuard from "./routeGuards/AuthGuard";
 import LoggedInGuard from "./routeGuards/LoggedInGuard";
 import ContactUs from "./components/contactUs/ContactUs";
 import { useEffect, useRef, useState } from "react";
+import useScrollWindow from "./hooks/useScrollWindow";
 
 function App() {
-    const [showScrollButton, setShowScrollButton] = useState(false)
-    const mainDivRef = useRef()
-
-    function scrollEventHandler(e) {
-        mainDivRef.current.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-        })
-
-        setShowScrollButton(false)
-    }
-
-    const onScroll = () => {
-        setShowScrollButton(true)
-    }
+    const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
 
     return (
         <AuthProvider>
-            <div onScroll={onScroll} className={styles['main-div']} ref={mainDivRef}>
+            <div>
                 <Header />
 
                 <Routes>
@@ -59,7 +45,7 @@ function App() {
                 <Footer />
 
                 {showScrollButton && (
-                    <button onClick={scrollEventHandler} className={styles['scroll-button']}>^</button>
+                    <button onClick={clickArrowButtonTop} className={styles['scroll-button']}>^</button>
                 )}
             </div>
         </AuthProvider>

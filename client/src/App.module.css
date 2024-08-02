@@ -13,11 +13,6 @@ body {
     position: relative;
 }
 
-.main-div {
-    height: 100vh;
-    overflow-y: scroll;
-}
-
 .scroll-button {
     position:fixed;
     background-color: red;
