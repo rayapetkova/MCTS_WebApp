@@ -4,7 +4,7 @@ export async function createUser(data) {
     const authData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authData.accessToken
 
-    let response = await fetch(`${baseUrl}/usersRecords`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/usersRecords`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export async function retrieveUser(userId) {
         where: `_ownerId="${userId}"`
     })
 
-    let response = await fetch(`${baseUrl}/usersRecords?${queries}`);
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/usersRecords?${queries}`);
 
     if (!response.ok) {
         return []
@@ -36,7 +36,7 @@ export async function editUser(data, recordId) {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken
 
-    let response = await fetch(`${baseUrl}/usersRecords/${recordId}`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/usersRecords/${recordId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

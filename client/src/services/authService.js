@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:3030/users'
 
 export async function register(data) {
-    let response = await fetch(`${baseUrl}/register`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/users/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -14,7 +14,7 @@ export async function register(data) {
 }
 
 export async function login(data) {
-    let response = await fetch(`${baseUrl}/login`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ export async function logout() {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken
 
-    let response = await fetch(`${baseUrl}/logout`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/users/logout`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

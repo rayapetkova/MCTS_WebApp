@@ -25,6 +25,16 @@ import topWindowArrow from "./assets/top_window_arrow.png"
 function App() {
     const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
 
+    useEffect(() => {
+        async function loadRandomData() {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/data/movies`)
+            const result = await response.json()
+            console.log(result)
+        }
+
+        loadRandomData()
+    }, [])
+
     return (
         <AuthProvider>
             <div>

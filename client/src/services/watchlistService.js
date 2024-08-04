@@ -4,7 +4,7 @@ export async function addToWatchlist(data) {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken
 
-    let response = await fetch(`${baseUrl}/watchlists`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/watchlists`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export async function getWatchlist(userId) {
         where: `_ownerId="${userId}"`
     })
 
-    let response = await fetch(`${baseUrl}/watchlists?${queries}`)
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/watchlists?${queries}`)
 
     if (!response.ok) {
         return []
@@ -36,7 +36,7 @@ export async function deleteWatchlistElement(recordId) {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken
 
-    let response = await fetch(`${baseUrl}/watchlists/${recordId}`, {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/watchlists/${recordId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

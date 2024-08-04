@@ -17,12 +17,15 @@
     "@testing-library/user-event": "^14.5.2",
     "bootstrap": "^5.3.3",
     "emailjs-com": "^3.2.0",
+    "firebase": "^10.12.5",
     "formik": "^2.4.6",
     "jsdom": "^24.1.1",
+    "leaflet": "^1.9.4",
     "mdb-react-ui-kit": "^8.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {
