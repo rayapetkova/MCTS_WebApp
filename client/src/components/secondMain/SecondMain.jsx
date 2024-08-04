@@ -12,6 +12,7 @@ import Card from './card/Card'
 import Spinner from '../spinner/Spinner'
 
 import Carousel from 'react-bootstrap/Carousel';
+import { calculateRows } from '../../utils/calculateRows'
 
 
 const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
@@ -26,7 +27,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
     })
     const { authData } = useContext(AuthContext)
 
-    const arrayForRows = Array(numOfRows)
+    const arrayForRows = Array(calculateRows(sectionsObj[sectionName].length, 6, numOfRows))
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
         arrayForRows[i] = [currentIndex, currentIndex + numOfCards]
@@ -84,7 +85,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
 
                     {listFeature && (
                         arrayForRows.map(([start, end]) => (
-                            <div className={styles['cards']} key={start}>
+                            <div className={`${styles['cards']} ${styles['cards-list']}`} key={start}>
                                 {sectionsObj[sectionName].slice(start, end).map((movie) => (
                                     <Card movieObj={movie} sectionName={sectionName} updateWatchlistOnRemove={updateWatchlistOnRemove} key={movie.id} />
                                 ))}
@@ -100,7 +101,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                         >
                             {arrayForRows.map(([start, end]) => (
                                 <Carousel.Item key={start}>
-                                    <div className={styles['cards']}>
+                                    <div className={`${styles['cards']} ${styles['cards-carousel']}`}>
                                         {sectionsObj[sectionName].slice(start, end).map((movie) => (
                                             <Card movieObj={movie} sectionName={sectionName} updateWatchlistOnRemove={updateWatchlistOnRemove} key={movie.id} />
                                         ))}

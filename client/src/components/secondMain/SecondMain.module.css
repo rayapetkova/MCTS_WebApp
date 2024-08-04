@@ -9,10 +9,6 @@ div.second-main .one-section {
     gap: 2em;
 }
 
-div.second-main .watchlist-one-section {
-    gap: 0;
-}
-
 /* div.second-main .one-section div:nth-child(2) > a {
     background-color: red;
 } */
@@ -71,7 +67,14 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
 .cards {
     display: flex;
     align-items: center;
+}
+
+.cards-list {
     justify-content: space-between;
+}
+
+.cards-carousel {
+    gap: 3em;
 }
 
 .cards .card {
