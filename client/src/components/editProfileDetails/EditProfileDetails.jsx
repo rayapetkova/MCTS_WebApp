@@ -6,14 +6,31 @@ import { editUser, retrieveUser } from '../../services/usersService'
 import useForm from '../../hooks/useForm'
 import useProfileImgForm from '../../hooks/useProfileImgForm'
 import tick from '../../assets/tick.png'
+import whiteTick from '../../assets/white_tick.png'
+import { useFormik } from 'formik'
+import { editProfileSchema } from '../../schemas/editProfileSchema'
+
+const formNames = {
+    firstName: 'firstName',
+    lastName: 'lastName',
+    phoneNumber: 'phoneNumber',
+    bio: 'bio'
+}
 
 const EditProfileDetails = () => {
     const { createdUser, setCreatedUser } = useContext(AuthContext)
     const [savedProfileImg, setSavedProfileImg] = useState(false)
+    const [updatedDataBtn, setUpdatedDataBtn] = useState(false)
 
     const editProfileSubmitHandler = async (values) => {
         let result = await editUser(values, createdUser._id)
+
         setCreatedUser(result)
+        setUpdatedDataBtn(true)
+    }
+
+    const submitFormik = () => {
+        editProfileSubmitHandler(values)
     }
 
     const changeSavedImgState = () => {
@@ -21,17 +38,27 @@ const EditProfileDetails = () => {
     }
 
     const changeProfileImgSubmitHandler = async (imgUrl) => {
-        setSavedProfileImg(true)
-
         const result = await editUser({
             ...createdUser,
             profileImg: imgUrl
         }, createdUser._id)
 
         setCreatedUser(result)
+        setSavedProfileImg(true)
     }
 
-    const [values, onChange, onSubmit] = useForm(editProfileSubmitHandler, createdUser)
+    const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
+        initialValues: {
+            [formNames.firstName]: createdUser.firstName,
+            [formNames.lastName]: createdUser.lastName,
+            [formNames.phoneNumber]: createdUser.phoneNumber,
+            [formNames.bio]: createdUser.bio,
+            email: createdUser.email,
+            profileImg: createdUser.profileImg
+        },
+        validationSchema: editProfileSchema,
+        onSubmit: submitFormik
+    })
     const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, changeSavedImgState, createdUser.profileImg)
 
     return (
@@ -57,7 +84,7 @@ const EditProfileDetails = () => {
                         </div>
 
                         {savedProfileImg ? (
-                            <button className={styles['updated-button']} disabled><img src={tick} className={styles['tick']} />Saved</button>
+                            <button className={styles['updated-button']} disabled><img src={tick} className={styles['tick']} alt='tick' />Saved</button>
                         ) : (
                             <button className={styles['update-button']}>Save</button>
                         )}
@@ -69,16 +96,17 @@ const EditProfileDetails = () => {
             <div className={styles['right']}>
                 <h3>Account Settings</h3>
 
-                <form onSubmit={onSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className={styles['row']}>
                         <div className={styles['field']}>
                             <label htmlFor="first_name">First Name</label>
                             <input
                                 type="text"
                                 id="first_name"
-                                name="firstName"
+                                name={formNames.firstName}
                                 value={values.firstName}
-                                onChange={onChange}
+                                onChange={handleChange} 
+                                onBlur={handleBlur}
                             />
                         </div>
 
@@ -87,9 +115,10 @@ const EditProfileDetails = () => {
                             <input
                                 type="text"
                                 id="last_name"
-                                name="lastName"
+                                name={formNames.lastName}
                                 value={values.lastName}
-                                onChange={onChange}
+                                onChange={handleChange} 
+                                onBlur={handleBlur}
                             />
                         </div>
                     </div>
@@ -100,9 +129,10 @@ const EditProfileDetails = () => {
                             <input
                                 type="text"
                                 id="phone_number"
-                                name="phoneNumber"
+                                name={formNames.phoneNumber}
                                 value={values.phoneNumber}
-                                onChange={onChange}
+                                onChange={handleChange} 
+                                onBlur={handleBlur}
                             />
                         </div>
                     </div>
@@ -112,14 +142,16 @@ const EditProfileDetails = () => {
                         <textarea
                             rows="10"
                             id="bio"
-                            name="bio"
+                            name={formNames.bio}
                             value={values.bio}
-                            onChange={onChange}
+                            onChange={handleChange} 
+                            onBlur={handleBlur}
                         />
                     </div>
 
                     <div className={styles['buttons']}>
-                        <button className={styles['update-button']}>Update</button>
+                        <button type='submit' className={styles['update-button']}>Update</button>
+                        {updatedDataBtn && <p><img src={whiteTick} className={styles['tick']} alt='tick'/>Updated</p>}
                     </div>
                 </form>
 
