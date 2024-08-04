@@ -11,6 +11,15 @@ import { AuthContext } from '../../contexts/AuthContext'
 import useForm from '../../hooks/useForm'
 import sendEmail from '../../api_data/emails/sendEmail'
 
+import {
+    MapContainer,
+    Marker,
+    Popup,
+    TileLayer
+} from 'react-leaflet'
+
+const mapOfficePosition = [41.935750, 25.555057]
+
 const formNames = {
     subject: 'subject',
     message: 'message',
@@ -43,7 +52,7 @@ const ContactUs = () => {
     })
 
     return (
-        <div className={styles['container']}>
+        <div className={styles['main-page-with-maps']}>
             <div className={styles['card']}>
                 <section className={styles['head-contact']}>
                     <h2>Contact Us</h2>
@@ -164,6 +173,28 @@ const ContactUs = () => {
                     </div>
                 </section>
 
+            </div>
+
+            <div className={styles['location-container']}>
+                <h2>Where are we located?</h2>
+                <p>Coordinates - 41.935750, 25.555057</p>
+
+                <MapContainer
+                    className={styles['map-container']}
+                    center={mapOfficePosition}
+                    zoom={15}
+                >
+                    <TileLayer
+                        attribution='Google Maps'
+                        url='https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}'
+                    />
+
+                    <Marker position={mapOfficePosition}>
+                        <Popup>
+                            Our office
+                        </Popup>
+                    </Marker>
+                </MapContainer>
             </div>
         </div>
     )

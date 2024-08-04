@@ -21,6 +21,7 @@ import ContactUs from "./components/contactUs/ContactUs";
 import { useEffect, useRef, useState } from "react";
 import useScrollWindow from "./hooks/useScrollWindow";
 import topWindowArrow from "./assets/top_window_arrow.png"
+import "leaflet/dist/leaflet.css"
 
 function App() {
     const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
