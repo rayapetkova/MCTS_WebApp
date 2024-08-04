@@ -191,7 +191,7 @@ const ContactUs = () => {
 
                     <Marker position={mapOfficePosition}>
                         <Popup>
-                            Our office
+                            Our office - MCTS
                         </Popup>
                     </Marker>
                 </MapContainer>

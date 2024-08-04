@@ -28,7 +28,7 @@ const FirstSectionPersonInfo = ({ personId }) => {
                 moviesList.push(movie.title)
             }
 
-            setBackdropMovieImage(moviesList[0].backdrop_path)
+            setBackdropMovieImage(result.cast[0].backdrop_path)
             setPersonMovies(moviesList)
         }
 
