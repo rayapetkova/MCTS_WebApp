@@ -46,8 +46,8 @@ const ContactUs = () => {
     const [values, onChange, onSubmit] = useForm(sendEmailSubmitHandler, {
         [formNames.subject]: '',
         [formNames.message]: '',
-        [formNames.name]: `${createdUser.firstName} ${createdUser.lastName}`,
-        [formNames.email]: authData.email,
+        [formNames.name]: Object.keys(createdUser).length > 0 ? `${createdUser.firstName} ${createdUser.lastName}` : '',
+        [formNames.email]: Object.keys(authData).length > 0 ? authData.email : '',
         [formNames.phoneNumber]: createdUser.phoneNumber ? createdUser.phoneNumber : ''
     })
 

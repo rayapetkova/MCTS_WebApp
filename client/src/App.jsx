@@ -18,7 +18,6 @@ import ListPeople from "./components/ListPeople";
 import AuthGuard from "./routeGuards/AuthGuard";
 import LoggedInGuard from "./routeGuards/LoggedInGuard";
 import ContactUs from "./components/contactUs/ContactUs";
-import { useEffect, useRef, useState } from "react";
 import useScrollWindow from "./hooks/useScrollWindow";
 import topWindowArrow from "./assets/top_window_arrow.png"
 import "leaflet/dist/leaflet.css"

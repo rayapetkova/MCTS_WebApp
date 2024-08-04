@@ -39,16 +39,22 @@ const Reviews = ({ movieId }) => {
                 <button onClick={showAddReviewFormEvent}>Review +</button>
             </div>
 
+            {(showForm && !Object.keys(authData).length > 0) && (
+                <>
+                    <p className={styles['login-first']}>You need to log in first! &#10509; <Link to={'/login'} className={styles['login-link']}>Log In</Link></p>
+                </>
+            )}
+
             <div className={styles['review-boxes']}>
-                {reviews.length > 0 ? 
-                (reviews.slice(-2).reverse().map((review) => (
-                    <ReviewCard review={review} forReviewsSection={false} setReviews={setReviews} key={review._id} />
-                ))) : (
-                    <p className={styles['no-reviews-yet']}>No reviews yet</p>
-                )}
+                {reviews.length > 0 ?
+                    (reviews.slice(-2).reverse().map((review) => (
+                        <ReviewCard review={review} forReviewsSection={false} setReviews={setReviews} key={review._id} />
+                    ))) : (
+                        <p className={styles['no-reviews-yet']}>No reviews yet</p>
+                    )}
             </div>
 
-            {showForm && <AddReview movieId={movieId} setReviews={setReviews} setShowForm={setShowForm} />}
+            {(showForm && Object.keys(authData).length > 0) && <AddReview movieId={movieId} setReviews={setReviews} setShowForm={setShowForm} />}
         </div>
     )
 }
