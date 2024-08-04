@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.info-section {
+    background-color: #08080881;
+    display: flex;
+    margin: 5% 20%;
+    padding: 2% 1%;
+    border-radius: 4px;
+    height: 50vh;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%
+}
+
+.left .img-container {
+    width: 15em;
+    height: 15em;
+}
+
+.left .img-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.left .user-info {
+    width: 65%
+}
+
+.left .user-info .name {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #C3C3C3;
+    text-align: center;
+}
+
+
+
+
+
+
+.right {
+    width: 65%;
+    margin-left: 2%;
+}
+
+.right > h3 {
+    margin: 0;
+    border-bottom: solid;
+    border-width: 0.15em;
+    font-size: 1.5em;
+    color: #C3C3C3;
+}
+
+.right .account-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.right .account-info .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.3em;
+}
+
+.right .account-info .row .field {
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+
+.right .account-info .row .field p {
+    color: white;
+    font-size: 1.5em;
+}
+
+
+
+.right .account-info .field h3, .right .account-info .bio-row h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: rgb(131, 131, 133);
+    font-weight: 500;
+}
+
+.right .account-info .bio-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.3em;
+}
+
+.right .account-info .bio-row textarea {
+    border: solid 1px rgb(160, 159, 161);
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 1% 1%;
+    color: rgb(107, 107, 107);
+    font-size: 1.1em;
+    background-color: rgba(240, 248, 255, 0.849);
+}
+
+.right .account-info .bio-row textarea:focus {
+    background-color: rgb(240, 248, 255);
+    outline: none;
+    color: black;
+}
+
+.right .account-info .bio-row .no-bio-yet {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #C3C3C3;
+    margin-top: 1em;
+}
