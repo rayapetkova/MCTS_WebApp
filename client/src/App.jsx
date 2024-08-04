@@ -21,6 +21,7 @@ import ContactUs from "./components/contactUs/ContactUs";
 import useScrollWindow from "./hooks/useScrollWindow";
 import topWindowArrow from "./assets/top_window_arrow.png"
 import "leaflet/dist/leaflet.css"
+import ErrorPage from "./components/errorPage/ErrorPage";
 
 function App() {
     const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/people/:personId" element={<CelebrityInfo />} />
                     <Route path="/movies/:movieId/reviews" element={<AuthGuard><AllReviews /></AuthGuard>} />
                     <Route path="/contactUs" element={<ContactUs />} />
+                    <Route path="/*" element={<ErrorPage />} />
                 </Routes>
 
                 <Footer />
