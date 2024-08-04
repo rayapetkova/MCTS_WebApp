@@ -70,8 +70,12 @@
     display: flex;
 }
 
-.box .post-info p:nth-child(1) {
+.box .post-info a {
     color: #f5c518;
+}
+
+.box .post-info a:hover {
+    text-decoration: underline;
 }
 
 .box .review-desc {

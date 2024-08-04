@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import EditReview from '../../editReview/EditReview';
 import { deleteReview } from '../../../services/reviewsService';
+import { Link } from 'react-router-dom';
 
 
 const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
@@ -35,7 +36,12 @@ const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
             </section>
             <h6>{review.title}</h6>
             <section className={styles['post-info']}>
-                <p>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</p>
+                {(Object.keys(authData).length > 0 && authData._id === review._ownerId) ? (
+                    <Link to={`/users/me`}>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</Link>
+                ) : (
+                    <Link to={`/users/${review._ownerId}`}>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</Link>
+                )}
+                
                 <p>&nbsp;   &#xb7;  {convertToDate(review._createdOn)}</p>
             </section>
             <p className={styles['review-desc']}>{review.review}</p>
