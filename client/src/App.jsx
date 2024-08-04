@@ -26,16 +26,6 @@ import "leaflet/dist/leaflet.css"
 function App() {
     const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
 
-    useEffect(() => {
-        async function loadRandomData() {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/data/movies`)
-            const result = await response.json()
-            console.log(result)
-        }
-
-        loadRandomData()
-    }, [])
-
     return (
         <AuthProvider>
             <div>

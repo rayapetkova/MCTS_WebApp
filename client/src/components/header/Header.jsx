@@ -69,7 +69,7 @@ const Header = () => {
 
 
             <ul className={styles['last-links']}>
-                <li><Link to={'/movies/Watchlist'}>Watchlist</Link></li>
+                <li><Link to={'/Contact Us'}>Contact Us</Link></li>
                 <li>{(authData && Object.keys(authData).length > 0) 
                     ? (<ProfileDropdown logoutSubmitHandler={logoutSubmitHandler} />)
                     : (<Link to={'/login'}>Sign In</Link>) }
