@@ -1,12 +1,14 @@
 import { useState } from "react";
 import uploadImage from "../api_data/cloudinary/uploadImage";
 
-function useProfileImgForm(submitHandler, initialValue) {
+function useProfileImgForm(submitHandler, changeSavedImgState, initialValue) {
     const [profileImg, setProfileImg] = useState(initialValue)
 
     const onChangeImg = (e) => {
         const uploadedImg = e.target.files[0]
+        
         setProfileImg(uploadedImg)
+        changeSavedImgState()
     }
 
     const onSubmitImg = async (e) => {

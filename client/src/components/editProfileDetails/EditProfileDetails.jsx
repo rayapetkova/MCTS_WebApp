@@ -5,26 +5,34 @@ import { AuthContext } from '../../contexts/AuthContext'
 import { editUser, retrieveUser } from '../../services/usersService'
 import useForm from '../../hooks/useForm'
 import useProfileImgForm from '../../hooks/useProfileImgForm'
+import tick from '../../assets/tick.png'
 
 const EditProfileDetails = () => {
     const { createdUser, setCreatedUser } = useContext(AuthContext)
-    console.log(createdUser)
+    const [savedProfileImg, setSavedProfileImg] = useState(false)
 
     const editProfileSubmitHandler = async (values) => {
         let result = await editUser(values, createdUser._id)
         setCreatedUser(result)
     }
 
+    const changeSavedImgState = () => {
+        setSavedProfileImg(false)
+    }
+
     const changeProfileImgSubmitHandler = async (imgUrl) => {
+        setSavedProfileImg(true)
+
         const result = await editUser({
             ...createdUser,
             profileImg: imgUrl
         }, createdUser._id)
+
         setCreatedUser(result)
     }
 
     const [values, onChange, onSubmit] = useForm(editProfileSubmitHandler, createdUser)
-    const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, createdUser.profileImg)
+    const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, changeSavedImgState, createdUser.profileImg)
 
     return (
         <section className={styles['info-section']}>
@@ -48,7 +56,12 @@ const EditProfileDetails = () => {
                             />
                         </div>
 
-                        <button className={styles['update-button']}>Save</button>
+                        {savedProfileImg ? (
+                            <button className={styles['updated-button']} disabled><img src={tick} className={styles['tick']} />Saved</button>
+                        ) : (
+                            <button className={styles['update-button']}>Save</button>
+                        )}
+                        
                     </form>
                 </div>
             </div>
