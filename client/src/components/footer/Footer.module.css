@@ -38,9 +38,37 @@ footer section ul li a, footer section ul li {
     margin-bottom: 1em;
 }
 
+footer section ul li a:hover {
+    color: rgb(230, 180, 30);
+}
+
+.socials {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
+section:last-child ul {
+    margin-bottom: 1em;
+}
+
+section:last-child ul li {
+    margin: 0;
+}
 
 
 
-footer li {
-    color: rgb(209, 144, 23);
+
+
+.socials a {
+    width: 30%;
+    border-radius: 10px;
+}
+
+.socials a:hover {
+    background-color: white;
+}
+
+.socials img {
+    width: 100%;
 }

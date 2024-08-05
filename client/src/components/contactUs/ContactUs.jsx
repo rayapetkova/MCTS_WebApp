@@ -1,7 +1,7 @@
 import styles from './ContactUs.module.css';
 
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import sendEmail from '../../api_data/emails/sendEmail';
 import useForm from '../../hooks/useForm';
@@ -32,6 +32,10 @@ const formNames = {
 
 const ContactUs = () => {
     const [emailSent, setEmailSent] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     function sendEmailSubmitHandler(values) {
         sendEmail('template_qpsjapg', {

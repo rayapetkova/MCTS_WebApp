@@ -3,6 +3,9 @@ import styles from '../footer/Footer.module.css';
 import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
+import githubIcon from '../../assets/github_icon.png';
+import linkedInIcon from '../../assets/linkedin_icon.png';
+import facebookIcon from '../../assets/facebook_icon.png';
 
 const Footer = () => {
     return (
@@ -14,25 +17,28 @@ const Footer = () => {
                 <ul>
                     <li>Email: r*****a1***1@gmail.com</li>
                     <li>Call: 0899-899-899</li>
+                    <li><Link to={'/contactUs'}>Contact Us &#8599;</Link></li>
                 </ul>
             </section>
             <section>
                 <ul>
-                    <li><a href="/movies/Featured Today">Featured Today &#8599;</a></li>
-                    <li><a href="/movies/Watchlist">Watchlist &#8599;</a></li>
-                    <li><a href="/movies/Top rated">Top rated &#8599;</a></li>
-                    <li><a href="movies/Coming soon">Coming soon &#8599;</a></li>
-                    <li><a href="/people">Celebrities &#8599;</a></li>
+                    <li><Link to="/movies/Featured Today">Featured Today &#8599;</Link></li>
+                    <li><Link to="/movies/Watchlist">Watchlist &#8599;</Link></li>
+                    <li><Link to="/movies/Top rated">Top rated &#8599;</Link></li>
+                    <li><Link to="movies/Coming soon">Coming soon &#8599;</Link></li>
+                    <li><Link to="/people">Celebrities &#8599;</Link></li>
                 </ul>
             </section>
             <section>
                 <ul>
-                    <li><a href="#">Featured Today &#8599;</a></li>
-                    <li><a href="#">Watchlist &#8599;</a></li>
-                    <li><a href="#">Top rated &#8599;</a></li>
-                    <li><a href="#">Coming soon &#8599;</a></li>
-                    <li><a href="#">Celebrities &#8599;</a></li>
+                    <li><Link to={'/ContactUs'}>Contact Us &#8599;</Link></li>
                 </ul>
+
+                <div className={styles['socials']}>
+                    <Link to={'https://github.com/rayapetkova'} target="_blank"><img src={githubIcon} alt="github" /></Link>
+                    <Link to={'https://www.linkedin.com/in/raya-petkova-77418a2a0'} target="_blank"><img src={linkedInIcon} alt="linkedin" /></Link>
+                    <Link to={'https://www.facebook.com/raya.petkova.54/'} target="_blank"><img src={facebookIcon} alt="facebook" /></Link>
+                </div>
             </section>
 
         </footer>
