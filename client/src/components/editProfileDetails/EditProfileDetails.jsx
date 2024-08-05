@@ -108,6 +108,8 @@ const EditProfileDetails = () => {
                                 onChange={handleChange} 
                                 onBlur={handleBlur}
                             />
+
+                            {(errors.firstName && touched.firstName) && <p>{errors.firstName}</p>}
                         </div>
 
                         <div className={styles['field']}>
@@ -120,6 +122,8 @@ const EditProfileDetails = () => {
                                 onChange={handleChange} 
                                 onBlur={handleBlur}
                             />
+
+                            {(errors.lastName && touched.lastName) && <p>{errors.lastName}</p>}
                         </div>
                     </div>
 
@@ -134,6 +138,8 @@ const EditProfileDetails = () => {
                                 onChange={handleChange} 
                                 onBlur={handleBlur}
                             />
+
+                            {(errors.phoneNumber && touched.phoneNumber) && <p>{errors.phoneNumber}</p>}
                         </div>
                     </div>
 
@@ -147,6 +153,8 @@ const EditProfileDetails = () => {
                             onChange={handleChange} 
                             onBlur={handleBlur}
                         />
+
+                        {(errors.bio && touched.bio) && <p>{errors.bio}</p>}
                     </div>
 
                     <div className={styles['buttons']}>
