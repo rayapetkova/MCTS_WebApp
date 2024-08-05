@@ -24,6 +24,11 @@ export async function getReviews(movieId) {
     })
 
     let response = await fetch(`${import.meta.env.VITE_API_URL}/data/reviews?${queries}`)
+
+    if (!response.ok) {
+        return []
+    }
+    
     let result = await response.json()
 
     return result
