@@ -1,9 +1,11 @@
 .dropdown-container {
     padding: 0;
     display: flex;
-    width: 70%;
+    width: 100%;
     align-items: center;
     background-color: transparent;
+    align-self: center;
+    box-shadow: none;
 }
 
 .dropdown-container:hover, .dropdown-container:active {
@@ -19,6 +21,7 @@
 
 .profile-img-container img {
     width: 100%;
+    border-radius: 50%;
 }
 
 

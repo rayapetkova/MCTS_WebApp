@@ -47,7 +47,7 @@ function App() {
                     <Route path="/people/:personId" element={<CelebrityInfo />} />
                     <Route path="/movies/:movieId/reviews" element={<AuthGuard><AllReviews /></AuthGuard>} />
                     <Route path="/contactUs" element={<ContactUs />} />
-                    <Route path="/users/:userId" element={<UserInfo />} />
+                    <Route path="/users/:userId" element={<AuthGuard><UserInfo /></AuthGuard>} />
                     <Route path="/*" element={<ErrorPage />} />
                 </Routes>
 

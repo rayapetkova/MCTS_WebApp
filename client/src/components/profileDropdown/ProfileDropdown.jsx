@@ -8,14 +8,19 @@ import {
     MDBDropdownItem
 } from 'mdb-react-ui-kit';
 
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
+
 import profileIcon from '../../assets/profile_icon.png';
 
 const ProfileDropdown = ({ logoutSubmitHandler }) => {
+    const { createdUser } = useContext(AuthContext)
+
     return (
         <MDBDropdown>
             <MDBDropdownToggle tag='a' className={`btn btn-primary ${styles['dropdown-container']}`}>
                 <div className={styles['profile-img-container']}>
-                    <img src={profileIcon} alt="profileImg" />
+                    <img src={createdUser.profileImg ? createdUser.profileImg : profileIcon} alt="profileImg" />
                 </div>
                 
             </MDBDropdownToggle>

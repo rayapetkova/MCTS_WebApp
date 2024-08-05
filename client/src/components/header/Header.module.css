@@ -76,10 +76,16 @@ header ul.last-links {
     margin-left: 3%;
     width: 11%;
     justify-content: space-between;
+    align-items: center;
 }
 
-header ul.last-links li {
+header ul.last-links > li {
     list-style: none;
+    width: 60%;
+}
+
+header ul.last-links > li:nth-child(2) {
+    width: 35%;
 }
 
 header ul.last-links li a {
