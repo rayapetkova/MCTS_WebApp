@@ -8,6 +8,7 @@ export async function register(data) {
         },
         body: JSON.stringify(data)
     })
+    
     let result = await response.json()
 
     return result

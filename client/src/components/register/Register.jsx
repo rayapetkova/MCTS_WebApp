@@ -33,7 +33,7 @@ const formNames = {
 }
 
 const Register = () => {
-    const { registerSubmitHandler } = useContext(AuthContext)
+    const { registerSubmitHandler, registerErrorMessage } = useContext(AuthContext)
 
     const submitFormik = () => {
         registerSubmitHandler(values)
@@ -108,6 +108,7 @@ const Register = () => {
                                     />
 
                                     {(errors.email && touched.email) && <p>{errors.email}</p>}
+                                    {registerErrorMessage && <p className={styles['warning']}>{registerErrorMessage}</p>}
                                 </div>
 
                                 <div className={`d-flex ${(!errors.password || (errors.password && !touched.password)) && 'mb-4'} ${styles['input-container']}`}>

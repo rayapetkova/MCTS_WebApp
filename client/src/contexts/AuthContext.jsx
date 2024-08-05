@@ -17,29 +17,37 @@ export function AuthProvider({ children }) {
     const [authData, setAuthData] = useStateLocalStorage('authData', {})
     const [createdUser, setCreatedUser] = useStateLocalStorage('createdUser', {})
     const [canLogIn, setCanLogIn] = useState(true)
+    const [registerErrorMessage, setRegisterErrorMessage] = useState(true)
 
     const registerSubmitHandler = async (values) => {
         let result = await register({
             email: values.email,
             password: values.password
         })
-        setAuthData(result)
 
-        let createdUserRecord = await createUser({
-            email: values.email,
-            firstName: values.firstName,
-            lastName: values.lastName,
-            phoneNumber: '',
-            bio: '',
-            profileImg: 'https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png'
-        })
-        setCreatedUser(createdUserRecord)
+        if (result.message) {
+            setRegisterErrorMessage(result.message)
+            navigate('/register')
+        } else {
+            setAuthData(result)
 
-        sendEmail('template_3n5hp0d', {
-            userFullName: `${createdUserRecord.firstName} ${createdUserRecord.lastName}`,
-            userEmail: createdUserRecord.email
-        })
-        navigate('/')
+            let createdUserRecord = await createUser({
+                email: values.email,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                phoneNumber: '',
+                bio: '',
+                profileImg: 'https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png'
+            })
+            setCreatedUser(createdUserRecord)
+
+            // sendEmail('template_3n5hp0d', {
+            //     userFullName: `${createdUserRecord.firstName} ${createdUserRecord.lastName}`,
+            //     userEmail: createdUserRecord.email
+            // })
+            navigate('/')
+        }
+
     }
 
     const loginSubmitHandler = async (values) => {
@@ -75,6 +83,7 @@ export function AuthProvider({ children }) {
         authData,
         createdUser,
         canLogIn,
+        registerErrorMessage, 
         registerSubmitHandler,
         loginSubmitHandler,
         logoutSubmitHandler,
