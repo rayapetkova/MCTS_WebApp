@@ -22,11 +22,7 @@ export async function login(data) {
         },
         body: JSON.stringify(data)
     })
-
-    if (!response.ok) {
-        return {}
-    }
-
+    
     let result = await response.json()
 
     return result

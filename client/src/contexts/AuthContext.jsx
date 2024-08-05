@@ -16,8 +16,8 @@ export function AuthProvider({ children }) {
     const navigate = useNavigate()
     const [authData, setAuthData] = useStateLocalStorage('authData', {})
     const [createdUser, setCreatedUser] = useStateLocalStorage('createdUser', {})
-    const [canLogIn, setCanLogIn] = useState(true)
-    const [registerErrorMessage, setRegisterErrorMessage] = useState(true)
+    const [loginErrorMessage, setLoginErrorMessage] = useState('')
+    const [registerErrorMessage, setRegisterErrorMessage] = useState('')
 
     const registerSubmitHandler = async (values) => {
         let result = await register({
@@ -52,22 +52,24 @@ export function AuthProvider({ children }) {
 
     const loginSubmitHandler = async (values) => {
         let result = await login(values)
-        setAuthData(result)
-
-        let retrievedUsersWithId = await retrieveUser(result._id)
-        let retrievedUser = {}
-
-        if (retrievedUsersWithId.length > 0) {
-            retrievedUser = retrievedUsersWithId[0]
-        }
-        setCreatedUser(retrievedUser)
-
-        if (Object.keys(result).length > 0) {
-            navigate('/')
-            setCanLogIn(true)
+        console.log(result)
+        
+        if (result.message) {
+            setLoginErrorMessage(result.message)
+            navigate('/login')
         } else {
-            setCanLogIn(false)
-        }
+            setAuthData(result)
+
+            let retrievedUsersWithId = await retrieveUser(result._id)
+            let retrievedUser = {}
+    
+            if (retrievedUsersWithId.length > 0) {
+                retrievedUser = retrievedUsersWithId[0]
+            }
+            setCreatedUser(retrievedUser)
+    
+            navigate('/')
+        }    
     }
 
     const logoutSubmitHandler = async () => {
@@ -82,7 +84,7 @@ export function AuthProvider({ children }) {
         setCreatedUser,
         authData,
         createdUser,
-        canLogIn,
+        loginErrorMessage,
         registerErrorMessage, 
         registerSubmitHandler,
         loginSubmitHandler,
