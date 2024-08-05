@@ -1,44 +1,21 @@
-export function extractMovieGenres(genres) {
-    let allGenres = []
+export function extractGenresAndCast(items) {
+    let extractedItems = []
 
-    for (let genreObj of genres) {
-        allGenres.push(genreObj.name)
+    for (let item of items) {
+        extractedItems.push(item.name)
     }
 
-    return allGenres.join(', ')
+    return extractedItems.join(', ')
 }
 
-export function extractDirectors(crew) {
-    let directors = []
+export function exctractDirsAndWriters(crew, match) {
+    let extractedCrew = []
 
     for (let person of crew) {
-        if (person.job === "Director") {
-            directors.push(person.original_name)
+        if (person.job.includes(match)) {
+            extractedCrew.push(person.original_name)
         }
     }
 
-    return directors.join(', ')
-}
-
-export function extractWriters(crew) {
-    let writers = []
-
-    for (let person of crew) {
-        if (person.job.includes('Story')) {
-            writers.push(person.original_name)
-        }
-    }
-
-    return writers.join(', ')
-}
-
-export function extractCast(cast, num) {
-    let slicedCast = []
-
-    cast = cast.slice(0, num)
-    for (let person of cast) {
-        slicedCast.push(person.original_name)
-    }
-
-    return slicedCast.join(', ')
+    return extractedCrew.join(', ')
 }

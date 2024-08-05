@@ -1,7 +1,7 @@
 import styles from './tableMovieInfo.module.css';
 
 import Spinner from "../../spinner/Spinner";
-import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../../api_data/extractingData";
+import { exctractDirsAndWriters, extractGenresAndCast } from "../../../api_data/extractingData";
 
 import tick from '../../../assets/tick.png';
 
@@ -14,7 +14,7 @@ const MovieInfo = ({ movieInfo, movieCredits, authData, addToWatchListEvent, isA
                     <tbody>
                         <tr>
                             <td>Genre</td>
-                            <td>{movieInfo.genres && extractMovieGenres(movieInfo.genres)}</td>
+                            <td>{movieInfo.genres && extractGenresAndCast(movieInfo.genres)}</td>
                         </tr>
 
                         <tr>
@@ -24,17 +24,17 @@ const MovieInfo = ({ movieInfo, movieCredits, authData, addToWatchListEvent, isA
 
                         <tr>
                             <td>Director</td>
-                            <td>{movieCredits.crew && extractDirectors(movieCredits.crew)}</td>
+                            <td>{movieCredits.crew && exctractDirsAndWriters(movieCredits.crew, 'Director')}</td>
                         </tr>
 
                         <tr>
                             <td>Writers</td>
-                            <td>{movieCredits.crew && extractWriters(movieCredits.crew)}</td>
+                            <td>{movieCredits.crew && exctractDirsAndWriters(movieCredits.crew, 'Writer')}</td>
                         </tr>
 
                         <tr>
                             <td>Stars</td>
-                            <td>{movieCredits.cast && extractCast(movieCredits.cast, 3)}</td>
+                            <td>{movieCredits.cast && extractGenresAndCast(movieCredits.cast.slice(0, 3))}</td>
                         </tr>
 
                     </tbody>
