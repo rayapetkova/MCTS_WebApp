@@ -1,13 +1,14 @@
-import styles from './SecondMainPersonPhotos.module.css'
-import movieImg from '../../assets/movie_img.png'
-import leftArrow from '../../assets/left_arrow_button.png'
-import rightArrow from '../../assets/right_arrow_button.png'
-import { useEffect, useState } from 'react'
-import { getPersonPhotos } from '../../api_data/dataFunctions'
-import Spinner from '../spinner/Spinner'
+import styles from './SecondMainPersonPhotos.module.css';
 
 import Carousel from 'react-bootstrap/Carousel';
-import { calculateRows } from '../../utils/calculateRows'
+import { calculateRows } from '../../utils/calculateRows';
+import { useEffect, useState } from 'react';
+
+import Spinner from '../spinner/Spinner';
+import { getPersonPhotos } from '../../api_data/dataFunctions';
+
+import leftArrow from '../../assets/left_arrow_button.png';
+import rightArrow from '../../assets/right_arrow_button.png';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 

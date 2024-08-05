@@ -1,7 +1,9 @@
-import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../../api_data/extractingData"
-import styles from './tableMovieInfo.module.css'
-import tick from '../../../assets/tick.png'
-import Spinner from "../../spinner/Spinner"
+import styles from './tableMovieInfo.module.css';
+
+import Spinner from "../../spinner/Spinner";
+import { extractMovieGenres, extractDirectors, extractWriters, extractCast } from "../../../api_data/extractingData";
+
+import tick from '../../../assets/tick.png';
 
 const MovieInfo = ({ movieInfo, movieCredits, authData, addToWatchListEvent, isAddedToWatchlist }) => {
     return (

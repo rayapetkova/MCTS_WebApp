@@ -1,10 +1,11 @@
+import styles from './CelebrityInfo.module.css';
+
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import FirstSectionPersonInfo from "./firstSectionPersonInfo/FirstSectionPersonInfo";
 import SecondMainPersonPhotos from "./secondMainPersonPhotos/SecondMainPersonPhotos";
 import AsidePersonInfo from "./asidePersonInfo/AsidePersonInfo";
-
-import styles from './CelebrityInfo.module.css'
 
 const CelebrityInfo = () => {
 

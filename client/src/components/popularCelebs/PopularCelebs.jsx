@@ -1,15 +1,15 @@
-import styles from '../popularCelebs/PopularCelebs.module.css'
-import leftArrow from '../../assets/left_arrow_button.png'
-import rightArrow from '../../assets/right_arrow_button.png'
-import personImg from '../../assets/person.png'
-
-import { getPopularCelebrities } from '../../api_data/dataFunctions'
-import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Spinner from '../spinner/Spinner'
+import styles from '../popularCelebs/PopularCelebs.module.css';
 
 import Carousel from 'react-bootstrap/Carousel';
-import CelebCard from './celebCard/CelebCard'
+import CelebCard from './celebCard/CelebCard';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import Spinner from '../spinner/Spinner';
+import { getPopularCelebrities } from '../../api_data/dataFunctions';
+
+import leftArrow from '../../assets/left_arrow_button.png';
+import rightArrow from '../../assets/right_arrow_button.png';
 
 const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
     const navigate = useNavigate()

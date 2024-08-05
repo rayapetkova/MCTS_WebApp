@@ -1,5 +1,3 @@
-const baseUrl = 'http://localhost:3030/data'
-
 export async function createUser(data) {
     const authData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authData.accessToken

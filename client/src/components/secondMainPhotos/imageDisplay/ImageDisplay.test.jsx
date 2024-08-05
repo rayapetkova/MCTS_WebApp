@@ -1,9 +1,12 @@
-import { it, expect, describe, afterEach, vi } from 'vitest'
-import { cleanup, render, screen, fireEvent, act } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
-import { AuthProvider } from '../../../contexts/AuthContext'
-import { BrowserRouter } from 'react-router-dom'
-import ImageDisplay from './ImageDisplay'
+import '@testing-library/jest-dom/vitest';
+
+import { it, describe, afterEach } from 'vitest';
+import { cleanup, render } from '@testing-library/react';
+
+import { BrowserRouter } from 'react-router-dom';
+
+import ImageDisplay from './ImageDisplay';
+import { AuthProvider } from '../../../contexts/AuthContext';
 
 afterEach(() => {
     cleanup()

@@ -25,12 +25,3 @@ function useForm(submitHandler, initialValues) {
 }
 
 export default useForm;
-
-
-// Initial Values:
-// {
-//     email: '',
-//     password: '',
-//     confirmPassword: '',
-//     username: ''
-// }

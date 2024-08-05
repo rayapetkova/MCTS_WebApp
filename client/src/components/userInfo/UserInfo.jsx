@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
-import styles from './UserInfo.module.css'
+import styles from './UserInfo.module.css';
+
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+
 import { retrieveUser } from '../../services/usersService';
 
 const UserInfo = () => {

@@ -1,9 +1,6 @@
-import styles from './MovieCard.module.css'
+import styles from './MovieCard.module.css';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
-
-import emptyStar from '../../../assets/empty_star.png'
-import { Link } from 'react-router-dom'
 
 const MovieCard = ({ movieInfo }) => {
     return (

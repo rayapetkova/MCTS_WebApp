@@ -1,14 +1,15 @@
-import styles from './EditProfileDetails.module.css'
-import personImg from '../../assets/person.png'
-import { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
-import { editUser, retrieveUser } from '../../services/usersService'
-import useForm from '../../hooks/useForm'
-import useProfileImgForm from '../../hooks/useProfileImgForm'
-import tick from '../../assets/tick.png'
-import whiteTick from '../../assets/white_tick.png'
-import { useFormik } from 'formik'
-import { editProfileSchema } from '../../schemas/editProfileSchema'
+import styles from './EditProfileDetails.module.css';
+
+import { useFormik } from 'formik';
+import { useContext, useState } from 'react';
+
+import useProfileImgForm from '../../hooks/useProfileImgForm';
+import { AuthContext } from '../../contexts/AuthContext';
+import { editUser } from '../../services/usersService';
+import { editProfileSchema } from '../../schemas/editProfileSchema';
+
+import tick from '../../assets/tick.png';
+import whiteTick from '../../assets/white_tick.png';
 
 const formNames = {
     firstName: 'firstName',

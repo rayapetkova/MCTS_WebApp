@@ -1,18 +1,17 @@
-import { createContext } from 'react'
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { createContext, useState } from 'react';
 
-import { login, logout, register } from "../services/authService";
-import { useState } from "react";
-import { createUser, retrieveUser } from "../services/usersService";
-import useStateLocalStorage from '../hooks/useStateLocalStorage';
 import sendEmail from '../api_data/emails/sendEmail';
+import useStateLocalStorage from '../hooks/useStateLocalStorage';
+import { login, logout, register } from "../services/authService";
+import { createUser, retrieveUser } from "../services/usersService";
 
 export const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-
+    
     const navigate = useNavigate()
     const [authData, setAuthData] = useStateLocalStorage('authData', {})
     const [createdUser, setCreatedUser] = useStateLocalStorage('createdUser', {})

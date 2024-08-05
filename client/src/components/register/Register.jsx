@@ -1,3 +1,8 @@
+import styles from './Register.module.css';
+
+import { useFormik } from 'formik';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -5,23 +10,10 @@ import {
     MDBCol,
     MDBCard,
     MDBCardBody,
-    MDBCardImage,
-    MDBInput,
-    MDBIcon,
-    MDBCheckbox
+    MDBInput
 } from 'mdb-react-ui-kit';
 
-import styles from './Register.module.css'
-
-import useForm from '../../hooks/useForm';
-import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-
-import { Link } from 'react-router-dom'
-
-import { useFormik } from 'formik'
-
-import logoSymbol from '../../assets/logo_without_background.png'
 import { registrationSchema } from '../../schemas/registrationSchema';
 
 const formNames = {

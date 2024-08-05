@@ -1,4 +1,4 @@
-import PopularCelebs from "./popularCelebs/PopularCelebs"
+import PopularCelebs from "./popularCelebs/PopularCelebs";
 
 const ListPeople = () => {
     return (

@@ -1,15 +1,11 @@
-import styles from "../firstSectionMovieInfo/FirstSectionMovieInfo.module.css"
+import styles from "../firstSectionMovieInfo/FirstSectionMovieInfo.module.css";
 
-import movieImg from '../../assets/movie_img.png'
-import tick from '../../assets/tick.png'
-import moviePoster from '../../assets/movie_poster.png'
-import { useContext, useDebugValue, useEffect, useState } from "react"
-import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions"
+import { useContext, useEffect, useState } from "react";
 
-import { addToWatchlist, getWatchlist } from "../../services/watchlistService"
-import { AuthContext } from "../../contexts/AuthContext"
-import Spinner from "../spinner/Spinner"
-import MovieInfo from "./tableMovieInfo/tableMovieInfo"
+import MovieInfo from "./tableMovieInfo/tableMovieInfo";
+import { AuthContext } from "../../contexts/AuthContext";
+import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions";
+import { addToWatchlist, getWatchlist } from "../../services/watchlistService";
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 

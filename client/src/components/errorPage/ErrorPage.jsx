@@ -1,6 +1,8 @@
+import styles from './ErrorPage.module.css';
+
 import { Link } from 'react-router-dom';
-import errorImg from '../../assets/404.png'
-import styles from './ErrorPage.module.css'
+
+import errorImg from '../../assets/404.png';
 
 const ErrorPage = () => {
     return (

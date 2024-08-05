@@ -1,9 +1,11 @@
-import { it, expect, describe, afterEach } from 'vitest'
-import { cleanup, render, screen, fireEvent, act } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
-import Header from './Header'
-import { AuthProvider } from '../../contexts/AuthContext'
-import { BrowserRouter } from 'react-router-dom'
+import '@testing-library/jest-dom/vitest';
+import { it, expect, describe, afterEach } from 'vitest';
+import { cleanup, render, screen, fireEvent, act } from '@testing-library/react';
+
+import { BrowserRouter } from 'react-router-dom';
+
+import Header from './Header';
+import { AuthProvider } from '../../contexts/AuthContext';
 
 afterEach(() => {
     cleanup()

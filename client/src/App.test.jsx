@@ -1,8 +1,10 @@
-import { it, expect, describe } from 'vitest'
-import { cleanup, render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
-import App from './App'
-import { BrowserRouter } from 'react-router-dom'
+import '@testing-library/jest-dom/vitest';
+import { it, expect, describe } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
+
+import { BrowserRouter } from 'react-router-dom';
+
+import App from './App';
 
 describe('AppTest', () => {
     it('renders Header and Footer', () => {

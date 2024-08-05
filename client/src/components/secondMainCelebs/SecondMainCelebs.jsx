@@ -1,19 +1,16 @@
-import styles from './SecondMainCelebs.module.css'
-
-import leftArrow from '../../assets/left_arrow_button.png'
-import rightArrow from '../../assets/right_arrow_button.png'
-import personImg from '../../assets/person.png'
-import { useEffect, useState } from 'react'
-import { getMovieCredits } from '../../api_data/dataFunctions'
-import { extractCast } from '../../api_data/extractingData'
-import { useNavigate } from 'react-router-dom'
-import Spinner from '../spinner/Spinner'
+import styles from './SecondMainCelebs.module.css';
 
 import Carousel from 'react-bootstrap/Carousel';
-import { calculateRows } from '../../utils/calculateRows'
-import CelebCard from './celebCard/CelebCard'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const pathForImages = 'https://image.tmdb.org/t/p/w500'
+import Spinner from '../spinner/Spinner';
+import CelebCard from './celebCard/CelebCard';
+import { calculateRows } from '../../utils/calculateRows';
+import { getMovieCredits } from '../../api_data/dataFunctions';
+
+import leftArrow from '../../assets/left_arrow_button.png';
+import rightArrow from '../../assets/right_arrow_button.png';
 
 const SecondMainCelebs = ({ movieId }) => {
     const navigate = useNavigate()

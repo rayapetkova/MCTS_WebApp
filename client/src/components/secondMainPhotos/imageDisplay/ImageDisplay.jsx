@@ -1,4 +1,4 @@
-import styles from './ImageDisplay.module.css'
+import styles from './ImageDisplay.module.css';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 

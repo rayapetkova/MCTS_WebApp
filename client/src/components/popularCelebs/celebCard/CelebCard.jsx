@@ -1,4 +1,4 @@
-import styles from './CelebCard.module.css'
+import styles from './CelebCard.module.css';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 

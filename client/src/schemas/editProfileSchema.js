@@ -1,4 +1,4 @@
-import * as yup from 'yup'
+import * as yup from 'yup';
 
 export const editProfileSchema = yup.object().shape({
     firstName: yup.string().min(2, 'First name must be at least 2 letters.').required('First name is required.'),

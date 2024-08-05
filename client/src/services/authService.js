@@ -1,5 +1,3 @@
-const baseUrl = 'http://localhost:3030/users'
-
 export async function register(data) {
     let response = await fetch(`${import.meta.env.VITE_API_URL}/users/register`, {
         method: 'POST',

@@ -1,5 +1,3 @@
-const baseUrl = 'http://localhost:3030/data'
-
 export async function addReview(data) {
     const authUserData = JSON.parse(localStorage.getItem('authData'))
     const accessToken = authUserData.accessToken

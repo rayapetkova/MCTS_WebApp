@@ -1,10 +1,7 @@
-import styles from './AddReview.module.css'
-import personImg from '../../assets/person.png'
-import useForm from '../../hooks/useForm'
-import { addReview, getReviews } from '../../services/reviewsService'
-import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
+import styles from './AddReview.module.css';
+
+import useForm from '../../hooks/useForm';
+import { addReview, getReviews } from '../../services/reviewsService';
 
 const formNames = {
     rate: 'rate',

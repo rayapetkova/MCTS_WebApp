@@ -1,12 +1,14 @@
-import styles from '../header/Header.module.css'
-import logo from '../../assets/logo.png'
+import styles from '../header/Header.module.css';
 
-import { Link } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
-import { getDiscovedMovies } from '../../api_data/dataFunctions'
-import SearchCard from './searchCard/SearchCard'
-import ProfileDropdown from '../profileDropdown/ProfileDropdown'
+import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+
+import SearchCard from './searchCard/SearchCard';
+import ProfileDropdown from '../profileDropdown/ProfileDropdown';
+import { AuthContext } from '../../contexts/AuthContext';
+import { getDiscovedMovies } from '../../api_data/dataFunctions';
+
+import logo from '../../assets/logo.png'
 
 const Header = () => {
     const [searchedValue, setSearchedValue] = useState('')

@@ -1,13 +1,12 @@
-import styles from '../firstMain/FirstMain.module.css'
+import styles from '../firstMain/FirstMain.module.css';
 
-import firstImg from '../../assets/first.png'
-import playButton from '../../assets/play_button.png'
-import secondImg from '../../assets/second.png'
-import yellowDot from '../../assets/yellow_dot.png'
-import thirdImg from '../../assets/third.png'
-import { useEffect, useState } from 'react'
-import { getNowPlayingInTheatres } from '../../api_data/dataFunctions'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import { getNowPlayingInTheatres } from '../../api_data/dataFunctions';
+
+import playButton from '../../assets/play_button.png';
+import yellowDot from '../../assets/yellow_dot.png';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 

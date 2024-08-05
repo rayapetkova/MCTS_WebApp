@@ -1,7 +1,6 @@
-import FirstMain from "./firstMain/FirstMain"
-import SecondMain from "./secondMain/SecondMain"
-import PopularCelebs from "./popularCelebs/PopularCelebs"
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+
+import SecondMain from "./secondMain/SecondMain";
 
 const ListMovies = () => {
 

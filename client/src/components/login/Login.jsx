@@ -1,3 +1,7 @@
+import styles from './Login.module.css';
+
+import { Link } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -5,20 +9,11 @@ import {
     MDBCol,
     MDBCard,
     MDBCardBody,
-    MDBCardImage,
     MDBInput,
-    MDBIcon,
-    MDBCheckbox
 } from 'mdb-react-ui-kit';
 
-import styles from './Login.module.css'
-
 import useForm from '../../hooks/useForm';
-import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-
-import logoSymbol from "../../assets/logo_without_background.png"
-import { Link } from 'react-router-dom'
 
 const formNames = {
     email: 'email',

@@ -1,11 +1,12 @@
-import styles from './ReviewCard.module.css'
-import { convertToDate } from "../../../utils/convertToDate";
-import { useContext, useState } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
-import EditReview from '../../editReview/EditReview';
-import { deleteReview, getReviews } from '../../../services/reviewsService';
-import { Link } from 'react-router-dom';
+import styles from './ReviewCard.module.css';
 
+import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+
+import EditReview from '../../editReview/EditReview';
+import { convertToDate } from "../../../utils/convertToDate";
+import { AuthContext } from '../../../contexts/AuthContext';
+import { deleteReview, getReviews } from '../../../services/reviewsService';
 
 const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
     const [showEditForm, setshowEditForm] = useState(false)

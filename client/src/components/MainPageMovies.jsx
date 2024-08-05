@@ -1,6 +1,6 @@
-import FirstMain from "./firstMain/FirstMain"
-import SecondMain from "./secondMain/SecondMain"
-import PopularCelebs from "./popularCelebs/PopularCelebs"
+import FirstMain from "./firstMain/FirstMain";
+import SecondMain from "./secondMain/SecondMain";
+import PopularCelebs from "./popularCelebs/PopularCelebs";
 
 const MainPageMovies = () => {
     return (

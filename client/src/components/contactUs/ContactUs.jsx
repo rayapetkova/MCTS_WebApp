@@ -1,22 +1,24 @@
-import styles from './ContactUs.module.css'
-import phoneIcon from '../../assets/phone_icon.png'
-import emailIcon from '../../assets/email_icon.png'
-import mapIcon from '../../assets/map_icon.png'
-import githubIcon from '../../assets/github_icon.png'
-import linkedInIcon from '../../assets/linkedin_icon.png'
-import facebookIcon from '../../assets/facebook_icon.png'
-import { Link } from 'react-router-dom'
-import { useContext, useState } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
-import useForm from '../../hooks/useForm'
-import sendEmail from '../../api_data/emails/sendEmail'
+import styles from './ContactUs.module.css';
 
+import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+
+import sendEmail from '../../api_data/emails/sendEmail';
+import useForm from '../../hooks/useForm';
+import { AuthContext } from '../../contexts/AuthContext';
 import {
     MapContainer,
     Marker,
     Popup,
     TileLayer
-} from 'react-leaflet'
+} from 'react-leaflet';
+
+import phoneIcon from '../../assets/phone_icon.png';
+import emailIcon from '../../assets/email_icon.png';
+import mapIcon from '../../assets/map_icon.png';
+import githubIcon from '../../assets/github_icon.png';
+import linkedInIcon from '../../assets/linkedin_icon.png';
+import facebookIcon from '../../assets/facebook_icon.png';
 
 const mapOfficePosition = [41.935750, 25.555057]
 

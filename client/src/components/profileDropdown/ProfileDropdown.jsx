@@ -1,3 +1,6 @@
+import styles from './ProfileDropdown.module.css';
+
+import { Link } from 'react-router-dom';
 import {
     MDBDropdown,
     MDBDropdownMenu,
@@ -5,10 +8,7 @@ import {
     MDBDropdownItem
 } from 'mdb-react-ui-kit';
 
-import profileIcon from '../../assets/profile_icon.png'
-import styles from './ProfileDropdown.module.css'
-import { Link } from 'react-router-dom'
-
+import profileIcon from '../../assets/profile_icon.png';
 
 const ProfileDropdown = ({ logoutSubmitHandler }) => {
     return (

@@ -1,16 +1,15 @@
-import styles from "./SecondMainPhotos.module.css"
-
-import leftArrow from '../../assets/left_arrow_button.png'
-import rightArrow from '../../assets/right_arrow_button.png'
-import movieImg from '../../assets/movie_img.png'
-import { useEffect, useState } from "react"
-import { getMoviePhotos } from "../../api_data/dataFunctions"
-import Spinner from "../spinner/Spinner"
+import styles from "./SecondMainPhotos.module.css";
 
 import Carousel from 'react-bootstrap/Carousel';
-import { calculateRows } from "../../utils/calculateRows"
-import ImageDisplay from "./imageDisplay/ImageDisplay"
+import { useEffect, useState } from "react";
 
+import Spinner from "../spinner/Spinner";
+import ImageDisplay from "./imageDisplay/ImageDisplay";
+import { calculateRows } from "../../utils/calculateRows";
+import { getMoviePhotos } from "../../api_data/dataFunctions";
+
+import leftArrow from '../../assets/left_arrow_button.png';
+import rightArrow from '../../assets/right_arrow_button.png';
 
 const SecondMainPhotos = ({ movieId }) => {
     let [movieImages, setMovieImages] = useState([])

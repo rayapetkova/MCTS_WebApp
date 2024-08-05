@@ -1,18 +1,19 @@
-import styles from './SecondMain.module.css'
-import leftArrow from '../../assets/left_arrow_button.png'
-import rightArrow from '../../assets/right_arrow_button.png'
-import { useContext, useEffect, useState } from 'react'
-
-import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions'
-import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions'
-import { Link } from 'react-router-dom'
-import { AuthContext } from '../../contexts/AuthContext'
-import { deleteWatchlistElement, getWatchlist } from '../../services/watchlistService'
-import Card from './card/Card'
-import Spinner from '../spinner/Spinner'
+import styles from './SecondMain.module.css';
 
 import Carousel from 'react-bootstrap/Carousel';
-import { calculateRows } from '../../utils/calculateRows'
+import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+
+import Card from './card/Card';
+import Spinner from '../spinner/Spinner';
+import { calculateRows } from '../../utils/calculateRows';
+import { AuthContext } from '../../contexts/AuthContext';
+import { deleteWatchlistElement, getWatchlist } from '../../services/watchlistService';
+import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions';
+import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions';
+
+import leftArrow from '../../assets/left_arrow_button.png';
+import rightArrow from '../../assets/right_arrow_button.png';
 
 
 const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {

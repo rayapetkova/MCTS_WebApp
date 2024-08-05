@@ -1,13 +1,13 @@
-import styles from "./MovieInfo.module.css"
+import styles from "./MovieInfo.module.css";
 
-import FirstSectionMovieInfo from "./firstSectionMovieInfo/FirstSectionMovieInfo";
-import SecondMainPhotos from "./secondMainPhotos/SecondMainPhotos"
-import SecondMainCelebs from "./secondMainCelebs/SecondMainCelebs"
-import Reviews from "./reviews/Reviews";
-import Aside from "./aside/Aside"
-
-import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+import Aside from "./aside/Aside";
+import Reviews from "./reviews/Reviews";
+import FirstSectionMovieInfo from "./firstSectionMovieInfo/FirstSectionMovieInfo";
+import SecondMainPhotos from "./secondMainPhotos/SecondMainPhotos";
+import SecondMainCelebs from "./secondMainCelebs/SecondMainCelebs";
 
 const MovieInfo = () => {
 

@@ -1,4 +1,4 @@
-import styles from './PersonInfo.module.css'
+import styles from './PersonInfo.module.css';
 
 const PersonInfo = ({ personInfo, personMovies }) => {
     const showNumberOfMovies = 15

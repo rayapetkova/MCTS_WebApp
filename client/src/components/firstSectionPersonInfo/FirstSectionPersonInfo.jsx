@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import movieImg from '../../assets/movie_img.png'
-import moviePoster from '../../assets/movie_poster.png'
+import styles from './FirstSectionPersonInfo.module.css';
 
-import styles from './FirstSectionPersonInfo.module.css'
-import { getPersonDetails, getPersonMovies } from '../../api_data/dataFunctions'
-import noImageAvailable from '../../assets/no_image_available.png'
-import PersonInfo from './personInfo/PersonInfo'
+import { useEffect, useState } from 'react';
+
+import PersonInfo from './personInfo/PersonInfo';
+import { getPersonDetails, getPersonMovies } from '../../api_data/dataFunctions';
+
+import noImageAvailable from '../../assets/no_image_available.png';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 

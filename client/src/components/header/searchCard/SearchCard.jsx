@@ -1,8 +1,10 @@
-const pathForImages = 'https://image.tmdb.org/t/p/w500'
-import styles from './SearchCard.module.css'
+import styles from './SearchCard.module.css';
 
-import emptyStar from '../../../assets/empty_star.png'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+import emptyStar from '../../../assets/empty_star.png';
+
+const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
 const SearchCard = ({ movie, setSearchedValue }) => {
     return (

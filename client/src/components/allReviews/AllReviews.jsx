@@ -1,11 +1,13 @@
-import { useContext, useEffect, useState } from "react"
-import { getMovieInfo } from "../../api_data/dataFunctions"
-import ReviewCard from "../reviews/reviewCard/ReviewCard"
-import { getReviews } from "../../services/reviewsService"
-import { useParams } from "react-router-dom"
-import styles from './AllReviews.module.css'
-import MovieCard from "./movieCard/MovieCard"
-import { AuthContext } from "../../contexts/AuthContext"
+import styles from './AllReviews.module.css';
+
+import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+
+import MovieCard from "./movieCard/MovieCard";
+import ReviewCard from "../reviews/reviewCard/ReviewCard";
+import { AuthContext } from "../../contexts/AuthContext";
+import { getMovieInfo } from "../../api_data/dataFunctions";
+import { getReviews } from "../../services/reviewsService";
 
 const AllReviews = () => {
     const { authData } = useContext(AuthContext)

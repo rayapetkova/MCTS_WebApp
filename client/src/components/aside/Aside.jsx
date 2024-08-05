@@ -1,7 +1,6 @@
-import styles from "./Aside.module.css"
+import styles from "./Aside.module.css";
 
 const Aside = () => {
-
     return (
         <aside>
             <ul>
