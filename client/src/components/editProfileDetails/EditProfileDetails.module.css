@@ -18,6 +18,7 @@
 .left .img-container {
     width: 15em;
     height: 15em;
+    position: relative;
 }
 
 .left .img-container img {
@@ -27,8 +28,22 @@
     object-fit: cover;
 }
 
+.left .img-container .remove-profile-btn{
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8em;
+    margin-top: 1em;
+    background-color: rgb(189, 0, 0);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
 .left .user-info {
-    width: 65%
+    width: 65%;
 }
 
 .left .user-info form {

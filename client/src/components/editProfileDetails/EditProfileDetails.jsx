@@ -22,6 +22,9 @@ const EditProfileDetails = () => {
     const { createdUser, setCreatedUser } = useContext(AuthContext)
     const [savedProfileImg, setSavedProfileImg] = useState(false)
     const [updatedDataBtn, setUpdatedDataBtn] = useState(false)
+    const [showDeleteProfileImgButton, setShowDeleteProfileImgButton] = useState(() => {
+        return createdUser.profileImg !== 'https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png'
+    })
 
     const editProfileSubmitHandler = async (values) => {
         let result = await editUser({...values, profileImg: createdUser.profileImg}, createdUser._id)
@@ -38,6 +41,15 @@ const EditProfileDetails = () => {
         setSavedProfileImg(false)
     }
 
+    const removeProfileImg = (e) => {
+        setCreatedUser({
+            ...createdUser,
+            profileImg: 'https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png'
+        })
+
+        setShowDeleteProfileImgButton(false)
+    }
+
     const changeProfileImgSubmitHandler = async (imgUrl) => {
         const result = await editUser({
             ...createdUser,
@@ -46,9 +58,8 @@ const EditProfileDetails = () => {
 
         setCreatedUser(result)
         setSavedProfileImg(true)
+        setShowDeleteProfileImgButton(true)
     }
-
-    console.log(createdUser.profileImg)
 
     const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, changeSavedImgState, createdUser.profileImg)
 
@@ -69,11 +80,11 @@ const EditProfileDetails = () => {
             <div className={styles['left']}>
                 <div className={styles['img-container']}>
                     <img src={createdUser.profileImg} alt="user-profile-picture" />
+                    {showDeleteProfileImgButton && <button className={styles['remove-profile-btn']} onClick={removeProfileImg}>X</button>}
                 </div>
 
                 <div className={styles['user-info']}>
                     <p className={styles['name']}>{`${createdUser.firstName} ${createdUser.lastName}`}</p>
-
                     <form onSubmit={onSubmitImg}>
                         <div className={styles['field']}>
                             <label htmlFor="profile-img">Profile Image</label>
