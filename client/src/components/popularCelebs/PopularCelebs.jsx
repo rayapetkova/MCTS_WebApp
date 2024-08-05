@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Spinner from '../spinner/Spinner';
-import { getPopularCelebrities } from '../../api_data/dataFunctions';
+import { dataFunctions } from '../../api_data/dataFunctions';
 
 import leftArrow from '../../assets/left_arrow_button.png';
 import rightArrow from '../../assets/right_arrow_button.png';
@@ -18,8 +18,8 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
 
     useEffect(() => {
         async function loadPopularCelebs() {
-            let result = await getPopularCelebrities()
-            setPopularCelebrities(result)
+            let result = await dataFunctions.getPopularCelebrities()
+            setPopularCelebrities(result.results)
         }
 
         loadPopularCelebs()

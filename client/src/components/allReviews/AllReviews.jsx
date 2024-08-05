@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import MovieCard from "./movieCard/MovieCard";
 import ReviewCard from "../reviews/reviewCard/ReviewCard";
 import { AuthContext } from "../../contexts/AuthContext";
-import { getMovieInfo } from "../../api_data/dataFunctions";
+import { dataFunctions } from "../../api_data/dataFunctions";
 import { getReviews } from "../../services/reviewsService";
 
 const AllReviews = () => {
@@ -18,7 +18,7 @@ const AllReviews = () => {
 
     useEffect(() => {
         async function loadMovieInfo() {
-            let result = await getMovieInfo(movieId)
+            let result = await dataFunctions.getMovieInfo(movieId)
             setMovieInfo(result)
         }
 

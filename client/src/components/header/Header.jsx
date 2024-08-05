@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import SearchCard from './searchCard/SearchCard';
 import ProfileDropdown from '../profileDropdown/ProfileDropdown';
 import { AuthContext } from '../../contexts/AuthContext';
-import { getDiscovedMovies, getPopularCelebrities } from '../../api_data/dataFunctions';
+import { dataFunctions } from '../../api_data/dataFunctions';
 
 import logo from '../../assets/logo.png'
 
@@ -20,9 +20,9 @@ const Header = () => {
 
     useEffect(() => {
         async function loadDicoveredMovies() {
-            let discoveredMovies = await getDiscovedMovies()
-            let celebs = await getPopularCelebrities()
-            setDiscoveredMoviesAndCelebs(discoveredMovies.concat(celebs))
+            let discoveredMovies = await dataFunctions.getDiscovedMovies()
+            let celebs = await dataFunctions.getPopularCelebrities()
+            setDiscoveredMoviesAndCelebs(discoveredMovies.results.concat(celebs.results))
         }
 
         loadDicoveredMovies()

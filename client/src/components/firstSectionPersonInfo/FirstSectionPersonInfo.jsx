@@ -3,7 +3,7 @@ import styles from './FirstSectionPersonInfo.module.css';
 import { useEffect, useState } from 'react';
 
 import PersonInfo from './personInfo/PersonInfo';
-import { getPersonDetails, getPersonMovies } from '../../api_data/dataFunctions';
+import { dataFunctions } from '../../api_data/dataFunctions';
 
 import noImageAvailable from '../../assets/no_image_available.png';
 
@@ -16,14 +16,14 @@ const FirstSectionPersonInfo = ({ personId }) => {
 
     useEffect(() => {
         async function loadPersonDetails() {
-            let result = await getPersonDetails(personId)
+            let result = await dataFunctions.getPersonDetails(personId)
             setPersonInfo(result)
         }
 
         async function loadPersonMovies() {
             let moviesList = []
 
-            let result = await getPersonMovies(personId)
+            let result = await dataFunctions.getPersonMovies(personId)
             for (let movie of result.cast) {
                 moviesList.push(movie.title)
             }

@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 
 import MovieInfo from "./tableMovieInfo/tableMovieInfo";
 import { AuthContext } from "../../contexts/AuthContext";
-import { getMovieCredits, getMovieInfo } from "../../api_data/dataFunctions";
+import { dataFunctions } from "../../api_data/dataFunctions";
 import { addToWatchlist, getWatchlist } from "../../services/watchlistService";
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
@@ -20,12 +20,12 @@ const FirstSectionMovieInfo = ({ movieId }) => {
 
     useEffect(() => {
         async function loadMovieInfo() {
-            let movieData = await getMovieInfo(movieId)
+            let movieData = await dataFunctions.getMovieInfo(movieId)
             setMovieInfo(movieData)
         }
 
         async function loadMovieCredits() {
-            let movieCastAndCrew = await getMovieCredits(movieId)
+            let movieCastAndCrew = await dataFunctions.getMovieCredits(movieId)
             setMovieCredits(movieCastAndCrew)
         }
 

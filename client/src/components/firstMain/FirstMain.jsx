@@ -3,7 +3,7 @@ import styles from '../firstMain/FirstMain.module.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { getNowPlayingInTheatres } from '../../api_data/dataFunctions';
+import { dataFunctions } from '../../api_data/dataFunctions';
 
 import playButton from '../../assets/play_button.png';
 import yellowDot from '../../assets/yellow_dot.png';
@@ -16,10 +16,10 @@ const FirstMain = () => {
 
     useEffect(() => {
         async function loadPlayingNow() {
-            let playingNowInTheatres = await getNowPlayingInTheatres()
+            let playingNowInTheatres = await dataFunctions.getNowPlayingInTheatres()
 
-            setPlayingNow(playingNowInTheatres)
-            setFirstMovie(playingNowInTheatres[0])
+            setPlayingNow(playingNowInTheatres.results)
+            setFirstMovie(playingNowInTheatres.results[0])
         }
         
         loadPlayingNow()

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Spinner from "../spinner/Spinner";
 import ImageDisplay from "./imageDisplay/ImageDisplay";
 import { calculateRows } from "../../utils/calculateRows";
-import { getMoviePhotos } from "../../api_data/dataFunctions";
+import { dataFunctions } from "../../api_data/dataFunctions";
 
 import leftArrow from '../../assets/left_arrow_button.png';
 import rightArrow from '../../assets/right_arrow_button.png';
@@ -16,8 +16,8 @@ const SecondMainPhotos = ({ movieId }) => {
 
     useEffect(() => {
         async function loadMovieImages() {
-            let allImages = await getMoviePhotos(movieId)
-            setMovieImages(allImages)
+            let allImages = await dataFunctions.getMoviePhotos(movieId)
+            setMovieImages(allImages.backdrops)
         }
 
         loadMovieImages()

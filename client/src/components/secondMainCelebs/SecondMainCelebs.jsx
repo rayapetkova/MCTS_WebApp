@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import CelebCard from './celebCard/CelebCard';
 import { calculateRows } from '../../utils/calculateRows';
-import { getMovieCredits } from '../../api_data/dataFunctions';
+import { dataFunctions } from '../../api_data/dataFunctions';
 
 import leftArrow from '../../assets/left_arrow_button.png';
 import rightArrow from '../../assets/right_arrow_button.png';
@@ -18,7 +18,7 @@ const SecondMainCelebs = ({ movieId }) => {
 
     useEffect(() => {
         async function loadCelebs() {
-            let castAndCrew = await getMovieCredits(movieId)
+            let castAndCrew = await dataFunctions.getMovieCredits(movieId)
 
             let castWithImages = []
             for (let celeb of castAndCrew.cast) {

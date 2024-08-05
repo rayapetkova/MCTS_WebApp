@@ -6,11 +6,10 @@ import { useContext, useEffect, useState } from 'react';
 
 import Card from './card/Card';
 import Spinner from '../spinner/Spinner';
+import { dataFunctions } from '../../api_data/dataFunctions';
 import { calculateRows } from '../../utils/calculateRows';
 import { AuthContext } from '../../contexts/AuthContext';
 import { deleteWatchlistElement, getWatchlist } from '../../services/watchlistService';
-import { getFeaturedThisWeek, getTopRatedMovies } from '../../api_data/dataFunctions';
-import getFeaturedToday, { getComingSoonMovies, getNowPlayingInTheatres } from '../../api_data/dataFunctions';
 
 import leftArrow from '../../assets/left_arrow_button.png';
 import rightArrow from '../../assets/right_arrow_button.png';
@@ -37,11 +36,11 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
 
     useEffect(() => {
         async function loadFeaturedToday() {
-            let featuredToday = await getFeaturedToday()
-            let featuredThisWeek = await getFeaturedThisWeek()
-            let topRated = await getTopRatedMovies()
-            let comingSoon = await getComingSoonMovies()
-            let playingNow = await getNowPlayingInTheatres()
+            let featuredToday = await dataFunctions.getFeaturedToday()
+            let featuredThisWeek = await dataFunctions.getFeaturedThisWeek()
+            let topRated = await dataFunctions.getTopRatedMovies()
+            let comingSoon = await dataFunctions.getComingSoonMovies()
+            let playingNow = await dataFunctions.getNowPlayingInTheatres()
             let watchlist = []
 
             if (authData) {
@@ -50,12 +49,12 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
 
             setSectionsObj(currentSections => ({
                 ...currentSections,
-                'Featured Today': featuredToday,
+                'Featured Today': featuredToday.results,
                 'From your Watchlist': featuredToday,
-                'Top on MCTS this week': featuredThisWeek,
-                'Top Rated': topRated,
-                'Coming Soon': comingSoon,
-                'Playing Now': playingNow,
+                'Top on MCTS this week': featuredThisWeek.results,
+                'Top Rated': topRated.results,
+                'Coming Soon': comingSoon.results,
+                'Playing Now': playingNow.results,
                 'Watchlist': watchlist
             }))
         }

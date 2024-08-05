@@ -5,7 +5,7 @@ import { calculateRows } from '../../utils/calculateRows';
 import { useEffect, useState } from 'react';
 
 import Spinner from '../spinner/Spinner';
-import { getPersonPhotos } from '../../api_data/dataFunctions';
+import { dataFunctions } from '../../api_data/dataFunctions';
 
 import leftArrow from '../../assets/left_arrow_button.png';
 import rightArrow from '../../assets/right_arrow_button.png';
@@ -17,7 +17,7 @@ const SecondMainPersonPhotos = ({ personId }) => {
 
     useEffect(() => {
         async function loadPersonPhotos() {
-            let result = await getPersonPhotos(personId)
+            let result = await dataFunctions.getPersonPhotos(personId)
             setPersonPhotos(result.profiles)
         }
 
