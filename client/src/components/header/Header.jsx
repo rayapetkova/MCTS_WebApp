@@ -6,34 +6,40 @@ import { useContext, useEffect, useState } from 'react';
 import SearchCard from './searchCard/SearchCard';
 import ProfileDropdown from '../profileDropdown/ProfileDropdown';
 import { AuthContext } from '../../contexts/AuthContext';
-import { getDiscovedMovies } from '../../api_data/dataFunctions';
+import { getDiscovedMovies, getPopularCelebrities } from '../../api_data/dataFunctions';
 
 import logo from '../../assets/logo.png'
 
 const Header = () => {
     const [searchedValue, setSearchedValue] = useState('')
-    const [discoveredMovies, setDiscoveredMovies] = useState([])
-    const [matchedMovies, setMatchedMovies] = useState([])
+    const [discoveredMoviesAndCelebs, setDiscoveredMoviesAndCelebs] = useState([])
+    const [matchedItems, setMatchedItems] = useState([])
     const { logoutSubmitHandler } = useContext(AuthContext)
 
-    const { authData, created_user } = useContext(AuthContext)
+    const { authData } = useContext(AuthContext)
 
     useEffect(() => {
         async function loadDicoveredMovies() {
-            let result = await getDiscovedMovies()
-            setDiscoveredMovies(result)
+            let discoveredMovies = await getDiscovedMovies()
+            let celebs = await getPopularCelebrities()
+            setDiscoveredMoviesAndCelebs(discoveredMovies.concat(celebs))
         }
 
         loadDicoveredMovies()
     }, [])
 
     function onChangeSearchBar(e) {
-        const filteredMovies = discoveredMovies.filter((movie) => 
-            movie.title.toLowerCase().includes(e.target.value.toLowerCase())
-        )
+        const filteredItems = discoveredMoviesAndCelebs.filter((item) => {
+            if (item.title) {
+                return item.title.toLowerCase().includes(e.target.value.toLowerCase())
+            }
+
+            return item.name.toLowerCase().includes(e.target.value.toLowerCase())
+        })
+        console.log(filteredItems)
 
         setSearchedValue(e.target.value)
-        setMatchedMovies(filteredMovies)
+        setMatchedItems(filteredItems)
     }
 
     return (
@@ -61,8 +67,8 @@ const Header = () => {
 
                 {searchedValue && (
                     <div className={styles['discovered-movies']}>
-                        {matchedMovies.map((movie) => (
-                            <SearchCard movie={movie} key={movie.id} setSearchedValue={setSearchedValue} />
+                        {matchedItems.map((item) => (
+                            <SearchCard item={item} key={item.id} setSearchedValue={setSearchedValue} />
                         ))}
                     </div>
                 )}

@@ -6,22 +6,33 @@ import emptyStar from '../../../assets/empty_star.png';
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
-const SearchCard = ({ movie, setSearchedValue }) => {
+const SearchCard = ({ item, setSearchedValue }) => {
     return (
         <section className={styles['movie-section']}>
-            <div key={movie.id} className={styles['card']}>
-                <img src={`${pathForImages + movie.poster_path}`} alt="card"/>
+            <div key={item.id} className={styles['card']}>
+                {item.poster_path ? (
+                    <img src={`${pathForImages + item.poster_path}`} alt="card" />
+                ) : (
+                    <img src={`${pathForImages + item.profile_path}`} alt="card" />
+                )}
+
             </div>
 
             <div className={styles['movie-info']}>
-                <p>{movie.title}</p>
+                {item.title ? <p>{item.title}</p> : <p>{item.name}</p>}
                 <div className={styles['star-div']}>
                     <div className={styles['img-container']}>
-                        <img src={emptyStar} alt="empty-star"/>
+                        <img src={emptyStar} alt="empty-star" />
                     </div>
-                    <p>{movie.vote_average}</p>
+                    <p>{item.vote_average ? item.vote_average : item.popularity}</p>
                 </div>
-                <Link to={`/movies/${movie.id}/details`} onClick={() => setSearchedValue('')} preventScrollReset={false}>More Info &gt; </Link>
+
+                {item.title ? (
+                    <Link to={`/movies/${item.id}/details`} onClick={() => setSearchedValue('')} preventScrollReset={false}>More Info &gt; </Link>
+                ) : (
+                    <Link to={`/people/${item.id}`} onClick={() => setSearchedValue('')} preventScrollReset={false}>More Info &gt; </Link>
+                )}
+
             </div>
         </section>
     )
