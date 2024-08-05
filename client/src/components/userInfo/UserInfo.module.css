@@ -79,6 +79,11 @@
     font-size: 1.5em;
 }
 
+.bio-row p {
+    color: white;
+    margin-top: 0.4em;
+}
+
 
 
 .right .account-info .field h3, .right .account-info .bio-row h3 {

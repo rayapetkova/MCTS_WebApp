@@ -24,7 +24,7 @@ const EditProfileDetails = () => {
     const [updatedDataBtn, setUpdatedDataBtn] = useState(false)
 
     const editProfileSubmitHandler = async (values) => {
-        let result = await editUser(values, createdUser._id)
+        let result = await editUser({...values, profileImg: createdUser.profileImg}, createdUser._id)
 
         setCreatedUser(result)
         setUpdatedDataBtn(true)
@@ -48,6 +48,10 @@ const EditProfileDetails = () => {
         setSavedProfileImg(true)
     }
 
+    console.log(createdUser.profileImg)
+
+    const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, changeSavedImgState, createdUser.profileImg)
+
     const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
         initialValues: {
             [formNames.firstName]: createdUser.firstName,
@@ -55,13 +59,11 @@ const EditProfileDetails = () => {
             [formNames.phoneNumber]: createdUser.phoneNumber,
             [formNames.bio]: createdUser.bio,
             email: createdUser.email,
-            profileImg: createdUser.profileImg
         },
         validationSchema: editProfileSchema,
         onSubmit: submitFormik
     })
-    const [onChangeImg, onSubmitImg] = useProfileImgForm(changeProfileImgSubmitHandler, changeSavedImgState, createdUser.profileImg)
-
+    
     return (
         <section className={styles['info-section']}>
             <div className={styles['left']}>
