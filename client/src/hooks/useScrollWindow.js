@@ -1,7 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function useScrollWindow() {
     const [showScrollButton, setShowScrollButton] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollHandler)
+
+        return () => {
+            window.removeEventListener('scroll', () => setShowScrollButton(false))
+        }
+    }, [])
 
     function scrollHandler() {
         if (window.scrollY > 100) {
@@ -15,8 +23,6 @@ function useScrollWindow() {
         setShowScrollButton(false)
         window.scrollTo(0, 0)
     }
-
-    window.addEventListener('scroll', scrollHandler)
 
     return [
         showScrollButton,
