@@ -28,6 +28,10 @@ const Reviews = ({ movieId }) => {
         setShowForm(true)
     }
 
+    function reviewsSetter(reviews) {
+        setReviews(reviews)
+    }
+
     return (
         <div className={styles['reviews']} id="reviews" data-testid="reviews">
             <div className={styles['title']}>
@@ -48,13 +52,13 @@ const Reviews = ({ movieId }) => {
             <div className={styles['review-boxes']}>
                 {reviews.length > 0 ?
                     (reviews.slice(-2).reverse().map((review) => (
-                        <ReviewCard review={review} forReviewsSection={false} setReviews={setReviews} key={review._id} />
+                        <ReviewCard review={review} forReviewsSection={false} reviewsSetter={reviewsSetter} key={review._id} />
                     ))) : (
                         <p className={styles['no-reviews-yet']}>No reviews yet</p>
                     )}
             </div>
 
-            {(showForm && Object.keys(authData).length > 0) && <AddReview movieId={movieId} setReviews={setReviews} setShowForm={setShowForm} />}
+            {(showForm && Object.keys(authData).length > 0) && <AddReview movieId={movieId} reviewsSetter={reviewsSetter} setShowForm={setShowForm} />}
         </div>
     )
 }

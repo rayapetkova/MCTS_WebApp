@@ -3,11 +3,11 @@ import { convertToDate } from "../../../utils/convertToDate";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import EditReview from '../../editReview/EditReview';
-import { deleteReview } from '../../../services/reviewsService';
+import { deleteReview, getReviews } from '../../../services/reviewsService';
 import { Link } from 'react-router-dom';
 
 
-const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
+const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
     const [showEditForm, setshowEditForm] = useState(false)
 
     const { authData } = useContext(AuthContext)
@@ -16,9 +16,9 @@ const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
 
     async function deleteReviewEvent(e) {
         let result = await deleteReview(review._id)
-        setReviews(currentState => ({
-            ...currentState
-        }))
+        let allReviews = await getReviews(review.movieId)
+        
+        reviewsSetter(allReviews)
     }
 
     return (
@@ -29,7 +29,7 @@ const ReviewCard = ({ review, forReviewsSection, setReviews }) => {
                     <section className={styles['buttons']}>
                         <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
                         <button onClick={deleteReviewEvent} className={styles['delete']}>Delete</button>
-                        {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} setReviews={setReviews} />}
+                        {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} reviewsSetter={reviewsSetter} />}
                     </section>
                 )}
                 

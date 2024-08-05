@@ -12,13 +12,13 @@ const formNames = {
     review: 'review'
 }
 
-const AddReview = ({ movieId, setReviews, setShowForm }) => {
+const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
     const createdUser = JSON.parse(localStorage.getItem('createdUser'))
 
     const addReviewSubmitHandler = async (values) => {
         let result = await addReview(values)
         let movieReviews = await getReviews(movieId)
-        setReviews(movieReviews)
+        reviewsSetter(movieReviews)
 
         setShowForm(false)
     }

@@ -35,6 +35,10 @@ const AllReviews = () => {
         arrayForRows[i] = [currentIndex, currentIndex + 3]
         currentIndex += 2
     }
+
+    function reviewsSetter(reviews) {
+        setReviews(reviews)
+    }
     
     return (
         <section className={styles['one-section']}>
@@ -55,7 +59,7 @@ const AllReviews = () => {
                 arrayForRows.map(([start, end]) => (
                     <div className={styles['cards']} key={start}>
                         {reviews.slice(start, end).map((review) => (
-                            <ReviewCard review={review} key={review._id} forReviewsSection={true} />
+                            <ReviewCard key={review._id} review={review} forReviewsSection={true} reviewsSetter={reviewsSetter} />
                         ))}
                     </div>
                 ))
