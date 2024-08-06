@@ -109,6 +109,11 @@
     color: black;
 }
 
+.left form .row .field p, .message-row p {
+    color: rgb(172, 0, 0);
+    margin-top: 0.2em;
+}
+
 .left form .message-row h3 {
     margin: 0;
     font-size: 1.2em;

@@ -19,6 +19,8 @@ import mapIcon from '../../assets/map_icon.png';
 import githubIcon from '../../assets/github_icon.png';
 import linkedInIcon from '../../assets/linkedin_icon.png';
 import facebookIcon from '../../assets/facebook_icon.png';
+import { useFormik } from 'formik';
+import { contactUsSchema } from '../../schemas/contactUsSchema';
 
 const mapOfficePosition = [41.935750, 25.555057]
 
@@ -49,12 +51,16 @@ const ContactUs = () => {
     }
 
     const { authData, createdUser } = useContext(AuthContext)
-    const [values, onChange, onSubmit] = useForm(sendEmailSubmitHandler, {
-        [formNames.subject]: '',
-        [formNames.message]: '',
-        [formNames.name]: Object.keys(createdUser).length > 0 ? `${createdUser.firstName} ${createdUser.lastName}` : '',
-        [formNames.email]: Object.keys(authData).length > 0 ? authData.email : '',
-        [formNames.phoneNumber]: createdUser.phoneNumber ? createdUser.phoneNumber : ''
+    const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
+        initialValues: {
+            [formNames.subject]: '',
+            [formNames.message]: '',
+            [formNames.name]: Object.keys(createdUser).length > 0 ? `${createdUser.firstName} ${createdUser.lastName}` : '',
+            [formNames.email]: Object.keys(authData).length > 0 ? authData.email : '',
+            [formNames.phoneNumber]: createdUser.phoneNumber ? createdUser.phoneNumber : ''
+        },
+        validationSchema: contactUsSchema,
+        onSubmit: () => sendEmailSubmitHandler(values)
     })
 
     return (
@@ -71,7 +77,7 @@ const ContactUs = () => {
 
                 <section className={styles['form-and-info']}>
                     <div className={styles['left']}>
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={handleSubmit}>
                             <div className={styles['row']}>
                                 <div className={styles['field']}>
                                     <label htmlFor="name">Name:</label>
@@ -80,8 +86,11 @@ const ContactUs = () => {
                                         id="name"
                                         name={formNames.name}
                                         value={values.name}
-                                        onChange={onChange}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                     />
+
+                                    {(errors.name && touched.name) && <p>{errors.name}</p>}
                                 </div>
 
                                 <div className={styles['field']}>
@@ -91,8 +100,12 @@ const ContactUs = () => {
                                         id="subject"
                                         name={formNames.subject}
                                         value={values.subject}
-                                        onChange={onChange}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                     />
+
+                                    {(errors.subject && touched.subject) && <p>{errors.subject}</p>}
+
                                 </div>
                             </div>
 
@@ -104,8 +117,11 @@ const ContactUs = () => {
                                         id="email"
                                         name={formNames.email}
                                         value={values.email}
-                                        onChange={onChange}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                     />
+
+                                    {(errors.email && touched.email) && <p>{errors.email}</p>}
                                 </div>
 
                                 <div className={styles['field']}>
@@ -115,8 +131,11 @@ const ContactUs = () => {
                                         id="phone_number"
                                         name={formNames.phoneNumber}
                                         value={values.phoneNumber}
-                                        onChange={onChange}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                     />
+
+                                    {(errors.phoneNumber && touched.phoneNumber) && <p>{errors.phoneNumber}</p>}
                                 </div>
                             </div>
 
@@ -127,8 +146,12 @@ const ContactUs = () => {
                                     id="message"
                                     name={formNames.message}
                                     value={values.message}
-                                    onChange={onChange}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
                                 />
+
+                                {(errors.message && touched.message) && <p>{errors.message}</p>}
+
                             </div>
 
                             <div className={styles['buttons']}>

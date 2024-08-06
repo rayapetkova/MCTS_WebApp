@@ -16,12 +16,15 @@
 
 
 .profile-img-container {
-    width: 100%;
+    width: 1.8em;
+    height: 2em;
 }
 
 .profile-img-container img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 
