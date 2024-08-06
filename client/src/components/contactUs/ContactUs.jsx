@@ -1,10 +1,10 @@
 import styles from './ContactUs.module.css';
 
+import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 
 import sendEmail from '../../api_data/emails/sendEmail';
-import useForm from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 import {
     MapContainer,
@@ -19,7 +19,6 @@ import mapIcon from '../../assets/map_icon.png';
 import githubIcon from '../../assets/github_icon.png';
 import linkedInIcon from '../../assets/linkedin_icon.png';
 import facebookIcon from '../../assets/facebook_icon.png';
-import { useFormik } from 'formik';
 import { contactUsSchema } from '../../schemas/contactUsSchema';
 
 const mapOfficePosition = [41.935750, 25.555057]

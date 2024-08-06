@@ -2,6 +2,8 @@ import styles from './AddReview.module.css';
 
 import useForm from '../../hooks/useForm';
 import { addReview, getReviews } from '../../services/reviewsService';
+import { useFormik } from 'formik';
+import { addReviewSchema } from '../../schemas/addReviewSchema';
 
 const formNames = {
     rate: 'rate',
@@ -15,20 +17,24 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
     const addReviewSubmitHandler = async (values) => {
         let result = await addReview(values)
         let movieReviews = await getReviews(movieId)
-        reviewsSetter(movieReviews)
 
+        reviewsSetter(movieReviews)
         setShowForm(false)
     }
 
-    const [values, onChange, onSubmit] = useForm(addReviewSubmitHandler, {
-        [formNames.rate]: '',
-        [formNames.title]: '',
-        [formNames.review]: '',
-        movieId,
-        userInfo: {
-            firstName: createdUser.firstName,
-            lastName: createdUser.lastName
-        }
+    const {values, handleChange, handleSubmit, handleBlur, errors, touched} = useFormik({
+        initialValues: {
+            [formNames.rate]: '',
+            [formNames.title]: '',
+            [formNames.review]: '',
+            movieId,
+            userInfo: {
+                firstName: createdUser.firstName,
+                lastName: createdUser.lastName
+            }
+        },
+        validationSchema: addReviewSchema,
+        onSubmit: () => addReviewSubmitHandler(values)
     })
 
     return (
@@ -37,7 +43,7 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
             <div className={styles['right']}>
                 <h3>Add Review</h3>
 
-                <form onSubmit={onSubmit}>
+                <form onSubmit={handleSubmit}>
 
                     <div className={styles['row']}>
                         <div className={styles['field']}>
@@ -45,20 +51,22 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
                             <input
                                 type="number"
                                 id="rate"
-                                required
                                 min={0}
                                 max={10}
                                 className={styles['rate-input']}
                                 name={formNames.rate}
                                 value={values.rate}
-                                onChange={onChange}
+                                onChange={handleChange} 
+                                onBlur={handleBlur}
                             />
+
+                            {(errors.rate && touched.rate) && <p>{errors.rate}</p>}
                         </div>
                     </div>
 
                     <div className={styles['row']}>
                         <div className={styles['field']}>
-                            <label htmlFor="rate">Title</label>
+                            <label htmlFor="title">Title</label>
                             <input
                                 type="text"
                                 id="title"
@@ -66,8 +74,11 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
                                 max={10}
                                 name={formNames.title}
                                 value={values.title}
-                                onChange={onChange}
+                                onChange={handleChange} 
+                                onBlur={handleBlur} 
                             />
+
+                            {(errors.title && touched.title) && <p>{errors.title}</p>}                            
                         </div>
                     </div>
 
@@ -77,8 +88,11 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
                             rows="10"
                             name={formNames.review}
                             value={values.review}
-                            onChange={onChange}
+                            onChange={handleChange} 
+                            onBlur={handleBlur}
                         />
+
+                        {(errors.review && touched.review) && <p>{errors.review}</p>}
                     </div>
 
                     <div className={styles['buttons']}>
