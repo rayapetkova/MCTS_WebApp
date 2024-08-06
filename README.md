@@ -161,6 +161,7 @@
 - **mdb-react-ui-kit**: Styling input fields in login and register forms.
 - **react-bootstrap**: Using carousels.
 - **react-leaflet**: Integrating map.
+- **emailjs-com**: Sending emails and receiving emails.
 - **TMDB API**: Extracting movies, celebrities and TV shows.
 
 ## 🧪 Data for testing purposes
