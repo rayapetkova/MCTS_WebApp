@@ -163,6 +163,12 @@
 - **react-leaflet**: Integrating map.
 - **TMDB API**: Extracting movies, celebrities and TV shows.
 
+## 🧪 Data for testing purposes
+- **Users**:
+  - **Email:** raya@email.com; **password:** raya123!
+  - **Email:** anton@email.com; **password:** anton123!
+  - **Email:** slavi@email.com; **password:** slavi123!
+
 ## 🚀 Getting Started
 
 ### 📋 Prerequisites
