@@ -19,7 +19,7 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
 
         setShowForm(false)
     }
-    
+
     const [values, onChange, onSubmit] = useForm(addReviewSubmitHandler, {
         [formNames.rate]: '',
         [formNames.title]: '',
@@ -42,15 +42,15 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
                     <div className={styles['row']}>
                         <div className={styles['field']}>
                             <label htmlFor="rate">Rate</label>
-                            <input 
-                                type="number" 
-                                id="rate" 
+                            <input
+                                type="number"
+                                id="rate"
                                 required
-                                min={0} 
-                                max={10} 
-                                className={styles['rate-input']} 
-                                name={formNames.rate} 
-                                value={values.rate} 
+                                min={0}
+                                max={10}
+                                className={styles['rate-input']}
+                                name={formNames.rate}
+                                value={values.rate}
                                 onChange={onChange}
                             />
                         </div>
@@ -59,13 +59,13 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
                     <div className={styles['row']}>
                         <div className={styles['field']}>
                             <label htmlFor="rate">Title</label>
-                            <input 
-                                type="text" 
-                                id="title" 
-                                min={0} 
+                            <input
+                                type="text"
+                                id="title"
+                                min={0}
                                 max={10}
-                                name={formNames.title} 
-                                value={values.title} 
+                                name={formNames.title}
+                                value={values.title}
                                 onChange={onChange}
                             />
                         </div>
@@ -73,15 +73,19 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
 
                     <div className={styles['bio-row']}>
                         <h3>Review</h3>
-                        <textarea 
-                            rows="10" 
+                        <textarea
+                            rows="10"
                             name={formNames.review}
-                            value={values.review} 
+                            value={values.review}
                             onChange={onChange}
                         />
                     </div>
 
-                    <button className={styles['update-button']}>Post</button>
+                    <div className={styles['buttons']}>
+                        <button type='submit' className={styles['update-button']}>Post</button>
+                        <button onClick={(e) => setShowForm(false)} className={styles['cancel-button']}>Cancel</button>
+                    </div>
+
 
                 </form>
             </div>

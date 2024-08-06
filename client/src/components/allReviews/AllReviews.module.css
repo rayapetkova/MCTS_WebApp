@@ -8,10 +8,31 @@
     margin-bottom: 5%;
 }
 
-.one-section .title-reviews {
+.one-section .title-container {
+    display: flex;
     margin: 3% 21%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5em;
+}
+
+.one-section .title-container .title-reviews {
     margin-bottom: 0;
     color: #afafaf;
+}
+
+.one-section .title-container button {
+    text-decoration: none;
+    background-color: #222222;
+    color: #797979;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    padding: 0.6em 1.3em;
+}
+
+.one-section .title-container button:hover {
+    background-color: #313131;
 }
 
 .one-section .cards .card {
@@ -89,7 +110,7 @@
 }
 
 .no-reviews-yet p {
-    margin-bottom: 0.5em;
+    margin-bottom: 5em;
     font-size: 1.6em;
     font-weight: 500;
 }

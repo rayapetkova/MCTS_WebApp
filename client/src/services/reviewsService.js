@@ -21,7 +21,7 @@ export async function getReviews(movieId) {
         load: `author=_ownerId:users`
     })
 
-    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/reviews?${queries}`)
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/data/reviews?${queries}&sortBy=_createdOn%20desc`)
 
     if (!response.ok) {
         return []

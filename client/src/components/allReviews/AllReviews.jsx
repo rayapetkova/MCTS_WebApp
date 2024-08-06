@@ -8,11 +8,13 @@ import ReviewCard from "../reviews/reviewCard/ReviewCard";
 import { AuthContext } from "../../contexts/AuthContext";
 import { dataFunctions } from "../../api_data/dataFunctions";
 import { getReviews } from "../../services/reviewsService";
+import AddReview from '../addReview/AddReview';
 
 const AllReviews = () => {
     const { authData } = useContext(AuthContext)
     const [movieInfo, setMovieInfo] = useState({})
     const [reviews, setReviews] = useState([])
+    const [showForm, setShowForm] = useState(false)
 
     const { movieId } = useParams()
 
@@ -31,23 +33,21 @@ const AllReviews = () => {
         loadMovieReviews()
     }, [])
 
-    // const arrayForRows = Array(6)
-    // let currentIndex = 0
-    // for (let i = 0; i < arrayForRows.length; i++) {
-    //     arrayForRows[i] = [currentIndex, currentIndex + 3]
-    //     currentIndex += 2
-    // }
-
     function reviewsSetter(reviews) {
         setReviews(reviews)
     }
 
-    console.log(reviews)
     return (
         <section className={styles['one-section']}>
             <MovieCard movieInfo={movieInfo} />
 
-            <h2 className={styles['title-reviews']}>All Reviews</h2>
+            <section className={styles['title-container']}>
+                <h2 className={styles['title-reviews']}>All Reviews</h2>
+                <button onClick={(e) => setShowForm(true)}>Review +</button>
+            </section>
+
+            {(showForm && Object.keys(authData).length > 0) && <AddReview movieId={movieInfo.id} reviewsSetter={reviewsSetter} setShowForm={setShowForm} />}
+            
             {reviews.length > 0 ? (
                 <div className={styles['cards']}>
                     {reviews.map((review) => (

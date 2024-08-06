@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .info-section {
-    background-color: #08080881;
+    background-color: #080808f3;
     display: flex;
     margin: 5% 20%;
     padding: 2.5% 1%;
     border-radius: 4px;
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    right: 1;
+    z-index: 100;
+    width: 50%;
 }
 
 .right {
     width: 100%;
     margin-left: 2%;
-    background-color: #08080881;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,8 +102,14 @@
     color: black;
 }
 
+.right form .buttons {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .right form .update-button {
-    width: 15%;
+    width: 45%;
     padding: 1.5%;
     background-color: rgb(230 185 30);
     border: none;
@@ -111,4 +122,15 @@
 .right form .update-button:hover {
     cursor: pointer;
     background-color: rgb(206, 167, 29);
+}
+
+.right form .cancel-button {
+    width: 45% !important;
+    padding: 1.5% !important;
+    background-color: rgba(189, 189, 189, 0.548);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin-top: 1em;
 }
