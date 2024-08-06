@@ -34,6 +34,13 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
         currentIndex += numOfCards
     }
 
+    const listArrayForRows = Array(numOfRows)
+    let listCurrentIndex = 0
+    for (let i = 0; i < listArrayForRows.length; i++) {
+        listArrayForRows[i] = [listCurrentIndex, listCurrentIndex + numOfCards]
+        listCurrentIndex += numOfCards
+    }
+
     useEffect(() => {
         async function loadFeaturedToday() {
             let featuredToday = await dataFunctions.getFeaturedToday()
@@ -80,11 +87,16 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
             <div className={styles['second-main']} id={sectionName}>
                 <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''}`}>
                     <div className={styles['title']}>
-                        {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName} &#10509;</Link> : <h2>{sectionName} - MCTS</h2>}
+                        {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName} &#10509;</Link> : (
+                            sectionName === 'Watchlist' ? (
+                                <h2>Your {sectionName}</h2>
+                            ) : (
+                                <h2>{sectionName} - MCTS</h2>
+                            ))}
                     </div>
 
                     {listFeature && (
-                        arrayForRows.map(([start, end]) => (
+                        listArrayForRows.map(([start, end]) => (
                             <div className={`${styles['cards']} ${styles['cards-list']}`} key={start}>
                                 {sectionsObj[sectionName].slice(start, end).map((movie) => (
                                     <Card movieObj={movie} sectionName={sectionName} updateWatchlistOnRemove={updateWatchlistOnRemove} key={movie.id} />

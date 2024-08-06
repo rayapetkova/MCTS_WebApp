@@ -5,12 +5,13 @@
     align-items: center;
     margin: 1% 15.5%;
     gap: 2.3em;
+    margin-bottom: 5%;
 }
 
 .one-section .title-reviews {
     margin: 3% 21%;
     margin-bottom: 0;
-    color: #646464;
+    color: #afafaf;
 }
 
 .one-section .cards .card {
