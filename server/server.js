@@ -1319,16 +1319,6 @@
     var identity = "email";
     var protectedData = {
         users: {
-            "35c62d76-8152-4626-8712-eeb96381bea8": {
-                email: "peter@abv.bg",
-                username: "Peter",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "847ec027-f659-4086-8032-5173e2f9c93a": {
-                email: "george@abv.bg",
-                username: "George",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
             "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
                 email: "admin@abv.bg",
                 username: "Admin",
@@ -1338,7 +1328,7 @@
                 email: "raya@email.com",
                 hashedPassword: "25d7c799cb5095f8df7df45abe04ec6d05edc69cd5c75028104313d6108f3e91",
             },
-            "478abe81-eb68-42e8-98a1-2912f7c32515": {
+            "948f1c58-6d32-436a-96be-6592744e2fc4": {
                 email: "anton@email.com",
                 hashedPassword: "7061f922207fbacbf146d4d74cbb4b991c10617aab0110eff2ee59fe8a480e1c"
             },
@@ -1363,16 +1353,16 @@
                 _id: "05075d6b-ee64-49a1-8253-6e04c4a4e1c5",
                 _ownerId: "83092c7b-e07f-4079-b362-88dd677f2159"
             },
-            "64fc03d9-fc4d-4054-b6de-01562328d529": {
-                bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
+            "03edf0f9-1626-45ff-ad0c-10a05e130ec6": {
+                bio: "Hi, I'm Anton, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                 email: "anton@email.com",
                 firstName: "Anton",
                 lastName: "Ivanov",
                 phoneNumber: "087777777",
                 profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                 _createdOn: 1722928006522,
-                _id: "05075d6b-ee64-49a1-8253-6e04c4a4e1c5",
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                _id: "03edf0f9-1626-45ff-ad0c-10a05e130ec6",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
             },
             "64fc03d9-fc4d-4054-b6de-01562328d529": {
                 bio: "Hi, I'm Slavi, a devoted lover of movies and TV shows. My fascination with the world of cinema began at a young age, and I've been hooked ever since. I enjoy diving deep into various genres, from action-packed thrillers to heartwarming dramas. Television series also captivate me, especially those with intricate plots and compelling characters. I'm an active member of the MCTS community, where I share my reviews, insights, and recommendations. I find joy in discussing films and shows with fellow enthusiasts, always on the lookout for hidden gems and underrated masterpieces.",
@@ -1608,7 +1598,7 @@
                 _id: "c5f4394d-58a4-42d5-a212-92d227d5d3e8"
             },
             "50c9ef8e-f1bf-4979-9fec-9eff77fea758": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1618,7 +1608,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 122,
@@ -1630,7 +1620,7 @@
                 _id: "50c9ef8e-f1bf-4979-9fec-9eff77fea758"
             },
             "ab383dc8-6dca-4ab0-80a8-6a5131e69331": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1640,7 +1630,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 496243,
@@ -1652,7 +1642,7 @@
                 _id: "ab383dc8-6dca-4ab0-80a8-6a5131e69331"
             },
             "25c1b75d-daff-43f7-bf29-f17450d811a0": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1662,7 +1652,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 389,
@@ -1674,7 +1664,7 @@
                 _id: "25c1b75d-daff-43f7-bf29-f17450d811a0"
             },
             "93e5b5d0-9f20-4110-b09b-c60a763a940c": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1684,7 +1674,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 13,
@@ -1696,7 +1686,7 @@
                 _id: "93e5b5d0-9f20-4110-b09b-c60a763a940c"
             },
             "ba461e05-6dae-4e12-9adf-793f35e7ba19": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1706,7 +1696,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     "id": 155,
@@ -1718,7 +1708,7 @@
                 _id: "ba461e05-6dae-4e12-9adf-793f35e7ba19"
             },
             "61d8f284-4631-459f-bcca-ec6e0a05846d": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1728,7 +1718,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 938614,
@@ -1740,7 +1730,7 @@
                 _id: "61d8f284-4631-459f-bcca-ec6e0a05846d"
             },
             "bb1fefde-6d84-4618-be49-e7b8feaf6ca0": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1750,7 +1740,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 533535,
@@ -1762,7 +1752,7 @@
                 _id: "bb1fefde-6d84-4618-be49-e7b8feaf6ca0"
             },
             "f8f8f823-401e-4589-9147-c20806802d4b": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1772,7 +1762,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     id: 746036,
@@ -1784,7 +1774,7 @@
                 _id: "f8f8f823-401e-4589-9147-c20806802d4b"
             },
             "6b541488-1ac2-422d-a56c-35ab6c3dfcaf": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 createdUser: {
                     bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
                     email: "anton@email.com",
@@ -1794,7 +1784,7 @@
                     profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                     _createdOn: 1722928006522,
                     _id: "64fc03d9-fc4d-4054-b6de-01562328d529",
-                    _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 },
                 movie: {
                     "id": 762441,
