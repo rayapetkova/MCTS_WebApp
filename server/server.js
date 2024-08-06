@@ -1354,11 +1354,11 @@
                 _ownerId: "83092c7b-e07f-4079-b362-88dd677f2159"
             },
             "03edf0f9-1626-45ff-ad0c-10a05e130ec6": {
-                bio: "Hi, I'm Anton, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
+                bio: "Hi, I'm Anton, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts.",
                 email: "anton@email.com",
                 firstName: "Anton",
                 lastName: "Ivanov",
-                phoneNumber: "087777777",
+                phoneNumber: "0877777777",
                 profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
                 _createdOn: 1722928006522,
                 _id: "03edf0f9-1626-45ff-ad0c-10a05e130ec6",
@@ -1825,15 +1825,15 @@
                 },
                 _createdOn: 1722945985362,
                 _updatedOn: 1722946023390,
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 _id: "cfcf0fb4-f22f-4db9-a73b-4795fc271b2a", 
                 author: {
                     email: "anton@email.com",
-                    _id: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _id: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 }
             },
             "901e2f71-6910-4650-aff4-8cf4cda55abb": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 rate: "10",
                 title: "A Worthy and Heartfelt Sequel",
                 review: "As a huge fan of the original \"Inside Out,\" I was excited yet cautious about \"Inside Out 2.\" I'm happy to report that the sequel lives up to the high standards set by its predecessor. The film continues to explore the complex world of emotions with creativity, humor, and heart.\n\nIn \"Inside Out 2,\" we follow Riley as she navigates her teenage years, and the introduction of new emotions adds fresh dynamics to the story.",
@@ -1846,7 +1846,7 @@
                 _id: "901e2f71-6910-4650-aff4-8cf4cda55abb",
                 author: {
                     email: "anton@email.com",
-                    _id: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _id: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 }
             },
             "7ce8adc7-0538-4f4f-9e1a-89662d7110c4": {
@@ -1937,7 +1937,7 @@
                 _id: "292c2d6b-d518-4094-bd5b-751eb1e54271"
             },
             "e4d3db79-7312-479e-87fa-8a7c6e68fdf6": {
-                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515",
+                _ownerId: "948f1c58-6d32-436a-96be-6592744e2fc4",
                 rate: "9",
                 title: "A Heartwarming and Hilarious Sequel",
                 review: "The plot is engaging and well-paced, with a fresh storyline that keeps things interesting and unpredictable. The animation quality remains top-notch, with vibrant colors and imaginative scenes that capture the whimsical nature of the franchise. The voice acting is as strong as ever, bringing the characters to life with charm and energy.",
@@ -1950,7 +1950,7 @@
                 _id: "e4d3db79-7312-479e-87fa-8a7c6e68fdf6",
                 author: {
                     email: "anton@email.com",
-                    _id: "478abe81-eb68-42e8-98a1-2912f7c32515"
+                    _id: "948f1c58-6d32-436a-96be-6592744e2fc4"
                 }
             },
             "4481a8f5-3b8a-4b26-81ad-776c49a83df3": {

@@ -1,17 +1,30 @@
 import styles from './ReviewCard.module.css';
 
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import EditReview from '../../editReview/EditReview';
 import { convertToDate } from "../../../utils/convertToDate";
 import { AuthContext } from '../../../contexts/AuthContext';
 import { deleteReview, getReviews } from '../../../services/reviewsService';
+import { retrieveUser } from '../../../services/usersService';
 
 const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
     const [showEditForm, setshowEditForm] = useState(false)
-
+    const [reviewUser, setReviewUser] = useState({})
     const { authData } = useContext(AuthContext)
+
+    useEffect(() => {
+        async function loadReviewUser() {
+            const result = await retrieveUser(review._ownerId)
+
+            if (Object.keys(result).length > 0) {
+                setReviewUser(result[0])
+            }
+        }
+
+        loadReviewUser()
+    }, [])
 
     const showEditReviewFormEvent = (e) => setshowEditForm(true)
 
@@ -38,7 +51,7 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
             <h6>{review.title}</h6>
             <section className={styles['post-info']}>
                 {(Object.keys(authData).length > 0 && authData._id === review._ownerId) ? (
-                    <Link to={`/users/me`}>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</Link>
+                    <Link to={`/users/me`}>{`${reviewUser.firstName} ${reviewUser.lastName}`}</Link>
                 ) : (
                     <Link to={`/users/${review._ownerId}`}>{`${review.userInfo.firstName} ${review.userInfo.lastName}`}</Link>
                 )}

@@ -64,7 +64,7 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
                                 <Carousel.Item key={start}>
                                     <div className={styles['cards']}>
                                         {popularCelebrities.slice(start, end).map((celebrity) => (
-                                            <CelebCard celebrity={celebrity} onClickCelebHandler={onClickCelebHandler} />
+                                            <CelebCard celebrity={celebrity} onClickCelebHandler={onClickCelebHandler} key={celebrity.id} />
                                         ))}
                                     </div>
                                 </Carousel.Item>
