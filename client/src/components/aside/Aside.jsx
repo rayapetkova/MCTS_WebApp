@@ -1,12 +1,13 @@
 import styles from "./Aside.module.css";
+import { Link } from 'react-router-dom'
 
 const Aside = () => {
     return (
         <aside>
             <ul>
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#cast">Cast & Crew</a></li>
-                <li><a href="#reviews">User Reviews</a></li>
+                <li><Link to="#overview">Overview</Link></li>
+                <li><Link to="#cast">Cast & Crew</Link></li>
+                <li><Link to="#reviews">User Reviews</Link></li>
             </ul>
         </aside>
     )

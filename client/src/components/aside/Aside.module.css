@@ -1,21 +1,21 @@
 aside {
-    width: 11%;
+    width: 11% !important;
 }
 
 aside ul {
-    display: flex;
-    flex-direction: column;
-    line-height: 2em;
-    font-size: 1.2em;
-    margin-top: 3em;
-    padding: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 2em !important;
+    font-size: 1.2em !important;
+    margin-top: 3em !important;
+    padding: 0 !important;
 }
 
 aside ul li {
-    list-style: none;
+    list-style: none !important;
 }
 
-aside ul li a {
-    text-decoration: none;
-    color: #c3c3c3;
+a {
+    text-decoration: none !important;
+    color: #c3c3c3 !important;
 }

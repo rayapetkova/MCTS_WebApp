@@ -22,10 +22,10 @@ const Footer = () => {
             </section>
             <section>
                 <ul>
-                    <li><Link to="/movies/Featured Today">Featured Today &#8599;</Link></li>
+                    <li><Link to="/movies/Featured%20Today">Featured Today &#8599;</Link></li>
                     <li><Link to="/movies/Watchlist">Watchlist &#8599;</Link></li>
-                    <li><Link to="/movies/Top rated">Top rated &#8599;</Link></li>
-                    <li><Link to="movies/Coming soon">Coming soon &#8599;</Link></li>
+                    <li><Link to="/movies/Top Rated">Top rated &#8599;</Link></li>
+                    <li><Link to="/movies/Coming Soon">Coming soon &#8599;</Link></li>
                     <li><Link to="/people">Celebrities &#8599;</Link></li>
                 </ul>
             </section>

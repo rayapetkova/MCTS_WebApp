@@ -6,6 +6,7 @@ import MovieInfo from "./tableMovieInfo/tableMovieInfo";
 import { AuthContext } from "../../contexts/AuthContext";
 import { dataFunctions } from "../../api_data/dataFunctions";
 import { addToWatchlist, getWatchlist } from "../../services/watchlistService";
+import Spinner from "../spinner/Spinner";
 
 const pathForImages = 'https://image.tmdb.org/t/p/w500'
 
@@ -80,10 +81,18 @@ const FirstSectionMovieInfo = ({ movieId }) => {
             </div>
             <div className={styles['two-images']}>
                 <div className={`${styles['img-container']} ${styles['first']}`}>
-                    <img src={`${pathForImages}/${movieInfo.poster_path}`} alt="movie-poster" />
+                    {movieInfo ? (
+                        <img src={`${pathForImages}/${movieInfo.poster_path}`} alt="movie-poster" />
+                    ) : (
+                        <Spinner />
+                    )}
                 </div>
                 <div className={`${styles['img-container']} ${styles['second']}`}>
-                    <img src={`${pathForImages}/${movieInfo.backdrop_path}`} alt="movie-image" />
+                {movieInfo ? (
+                        <img src={`${pathForImages}/${movieInfo.backdrop_path}`} alt="movie-image" />
+                    ) : (
+                        <Spinner />
+                    )}
                 </div>
             </div>
             
