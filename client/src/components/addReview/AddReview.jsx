@@ -1,9 +1,9 @@
 import styles from './AddReview.module.css';
 
-import useForm from '../../hooks/useForm';
-import { addReview, getReviews } from '../../services/reviewsService';
 import { useFormik } from 'formik';
-import { addReviewSchema } from '../../schemas/addReviewSchema';
+
+import { addReview, getReviews } from '../../services/reviewsService';
+import { reviewSchema } from '../../schemas/reviewSchema';
 
 const formNames = {
     rate: 'rate',
@@ -33,7 +33,7 @@ const AddReview = ({ movieId, reviewsSetter, setShowForm }) => {
                 lastName: createdUser.lastName
             }
         },
-        validationSchema: addReviewSchema,
+        validationSchema: reviewSchema,
         onSubmit: () => addReviewSubmitHandler(values)
     })
 

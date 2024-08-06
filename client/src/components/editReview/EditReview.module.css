@@ -48,6 +48,12 @@
     width: 100%;
 }
 
+.right form .row .field p, .right form .bio-row p {
+    color: rgb(172, 0, 0);
+    margin: 0;
+    margin-top: 0.5em;
+}
+
 .right form .row .field label {
     font-size: 1.2em;
     color: rgb(131, 131, 133);
