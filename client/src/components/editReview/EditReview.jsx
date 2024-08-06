@@ -81,8 +81,11 @@ const EditReview = ({ review, setshowEditForm, reviewsSetter }) => {
                         />
                     </div>
 
-                    <button className={styles['update-button']}>Update</button>
-
+                    <div className={styles['buttons']}>
+                        <button type='submit' className={styles['update-button']}>Update</button>
+                        <button className={styles['cancel-button']} onClick={(e) => setshowEditForm(false)}>Cancel</button>
+                    </div>
+                        
                 </form>
             </div>
         </section>

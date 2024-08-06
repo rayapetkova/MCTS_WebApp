@@ -102,8 +102,14 @@
     color: black;
 }
 
-.right form .update-button {
-    width: 15% !important;
+.right form .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.right form .buttons .update-button {
+    width: 45% !important;
     padding: 1.2% !important;
     background-color: rgb(230 185 30);
     border: none;
@@ -114,7 +120,25 @@
     margin-top: 1em;
 }
 
-.right form .update-button:hover {
+.right form .buttons .update-button:hover {
     cursor: pointer;
     background-color: rgb(206, 167, 29);
+}
+
+.right form .buttons .cancel-button {
+    width: 45% !important;
+    padding: 1.2% !important;
+    background-color: rgba(189, 189, 189, 0.548);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    margin-top: 1em;
+}
+
+.right form .buttons .cancel-button:hover {
+    cursor: pointer;
+    background-color: rgba(240, 240, 240, 0.678);
+    color: rgb(68, 68, 68);
 }
