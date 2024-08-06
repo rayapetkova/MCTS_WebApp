@@ -51,7 +51,6 @@ export function AuthProvider({ children }) {
 
     const loginSubmitHandler = async (values) => {
         let result = await login(values)
-        console.log(result)
         
         if (result.message) {
             setLoginErrorMessage(result.message)
