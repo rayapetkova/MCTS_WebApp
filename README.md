@@ -70,7 +70,7 @@
 
 
 
-### Watchlist
+### 🎫 Watchlist
 - Add movies to your watchlist.
 - View your watchlist. If not logged in, a login button will be displayed that redirects to the login page.
 - If logged in but the watchlist is empty, a `Browse Movies` button will be displayed that redirects to `Top Rated Movies` Page
