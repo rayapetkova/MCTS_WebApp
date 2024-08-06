@@ -94,7 +94,7 @@ describe('HeaderTest', () => {
         expect(window.location.pathname).toBe('/people')
     })
 
-    it('click watchlist Link and render the watchlist', async () => {
+    it('click contactUs Link and render the contact us page', async () => {
         render(
             <BrowserRouter>
                 <AuthProvider>
@@ -108,7 +108,7 @@ describe('HeaderTest', () => {
         await act(async() => {
             fireEvent.click(allLinks[4])
         })
-        expect(window.location.pathname).toBe('/movies/Watchlist')
+        expect(window.location.pathname).toBe('/ContactUs')
     })
 
     it('checks log out Link is not on the page', async () => {

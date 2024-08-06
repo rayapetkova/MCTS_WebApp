@@ -46,9 +46,9 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
 
                     {listFeature && (
                         arrayForRows.map(([start, end]) => (
-                            <div className={styles['cards']}>
+                            <div className={styles['cards']} key={start}>
                                 {popularCelebrities.slice(start, end).map((celebrity) => (
-                                    <CelebCard celebrity={celebrity} onClickCelebHandler={onClickCelebHandler} />
+                                    <CelebCard celebrity={celebrity} onClickCelebHandler={onClickCelebHandler} key={celebrity.id} />
                                 ))}
                             </div>
                         ))
