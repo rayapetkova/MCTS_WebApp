@@ -15,7 +15,7 @@ const AuthGuard = ({ children }) => {
     }
 
     return (
-        <Navigate to={'/login'} />
+        <Navigate to={'/login'} state={{loginFirstErrorMessage: 'You need to login first!'}}/>
     )
 }
 

@@ -42,6 +42,12 @@
     margin-bottom: 1em;
 }
 
+.login-first {
+    text-align: center;
+    margin-top: -2em;
+    font-size: 1.2em;
+}
+
 .row {
     display: flex;
     width: 100%;

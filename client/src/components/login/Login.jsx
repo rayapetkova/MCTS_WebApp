@@ -1,6 +1,6 @@
 import styles from './Login.module.css';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import {
     MDBBtn,
@@ -22,6 +22,7 @@ const formNames = {
 
 const Login = () => {
     const { loginSubmitHandler, loginErrorMessage } = useContext(AuthContext)
+    const location = useLocation()
 
     const [values, onChange, onSubmit] = useForm(loginSubmitHandler, {
         [formNames.email]: '',
@@ -42,6 +43,7 @@ const Login = () => {
                             <form onSubmit={onSubmit} autoComplete='off'>
 
                                 <p className={`text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ${styles['title']}`}>Log In</p>
+                                {location && <p className={`${styles['warning']} ${styles['login-first']}`}>{location.state.loginFirstErrorMessage}</p>}
 
                                 <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
