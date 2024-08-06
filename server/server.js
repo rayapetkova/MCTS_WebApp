@@ -1333,12 +1333,44 @@
     			email: "admin@abv.bg",
     			username: "Admin",
     			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
+    		},
+            "83092c7b-e07f-4079-b362-88dd677f2159": {
+                email: "raya@email.com",
+                hashedPassword: "25d7c799cb5095f8df7df45abe04ec6d05edc69cd5c75028104313d6108f3e91",
+            },
+            "478abe81-eb68-42e8-98a1-2912f7c32515": {
+                email: "anton@email.com",
+                hashedPassword: "7061f922207fbacbf146d4d74cbb4b991c10617aab0110eff2ee59fe8a480e1c"
+            }
     	},
     	sessions: {
     	}
     };
     var seedData = {
+        usersRecords: {
+            "05075d6b-ee64-49a1-8253-6e04c4a4e1c5": {
+                bio: "Hey there, I'm Raya, a devoted movie and TV show enthusiast. My love for cinema spans from classic films to the latest blockbusters, and I enjoy the diverse stories and emotions they bring. TV shows are my go-to for unwinding, especially gripping dramas and clever comedies. I stay updated on celebrity news and industry trends, always eager to discuss the latest happenings. Being part of the MCTS community is a joy, allowing me to share my thoughts and discover new favorites through engaging discussions with fellow fans. Let's talk movies and TV!",
+                email: "raya@email.com",
+                firstName: "Raya",
+                lastName: "Petkova",
+                phoneNumber: "0899999999",
+                profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722930913/nrhj4mgilayf0nngokrd.png",
+                _createdOn: 1722928006522,
+                _id: "05075d6b-ee64-49a1-8253-6e04c4a4e1c5",
+                _ownerId: "83092c7b-e07f-4079-b362-88dd677f2159"
+            },
+            "64fc03d9-fc4d-4054-b6de-01562328d529": {
+                bio: "Hi, I'm Peter, an avid fan of movies and TV shows. From the golden age of Hollywood to the latest Netflix releases, I love exploring the vast world of cinema. My evenings often involve binge-watching exciting series or diving into a critically acclaimed film. I'm also keen on following celebrity news and the latest trends in the entertainment industry. Being part of the MCTS community allows me to share my reviews, read others' opinions, and engage in lively discussions. I'm always on the lookout for recommendations and enjoy connecting with fellow enthusiasts. Let's chat about our favorite shows and movies!",
+                email: "anton@email.com",
+                firstName: "Anton",
+                lastName: "Ivanov",
+                phoneNumber: "087777777",
+                profileImg: "http://res.cloudinary.com/dzfgtuvut/image/upload/v1722931271/t1owvzy9zrn8ywehcymg.jpg",
+                _createdOn: 1722928006522,
+                _id: "05075d6b-ee64-49a1-8253-6e04c4a4e1c5",
+                _ownerId: "478abe81-eb68-42e8-98a1-2912f7c32515"
+            }
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
