@@ -43,7 +43,7 @@ const Login = () => {
                             <form onSubmit={onSubmit} autoComplete='off'>
 
                                 <p className={`text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ${styles['title']}`}>Log In</p>
-                                {location && <p className={`${styles['warning']} ${styles['login-first']}`}>{location.state.loginFirstErrorMessage}</p>}
+                                {(location && location.state) && <p className={`${styles['warning']} ${styles['login-first']}`}>{location.state.loginFirstErrorMessage}</p>}
 
                                 <div className={`d-flex flex-row align-items-center mb-4 ${styles['input-container']}`}>
                                     <MDBInput 
