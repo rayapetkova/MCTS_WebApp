@@ -118,3 +118,131 @@ div.celebs .cards .card .name-container p:nth-child(2), div.photos .cards .card 
     padding: 0;
     width: 98%;
 }
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    div.second-main {
+        margin: 10% 0;
+    }
+    
+    div.second-main .one-section {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    div.second-main .one-section .title {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        margin-bottom: 1.5%;
+    }
+    
+    
+    div.second-main .one-section .title h2 {
+        padding: 0;
+        margin: 0;
+        color: #c3c3c3;
+        font-size: 1.4em;
+    }
+    
+    
+    
+    
+    
+    
+    div.second-main .one-section > div:nth-child(2) > a {
+        height: 10%;
+        top: -14%;
+        width: 5%;
+    }
+    
+    div.second-main .one-section > div:nth-child(2) > a:first-of-type {
+        left: 89%;
+    }
+    
+    .arrow {
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    div.second-main .one-section .cards {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    div.second-main .one-section .cards .card {
+        width: 14%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: none;
+        border-radius: 10px;
+        background-color: #202020d5;
+        padding: 0.8em;
+        filter: brightness(78%);
+        transition: filter 0.3s ease-in-out;
+    }
+    
+    div.second-main .one-section .cards .card:hover {
+        filter: brightness(100%);
+    }
+    
+    div.second-main .one-section .cards .card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    div.celebs .cards .card img, div.photos .cards .card img {
+        object-fit: cover;
+        height: 15em;
+        width: 15em;
+    }
+    
+    div.celebs .cards .card .name-container {
+        width: 100%;
+    }
+    
+    div.celebs .cards .card .name-container p, div.photos .cards .card .name-container p {
+        color: #c3c3c3;
+        font-size: 1.2em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0;
+        margin: 0;
+        margin-top: 0.5em;
+        overflow: hidden;
+        text-align: start;
+    }
+    
+    div.celebs .cards .card .name-container p:nth-child(1), div.photos .cards .card .name-container p:nth-child(1) {
+        color: #f4f4f4;
+        padding: 0;
+        width: 100%;
+    }
+    
+    div.celebs .cards .card .name-container p:nth-child(2), div.photos .cards .card .name-container p:nth-child(2) {
+        color: #858585;
+        font-size: 1em;
+        padding: 0;
+        width: 98%;
+    }
+}

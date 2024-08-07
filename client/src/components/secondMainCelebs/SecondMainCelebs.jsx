@@ -37,12 +37,19 @@ const SecondMainCelebs = ({ movieId }) => {
         loadCelebs()
     }, [])
 
+    let numOfImages = 6;
+    if (window.matchMedia('(max-width: 600px)')) {
+        numOfImages = 4
+    }
+
     const arrayForRows = Array(calculateRows(movieCast.length, 6))
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
-        arrayForRows[i] = [currentIndex, currentIndex + 6]
-        currentIndex += 6
+        arrayForRows[i] = [currentIndex, currentIndex + numOfImages]
+        currentIndex += numOfImages
     }
+
+    console.log(arrayForRows)
 
     function onClickCelebHandler(personId) {
         navigate(`/people/${personId}`)
@@ -59,8 +66,8 @@ const SecondMainCelebs = ({ movieId }) => {
                     {movieCast.length > 0 ? (
                         <Carousel
                             indicators={false}
-                            prevIcon={<img src={leftArrow} alt="left-arrow" className={`${styles['left-arrow']} ${styles['arrow']}`} />}
-                            nextIcon={<img src={rightArrow} alt="right-arrow" className={`${styles['right-arrow']} ${styles['arrow']}`} />}
+                            prevIcon={arrayForRows.length > 1 && <img src={leftArrow} alt="left-arrow" className={`${styles['left-arrow']} ${styles['arrow']}`} />}
+                            nextIcon={arrayForRows.length > 1 && <img src={rightArrow} alt="right-arrow" className={`${styles['right-arrow']} ${styles['arrow']}`} />}
                         >
                             {arrayForRows.map(([start, end]) => (
                                 <Carousel.Item key={start}>
