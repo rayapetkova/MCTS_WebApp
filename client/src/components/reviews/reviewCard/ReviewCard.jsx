@@ -11,12 +11,14 @@ import { retrieveUser } from '../../../services/usersService';
 
 import emptyHeart from '../../../assets/empty_heart.png'
 import redHeart from '../../../assets/red_heart.png'
-import { addLikeReview, deleteLikeReview, getLikesOfReviewFromOneUser } from '../../../services/likesReviewsService';
+import { addLikeReview, deleteLikeReview, getAllLikedReviewsForUser, getLikesOfReviewFromOneUser, getLikesReviews } from '../../../services/likesReviewsService';
+import { dataFunctions } from '../../../api_data/dataFunctions';
 
-const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoReviews }) => {
+const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoReviews, userFavouriteReviewsSetter, forLikedReviews }) => {
     const [showEditForm, setshowEditForm] = useState(false)
     const [reviewUser, setReviewUser] = useState({})
     const [reviewLikesFromUser, setReviewLikesFromUser] = useState([])
+    const [movieInfo, setMovieInfo] = useState({})
     const { authData } = useContext(AuthContext)
 
     useEffect(() => {
@@ -33,39 +35,65 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
             setReviewLikesFromUser(result)
         }
 
+        async function loadMovieInfo() {
+            const result = await dataFunctions.getMovieInfo(review.movieId)
+            setMovieInfo(result)
+        }
+
         loadReviewUser()
         loadReviewLikesFromUser()
+        loadMovieInfo()
     }, [])
 
     const showEditReviewFormEvent = (e) => setshowEditForm(true)
 
     async function deleteReviewEvent(e) {
         let result = await deleteReview(review._id)
-        let allReviews = await getReviews(review.movieId)
+        const allLikes = await getLikesReviews()
 
-        setReviewLikesFromUser(allReviews)
+        for (let like of allLikes) {
+            deleteLikeReview(like._id)
+        }
+
+        if (forLikedReviews) {
+            const fetchedUserFavouriteReviews = await getAllLikedReviewsForUser(authData._id)
+            console.log(fetchedUserFavouriteReviews)
+            userFavouriteReviewsSetter(fetchedUserFavouriteReviews)
+        } else {
+            let allReviews = await getReviews(review.movieId)
+
+            reviewsSetter(allReviews)
+        }
+
     }
 
     async function deleteLikeClickHandler() {
-        console.log(reviewLikesFromUser)
         const result = await deleteLikeReview(reviewLikesFromUser[0]._id)
-        const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id)
 
-        setReviewLikesFromUser(fetchedAllUserLikes)
+        if (forLikedReviews) {
+            const fetchedUserFavouriteReviews = await getAllLikedReviewsForUser(authData._id)
+
+            userFavouriteReviewsSetter(fetchedUserFavouriteReviews)
+        } else {
+            const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id)
+
+            setReviewLikesFromUser(fetchedAllUserLikes)
+        }
+
     }
 
     async function addLikeClickHandler(e) {
         const result = await addLikeReview({
             reviewId: review._id
         })
+        console.log(result)
         const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id, review._id)
-        console.log(fetchedAllUserLikes)
 
         setReviewLikesFromUser(fetchedAllUserLikes)
     }
 
     return (
-        <div className={`${styles['box']} ${forReviewsSection ? styles['for-reviews-section-box'] : ''}`} data-testid="reviews">
+        <div className={`${styles['box']} ${forReviewsSection ? styles['for-reviews-section-box'] : ''} ${forLikedReviews ? styles['for-liked-reviews-box'] : ''}`} data-testid="reviews">
             <section className={styles['top']}>
                 <p><span>{review.rate}</span>/10</p>
                 {(authData._id === review._ownerId) ? (
@@ -82,7 +110,7 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
 
                         <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
                         <button onClick={deleteReviewEvent} className={styles['delete']}>Delete</button>
-                        {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} reviewsSetter={reviewsSetter} />}
+                        {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} reviewsSetter={reviewsSetter} userFavouriteReviewsSetter={userFavouriteReviewsSetter} forLikedReviews={forLikedReviews} />}
                     </section>
                 ) : (
                     <>
@@ -113,6 +141,10 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
 
                 <p>&nbsp;   &#xb7;  {convertToDate(review._createdOn)}</p>
             </section>
+            {forLikedReviews && (
+                <p className={styles['to-the-movie']}>To the Movie <span>&#10509;&#160;</span><Link to={`/movies/${review.movieId}/details`}>{movieInfo.title}</Link></p>
+            )}
+            
             <p className={styles['review-desc']}>{review.review}</p>
         </div>
     )

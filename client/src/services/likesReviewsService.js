@@ -64,3 +64,15 @@ export async function getLikesOfReviewFromOneUser(userId, reviewId) {
     const result = await response.json()
     return result
 }
+
+export async function getAllLikedReviewsForUser(userId) {
+    const queries = new URLSearchParams({
+        where: `_ownerId="${userId}"`,
+        load: `reviewInfo=reviewId:reviews`
+    })
+
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/data/likesReviews?${queries}&sortBy=_createdOn%20desc`)
+    const result = await response.json()
+
+    return result
+}

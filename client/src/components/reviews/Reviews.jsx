@@ -50,7 +50,7 @@ const Reviews = ({ movieId }) => {
 
             <div className={styles['review-boxes']}>
                 {reviews.length > 0 ?
-                    (reviews.slice(-2).reverse().map((review) => (
+                    (reviews.slice(0, 2).map((review) => (
                         <ReviewCard review={review} forReviewsSection={false} reviewsSetter={reviewsSetter} fromMovieInfoReviews={true} key={review._id} />
                     ))) : (
                         <p className={styles['no-reviews-yet']}>No reviews yet</p>

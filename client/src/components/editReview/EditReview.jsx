@@ -4,6 +4,9 @@ import { useFormik } from 'formik';
 
 import { editReview, getReviews } from '../../services/reviewsService';
 import { reviewSchema } from '../../schemas/reviewSchema';
+import { getAllLikedReviewsForUser } from '../../services/likesReviewsService';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const formNames = {
     rate: 'rate',
@@ -11,13 +14,20 @@ const formNames = {
     review: 'review'
 }
 
-const EditReview = ({ review, setshowEditForm, reviewsSetter }) => {
-    const createdUser = JSON.parse(localStorage.getItem('createdUser'))
+const EditReview = ({ review, setshowEditForm, reviewsSetter, userFavouriteReviewsSetter, forLikedReviews }) => {
+    const { createdUser } = useContext(AuthContext)
 
     const editReviewSubmitHandler = async (values) => {
         let result = await editReview(values, review._id)
-        let movieReviews = await getReviews(review.movieId)
-        reviewsSetter(movieReviews)
+
+        if (forLikedReviews) {
+            const userFavouriteReviews = await getAllLikedReviewsForUser(createdUser._ownerId)
+            userFavouriteReviewsSetter(userFavouriteReviews)
+        } else {
+            let movieReviews = await getReviews(review.movieId)
+            reviewsSetter(movieReviews)
+        }
+
 
         setshowEditForm(false)
     }

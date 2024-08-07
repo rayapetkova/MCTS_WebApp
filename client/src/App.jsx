@@ -27,6 +27,7 @@ import useScrollWindow from "./hooks/useScrollWindow";
 import { AuthProvider } from './contexts/AuthContext';
 
 import topWindowArrow from "./assets/top_window_arrow.png";
+import AllLikedReviews from './components/allLikedReviews/AllLikedReviews';
 
 function App() {
     const [showScrollButton, clickArrowButtonTop] = useScrollWindow()
@@ -48,6 +49,7 @@ function App() {
                     <Route path="/movies/:movieId/reviews" element={<AuthGuard><AllReviews /></AuthGuard>} />
                     <Route path="/contactUs" element={<ContactUs />} />
                     <Route path="/users/:userId" element={<AuthGuard><UserInfo /></AuthGuard>} />
+                    <Route path="/favouriteReviews" element={<AuthGuard><AllLikedReviews /></AuthGuard>}/>
                     <Route path="/*" element={<ErrorPage />} />
                 </Routes>
 

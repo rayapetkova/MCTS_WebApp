@@ -49,8 +49,6 @@ const SecondMainCelebs = ({ movieId }) => {
         currentIndex += numOfImages
     }
 
-    console.log(arrayForRows)
-
     function onClickCelebHandler(personId) {
         navigate(`/people/${personId}`)
     }
