@@ -1,6 +1,8 @@
 # 🎬 MCTS (Movies, Celebrities and TV Shows)
 ### A React-based application that allows users to explore various movies, celebrities and TV shows. Users can register, log in, browse featured content, create watchlists, add reviews and more.
 ### Deployed working version - https://mcts-firebase-project.web.app/
+### Recommended resolution on computer: 1920x1080
+### Recommended resolution on phone: <600px
 
 ## ✨ Features
 ### 🔐 Authentication
@@ -219,6 +221,7 @@
 - **react-bootstrap**: Using carousels.
 - **react-leaflet**: Integrating map.
 - **emailjs-com**: Sending emails and receiving emails.
+- **Vitest: Unit testing.**
 - **TMDB API**: Extracting movies, celebrities and TV shows.
 
 ## 🧪 Data for testing purposes
@@ -245,7 +248,7 @@
    npm run dev
    ```
 
-3. Open new terminal and navigate to `server` folder **WITHOUT** shutting down the terminal where the app runs
+3. Open new terminal and navigate to `server` folder **WITHOUT** shutting down the terminal where the app (the client) is running:
    ```sh
    cd .\server\
    node .\server.js
