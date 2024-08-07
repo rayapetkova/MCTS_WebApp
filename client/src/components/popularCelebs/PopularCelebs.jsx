@@ -25,6 +25,10 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
         loadPopularCelebs()
     }, [])
 
+    if(window.matchMedia('(max-width: 600px)')) {
+        numOfCards = 4
+    }
+
     const arrayForRows = Array(numOfRows)
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
