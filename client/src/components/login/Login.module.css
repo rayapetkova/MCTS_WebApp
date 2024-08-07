@@ -90,3 +90,102 @@
 .additional-link a:hover {
     color: #b49216;
 }
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        font-family: "Roboto", sans-serif;
+        background-color: #0f0f10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+    }
+    
+    .card {
+        width: 85% !important;
+        border-radius: 2px !important;
+        background-color: #181818;
+        box-shadow: 10px 10px 20px #3e3e42;
+    }
+    
+    .card-body {
+        display: flex;
+        align-items: center;
+    }
+    
+    .title {
+        color: #979797;
+    }
+    
+    .input-field {
+        color: #C3C3C3 !important;
+        width: 100% !important;
+        background-color: rgb(53, 53, 53) !important;
+        margin: 0 !important;
+    }
+    
+    .input-field:focus {
+        background-color: rgba(215, 218, 218, 0.87) !important;
+        color: #0f0f10 !important;
+        border-color: antiquewhite;
+    }
+    
+    .warning {
+        color: rgb(172, 0, 0);
+        margin-top: -1em;
+        margin-bottom: 1em;
+    }
+    
+    .login-first {
+        text-align: center;
+        margin-top: -2em;
+        font-size: 1.2em;
+    }
+    
+    .row {
+        display: flex;
+        width: 100%;
+    }
+    
+    .left {
+        width: 100%;
+    }
+    
+    .right {
+        width: 35%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .image-logo {
+        width: 100%;
+    }
+    
+    .additional-link {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+    }
+    
+    .additional-link p {
+        width: 75%;
+        padding-right: 0;
+        margin: 0;
+        color: #979797;
+    }
+    
+    .additional-link a {
+        width: 25%;
+        padding: 0;
+        color: #e6b91e;
+    }
+    
+    .additional-link a:hover {
+        color: #b49216;
+    }
+}
