@@ -20,6 +20,10 @@
     color: rgb(195 195 195);
 }
 
+.box h6 {
+    margin-top: 0.5em !important;
+}
+
 .box .top > p:nth-child(1) {
     color: #6a6a6a;
     margin: 0;
@@ -41,10 +45,21 @@
     justify-content: space-between;
 }
 
+.box button {
+    position: relative;
+}
+
+.box button p {
+    margin: 0;
+    position: absolute;
+    top: 70%
+}
+
 .box .top .buttons .heart-container-red, .box .top .heart-container-red-2 {
     background-color: transparent;
     width: 6%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     border: none;
 }
@@ -62,6 +77,8 @@
     border: none;
     width: 6% !important;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -70,7 +87,9 @@
 }
 
 .box .top .info-container-empty, .box .top .info-container-red {
-    width: 15% !important
+    width: 15% !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .box .top .info-container-empty-2, .box .top .info-container-red-2 {

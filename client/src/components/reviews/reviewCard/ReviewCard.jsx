@@ -11,7 +11,7 @@ import { retrieveUser } from '../../../services/usersService';
 
 import emptyHeart from '../../../assets/empty_heart.png'
 import redHeart from '../../../assets/red_heart.png'
-import { addLikeReview, deleteLikeReview, getAllLikedReviewsForUser, getLikesOfReviewFromOneUser } from '../../../services/likesReviewsService';
+import { addLikeReview, deleteLikeReview, getAllLikedReviewsForUser, getAllLikesForReview, getLikesOfReviewFromOneUser } from '../../../services/likesReviewsService';
 import { dataFunctions } from '../../../api_data/dataFunctions';
 
 const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoReviews, userFavouriteReviewsSetter, forLikedReviews }) => {
@@ -19,6 +19,7 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
     const [reviewUser, setReviewUser] = useState({})
     const [reviewLikesFromUser, setReviewLikesFromUser] = useState([])
     const [movieInfo, setMovieInfo] = useState({})
+    const [allReviewLikes, setAllReviewLikes] = useState([])
     const { authData } = useContext(AuthContext)
 
     useEffect(() => {
@@ -40,9 +41,15 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
             setMovieInfo(result)
         }
 
+        async function loadAllReviewLikes() {
+            const result = await getAllLikesForReview(review._id)
+            setAllReviewLikes(result)
+        }
+
         loadReviewUser()
         loadReviewLikesFromUser()
         loadMovieInfo()
+        loadAllReviewLikes()
     }, [])
 
     const showEditReviewFormEvent = (e) => setshowEditForm(true)
@@ -69,6 +76,8 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
 
     async function deleteLikeClickHandler() {
         const result = await deleteLikeReview(reviewLikesFromUser[0]._id)
+        const fetchedAllLikesForReview = await getAllLikesForReview(review._id)
+            setAllReviewLikes(result)
 
         if (forLikedReviews) {
             const fetchedUserFavouriteReviews = await getAllLikedReviewsForUser(authData._id)
@@ -88,7 +97,9 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
         })
 
         const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id, review._id)
+        const fetchedAllLikesForReview = await getAllLikesForReview(review._id)
 
+        setAllReviewLikes(fetchedAllLikesForReview)
         setReviewLikesFromUser(fetchedAllUserLikes)
     }
 
@@ -101,13 +112,15 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
                         {reviewLikesFromUser.length > 0 ? (
                             <button className={`${styles['heart-container-red']} ${fromMovieInfoReviews ? styles['info-container-red'] : ''}`} onClick={(e) => deleteLikeClickHandler()}>
                                 <img src={redHeart} alt="heart-like" />
+                                <p className={styles['likes-num']}>{allReviewLikes.length}</p>
                             </button>
                         ) : (
                             <button className={`${styles['heart-container-empty']} ${fromMovieInfoReviews ? styles['info-container-empty'] : ''}`} onClick={addLikeClickHandler}>
                                 <img src={emptyHeart} alt="heart-like" />
+                                <p className={styles['likes-num']}>{allReviewLikes.length}</p>
                             </button>
                         )}
-
+                        
                         <button onClick={showEditReviewFormEvent} className={styles['edit']}>Edit</button>
                         <button onClick={deleteReviewEvent} className={styles['delete']}>Delete</button>
                         {showEditForm && <EditReview review={review} setshowEditForm={setshowEditForm} reviewsSetter={reviewsSetter} userFavouriteReviewsSetter={userFavouriteReviewsSetter} forLikedReviews={forLikedReviews} />}
@@ -118,10 +131,12 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
                             reviewLikesFromUser.length > 0 ? (
                                 <button className={`${styles['heart-container-red-2']} ${fromMovieInfoReviews ? styles['info-container-red-2'] : ''}`} onClick={(e) => deleteLikeClickHandler()}>
                                     <img src={redHeart} alt="heart-like" />
+                                    <p className={styles['likes-num']}>{allReviewLikes.length}</p>
                                 </button>
                             ) : (
                                 <button className={`${styles['heart-container-empty-2']} ${fromMovieInfoReviews ? styles['info-container-empty-2'] : ''}`} onClick={addLikeClickHandler}>
                                     <img src={emptyHeart} alt="heart-like" />
+                                    <p className={styles['likes-num']}>{allReviewLikes.length}</p>
                                 </button>
                             )
                         )}
