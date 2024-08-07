@@ -1319,11 +1319,6 @@
     var identity = "email";
     var protectedData = {
         users: {
-            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-                email: "admin@abv.bg",
-                username: "Admin",
-                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-            },
             "83092c7b-e07f-4079-b362-88dd677f2159": {
                 email: "raya@email.com",
                 hashedPassword: "25d7c799cb5095f8df7df45abe04ec6d05edc69cd5c75028104313d6108f3e91",
