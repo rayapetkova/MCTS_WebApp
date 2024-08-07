@@ -11,3 +11,20 @@ main img {
 main .left {
     width: 85%;
 }
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    main {
+        display: flex;
+        padding: 2.5% 8% !important;
+        justify-content: space-between;
+    }
+    
+    main .left {
+        width: 100%;
+    }
+}

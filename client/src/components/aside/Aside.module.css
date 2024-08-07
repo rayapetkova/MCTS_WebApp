@@ -23,3 +23,40 @@ aside ul li a {
 aside ul li a:hover {
     color: #e6b91e;
 }
+
+
+
+
+@media screen and (max-width: 600px) {
+    aside {
+        width: 0px !important;
+    }
+    
+    aside ul {
+        display: flex;
+        flex-direction: column;
+        line-height: 2em;
+        font-size: 1.2em;
+        margin-top: 3em;
+        padding: 0;
+        width: 0;
+        display: none;
+    }
+    
+    aside ul li {
+        list-style: none;
+        width: 0;
+        display: none;
+    }
+    
+    aside ul li a {
+        text-decoration: none;
+        color: #c3c3c3;
+        width: 0;
+        display: none;
+    }
+    
+    aside ul li a:hover {
+        color: #e6b91e;
+    }
+}
