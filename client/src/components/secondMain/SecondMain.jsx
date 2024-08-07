@@ -27,7 +27,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
     })
     const { authData } = useContext(AuthContext)
 
-    if (window.matchMedia('(max-width: 600px)')) {
+    if (window.matchMedia('(max-width: 600px)').matches) {
         numOfCards = 3
     }
     const arrayForRows = Array(calculateRows(sectionsObj[sectionName].length, 6, numOfRows))

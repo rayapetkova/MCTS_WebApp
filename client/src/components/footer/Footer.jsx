@@ -21,7 +21,7 @@ const Footer = () => {
                 </ul>
             </section>
 
-            {!window.matchMedia('(max-width: 600px)') && (
+            {!window.matchMedia('(max-width: 600px)').matches && (
                 <section>
                     <ul>
                         <li><Link to="/movies/Featured%20Today">Featured Today &#8599;</Link></li>

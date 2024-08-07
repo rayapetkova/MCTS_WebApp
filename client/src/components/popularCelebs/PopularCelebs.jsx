@@ -25,7 +25,7 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
         loadPopularCelebs()
     }, [])
 
-    if(window.matchMedia('(max-width: 600px)')) {
+    if (window.matchMedia('(max-width: 600px)').matches) {
         numOfCards = 3
     }
 

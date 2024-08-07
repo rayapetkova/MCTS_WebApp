@@ -38,7 +38,7 @@ const SecondMainCelebs = ({ movieId }) => {
     }, [])
 
     let numOfImages = 6;
-    if (window.matchMedia('(max-width: 600px)')) {
+    if (window.matchMedia('(max-width: 600px)').matches) {
         numOfImages = 3
     }
 

@@ -24,7 +24,7 @@ const SecondMainPhotos = ({ movieId }) => {
     }, [])
 
     let numOfImages = 4
-    if (window.matchMedia('(max-width: 600px)')) {
+    if (window.matchMedia('(max-width: 600px)').matches) {
         numOfImages = 2
     }
     const arrayForRows = Array(calculateRows(movieImages.length, 4))

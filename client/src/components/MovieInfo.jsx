@@ -29,7 +29,7 @@ const MovieInfo = () => {
                 <Reviews movieId={movieId} />
             </div>
 
-            {!window.matchMedia('(max-width: 600px)') && (
+            {!window.matchMedia('(max-width: 600px)').matches && (
                 <Aside />
             )}
         </main>

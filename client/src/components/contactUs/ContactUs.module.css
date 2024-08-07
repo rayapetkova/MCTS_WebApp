@@ -282,10 +282,10 @@
     
     
     .card {
-        width: 85%;
+        width: 93%;
         background-color: #181818;
         box-shadow: 10px 10px 20px #3e3e42;
-        padding: 2em 4em;
+        padding: 2em 1em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -357,14 +357,16 @@
     
     .left form .row {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        margin-bottom: 0.7em;
+        margin-bottom: 1em;
     }
     
     .left form .row .field {
         display: flex;
         flex-direction: column;
-        width: 47%;
+        width: 100%;
+        margin-bottom: 1em;
     }
     
     .left form .row .field label {
@@ -527,8 +529,8 @@
         margin: 0;
         margin-top: 12%;
         margin-bottom: 2%;
-        width: 83%;
-        height: 40%;
+        width: 98%;
+        height: 25%;
     }
     
     .location-container h2 {

@@ -149,6 +149,7 @@ section:last-child ul li {
     .socials a {
         width: 28%;
         border-radius: 10px;
+        padding-bottom: 3em;
     }
     
     .socials a:hover {

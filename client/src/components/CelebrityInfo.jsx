@@ -23,7 +23,7 @@ const CelebrityInfo = () => {
                 <SecondMainPersonPhotos personId={personId} />
             </div>
 
-            {!window.matchMedia('(max-width: 600px)') && (
+            {!window.matchMedia('(max-width: 600px)').matches && (
                 <AsidePersonInfo />
             )}
         </main>
