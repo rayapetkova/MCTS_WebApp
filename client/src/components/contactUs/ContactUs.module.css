@@ -266,3 +266,282 @@
     height: 50em;
     border-radius: 3px;
 }
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .main-page-with-maps {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5% 0;
+    }
+    
+    
+    .card {
+        width: 85%;
+        background-color: #181818;
+        box-shadow: 10px 10px 20px #3e3e42;
+        padding: 2em 4em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .card .head-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3%;
+    }
+    
+    .card .head-contact h2 {
+        color: rgb(209, 209, 209);
+    }
+    
+    .card .head-contact p {
+        color: rgb(153, 153, 153);
+        width: 90%;
+        text-align: center;
+    }
+    
+    .card .sent-email {
+        background-color: rgba(7, 136, 7, 0.63);
+        padding: 0.4em 1.3em;
+        color: rgb(255, 255, 255);
+        border-radius: 2px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    .form-and-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+    }
+    
+    .form-and-info .left {
+        width: 100%;
+        align-self: center;
+    }
+    
+    .form-and-info .right {
+        width: 100%;
+        padding-left: 5%;
+        display: flex;
+        flex-direction: column;
+        border-left: solid 1px rgb(124, 124, 124);
+        margin-bottom: 1em;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .left form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .left form .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.7em;
+    }
+    
+    .left form .row .field {
+        display: flex;
+        flex-direction: column;
+        width: 47%;
+    }
+    
+    .left form .row .field label {
+        font-size: 1.2em;
+        color: rgb(131, 131, 133);
+    }
+    
+    .left form .row .field input {
+        border: solid 1px rgb(160, 159, 161);
+        border-radius: 3px;
+        padding: 3% 3%;
+        color: rgb(107, 107, 107);
+        font-size: 1.1em;
+        background-color: rgba(240, 248, 255, 0.849);
+    }
+    
+    .left form .row .field input:focus {
+        background-color: rgb(240, 248, 255);
+        outline: none;
+        color: black;
+    }
+    
+    .left form .row .field p, .message-row p {
+        color: rgb(172, 0, 0);
+        margin-top: 0.2em;
+    }
+    
+    .left form .message-row h3 {
+        margin: 0;
+        font-size: 1.2em;
+        color: rgb(131, 131, 133);
+        font-weight: 400;
+    }
+    
+    .left form .message-row {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.3em;
+    }
+    
+    .left form .message-row textarea {
+        border: solid 1px rgb(160, 159, 161);
+        border-radius: 3px;
+        font-family: inherit;
+        padding: 1% 1%;
+        color: rgb(107, 107, 107);
+        font-size: 1.1em;
+        background-color: rgba(240, 248, 255, 0.849);
+    }
+    
+    .left form .message-row textarea:focus {
+        background-color: rgb(240, 248, 255);
+        outline: none;
+        color: black;
+    }
+    
+    .buttons {
+        display: flex;
+    }
+    
+    .send-button {
+        width: 15%;
+        padding: 1.5%;
+        background-color: rgb(230 185 30);
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+    
+    .user-info .send-button {
+        width: 28%;
+        align-self: flex-end;
+        margin-top: 1.5%;
+        padding: 0.8%;
+    }
+    
+    .send-button:hover {
+        cursor: pointer;
+        color: rgb(104, 104, 104);
+        background-color: rgb(206, 167, 29);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    .right h3 {
+        color: rgb(192, 192, 192);
+        font-size: 1.5em;
+        margin: 0;
+        margin-bottom: 0.2em;
+    }
+    
+    .right > p {
+        color: rgb(139, 139, 139);
+        font-size: 1.1em;
+        margin: 0;
+        margin-bottom: 3em;
+    }
+    
+    .right .info-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2em;
+    }
+    
+    .right .info-container .one-section {
+        display: flex;
+    }
+    
+    .right .info-container .one-section .img-container {
+        width: 5%;
+    }
+    
+    .right .info-container .one-section .img-container img {
+        width: 100%;
+    }
+    
+    .right .info-container .one-section p {
+        margin-left: 2%;
+        font-weight: 500;
+        color: rgb(177, 177, 177);
+        font-size: 1em;
+    }
+    
+    .follow-us h3 {
+        margin-bottom: 0.4em;
+    }
+    
+    .follow-us .socials {
+        display: flex;
+        width: 32%;
+        justify-content: space-between;
+    }
+    
+    .follow-us .socials a {
+        width: 30%;
+        border-radius: 10px;
+    }
+    
+    .follow-us .socials a:hover {
+        background-color: white;
+    }
+    
+    .follow-us .socials img {
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    .location-container {
+        margin: 0;
+        margin-top: 12%;
+        margin-bottom: 2%;
+        width: 83%;
+        height: 40%;
+    }
+    
+    .location-container h2 {
+        color: rgb(221, 221, 221);
+    }
+    
+    .location-container p {
+        color: rgb(139, 139, 139);;
+    }
+    
+    .location-container .map-container {
+        width: 100%;
+        height: 50em;
+        border-radius: 3px;
+    }
+}

@@ -259,6 +259,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 2em;
     }
     
     .cards-list {
