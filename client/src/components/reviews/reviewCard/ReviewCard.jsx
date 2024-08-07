@@ -57,7 +57,7 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
 
         if (forLikedReviews) {
             const fetchedUserFavouriteReviews = await getAllLikedReviewsForUser(authData._id)
-            console.log(fetchedUserFavouriteReviews)
+
             userFavouriteReviewsSetter(fetchedUserFavouriteReviews)
         } else {
             let allReviews = await getReviews(review.movieId)

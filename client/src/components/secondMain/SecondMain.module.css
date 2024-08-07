@@ -150,6 +150,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     flex-direction: column;
     align-items: center;
     width: 30%;
+    margin-top: -10em !important;
 }
 
 .no-movies-in-watchlist p {
@@ -306,7 +307,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
         padding: 0.3em 1em;
         font-size: 1.2em;
         color: #121212;
-        width: 40% !important;
+        width: 40%;
         text-align: center;
     }
     
@@ -320,5 +321,9 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     
     .list-browse-movies, .list-login {
         margin-bottom: 40%;
+    }
+
+    .no-movies-in-watchlist .browse-movies {
+        width: 50% !important;
     }
 }
