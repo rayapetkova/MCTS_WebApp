@@ -36,7 +36,6 @@ const Header = () => {
 
             return item.name.toLowerCase().includes(e.target.value.toLowerCase())
         })
-        console.log(filteredItems)
 
         setSearchedValue(e.target.value)
         setMatchedItems(filteredItems)

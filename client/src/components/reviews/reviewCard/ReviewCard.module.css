@@ -11,6 +11,11 @@
     width: 85%;
 }
 
+.for-liked-reviews-box {
+    width: 100%;
+    margin-top: 2em;
+}
+
 .box .top p, .box h6 {
     color: rgb(195 195 195);
 }
@@ -125,7 +130,23 @@
     margin: 0;
 }
 
+.to-the-movie {
+    width: 20%;
+    margin-top: -1%;
+    color: rgb(129, 128, 128);
+}
 
+.to-the-movie span {
+    font-size: 1.5em;
+}
+
+.to-the-movie a {
+    color: #bb950c;
+}
+
+.to-the-movie a:hover {
+    color: #f5c518;
+}
 
 
 
@@ -143,6 +164,11 @@
     
     .for-reviews-section-box {
         width: 85%;
+    }
+
+    .for-liked-reviews-box {
+        width: 100%;
+        margin-top: 2em;
     }
     
     .box .top p, .box h6 {
@@ -260,5 +286,23 @@
         line-height: 1.5em;
         font-size: 1.2em;
         margin: 0;
+    }
+
+    .to-the-movie {
+        width: 60%;
+        margin-top: -1%;
+        color: rgb(129, 128, 128);
+    }
+    
+    .to-the-movie span {
+        font-size: 1.5em;
+    }
+    
+    .to-the-movie a {
+        color: #bb950c;
+    }
+    
+    .to-the-movie a:hover {
+        color: #f5c518;
     }
 }
