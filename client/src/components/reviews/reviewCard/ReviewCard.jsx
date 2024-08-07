@@ -1,6 +1,6 @@
 import styles from './ReviewCard.module.css';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 
 import EditReview from '../../editReview/EditReview';
@@ -21,6 +21,7 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
     const [movieInfo, setMovieInfo] = useState({})
     const [allReviewLikes, setAllReviewLikes] = useState([])
     const { authData } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function loadReviewUser() {
@@ -92,15 +93,19 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
     }
 
     async function addLikeClickHandler(e) {
-        const result = await addLikeReview({
-            reviewId: review._id
-        })
-
-        const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id, review._id)
-        const fetchedAllLikesForReview = await getAllLikesForReview(review._id)
-
-        setAllReviewLikes(fetchedAllLikesForReview)
-        setReviewLikesFromUser(fetchedAllUserLikes)
+        if (!Object.keys(authData).length > 0) {
+            navigate('/login', {state: {loginFirstErrorMessage: 'You need to login first!'}})
+        } else {
+            const result = await addLikeReview({
+                reviewId: review._id
+            })
+    
+            const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id, review._id)
+            const fetchedAllLikesForReview = await getAllLikesForReview(review._id)
+    
+            setAllReviewLikes(fetchedAllLikesForReview)
+            setReviewLikesFromUser(fetchedAllUserLikes)
+        }
     }
 
     return (
@@ -127,20 +132,17 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
                     </section>
                 ) : (
                     <>
-                        {Object.keys(authData).length > 0 && (
-                            reviewLikesFromUser.length > 0 ? (
-                                <button className={`${styles['heart-container-red-2']} ${fromMovieInfoReviews ? styles['info-container-red-2'] : ''}`} onClick={(e) => deleteLikeClickHandler()}>
-                                    <img src={redHeart} alt="heart-like" />
-                                    <p className={styles['likes-num']}>{allReviewLikes.length}</p>
-                                </button>
-                            ) : (
-                                <button className={`${styles['heart-container-empty-2']} ${fromMovieInfoReviews ? styles['info-container-empty-2'] : ''}`} onClick={addLikeClickHandler}>
-                                    <img src={emptyHeart} alt="heart-like" />
-                                    <p className={styles['likes-num']}>{allReviewLikes.length}</p>
-                                </button>
-                            )
+                        {reviewLikesFromUser.length > 0 ? (
+                            <button className={`${styles['heart-container-red-2']} ${fromMovieInfoReviews ? styles['info-container-red-2'] : ''}`} onClick={(e) => deleteLikeClickHandler()}>
+                                <img src={redHeart} alt="heart-like" />
+                                <p className={styles['likes-num']}>{allReviewLikes.length}</p>
+                            </button>
+                        ) : (
+                            <button className={`${styles['heart-container-empty-2']} ${fromMovieInfoReviews ? styles['info-container-empty-2'] : ''}`} onClick={addLikeClickHandler}>
+                                <img src={emptyHeart} alt="heart-like" />
+                                <p className={styles['likes-num']}>{allReviewLikes.length}</p>
+                            </button>
                         )}
-
                     </>
 
                 )}
