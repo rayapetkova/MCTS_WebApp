@@ -246,7 +246,7 @@
    npm run dev
    ```
 
-3. Open new terminal and navigate to `server` folder **WITHOUT** shutting down the terminal where the app runs
+3. Open new terminal and navigate to `server` folder **WITHOUT** shutting down the terminal where the app (the client) is running:
    ```sh
    cd .\server\
    node .\server.js
