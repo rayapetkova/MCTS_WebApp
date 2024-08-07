@@ -108,3 +108,113 @@ header ul.last-links li a:hover {
     flex-direction: column;
     padding: 3% 3%;
 }
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    
+    header {
+        background-color: #080808;
+        display: flex;
+        padding: 3% 8%;
+        display: flex;
+        align-items: center;
+    }
+    
+    header a.img-logo {
+        width: 12%;
+        display: flex;
+        height: 100%;
+    }
+    
+    header a.img-logo img {
+        width: 100%;
+        border-radius: 3px;
+    }
+    
+    header nav {
+        display: flex;
+        margin-left: 3%;
+        margin-right: 0;
+        width: 0;
+        justify-content: center;
+    }
+    
+    header nav ul {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 0;
+        margin: 0;
+        align-items: center;
+        display: none;
+    }
+    
+    header nav ul li a {
+        text-decoration: none;
+        font-size: 0;
+    }
+    
+    header section.search-bar-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        position: relative;
+    }
+    
+    header section.search-bar-section input {
+        width: 100%;
+        height: 80%;
+        background-color: #222222;
+        color: azure;
+        border: none;
+        border-radius: 10px;
+        padding: 0.7em;
+        font-family: inherit;
+        font-size: 1.1em;
+    }
+    
+    header ul.last-links {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        margin-left: 5%;
+        width: 32%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header ul.last-links > li {
+        list-style: none;
+        width: 60%;
+    }
+    
+    header ul.last-links > li:nth-child(2) {
+        width: 35%;
+    }
+    
+    header ul.last-links li a {
+        text-decoration: none;
+        color: #C3C3C3;
+        font-size: 1.1em;
+    }
+    
+    header ul.last-links li a:hover {
+        color: #e6b91e;
+    }
+    
+    .search-bar-section .discovered-movies {
+        position: absolute;
+        background-color: #080808;
+        margin-top: 17%;
+        margin-left: 10em;
+        width: 35em;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        padding: 3% 3%;
+    }
+}
