@@ -9,10 +9,12 @@
 - **Logout**: Users can log out of their accounts after they have been logged in.
 
 **Register:**
-![image](https://github.com/user-attachments/assets/e39f35d6-89c4-48ec-8ddb-af792e374e00)
+![image](https://github.com/user-attachments/assets/8cfcc77c-f0c3-48d2-b9ae-6859fd924bc0)
+
 
 **Login:**
-![image](https://github.com/user-attachments/assets/d6b76b04-a9a0-48af-abde-1a2fd165fbc4)
+![image](https://github.com/user-attachments/assets/b3c2d7cd-dfe6-4389-ade0-3439325ef508)
+
 
 
 
@@ -31,10 +33,12 @@
       - **Log Out**: Allows users to log out.
 
 **Header when not logged in:**
-![image](https://github.com/user-attachments/assets/135ed648-5d27-47cb-91fc-5469dae4a66e)
+![image](https://github.com/user-attachments/assets/87aea10c-3dac-4bbd-b4a0-00e9ab8b731b)
+
 
 **Header when logged in:**
-![image](https://github.com/user-attachments/assets/50fc4bf9-4cfc-457a-8523-74861c5789ba)
+![image](https://github.com/user-attachments/assets/af2df3c4-3b62-46a0-9b71-0e162c0743a7)
+
 
 
 
@@ -48,10 +52,14 @@
 - **Most Popular Celebrities**: Discover the first 15 most popular celebriies.
 
 **Home Page:**
-![image](https://github.com/user-attachments/assets/13c8e01a-e0ad-4dac-a804-92db9a489a67)
-![image](https://github.com/user-attachments/assets/f6e6e06f-e490-4757-8420-f29a0a4e057f)
-![image](https://github.com/user-attachments/assets/c8cafe26-874a-493c-a076-601cd70f99c5)
-![image](https://github.com/user-attachments/assets/03b5255d-6fe0-46d9-86fb-8bbbe468e417)
+![image](https://github.com/user-attachments/assets/01d63cf1-917c-4c8c-93c3-3a98ca3afc94)
+![image](https://github.com/user-attachments/assets/98d5fd9b-b2fb-40bd-a67e-8ff5067df98e)
+![image](https://github.com/user-attachments/assets/293186ae-63d0-4731-aee4-db55284d4496)
+![image](https://github.com/user-attachments/assets/278176d8-5856-4619-8302-8b859d930351)
+
+
+
+
 
 
 
@@ -66,7 +74,8 @@
 - **Most Popular Celebrities**: Discover more popular celebrities.
 
 **The section name depends on the section we want to visit (see the URL):**
-![image](https://github.com/user-attachments/assets/52cd1d5e-a5bb-4dfa-83bc-13cf93053e96)
+![image](https://github.com/user-attachments/assets/84db1650-fa8c-45c7-8f67-98b39a44cb1e)
+
 
 
 
@@ -75,6 +84,18 @@
 - View your watchlist. If not logged in, a login button will be displayed that redirects to the login page.
 - If logged in but the watchlist is empty, a `Browse Movies` button will be displayed that redirects to `Top Rated Movies` Page
 - If logged in and watchlist is not empty, there will be small red buttons that allow to delete a movie from watchlist.
+
+**Watchlist if not logged in:**
+![image](https://github.com/user-attachments/assets/54a79110-a7c9-47d9-8629-d6da28d12cb8)
+
+**Watchlist if logged in, but watchlist is empty:**
+![image](https://github.com/user-attachments/assets/598d42dd-f1ac-42cc-b79b-b64c29fcecc2)
+
+**Watchlist if logged in and watchlist is not empty:**
+![image](https://github.com/user-attachments/assets/70f527e9-a910-40e6-b62d-67f12c3ac568)
+
+
+
 
 
 
@@ -89,19 +110,47 @@
   - 'Add' button - displays a form with Rate, Title, Review fields. (requires login)
   - 'Edit' button - allows users to edit a review. (displayed on the review card only if the user is logged in and is the author of the review)
   - 'Delete' button - allows users to delete a review. (displayed on the review card only if the user is logged in and is the author of the review)
+  - 'Like' button - allows users to like a review. The number of likes for a review is displayed. (if a user tries to like a review and he is not logged in, he will be redirected to login page)
  
 **The 'Add to Watchlist' button is not displayed if the user is not logged in:**
-![image](https://github.com/user-attachments/assets/69754ad2-fffc-4481-b840-8a17513e1cbc)
-![image](https://github.com/user-attachments/assets/aaa102c6-e721-4c8b-b255-046fe2c16d95)
+**When not logged in:**
+![image](https://github.com/user-attachments/assets/aa0a80f3-7eaf-407e-b093-7ccf33db4868)
 
-**Last two reviews for the movie:**
-![image](https://github.com/user-attachments/assets/9ac6fd4d-9d24-4437-9ec3-a19e4714bf58)
+**When logged in and the movie is not added to watchlist:**
+![image](https://github.com/user-attachments/assets/8a5a7a26-60e9-4514-bf57-ef3fc8c77ade)
 
-**Edit review if logged in and the author is you:**
-![image](https://github.com/user-attachments/assets/b1bb23b7-b3e1-4416-b782-b8e9067b189c)
+**When logged in and the movie is added to watchlist:**
+![image](https://github.com/user-attachments/assets/e62f5265-74e0-4491-b74c-4fb2a0898a44)
+![image](https://github.com/user-attachments/assets/7905d404-5fa3-4e18-a555-397815f40359)
+
+
+
+**Last two added reviews for the movie:**
+![image](https://github.com/user-attachments/assets/8494fe74-7f5d-4828-beb0-4d43df1b125f)
+
+
+
+**Edit review if logged in and the author is you (the last sentence is marked just for the screenshot - this is the edit done to the review \removed sentence\):**
+![image](https://github.com/user-attachments/assets/a6dedc5e-5e5e-49a9-932e-5f376e0a8a59)
+
+
 
 **Already updated review:**
-![image](https://github.com/user-attachments/assets/13b4317f-6ad3-4ab6-958e-6b580302d5b9)
+![image](https://github.com/user-attachments/assets/bcd3e133-1a54-4532-8bcf-53563968a4c1)
+
+
+
+### 📝 All Movie Reviews
+- A page which displays all the reviews for a particular movie:
+![image](https://github.com/user-attachments/assets/b9b71cbd-19d3-4c3a-819a-f463bcd5ae2d)
+![image](https://github.com/user-attachments/assets/793c0edc-1774-41f5-850f-29831f74192c)
+
+
+
+
+### Favourite Reviews
+- A page which displays all the reviews that your user has likes:
+![image](https://github.com/user-attachments/assets/abe6d149-65dc-4e71-ac9d-791a456396d5)
 
 
 
@@ -110,8 +159,9 @@
 - See images of the person - from movies and big events for popular people.
 
 **Celebrity Details Page:**
-![image](https://github.com/user-attachments/assets/a80658c4-fd75-4595-b53e-cc095405075e)
-![image](https://github.com/user-attachments/assets/865b30e4-7d82-4cd4-b148-bf65306f3dc2)
+![image](https://github.com/user-attachments/assets/420eb772-b597-41a7-8c7b-d59b45c3d5a7)
+![image](https://github.com/user-attachments/assets/64ade853-c558-4ee4-a357-4f7987d22ae6)
+
 
 
 
@@ -121,8 +171,12 @@
 - **Edit Profile**:
   - If viewing your own profile, you can edit your information - profile picture, first name, last name, phone number and bio.
 
-![image](https://github.com/user-attachments/assets/9e6e9ce8-aeb0-46a0-8d30-5998166b3b87)
-![image](https://github.com/user-attachments/assets/93e4630c-7cd3-4728-94ae-f9b95321cf97)
+**View other person's profile page:**
+![image](https://github.com/user-attachments/assets/bf87c417-ecbe-4292-9df2-ea3795be7dda)
+
+**View your own profile page:**
+![image](https://github.com/user-attachments/assets/df08c6f4-47c1-4a8a-a26f-a6b7205294ba)
+
 
 
 
@@ -138,10 +192,12 @@
 - **Office Location Map**: A card is displayed showing the exact location of the office.
 
 **Contact Us Page:**
-![image](https://github.com/user-attachments/assets/d758388e-b9b3-420f-8e3e-ee047a55ee52)
+![image](https://github.com/user-attachments/assets/8465455c-abb0-4267-8ec1-0ee2b14b6d20)
+
 
 **Location Map:**
-![image](https://github.com/user-attachments/assets/16bce418-1e63-4ba3-9969-26f1a3279fbf)
+![image](https://github.com/user-attachments/assets/92a8ab55-701a-4e04-a2aa-999b360940b3)
+
 
 
 
@@ -149,7 +205,8 @@
 - Displayed when the user tries to access a route that doesn't exist
 
 **404 Page:**
-![image](https://github.com/user-attachments/assets/4192f646-f55f-45d4-85b3-0e3b32ba2f6f)
+![image](https://github.com/user-attachments/assets/3f1413db-b3b6-4b10-b377-4354c52e2d4b)
+
 
 ## 🛠 Technologies
 - **JavaScript**: Core language for functionality.
