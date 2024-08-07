@@ -34,3 +34,50 @@
     color: #797979;
     font-weight: 500;
 }
+
+
+
+
+@media screen and (max-width: 600px) {
+    .person-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .person-info h3 {
+        color: #797979;
+        font-weight: 500;
+        font-size: 1.4em;
+    }
+    
+    .person-info > p {
+        font-size: 1.1em;
+        color: #ffffffbe;
+        font-weight: 400;
+        height: 200px;
+        overflow: scroll;
+        margin-bottom: 2em;
+        border-bottom: solid 1px white;
+    }
+    
+    .person-info .participated-in {
+        display: flex;
+        align-items: start;
+    }
+    
+    .person-info .participated-in h6 {
+        color: #797979;
+        margin: 0;
+        padding: 0;
+        font-size: 1.4em;
+        margin-right: 2%;
+    }
+    
+    .person-info .participated-in p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.1em;
+        color: #797979;
+        font-weight: 500;
+    }
+}
