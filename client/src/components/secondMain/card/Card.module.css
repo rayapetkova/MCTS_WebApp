@@ -78,3 +78,92 @@
     left: 0;
     top: 0;
 }
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 1%;
+        background-color: #151515;
+        position: relative
+    }
+    
+    .card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .card > p {
+        color: #c3c3c3;
+        font-size: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 98%;
+        padding: 0;
+        margin: 0;
+        margin-top: 0.5em;
+        text-align: center;
+    }
+    
+    .card .star-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5em;
+    }
+    
+    .card .star-div .img-container {
+        width: 17%;
+        margin-right: 5%;
+        display: flex;
+    }
+    
+    .card .star-div p {
+        padding: 0;
+        margin: 0;
+        align-self: center;
+        font-size: 1em;
+        color: #c3c3c3;
+    }
+    
+    .card a {
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        font-family: inherit;
+        text-decoration: none;
+        text-align: center;
+        color: #C3C3C3;
+        font-size: 1em;
+        padding: 0.3em 1em;
+        border-top: 3px solid #303030;
+        width: 90%;
+        font-weight: 300;
+        overflow-anchor: auto;
+        margin-bottom: 0.5em;
+    }
+    
+    .card img {
+        width: 100%;
+    }
+    
+    .card .remove-from-watchlist {
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.8em;
+        margin-top: 1em;
+        background-color: rgb(189, 0, 0);
+        color: rgb(255, 255, 255);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}

@@ -183,3 +183,140 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
 .list-browse-movies, .list-login {
     margin-bottom: 40%;
 }
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    div.second-main {
+        margin: 10% 9%;
+        position: relative;
+    }
+    
+    div.second-main .one-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    /* div.second-main .one-section div:nth-child(2) > a {
+        background-color: red;
+    } */
+    
+    div.second-main .main-page {
+        gap: 0;
+    }
+    
+    
+    div.second-main .one-section .title {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        margin-bottom: 1.5%;
+    }
+    
+    div.second-main .one-section .title .buttons {
+        text-align: end;
+    }
+    
+    div.second-main .one-section .title a, div.second-main .one-section .title h2 {
+        font-size: 1.2em !important;
+        color: #c3c3c3;
+        text-decoration: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    div.second-main .one-section .title h2 {
+        font-weight: 400;
+        font-size: 3em;
+    }
+    
+    
+    
+    
+    
+    div.second-main .one-section > div:nth-child(2) > a {
+        height: 10%;
+        top: -11%;
+        width: 5%;
+    }
+    
+    div.second-main .one-section > div:nth-child(2) > a:first-of-type {
+        left: 89%;
+    }
+    
+    .arrow {
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    .cards {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .cards-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .cards-carousel {
+        gap: 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    
+    
+
+    .active .carousel-item {
+        background-color: red;
+    }
+    
+    .no-movies-in-watchlist {
+        margin: 1em auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+    }
+    
+    .no-movies-in-watchlist p {
+        margin-bottom: 0.5em;
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+    
+    .no-movies-in-watchlist .browse-movies, .no-movies-in-watchlist .login {
+        text-decoration: none;
+        background-color: #f2c318;
+        border: none;
+        border-bottom: outset 3px #b79312;
+        border-right: outset 2px #b79312;
+        border-radius: 10px;
+        padding: 0.3em 1em;
+        font-size: 1.2em;
+        color: #121212;
+        width: 40% !important;
+        text-align: center;
+    }
+    
+    .no-movies-in-watchlist .login {
+        width: 40% !important;
+    }
+    
+    .no-movies-in-watchlist .browse-movies:hover, .no-movies-in-watchlist .login:hover {
+        background-color: #f2c318c4;
+    }
+    
+    .list-browse-movies, .list-login {
+        margin-bottom: 40%;
+    }
+}

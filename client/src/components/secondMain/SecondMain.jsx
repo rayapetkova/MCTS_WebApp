@@ -27,6 +27,9 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
     })
     const { authData } = useContext(AuthContext)
 
+    if (window.matchMedia('(max-width: 600px)')) {
+        numOfCards = 3
+    }
     const arrayForRows = Array(calculateRows(sectionsObj[sectionName].length, 6, numOfRows))
     let currentIndex = 0
     for (let i = 0; i < arrayForRows.length; i++) {
@@ -87,7 +90,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
             <div className={styles['second-main']} id={sectionName}>
                 <section className={`${styles['one-section']} ${numOfCards === 6 ? styles['main-page'] : ''}`}>
                     <div className={styles['title']}>
-                        {numOfCards === 6 ? <Link to={`movies/${sectionName}`}>{sectionName} &#10509;</Link> : (
+                        {numOfCards === 6 || numOfCards === 3 ? <Link to={`movies/${sectionName}`}>{sectionName} &#10509;</Link> : (
                             sectionName === 'Watchlist' ? (
                                 <h2>Your {sectionName}</h2>
                             ) : (
