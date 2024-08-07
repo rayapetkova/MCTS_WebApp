@@ -77,9 +77,8 @@ const Header = () => {
 
 
             <ul className={styles['last-links']}>
-                {!window.matchMedia('(max-width: 600px)').matches && (
-                    <li><Link to={'/ContactUs'}>Contact Us</Link></li>
-                )}
+                <li><Link to={'/ContactUs'}>Contact Us</Link></li>
+
                 
                 <li>{(authData && Object.keys(authData).length > 0) 
                     ? (<ProfileDropdown logoutSubmitHandler={logoutSubmitHandler} />)

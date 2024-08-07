@@ -27,9 +27,6 @@ const ProfileDropdown = ({ logoutSubmitHandler }) => {
             <MDBDropdownMenu className={styles['dropdown-items']} dark>
                 <Link to={'/users/me'}><MDBDropdownItem className={styles['dropdown-item']}>Profile Details</MDBDropdownItem></Link>
                 <Link to={'/movies/Watchlist'}><MDBDropdownItem className={styles['dropdown-item']}>Watchlist</MDBDropdownItem></Link>
-                {window.matchMedia('(max-width: 600px)').matches && (
-                    <Link to={'/contactUs'}><MDBDropdownItem className={styles['dropdown-item']}>Contact Us</MDBDropdownItem></Link>
-                )}
                 <Link onClick={() => logoutSubmitHandler()}><MDBDropdownItem className={styles['dropdown-item']}>Log Out</MDBDropdownItem></Link>
             </MDBDropdownMenu>
         </MDBDropdown>

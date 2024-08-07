@@ -13,7 +13,7 @@ import emptyHeart from '../../../assets/empty_heart.png'
 import redHeart from '../../../assets/red_heart.png'
 import { addLikeReview, deleteLikeReview, getLikesOfReviewFromOneUser } from '../../../services/likesReviewsService';
 
-const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
+const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoReviews }) => {
     const [showEditForm, setshowEditForm] = useState(false)
     const [reviewUser, setReviewUser] = useState({})
     const [reviewLikesFromUser, setReviewLikesFromUser] = useState([])
@@ -71,11 +71,11 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
                 {(authData._id === review._ownerId) ? (
                     <section className={styles['buttons']}>
                         {reviewLikesFromUser.length > 0 ? (
-                            <button className={styles['heart-container-red']} onClick={(e) => deleteLikeClickHandler()}>
+                            <button className={`${styles['heart-container-red']} ${fromMovieInfoReviews ? styles['info-container-red'] : ''}`} onClick={(e) => deleteLikeClickHandler()}>
                                 <img src={redHeart} alt="heart-like" />
                             </button>
                         ) : (
-                            <button className={styles['heart-container-empty']} onClick={addLikeClickHandler}>
+                            <button className={`${styles['heart-container-empty']} ${fromMovieInfoReviews ? styles['info-container-empty'] : ''}`} onClick={addLikeClickHandler}>
                                 <img src={emptyHeart} alt="heart-like" />
                             </button>
                         )}
@@ -88,11 +88,11 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter }) => {
                     <>
                         {Object.keys(authData).length > 0 && (
                             reviewLikesFromUser.length > 0 ? (
-                                <button className={styles['heart-container-red-2']} onClick={(e) => deleteLikeClickHandler()}>
+                                <button className={`${styles['heart-container-red-2']} ${fromMovieInfoReviews ? styles['info-container-red-2'] : ''}`} onClick={(e) => deleteLikeClickHandler()}>
                                     <img src={redHeart} alt="heart-like" />
                                 </button>
                             ) : (
-                                <button className={styles['heart-container-empty-2']} onClick={addLikeClickHandler}>
+                                <button className={`${styles['heart-container-empty-2']} ${fromMovieInfoReviews ? styles['info-container-empty-2'] : ''}`} onClick={addLikeClickHandler}>
                                     <img src={emptyHeart} alt="heart-like" />
                                 </button>
                             )

@@ -31,21 +31,21 @@
 }
 
 .box .top .buttons {
-    width: 35%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
 }
 
 .box .top .buttons .heart-container-red, .box .top .heart-container-red-2 {
     background-color: transparent;
-    width: 15% !important;
+    width: 6%;
     display: flex;
     align-items: center;
     border: none;
 }
 
 .box .top .heart-container-red-2 {
-    width: 8% !important;
+    width: 3%;
 }
 
 .box .top .buttons .heart-container-red img, .box .top .heart-container-red-2 img {
@@ -55,13 +55,21 @@
 .box .top .heart-container-empty, .box .top .heart-container-empty-2 {
     background-color: transparent;
     border: none;
-    width: 15% !important;
+    width: 6% !important;
     display: flex;
     align-items: center;
 }
 
 .box .top .heart-container-empty-2 {
-    width: 8% !important;
+    width: 3% !important;
+}
+
+.box .top .info-container-empty, .box .top .info-container-red {
+    width: 15% !important
+}
+
+.box .top .info-container-empty-2, .box .top .info-container-red-2 {
+    width: 7% !important;
 }
 
 .box .top .heart-container-empty img, .box .top .heart-container-empty-2 img {
@@ -188,8 +196,8 @@
     .box .top .heart-container-empty, .box .top .heart-container-empty-2 {
         background-color: transparent;
         border: none;
-        width: 1.4em !important;
-        height: 1.4em !important;
+        width: 1.4em;
+        height: 1.4em;
         display: flex;
         align-items: center;
     }

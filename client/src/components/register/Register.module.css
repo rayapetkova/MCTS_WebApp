@@ -112,7 +112,8 @@ form {
     }
     
     .card {
-        width: 85% !important;
+        margin: 3em 0 !important;
+        width: 98% !important;
         border-radius: 2px !important;
         background-color: #181818;
         box-shadow: 10px 10px 20px #3e3e42;
@@ -128,7 +129,7 @@ form {
     }
     
     form {
-        width: 70%;
+        width: 100%;
     }
     
     .input-container {
@@ -175,7 +176,7 @@ form {
     
     .additional-link {
         display: flex;
-        width: 83%;
+        width: 63%;
         justify-content: space-between;
     }
     

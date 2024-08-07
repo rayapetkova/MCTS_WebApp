@@ -102,11 +102,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 600px;
     }
     
     .card {
-        width: 85% !important;
+        margin: 2em 0 !important;
+        width: 100% !important;
         border-radius: 2px !important;
         background-color: #181818;
         box-shadow: 10px 10px 20px #3e3e42;
@@ -115,6 +115,11 @@
     .card-body {
         display: flex;
         align-items: center;
+        width: 100%
+    }
+
+    form {
+        width: 100%;
     }
     
     .title {
@@ -168,7 +173,7 @@
     
     .additional-link {
         display: flex;
-        width: 80%;
+        width: 55%;
         justify-content: space-between;
     }
     
