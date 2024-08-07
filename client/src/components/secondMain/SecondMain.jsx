@@ -127,7 +127,7 @@ const SecondMain = ({ sectionName, listFeature, numOfCards, numOfRows }) => {
                     ) : (
                         <>
                             {(sectionName === 'Watchlist' && sectionsObj[sectionName].length === 0) ? (
-                                <div className={styles['no-movies-in-watchlist']}>
+                                <div className={`${styles['no-movies-in-watchlist']} ${listFeature ? styles['list-feature-no-movies-in-watchlist'] : ''}`}>
                                     {Object.keys(authData).length > 0 ? (
                                         <>
                                             <p>No movies in Watchlist yet</p>

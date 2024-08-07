@@ -150,6 +150,9 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     flex-direction: column;
     align-items: center;
     width: 30%;
+}
+
+.list-feature-no-movies-in-watchlist {
     margin-top: -10em !important;
 }
 
