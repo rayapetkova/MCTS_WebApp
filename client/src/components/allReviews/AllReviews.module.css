@@ -130,3 +130,185 @@
 .no-reviews-yet .browse-movies:hover {
     background-color: #f2c318c4;
 }
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .one-section .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1% 5%;
+        gap: 2.3em;
+        margin-bottom: 5%;
+    }
+    
+    .one-section .title-container {
+        display: flex;
+        margin: 7% 14%;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5em;
+    }
+    
+    .one-section .title-container .title-reviews {
+        margin-bottom: 0;
+        color: #afafaf;
+    }
+    
+    .one-section .title-container button {
+        text-decoration: none;
+        background-color: #222222;
+        color: #797979;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3em;
+        padding: 0.3em 1.1em;
+    }
+    
+    .one-section .title-container button:hover {
+        background-color: #313131;
+    }
+    
+    .one-section .cards .card {
+        width: 14%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 1%;
+        background-color: #151515;
+    }
+    
+    .one-section .cards .card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .one-section .cards .card > p {
+        color: #c3c3c3;
+        font-size: 1.5em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: 0.5em;
+        text-align: center;
+    }
+    
+    .one-section .cards .card .star-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1em;
+    }
+    
+    .one-section .cards .card .star-div .img-container {
+        width: 17%;
+        margin-right: 5%;
+        display: flex;
+    }
+    
+    .one-section .cards .card .star-div p {
+        padding: 0;
+        margin: 0;
+        align-self: center;
+        font-size: 1em;
+        color: #c3c3c3;
+    }
+    
+    .one-section .cards .card a {
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        font-family: inherit;
+        text-decoration: none;
+        color: #C3C3C3;
+        font-size: 1em;
+        padding: 0.3em 1em;
+        border-top: 3px solid #303030;
+        width: 90%;
+        font-weight: 300;
+        overflow-anchor: auto;
+    }
+    
+    .one-section .cards .card img {
+        width: 100%;
+    }
+    
+    .no-reviews-yet {
+        margin: 1em auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .no-reviews-yet p {
+        margin-bottom: 5em;
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+    
+    .no-reviews-yet .browse-movies {
+        text-decoration: none;
+        background-color: #f2c318;
+        border: none;
+        border-bottom: outset 3px #b79312;
+        border-right: outset 2px #b79312;
+        border-radius: 10px;
+        padding: 0.3em 1em;
+        font-size: 1.2em;
+        color: #121212;
+    }
+    
+    .no-reviews-yet .browse-movies:hover {
+        background-color: #f2c318c4;
+    }
+
+
+
+    .buttons {
+        width: 65%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .heart-container-red, .heart-container-red-2 {
+        background-color: transparent;
+        width: 15% !important;
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+    
+    .heart-container-red-2 {
+        width: 8% !important;
+    }
+    
+    .buttons .heart-container-red img, .heart-container-red-2 img {
+        width: 100%;
+    }
+    
+    .heart-container-empty, .heart-container-empty-2 {
+        background-color: transparent;
+        border: none;
+        width: 15% !important;
+        display: flex;
+        align-items: center;
+    }
+    
+    .heart-container-empty-2 {
+        width: 17% !important;
+        height: 2em;
+    }
+    
+    .heart-container-empty img, .heart-container-empty-2 img {
+        width: 100%;
+    }
+}

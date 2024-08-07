@@ -164,14 +164,21 @@
     
     .box .top .buttons .heart-container-red, .box .top .heart-container-red-2 {
         background-color: transparent;
-        width: 15% !important;
+        width: 1.4em;
+        height: 1.4em;
         display: flex;
         align-items: center;
         border: none;
     }
+
+    .box .top .buttons .heart-container-red {
+        width: 1.4em !important;
+        height: 1.4em !important;
+    }
     
     .box .top .heart-container-red-2 {
-        width: 8% !important;
+        width: 2.3em !important;
+        height: 2.3em !important;
     }
     
     .box .top .buttons .heart-container-red img, .box .top .heart-container-red-2 img {
@@ -181,14 +188,15 @@
     .box .top .heart-container-empty, .box .top .heart-container-empty-2 {
         background-color: transparent;
         border: none;
-        width: 15% !important;
+        width: 1.4em !important;
+        height: 1.4em !important;
         display: flex;
         align-items: center;
     }
     
     .box .top .heart-container-empty-2 {
-        width: 17% !important;
-        height: 2em;
+        width: 2.3em !important;
+        height: 2.3em !important;
     }
     
     .box .top .heart-container-empty img, .box .top .heart-container-empty-2 img {
