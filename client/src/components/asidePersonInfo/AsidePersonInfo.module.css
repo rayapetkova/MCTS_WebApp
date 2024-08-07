@@ -19,3 +19,7 @@ aside ul li a {
     text-decoration: none;
     color: #c3c3c3;
 }
+
+aside ul li a:hover {
+    color: #e6b91e;
+}
