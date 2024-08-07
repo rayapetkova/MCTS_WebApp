@@ -190,7 +190,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
 
 @media screen and (max-width: 600px) {
     div.second-main {
-        margin: 10% 9%;
+        margin: 10% 4%;
         position: relative;
     }
     
@@ -221,7 +221,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     }
     
     div.second-main .one-section .title a, div.second-main .one-section .title h2 {
-        font-size: 1.2em !important;
+        font-size: 1.6em !important;
         color: #c3c3c3;
         text-decoration: none;
         padding: 0;
@@ -231,6 +231,7 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     div.second-main .one-section .title h2 {
         font-weight: 400;
         font-size: 3em;
+        font-size: 2em !important;
     }
     
     
@@ -239,12 +240,12 @@ div.second-main .one-section > div:nth-child(2) > a:first-of-type {
     
     div.second-main .one-section > div:nth-child(2) > a {
         height: 10%;
-        top: -11%;
-        width: 5%;
+        top: -13%;
+        width: 10%;
     }
     
     div.second-main .one-section > div:nth-child(2) > a:first-of-type {
-        left: 89%;
+        left: 78%;
     }
     
     .arrow {

@@ -20,15 +20,19 @@ const Footer = () => {
                     <li><Link to={'/contactUs'}>Contact Us &#8599;</Link></li>
                 </ul>
             </section>
-            <section>
-                <ul>
-                    <li><Link to="/movies/Featured%20Today">Featured Today &#8599;</Link></li>
-                    <li><Link to="/movies/Watchlist">Watchlist &#8599;</Link></li>
-                    <li><Link to="/movies/Top Rated">Top rated &#8599;</Link></li>
-                    <li><Link to="/movies/Coming Soon">Coming soon &#8599;</Link></li>
-                    <li><Link to="/people">Celebrities &#8599;</Link></li>
-                </ul>
-            </section>
+
+            {!window.matchMedia('(max-width: 600px)') && (
+                <section>
+                    <ul>
+                        <li><Link to="/movies/Featured%20Today">Featured Today &#8599;</Link></li>
+                        <li><Link to="/movies/Watchlist">Watchlist &#8599;</Link></li>
+                        <li><Link to="/movies/Top Rated">Top rated &#8599;</Link></li>
+                        <li><Link to="/movies/Coming Soon">Coming soon &#8599;</Link></li>
+                        <li><Link to="/people">Celebrities &#8599;</Link></li>
+                    </ul>
+                </section>
+            )}
+
             <section>
                 <ul>
                     <li><Link to={'/ContactUs'}>Contact Us &#8599;</Link></li>

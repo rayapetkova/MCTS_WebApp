@@ -26,7 +26,7 @@ const PopularCelebs = ({ numOfCards, numOfRows, listFeature }) => {
     }, [])
 
     if(window.matchMedia('(max-width: 600px)')) {
-        numOfCards = 4
+        numOfCards = 3
     }
 
     const arrayForRows = Array(numOfRows)

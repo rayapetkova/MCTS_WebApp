@@ -39,7 +39,7 @@ const SecondMainCelebs = ({ movieId }) => {
 
     let numOfImages = 6;
     if (window.matchMedia('(max-width: 600px)')) {
-        numOfImages = 4
+        numOfImages = 3
     }
 
     const arrayForRows = Array(calculateRows(movieCast.length, 6))

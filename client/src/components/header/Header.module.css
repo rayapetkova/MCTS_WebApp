@@ -199,7 +199,7 @@ header ul.last-links li a:hover {
     header ul.last-links li a {
         text-decoration: none;
         color: #C3C3C3;
-        font-size: 1.1em;
+        font-size: 0.9em;
     }
     
     header ul.last-links li a:hover {
@@ -209,7 +209,7 @@ header ul.last-links li a:hover {
     .search-bar-section .discovered-movies {
         position: absolute;
         background-color: #080808;
-        margin-top: 17%;
+        margin-top: 24%;
         margin-left: 10em;
         width: 35em;
         z-index: 100;
