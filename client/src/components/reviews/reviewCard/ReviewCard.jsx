@@ -11,7 +11,7 @@ import { retrieveUser } from '../../../services/usersService';
 
 import emptyHeart from '../../../assets/empty_heart.png'
 import redHeart from '../../../assets/red_heart.png'
-import { addLikeReview, deleteLikeReview, getAllLikedReviewsForUser, getLikesOfReviewFromOneUser, getLikesReviews } from '../../../services/likesReviewsService';
+import { addLikeReview, deleteLikeReview, getAllLikedReviewsForUser, getLikesOfReviewFromOneUser } from '../../../services/likesReviewsService';
 import { dataFunctions } from '../../../api_data/dataFunctions';
 
 const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoReviews, userFavouriteReviewsSetter, forLikedReviews }) => {
@@ -48,13 +48,13 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
     const showEditReviewFormEvent = (e) => setshowEditForm(true)
 
     async function deleteReviewEvent(e) {
-        let result = await deleteReview(review._id)
-        const allLikes = await getLikesReviews()
+        const allLikes = await getLikesOfReviewFromOneUser(authData._id, review._id)
 
         for (let like of allLikes) {
-            deleteLikeReview(like._id)
+            const deletedLike = await deleteLikeReview(like._id)
         }
 
+        let result = await deleteReview(review._id)
         if (forLikedReviews) {
             const fetchedUserFavouriteReviews = await getAllLikedReviewsForUser(authData._id)
 
@@ -86,7 +86,7 @@ const ReviewCard = ({ review, forReviewsSection, reviewsSetter, fromMovieInfoRev
         const result = await addLikeReview({
             reviewId: review._id
         })
-        console.log(result)
+
         const fetchedAllUserLikes = await getLikesOfReviewFromOneUser(authData._id, review._id)
 
         setReviewLikesFromUser(fetchedAllUserLikes)

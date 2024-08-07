@@ -15,8 +15,12 @@ export async function addLikeReview(data) {
     return result
 }
 
-export async function getLikesReviews() {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/data/likesReviews`)
+export async function getLikesForOneUser(userId) {
+    const queries = new URLSearchParams({
+        where: `_ownerId="${userId}"`
+    })
+
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/data/likesReviews?${queries}`)
     const result = await response.json()
 
     return result
