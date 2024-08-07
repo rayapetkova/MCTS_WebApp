@@ -1,8 +1,8 @@
 # 🎬 MCTS (Movies, Celebrities and TV Shows)
 ### A React-based application that allows users to explore various movies, celebrities and TV shows. Users can register, log in, browse featured content, create watchlists, add reviews and more.
 ### Deployed working version - https://mcts-firebase-project.web.app/
-## Recommended resolution on computer: 1920x1080
-## Recommended resolution on phone: <600px
+### Recommended resolution on computer: 1920x1080
+### Recommended resolution on phone: <600px
 
 ## ✨ Features
 ### 🔐 Authentication
