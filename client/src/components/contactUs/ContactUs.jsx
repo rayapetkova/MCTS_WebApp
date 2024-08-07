@@ -49,6 +49,11 @@ const ContactUs = () => {
         setEmailSent(true)
     }
 
+    function submitFormik(values, assets) {
+        assets.resetForm()
+        sendEmailSubmitHandler(values)
+    }
+
     const { authData, createdUser } = useContext(AuthContext)
     const { values, handleChange, handleSubmit, handleBlur, errors, touched } = useFormik({
         initialValues: {
@@ -59,7 +64,7 @@ const ContactUs = () => {
             [formNames.phoneNumber]: createdUser.phoneNumber ? createdUser.phoneNumber : ''
         },
         validationSchema: contactUsSchema,
-        onSubmit: () => sendEmailSubmitHandler(values)
+        onSubmit: submitFormik
     })
 
     return (
