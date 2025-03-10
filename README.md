@@ -258,6 +258,8 @@
 ---
 Thank you for using MCTS! If you have any questions or feedback, feel free to reach out!
 
+You can contact us on email: rayapetkova12321@gmail.com
+
 
 
 
